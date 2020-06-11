@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;WPF</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="PdfSharp.SharpZipLib\ReadMe.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="PdfSharp.SharpZipLib\ReadMe.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="PdfSharp.Drawing.Wpf\" />
+    <Folder Include="PdfSharp.Forms\" />
+    <Folder Include="PdfSharpPdf.AcroForms\enums\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.IO.Packaging" Version="4.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="ReachFramework" />
+  </ItemGroup>
+
+</Project>
