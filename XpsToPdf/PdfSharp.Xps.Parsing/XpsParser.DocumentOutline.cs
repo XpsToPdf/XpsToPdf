@@ -16,19 +16,19 @@ namespace PdfSharp.Xps.Parsing
     /// </summary>
     DocumentOutline ParseDocumentOutline()
     {
-      Debug.Assert(this.reader.Name == "DocumentOutline");
-      bool isEmptyElement = this.reader.IsEmptyElement;
+      Debug.Assert(reader.Name == "DocumentOutline");
+      bool isEmptyElement = reader.IsEmptyElement;
       DocumentOutline documentOutline = new DocumentOutline();
       while (MoveToNextAttribute())
       {
-        switch (this.reader.Name)
+        switch (reader.Name)
         {
           case "xml:lang":
-            documentOutline.lang = this.reader.Value;
+            documentOutline.lang = reader.Value;
             break;
 
           default:
-            UnexpectedAttribute(this.reader.Name);
+            UnexpectedAttribute(reader.Name);
             break;
         }
       }

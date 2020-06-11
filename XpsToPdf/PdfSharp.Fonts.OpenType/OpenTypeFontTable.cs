@@ -48,10 +48,10 @@ namespace PdfSharp.Fonts.OpenType
     {
       this.fontData = fontData;
       if (fontData != null && fontData.tableDictionary.ContainsKey(tag))
-        this.DirectoryEntry = fontData.tableDictionary[tag];
+        DirectoryEntry = fontData.tableDictionary[tag];
       else
-        this.DirectoryEntry = new TableDirectoryEntry(tag);
-      this.DirectoryEntry.FontTable = this;
+        DirectoryEntry = new TableDirectoryEntry(tag);
+      DirectoryEntry.FontTable = this;
     }
 
     /// <summary>
@@ -75,7 +75,7 @@ namespace PdfSharp.Fonts.OpenType
     /// </summary>
     public FontData FontData
     {
-      get { return this.fontData; }
+      get { return fontData; }
     }
     internal FontData fontData;
 

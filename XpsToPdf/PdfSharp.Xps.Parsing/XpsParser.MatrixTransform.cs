@@ -20,18 +20,18 @@ namespace PdfSharp.Xps.Parsing
       MatrixTransform transform = new MatrixTransform();
       while (MoveToNextAttribute())
       {
-        switch (this.reader.Name)
+        switch (reader.Name)
         {
           case "Matrix":
-            transform.Matrix = Matrix.Parse(this.reader.Value);
+            transform.Matrix = Matrix.Parse(reader.Value);
             break;
 
           case "x:Key":
-            transform.Key = this.reader.Value;
+            transform.Key = reader.Value;
             break;
 
           default:
-            UnexpectedAttribute(this.reader.Name);
+            UnexpectedAttribute(reader.Name);
             break;
         }
       }

@@ -29,7 +29,7 @@ namespace PdfSharp.Xps.Rendering
     /// </summary>
     protected DocumentRenderingContext Context
     {
-      get { return this.context; }
+      get { return context; }
     }
     DocumentRenderingContext context;
   }

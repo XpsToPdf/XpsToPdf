@@ -52,9 +52,9 @@ namespace PdfSharp.Pdf.Internal
 
     public void AttatchDocument(PdfDocument.DocumentHandle handle)
     {
-      lock (this.documentHandles)
+      lock (documentHandles)
       {
-        this.documentHandles.Add(handle);
+        documentHandles.Add(handle);
       }
 
       //WeakReference weakRef = new WeakReference(document);
@@ -66,27 +66,27 @@ namespace PdfSharp.Pdf.Internal
 
     public void DetatchDocument(PdfDocument.DocumentHandle handle)
     {
-      lock (this.documentHandles)
+      lock (documentHandles)
       {
         // Notify other documents about detach
-        int count = this.documentHandles.Count;
+        int count = documentHandles.Count;
         for (int idx = 0; idx < count; idx++)
         {
-          if (((PdfDocument.DocumentHandle)this.documentHandles[idx]).IsAlive)
+          if (((PdfDocument.DocumentHandle)documentHandles[idx]).IsAlive)
           {
-            PdfDocument target = ((PdfDocument.DocumentHandle)this.documentHandles[idx]).Target;
+            PdfDocument target = ((PdfDocument.DocumentHandle)documentHandles[idx]).Target;
             if (target != null)
               target.OnExternalDocumentFinalized(handle);
           }
         }
 
         // Clean up table
-        for (int idx = 0; idx < this.documentHandles.Count; idx++)
+        for (int idx = 0; idx < documentHandles.Count; idx++)
         {
-          PdfDocument target = ((PdfDocument.DocumentHandle)this.documentHandles[idx]).Target;
+          PdfDocument target = ((PdfDocument.DocumentHandle)documentHandles[idx]).Target;
           if (target == null)
           {
-            this.documentHandles.RemoveAt(idx);
+            documentHandles.RemoveAt(idx);
             idx--;
           }
         }

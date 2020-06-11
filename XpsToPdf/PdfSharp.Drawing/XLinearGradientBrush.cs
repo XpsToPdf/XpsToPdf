@@ -64,7 +64,7 @@ namespace PdfSharp.Drawing
     /// <summary>
     /// Initializes a new instance of the <see cref="XLinearGradientBrush"/> class.
     /// </summary>
-    public XLinearGradientBrush(System.Windows.Point point1, System.Windows.Point point2, XColor color1, XColor color2)
+    public XLinearGradientBrush(Point point1, Point point2, XColor color1, XColor color2)
       : this(new XPoint(point1), new XPoint(point2), color1, color2)
     {
     }
@@ -130,7 +130,7 @@ namespace PdfSharp.Drawing
       if (rect.Width == 0 || rect.Height == 0)
         throw new ArgumentException("Invalid rectangle.", "rect");
 
-      this.useRect = true;
+      useRect = true;
       this.color1 = color1;
       this.color2 = color2;
       this.rect = rect;
@@ -163,8 +163,8 @@ namespace PdfSharp.Drawing
     /// </summary>
     public XMatrix Transform
     {
-      get { return this.matrix; }
-      set { this.matrix = value; }
+      get { return matrix; }
+      set { matrix = value; }
     }
 
     /// <summary>
@@ -172,7 +172,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     public void TranslateTransform(double dx, double dy)
     {
-      this.matrix.TranslatePrepend(dx, dy);
+      matrix.TranslatePrepend(dx, dy);
     }
 
     /// <summary>
@@ -180,7 +180,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     public void TranslateTransform(double dx, double dy, XMatrixOrder order)
     {
-      this.matrix.Translate(dx, dy, order);
+      matrix.Translate(dx, dy, order);
     }
 
     /// <summary>
@@ -188,7 +188,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     public void ScaleTransform(double sx, double sy)
     {
-      this.matrix.ScalePrepend(sx, sy);
+      matrix.ScalePrepend(sx, sy);
     }
 
     /// <summary>
@@ -196,7 +196,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     public void ScaleTransform(double sx, double sy, XMatrixOrder order)
     {
-      this.matrix.Scale(sx, sy, order);
+      matrix.Scale(sx, sy, order);
     }
 
     /// <summary>
@@ -204,7 +204,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     public void RotateTransform(double angle)
     {
-      this.matrix.RotatePrepend(angle);
+      matrix.RotatePrepend(angle);
     }
 
     /// <summary>
@@ -212,7 +212,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     public void RotateTransform(double angle, XMatrixOrder order)
     {
-      this.matrix.Rotate(angle, order);
+      matrix.Rotate(angle, order);
     }
 
     /// <summary>
@@ -236,7 +236,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     public void ResetTransform()
     {
-      this.matrix = new XMatrix();  //XMatrix.Identity;
+      matrix = new XMatrix();  //XMatrix.Identity;
     }
 
     //public void SetBlendTriangularShape(double focus);
@@ -279,7 +279,7 @@ namespace PdfSharp.Drawing
 #endif
 
 #if WPF
-    internal override System.Windows.Media.Brush RealizeWpfBrush()
+    internal override Brush RealizeWpfBrush()
     {
       //if (this.dirty)
       //{
@@ -292,11 +292,11 @@ namespace PdfSharp.Drawing
       //  this.dirty = false;
       //}
 
-      System.Windows.Media.LinearGradientBrush brush;
-      if (this.useRect)
+      LinearGradientBrush brush;
+      if (useRect)
       {
 #if !SILVERLIGHT
-        brush = new System.Windows.Media.LinearGradientBrush(this.color1.ToWpfColor(), this.color2.ToWpfColor(), new System.Windows.Point(0, 0), new System.Windows.Point(1,1));// this.rect.TopLeft, this.rect.BottomRight);
+        brush = new LinearGradientBrush(color1.ToWpfColor(), color2.ToWpfColor(), new Point(0, 0), new Point(1,1));// this.rect.TopLeft, this.rect.BottomRight);
         //brush = new System.Drawing.Drawing2D.LinearGradientBrush(this.rect.ToRectangleF(),
         //  this.color1.ToGdiColor(), this.color2.ToGdiColor(), (LinearGradientMode)this.linearGradientMode);
 #else
@@ -320,7 +320,7 @@ namespace PdfSharp.Drawing
       else
       {
 #if !SILVERLIGHT
-        brush = new System.Windows.Media.LinearGradientBrush(this.color1.ToWpfColor(), this.color2.ToWpfColor(), this.point1, this.point2);
+        brush = new LinearGradientBrush(color1.ToWpfColor(), color2.ToWpfColor(), point1, point2);
         //brush = new System.Drawing.Drawing2D.LinearGradientBrush(
         //  this.point1.ToPointF(), this.point2.ToPointF(),
         //  this.color1.ToGdiColor(), this.color2.ToGdiColor());
@@ -342,10 +342,10 @@ namespace PdfSharp.Drawing
         brush.EndPoint = this.point2;
 #endif
       }
-      if (!this.matrix.IsIdentity)
+      if (!matrix.IsIdentity)
       {
 #if !SILVERLIGHT
-        brush.Transform = new MatrixTransform(this.matrix.ToWpfMatrix());
+        brush.Transform = new MatrixTransform(matrix.ToWpfMatrix());
 #else
         MatrixTransform transform = new MatrixTransform();
         transform.Matrix = this.matrix.ToWpfMatrix();

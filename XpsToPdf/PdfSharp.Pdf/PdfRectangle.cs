@@ -97,10 +97,10 @@ namespace PdfSharp.Pdf
     /// </summary>
     public PdfRectangle(XPoint pt1, XPoint pt2)
     {
-      this.x1 = pt1.X;
-      this.y1 = pt1.Y;
-      this.x2 = pt2.X;
-      this.y2 = pt2.Y;
+      x1 = pt1.X;
+      y1 = pt1.Y;
+      x2 = pt2.X;
+      y2 = pt2.Y;
     }
 
 #if GDI
@@ -121,10 +121,10 @@ namespace PdfSharp.Pdf
     /// </summary>
     public PdfRectangle(XPoint pt, XSize size)
     {
-      this.x1 = pt.X;
-      this.y1 = pt.Y;
-      this.x2 = pt.X + size.Width;
-      this.y2 = pt.Y + size.Height;
+      x1 = pt.X;
+      y1 = pt.Y;
+      x2 = pt.X + size.Width;
+      y2 = pt.Y + size.Height;
     }
 
     /// <summary>
@@ -132,10 +132,10 @@ namespace PdfSharp.Pdf
     /// </summary>
     public PdfRectangle(XRect rect)
     {
-      this.x1 = rect.x;
-      this.y1 = rect.y;
-      this.x2 = rect.x + rect.width;
-      this.y2 = rect.y + rect.height;
+      x1 = rect.x;
+      y1 = rect.y;
+      x2 = rect.x + rect.width;
+      y2 = rect.y + rect.height;
     }
 
     /// <summary>
@@ -153,10 +153,10 @@ namespace PdfSharp.Pdf
       if (array == null)
         throw new InvalidOperationException(PSSR.UnexpectedTokenInPdfFile);
 
-      this.x1 = array.Elements.GetReal(0);
-      this.y1 = array.Elements.GetReal(1);
-      this.x2 = array.Elements.GetReal(2);
-      this.y2 = array.Elements.GetReal(3);
+      x1 = array.Elements.GetReal(0);
+      y1 = array.Elements.GetReal(1);
+      x2 = array.Elements.GetReal(2);
+      y2 = array.Elements.GetReal(3);
     }
 
     /// <summary>
@@ -181,7 +181,7 @@ namespace PdfSharp.Pdf
     /// </summary>
     public bool IsEmpty
     {
-      get { return this.x1 == 0 && this.y1 == 0 && this.x2 == 0 && this.y2 == 0; }
+      get { return x1 == 0 && y1 == 0 && x2 == 0 && y2 == 0; }
     }
 
     /// <summary>
@@ -192,7 +192,7 @@ namespace PdfSharp.Pdf
       if (obj is PdfRectangle)
       {
         PdfRectangle rect = (PdfRectangle)obj;
-        return rect.x1 == this.x1 && rect.y1 == this.y1 && rect.x2 == this.x2 && rect.y2 == this.y2;
+        return rect.x1 == x1 && rect.y1 == y1 && rect.x2 == x2 && rect.y2 == y2;
       }
       return false;
     }
@@ -203,10 +203,10 @@ namespace PdfSharp.Pdf
     public override int GetHashCode()
     {
       // This code is from System.Drawing...
-      return (int)(((((uint)this.x1) ^ ((((uint)this.y1) << 13) |
-        (((uint)this.y1) >> 0x13))) ^ ((((uint)this.x2) << 0x1a) |
-        (((uint)this.x2) >> 6))) ^ ((((uint)this.y2) << 7) |
-        (((uint)this.y2) >> 0x19)));
+      return (int)(((((uint)x1) ^ ((((uint)y1) << 13) |
+        (((uint)y1) >> 0x13))) ^ ((((uint)x2) << 0x1a) |
+        (((uint)x2) >> 6))) ^ ((((uint)y2) << 7) |
+        (((uint)y2) >> 0x19)));
     }
 
     /// <summary>
@@ -238,7 +238,7 @@ namespace PdfSharp.Pdf
     /// </summary>
     public double X1
     {
-      get { return this.x1; }
+      get { return x1; }
     }
     double x1;
 
@@ -247,7 +247,7 @@ namespace PdfSharp.Pdf
     /// </summary>
     public double Y1
     {
-      get { return this.y1; }
+      get { return y1; }
     }
     double y1;
 
@@ -256,7 +256,7 @@ namespace PdfSharp.Pdf
     /// </summary>
     public double X2
     {
-      get { return this.x2; }
+      get { return x2; }
     }
     double x2;
 
@@ -265,7 +265,7 @@ namespace PdfSharp.Pdf
     /// </summary>
     public double Y2
     {
-      get { return this.y2; }
+      get { return y2; }
     }
     double y2;
 
@@ -274,7 +274,7 @@ namespace PdfSharp.Pdf
     /// </summary>
     public double Width
     {
-      get { return this.x2 - this.x1; }
+      get { return x2 - x1; }
     }
 
     /// <summary>
@@ -282,7 +282,7 @@ namespace PdfSharp.Pdf
     /// </summary>
     public double Height
     {
-      get { return this.y2 - this.y1; }
+      get { return y2 - y1; }
     }
 
     /// <summary>
@@ -290,7 +290,7 @@ namespace PdfSharp.Pdf
     /// </summary>
     public XPoint Location
     {
-      get { return new XPoint(this.x1, this.y1); }
+      get { return new XPoint(x1, y1); }
     }
 
     /// <summary>
@@ -298,7 +298,7 @@ namespace PdfSharp.Pdf
     /// </summary>
     public XSize Size
     {
-      get { return new XSize(this.x2 - this.x1, this.y2 - this.y1); }
+      get { return new XSize(x2 - x1, y2 - y1); }
     }
 
 #if GDI
@@ -325,7 +325,7 @@ namespace PdfSharp.Pdf
     public bool Contains(double x, double y)
     {
       // Treat rectangle inclusive/inclusive.
-      return this.x1 <= x && x <= this.x2 && this.y1 <= y && y <= this.y2;
+      return x1 <= x && x <= x2 && y1 <= y && y <= y2;
     }
 
 #if GDI
@@ -344,8 +344,8 @@ namespace PdfSharp.Pdf
     /// </summary>
     public bool Contains(XRect rect)
     {
-      return this.x1 <= rect.X && (rect.X + rect.Width) <= this.x2 &&
-        this.y1 <= rect.Y && (rect.Y + rect.Height) <= this.y2;
+      return x1 <= rect.X && (rect.X + rect.Width) <= x2 &&
+        y1 <= rect.Y && (rect.Y + rect.Height) <= y2;
     }
 
     /// <summary>
@@ -353,8 +353,8 @@ namespace PdfSharp.Pdf
     /// </summary>
     public bool Contains(PdfRectangle rect)
     {
-      return this.x1 <= rect.x1 && rect.x2 <= this.x2 &&
-        this.y1 <= rect.y1 && rect.y2 <= this.y2;
+      return x1 <= rect.x1 && rect.x2 <= x2 &&
+        y1 <= rect.y1 && rect.y2 <= y2;
     }
 
     /// <summary>
@@ -362,7 +362,7 @@ namespace PdfSharp.Pdf
     /// </summary>
     public XRect ToXRect()
     {
-      return new XRect(this.x1, this.y1, this.Width, this.Height);
+      return new XRect(x1, y1, Width, Height);
     }
 
     /// <summary>
@@ -370,7 +370,7 @@ namespace PdfSharp.Pdf
     /// </summary>
     public override string ToString()
     {
-      return PdfEncoders.Format("[{0:0.###} {1:0.###} {2:0.###} {3:0.###}]", this.x1, this.y1, this.x2, this.y2);
+      return PdfEncoders.Format("[{0:0.###} {1:0.###} {2:0.###} {3:0.###}]", x1, y1, x2, y2);
     }
 
     /// <summary>

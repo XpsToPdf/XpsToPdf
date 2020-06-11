@@ -58,7 +58,7 @@ namespace PdfSharp.Pdf.AcroForms
     { 
       get
       {
-        string value = Elements.GetString(Keys.V);
+        string value = Elements.GetString(PdfAcroField.Keys.V);
         return IndexInOptStrings(value);
       }
       set 
@@ -69,7 +69,7 @@ namespace PdfSharp.Pdf.AcroForms
           int count = opt.Elements.Count;
           if (value < 0 || value >= count)
             throw new ArgumentOutOfRangeException("value");
-          Elements.SetName(Keys.V, opt.Elements[value].ToString());
+          Elements.SetName(PdfAcroField.Keys.V, opt.Elements[value].ToString());
         }
       }
     }
@@ -116,9 +116,9 @@ namespace PdfSharp.Pdf.AcroForms
       {
         get
         {
-          if (Keys.meta == null)
-            Keys.meta = CreateMeta(typeof(Keys));
-          return Keys.meta;
+          if (meta == null)
+            meta = CreateMeta(typeof(Keys));
+          return meta;
         }
       }
       static DictionaryMeta meta;

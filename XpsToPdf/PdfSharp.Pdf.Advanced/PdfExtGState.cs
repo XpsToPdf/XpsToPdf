@@ -95,14 +95,14 @@ namespace PdfSharp.Pdf.Advanced
       //  /SMask /None
       //  /Type /ExtGState
       //>>
-      Elements.SetBoolean(PdfExtGState.Keys.AIS, false);
-      Elements.SetName(PdfExtGState.Keys.BM, "/Normal");
+      Elements.SetBoolean(Keys.AIS, false);
+      Elements.SetName(Keys.BM, "/Normal");
       StrokeAlpha = 1;
       NonStrokeAlpha = 1;
-      Elements.SetBoolean(PdfExtGState.Keys.op, false);
-      Elements.SetBoolean(PdfExtGState.Keys.OP, false);
-      Elements.SetBoolean(PdfExtGState.Keys.SA, true);
-      Elements.SetName(PdfExtGState.Keys.SMask, "/None");
+      Elements.SetBoolean(Keys.op, false);
+      Elements.SetBoolean(Keys.OP, false);
+      Elements.SetBoolean(Keys.SA, true);
+      Elements.SetName(Keys.SMask, "/None");
     }
 
     /// <summary>
@@ -122,15 +122,15 @@ namespace PdfSharp.Pdf.Advanced
       //  /SMask /None
       //  /Type /ExtGState
       //>>
-      Elements.SetBoolean(PdfExtGState.Keys.AIS, false);
-      Elements.SetName(PdfExtGState.Keys.BM, "/Normal");
+      Elements.SetBoolean(Keys.AIS, false);
+      Elements.SetName(Keys.BM, "/Normal");
       StrokeAlpha = 1;
       NonStrokeAlpha = 1;
-      Elements.SetBoolean(PdfExtGState.Keys.op, true);
-      Elements.SetBoolean(PdfExtGState.Keys.OP, true);
-      Elements.SetInteger(PdfExtGState.Keys.OPM, 1);
-      Elements.SetBoolean(PdfExtGState.Keys.SA, true);
-      Elements.SetName(PdfExtGState.Keys.SMask, "/None");
+      Elements.SetBoolean(Keys.op, true);
+      Elements.SetBoolean(Keys.OP, true);
+      Elements.SetInteger(Keys.OPM, 1);
+      Elements.SetBoolean(Keys.SA, true);
+      Elements.SetName(Keys.SMask, "/None");
     }
 
     /// <summary>
@@ -332,9 +332,9 @@ namespace PdfSharp.Pdf.Advanced
       {
         get
         {
-          if (Keys.meta == null)
-            Keys.meta = CreateMeta(typeof(Keys));
-          return Keys.meta;
+          if (meta == null)
+            meta = CreateMeta(typeof(Keys));
+          return meta;
         }
       }
       static DictionaryMeta meta;

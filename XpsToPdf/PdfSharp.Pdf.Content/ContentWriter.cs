@@ -46,7 +46,7 @@ namespace PdfSharp.Pdf.Content
   {
     public ContentWriter(Stream contentStream)
     {
-      this.stream = contentStream;
+      stream = contentStream;
 #if DEBUG
       //layout = PdfWriterLayout.Verbose;
 #endif
@@ -54,10 +54,10 @@ namespace PdfSharp.Pdf.Content
 
     public void Close(bool closeUnderlyingStream)
     {
-      if (this.stream != null && closeUnderlyingStream)
+      if (stream != null && closeUnderlyingStream)
       {
-        this.stream.Close();
-        this.stream = null;
+        stream.Close();
+        stream = null;
       }
     }
 
@@ -68,7 +68,7 @@ namespace PdfSharp.Pdf.Content
 
     public int Position
     {
-      get { return (int)this.stream.Position; }
+      get { return (int)stream.Position; }
     }
 
     //public PdfWriterLayout Layout
@@ -480,8 +480,8 @@ namespace PdfSharp.Pdf.Content
         return;
       //AppendBlank(rawString[0]);
       byte[] bytes = PdfEncoders.RawEncoding.GetBytes(rawString);
-      this.stream.Write(bytes, 0, bytes.Length);
-      this.lastCat = GetCategory((char)bytes[bytes.Length - 1]);
+      stream.Write(bytes, 0, bytes.Length);
+      lastCat = GetCategory((char)bytes[bytes.Length - 1]);
     }
 
     public void WriteLineRaw(string rawString)
@@ -490,17 +490,17 @@ namespace PdfSharp.Pdf.Content
         return;
       //AppendBlank(rawString[0]);
       byte[] bytes = PdfEncoders.RawEncoding.GetBytes(rawString);
-      this.stream.Write(bytes, 0, bytes.Length);
-      this.stream.Write(new byte[] { (byte)'\n' }, 0, 1);
-      this.lastCat = GetCategory((char)bytes[bytes.Length - 1]);
+      stream.Write(bytes, 0, bytes.Length);
+      stream.Write(new byte[] { (byte)'\n' }, 0, 1);
+      lastCat = GetCategory((char)bytes[bytes.Length - 1]);
     }
 
     public void WriteRaw(char ch)
     {
       Debug.Assert((int)ch < 256, "Raw character greater than 255 dedected.");
       //AppendBlank(ch);
-      this.stream.WriteByte((byte)ch);
-      this.lastCat = GetCategory(ch);
+      stream.WriteByte((byte)ch);
+      lastCat = GetCategory(ch);
     }
 
     /// <summary>
@@ -508,8 +508,8 @@ namespace PdfSharp.Pdf.Content
     /// </summary>
     internal int Indent
     {
-      get { return this.indent; }
-      set { this.indent = value; }
+      get { return indent; }
+      set { indent = value; }
     }
     protected int indent = 2;
     protected int writeIndent = 0;
@@ -519,7 +519,7 @@ namespace PdfSharp.Pdf.Content
     /// </summary>
     void IncreaseIndent()
     {
-      this.writeIndent += indent;
+      writeIndent += indent;
     }
 
     /// <summary>
@@ -527,7 +527,7 @@ namespace PdfSharp.Pdf.Content
     /// </summary>
     void DecreaseIndent()
     {
-      this.writeIndent -= indent;
+      writeIndent -= indent;
     }
 
     /// <summary>
@@ -535,17 +535,17 @@ namespace PdfSharp.Pdf.Content
     /// </summary>
     string IndentBlanks
     {
-      get { return new string(' ', this.writeIndent); }
+      get { return new string(' ', writeIndent); }
     }
 
     void WriteIndent()
     {
-      this.WriteRaw(IndentBlanks);
+      WriteRaw(IndentBlanks);
     }
 
     void WriteSeparator(CharCat cat, char ch)
     {
-      switch (this.lastCat)
+      switch (lastCat)
       {
         //case CharCat.NewLine:
         //  if (this.layout == PdfWriterLayout.Verbose)
@@ -603,7 +603,7 @@ namespace PdfSharp.Pdf.Content
     /// </summary>
     internal Stream Stream
     {
-      get { return this.stream; }
+      get { return stream; }
     }
     Stream stream;
 

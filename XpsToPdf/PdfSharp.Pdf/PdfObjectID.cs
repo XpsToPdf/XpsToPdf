@@ -52,7 +52,7 @@ namespace PdfSharp.Pdf
     {
       Debug.Assert(objectNumber >= 1, "Object number out of range.");
       this.objectNumber = objectNumber;
-      this.generationNumber = 0;
+      generationNumber = 0;
     }
 
     /// <summary>
@@ -78,8 +78,8 @@ namespace PdfSharp.Pdf
     /// </summary>
     public int ObjectNumber
     {
-      get { return this.objectNumber; }
-      set { this.objectNumber = value; }
+      get { return objectNumber; }
+      set { objectNumber = value; }
     }
     int objectNumber;
 
@@ -88,8 +88,8 @@ namespace PdfSharp.Pdf
     /// </summary>
     public int GenerationNumber
     {
-      get { return this.generationNumber; }
-      set { this.generationNumber = (ushort)value; }
+      get { return generationNumber; }
+      set { generationNumber = (ushort)value; }
     }
     ushort generationNumber;
 
@@ -98,7 +98,7 @@ namespace PdfSharp.Pdf
     /// </summary>
     public bool IsEmpty
     {
-      get { return this.objectNumber == 0; }
+      get { return objectNumber == 0; }
     }
 
     /// <summary>
@@ -109,8 +109,8 @@ namespace PdfSharp.Pdf
       if (obj is PdfObjectID)
       {
         PdfObjectID id = (PdfObjectID)obj;
-        if (this.objectNumber == id.objectNumber)
-          return this.generationNumber == id.generationNumber;
+        if (objectNumber == id.objectNumber)
+          return generationNumber == id.generationNumber;
       }
       return false;
     }
@@ -120,7 +120,7 @@ namespace PdfSharp.Pdf
     /// </summary>
     public override int GetHashCode()
     {
-      return this.objectNumber ^ this.generationNumber;
+      return objectNumber ^ generationNumber;
     }
 
     /// <summary>
@@ -163,9 +163,9 @@ namespace PdfSharp.Pdf
       if (obj is PdfObjectID)
       {
         PdfObjectID id = (PdfObjectID)obj;
-        if (this.objectNumber == id.objectNumber)
-          return this.generationNumber - id.generationNumber;
-        return this.objectNumber - id.objectNumber;
+        if (objectNumber == id.objectNumber)
+          return generationNumber - id.generationNumber;
+        return objectNumber - id.objectNumber;
       }
       return 1;
     }

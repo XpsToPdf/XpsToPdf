@@ -17,12 +17,12 @@ namespace PdfSharp.Xps.Rendering
   {
     public XPImage(BitmapSource bitmapSource)
     {
-      this.xImage = XImage.FromBitmapSource(bitmapSource);
+      xImage = XImage.FromBitmapSource(bitmapSource);
     }
 
     public XImage XImage
     {
-      get { return this.xImage; }
+      get { return xImage; }
     }
     XImage xImage;
   }

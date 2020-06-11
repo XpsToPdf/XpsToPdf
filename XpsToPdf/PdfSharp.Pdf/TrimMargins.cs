@@ -61,10 +61,10 @@ namespace PdfSharp.Pdf
     {
       set
       {
-        this.left = value;
-        this.right = value;
-        this.top = value;
-        this.bottom = value;
+        left = value;
+        right = value;
+        top = value;
+        bottom = value;
       }
     }
 
@@ -73,8 +73,8 @@ namespace PdfSharp.Pdf
     /// </summary>
     public XUnit Left
     {
-      get { return this.left; }
-      set { this.left = value; }
+      get { return left; }
+      set { left = value; }
     }
     XUnit left;
 
@@ -83,8 +83,8 @@ namespace PdfSharp.Pdf
     /// </summary>
     public XUnit Right
     {
-      get { return this.right; }
-      set { this.right = value; }
+      get { return right; }
+      set { right = value; }
     }
     XUnit right;
 
@@ -93,8 +93,8 @@ namespace PdfSharp.Pdf
     /// </summary>
     public XUnit Top
     {
-      get { return this.top; }
-      set { this.top = value; }
+      get { return top; }
+      set { top = value; }
     }
     XUnit top;
 
@@ -103,8 +103,8 @@ namespace PdfSharp.Pdf
     /// </summary>
     public XUnit Bottom
     {
-      get { return this.bottom; }
-      set { this.bottom = value; }
+      get { return bottom; }
+      set { bottom = value; }
     }
     XUnit bottom;
 
@@ -113,7 +113,7 @@ namespace PdfSharp.Pdf
     /// </summary>
     public bool AreSet
     {
-      get { return this.left.Value != 0 || this.right.Value != 0 || this.top.Value != 0 || this.bottom.Value != 0; }
+      get { return left.Value != 0 || right.Value != 0 || top.Value != 0 || bottom.Value != 0; }
     }
   }
 }

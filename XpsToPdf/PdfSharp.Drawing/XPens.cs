@@ -41,9 +41,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.aliceBlue == null)
-          XPens.aliceBlue = new XPen(XColors.AliceBlue, 1, true);
-        return XPens.aliceBlue;
+        if (aliceBlue == null)
+          aliceBlue = new XPen(XColors.AliceBlue, 1, true);
+        return aliceBlue;
       }
     }
 
@@ -52,9 +52,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.antiqueWhite == null)
-          XPens.antiqueWhite = new XPen(XColors.AntiqueWhite, 1, true);
-        return XPens.antiqueWhite;
+        if (antiqueWhite == null)
+          antiqueWhite = new XPen(XColors.AntiqueWhite, 1, true);
+        return antiqueWhite;
       }
     }
 
@@ -63,9 +63,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.aqua == null)
-          XPens.aqua = new XPen(XColors.Aqua, 1, true);
-        return XPens.aqua;
+        if (aqua == null)
+          aqua = new XPen(XColors.Aqua, 1, true);
+        return aqua;
       }
     }
 
@@ -74,9 +74,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.aquamarine == null)
-          XPens.aquamarine = new XPen(XColors.Aquamarine, 1, true);
-        return XPens.aquamarine;
+        if (aquamarine == null)
+          aquamarine = new XPen(XColors.Aquamarine, 1, true);
+        return aquamarine;
       }
     }
 
@@ -85,9 +85,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.azure == null)
-          XPens.azure = new XPen(XColors.Azure, 1, true);
-        return XPens.azure;
+        if (azure == null)
+          azure = new XPen(XColors.Azure, 1, true);
+        return azure;
       }
     }
 
@@ -96,9 +96,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.beige == null)
-          XPens.beige = new XPen(XColors.Beige, 1, true);
-        return XPens.beige;
+        if (beige == null)
+          beige = new XPen(XColors.Beige, 1, true);
+        return beige;
       }
     }
 
@@ -107,9 +107,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.bisque == null)
-          XPens.bisque = new XPen(XColors.Bisque, 1, true);
-        return XPens.bisque;
+        if (bisque == null)
+          bisque = new XPen(XColors.Bisque, 1, true);
+        return bisque;
       }
     }
 
@@ -118,9 +118,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.black == null)
-          XPens.black = new XPen(XColors.Black, 1, true);
-        return XPens.black;
+        if (black == null)
+          black = new XPen(XColors.Black, 1, true);
+        return black;
       }
     }
 
@@ -129,9 +129,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.blanchedAlmond == null)
-          XPens.blanchedAlmond = new XPen(XColors.BlanchedAlmond, 1, true);
-        return XPens.blanchedAlmond;
+        if (blanchedAlmond == null)
+          blanchedAlmond = new XPen(XColors.BlanchedAlmond, 1, true);
+        return blanchedAlmond;
       }
     }
 
@@ -140,9 +140,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.blue == null)
-          XPens.blue = new XPen(XColors.Blue, 1, true);
-        return XPens.blue;
+        if (blue == null)
+          blue = new XPen(XColors.Blue, 1, true);
+        return blue;
       }
     }
 
@@ -151,9 +151,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.blueViolet == null)
-          XPens.blueViolet = new XPen(XColors.BlueViolet, 1, true);
-        return XPens.blueViolet;
+        if (blueViolet == null)
+          blueViolet = new XPen(XColors.BlueViolet, 1, true);
+        return blueViolet;
       }
     }
 
@@ -162,9 +162,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.brown == null)
-          XPens.brown = new XPen(XColors.Brown, 1, true);
-        return XPens.brown;
+        if (brown == null)
+          brown = new XPen(XColors.Brown, 1, true);
+        return brown;
       }
     }
 
@@ -173,9 +173,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.burlyWood == null)
-          XPens.burlyWood = new XPen(XColors.BurlyWood, 1, true);
-        return XPens.burlyWood;
+        if (burlyWood == null)
+          burlyWood = new XPen(XColors.BurlyWood, 1, true);
+        return burlyWood;
       }
     }
 
@@ -184,9 +184,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.cadetBlue == null)
-          XPens.cadetBlue = new XPen(XColors.CadetBlue, 1, true);
-        return XPens.cadetBlue;
+        if (cadetBlue == null)
+          cadetBlue = new XPen(XColors.CadetBlue, 1, true);
+        return cadetBlue;
       }
     }
 
@@ -195,9 +195,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.chartreuse == null)
-          XPens.chartreuse = new XPen(XColors.Chartreuse, 1, true);
-        return XPens.chartreuse;
+        if (chartreuse == null)
+          chartreuse = new XPen(XColors.Chartreuse, 1, true);
+        return chartreuse;
       }
     }
 
@@ -206,9 +206,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.chocolate == null)
-          XPens.chocolate = new XPen(XColors.Chocolate, 1, true);
-        return XPens.chocolate;
+        if (chocolate == null)
+          chocolate = new XPen(XColors.Chocolate, 1, true);
+        return chocolate;
       }
     }
 
@@ -217,9 +217,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.coral == null)
-          XPens.coral = new XPen(XColors.Coral, 1, true);
-        return XPens.coral;
+        if (coral == null)
+          coral = new XPen(XColors.Coral, 1, true);
+        return coral;
       }
     }
 
@@ -228,9 +228,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.cornflowerBlue == null)
-          XPens.cornflowerBlue = new XPen(XColors.CornflowerBlue, 1, true);
-        return XPens.cornflowerBlue;
+        if (cornflowerBlue == null)
+          cornflowerBlue = new XPen(XColors.CornflowerBlue, 1, true);
+        return cornflowerBlue;
       }
     }
 
@@ -239,9 +239,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.cornsilk == null)
-          XPens.cornsilk = new XPen(XColors.Cornsilk, 1, true);
-        return XPens.cornsilk;
+        if (cornsilk == null)
+          cornsilk = new XPen(XColors.Cornsilk, 1, true);
+        return cornsilk;
       }
     }
 
@@ -250,9 +250,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.crimson == null)
-          XPens.crimson = new XPen(XColors.Crimson, 1, true);
-        return XPens.crimson;
+        if (crimson == null)
+          crimson = new XPen(XColors.Crimson, 1, true);
+        return crimson;
       }
     }
 
@@ -261,9 +261,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.cyan == null)
-          XPens.cyan = new XPen(XColors.Cyan, 1, true);
-        return XPens.cyan;
+        if (cyan == null)
+          cyan = new XPen(XColors.Cyan, 1, true);
+        return cyan;
       }
     }
 
@@ -272,9 +272,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.darkBlue == null)
-          XPens.darkBlue = new XPen(XColors.DarkBlue, 1, true);
-        return XPens.darkBlue;
+        if (darkBlue == null)
+          darkBlue = new XPen(XColors.DarkBlue, 1, true);
+        return darkBlue;
       }
     }
 
@@ -283,9 +283,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.darkCyan == null)
-          XPens.darkCyan = new XPen(XColors.DarkCyan, 1, true);
-        return XPens.darkCyan;
+        if (darkCyan == null)
+          darkCyan = new XPen(XColors.DarkCyan, 1, true);
+        return darkCyan;
       }
     }
 
@@ -294,9 +294,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.darkGoldenrod == null)
-          XPens.darkGoldenrod = new XPen(XColors.DarkGoldenrod, 1, true);
-        return XPens.darkGoldenrod;
+        if (darkGoldenrod == null)
+          darkGoldenrod = new XPen(XColors.DarkGoldenrod, 1, true);
+        return darkGoldenrod;
       }
     }
 
@@ -305,9 +305,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.darkGray == null)
-          XPens.darkGray = new XPen(XColors.DarkGray, 1, true);
-        return XPens.darkGray;
+        if (darkGray == null)
+          darkGray = new XPen(XColors.DarkGray, 1, true);
+        return darkGray;
       }
     }
 
@@ -316,9 +316,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.darkGreen == null)
-          XPens.darkGreen = new XPen(XColors.DarkGreen, 1, true);
-        return XPens.darkGreen;
+        if (darkGreen == null)
+          darkGreen = new XPen(XColors.DarkGreen, 1, true);
+        return darkGreen;
       }
     }
 
@@ -327,9 +327,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.darkKhaki == null)
-          XPens.darkKhaki = new XPen(XColors.DarkKhaki, 1, true);
-        return XPens.darkKhaki;
+        if (darkKhaki == null)
+          darkKhaki = new XPen(XColors.DarkKhaki, 1, true);
+        return darkKhaki;
       }
     }
 
@@ -338,9 +338,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.darkMagenta == null)
-          XPens.darkMagenta = new XPen(XColors.DarkMagenta, 1, true);
-        return XPens.darkMagenta;
+        if (darkMagenta == null)
+          darkMagenta = new XPen(XColors.DarkMagenta, 1, true);
+        return darkMagenta;
       }
     }
 
@@ -349,9 +349,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.darkOliveGreen == null)
-          XPens.darkOliveGreen = new XPen(XColors.DarkOliveGreen, 1, true);
-        return XPens.darkOliveGreen;
+        if (darkOliveGreen == null)
+          darkOliveGreen = new XPen(XColors.DarkOliveGreen, 1, true);
+        return darkOliveGreen;
       }
     }
 
@@ -360,9 +360,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.darkOrange == null)
-          XPens.darkOrange = new XPen(XColors.DarkOrange, 1, true);
-        return XPens.darkOrange;
+        if (darkOrange == null)
+          darkOrange = new XPen(XColors.DarkOrange, 1, true);
+        return darkOrange;
       }
     }
 
@@ -371,9 +371,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.darkOrchid == null)
-          XPens.darkOrchid = new XPen(XColors.DarkOrchid, 1, true);
-        return XPens.darkOrchid;
+        if (darkOrchid == null)
+          darkOrchid = new XPen(XColors.DarkOrchid, 1, true);
+        return darkOrchid;
       }
     }
 
@@ -382,9 +382,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.darkRed == null)
-          XPens.darkRed = new XPen(XColors.DarkRed, 1, true);
-        return XPens.darkRed;
+        if (darkRed == null)
+          darkRed = new XPen(XColors.DarkRed, 1, true);
+        return darkRed;
       }
     }
 
@@ -393,9 +393,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.darkSalmon == null)
-          XPens.darkSalmon = new XPen(XColors.DarkSalmon, 1, true);
-        return XPens.darkSalmon;
+        if (darkSalmon == null)
+          darkSalmon = new XPen(XColors.DarkSalmon, 1, true);
+        return darkSalmon;
       }
     }
 
@@ -404,9 +404,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.darkSeaGreen == null)
-          XPens.darkSeaGreen = new XPen(XColors.DarkSeaGreen, 1, true);
-        return XPens.darkSeaGreen;
+        if (darkSeaGreen == null)
+          darkSeaGreen = new XPen(XColors.DarkSeaGreen, 1, true);
+        return darkSeaGreen;
       }
     }
 
@@ -415,9 +415,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.darkSlateBlue == null)
-          XPens.darkSlateBlue = new XPen(XColors.DarkSlateBlue, 1, true);
-        return XPens.darkSlateBlue;
+        if (darkSlateBlue == null)
+          darkSlateBlue = new XPen(XColors.DarkSlateBlue, 1, true);
+        return darkSlateBlue;
       }
     }
 
@@ -426,9 +426,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.darkSlateGray == null)
-          XPens.darkSlateGray = new XPen(XColors.DarkSlateGray, 1, true);
-        return XPens.darkSlateGray;
+        if (darkSlateGray == null)
+          darkSlateGray = new XPen(XColors.DarkSlateGray, 1, true);
+        return darkSlateGray;
       }
     }
 
@@ -437,9 +437,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.darkTurquoise == null)
-          XPens.darkTurquoise = new XPen(XColors.DarkTurquoise, 1, true);
-        return XPens.darkTurquoise;
+        if (darkTurquoise == null)
+          darkTurquoise = new XPen(XColors.DarkTurquoise, 1, true);
+        return darkTurquoise;
       }
     }
 
@@ -448,9 +448,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.darkViolet == null)
-          XPens.darkViolet = new XPen(XColors.DarkViolet, 1, true);
-        return XPens.darkViolet;
+        if (darkViolet == null)
+          darkViolet = new XPen(XColors.DarkViolet, 1, true);
+        return darkViolet;
       }
     }
 
@@ -459,9 +459,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.deepPink == null)
-          XPens.deepPink = new XPen(XColors.DeepPink, 1, true);
-        return XPens.deepPink;
+        if (deepPink == null)
+          deepPink = new XPen(XColors.DeepPink, 1, true);
+        return deepPink;
       }
     }
 
@@ -470,9 +470,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.deepSkyBlue == null)
-          XPens.deepSkyBlue = new XPen(XColors.DeepSkyBlue, 1, true);
-        return XPens.deepSkyBlue;
+        if (deepSkyBlue == null)
+          deepSkyBlue = new XPen(XColors.DeepSkyBlue, 1, true);
+        return deepSkyBlue;
       }
     }
 
@@ -481,9 +481,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.dimGray == null)
-          XPens.dimGray = new XPen(XColors.DimGray, 1, true);
-        return XPens.dimGray;
+        if (dimGray == null)
+          dimGray = new XPen(XColors.DimGray, 1, true);
+        return dimGray;
       }
     }
 
@@ -492,9 +492,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.dodgerBlue == null)
-          XPens.dodgerBlue = new XPen(XColors.DodgerBlue, 1, true);
-        return XPens.dodgerBlue;
+        if (dodgerBlue == null)
+          dodgerBlue = new XPen(XColors.DodgerBlue, 1, true);
+        return dodgerBlue;
       }
     }
 
@@ -503,9 +503,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.firebrick == null)
-          XPens.firebrick = new XPen(XColors.Firebrick, 1, true);
-        return XPens.firebrick;
+        if (firebrick == null)
+          firebrick = new XPen(XColors.Firebrick, 1, true);
+        return firebrick;
       }
     }
 
@@ -514,9 +514,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.floralWhite == null)
-          XPens.floralWhite = new XPen(XColors.FloralWhite, 1, true);
-        return XPens.floralWhite;
+        if (floralWhite == null)
+          floralWhite = new XPen(XColors.FloralWhite, 1, true);
+        return floralWhite;
       }
     }
 
@@ -525,9 +525,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.forestGreen == null)
-          XPens.forestGreen = new XPen(XColors.ForestGreen, 1, true);
-        return XPens.forestGreen;
+        if (forestGreen == null)
+          forestGreen = new XPen(XColors.ForestGreen, 1, true);
+        return forestGreen;
       }
     }
 
@@ -536,9 +536,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.fuchsia == null)
-          XPens.fuchsia = new XPen(XColors.Fuchsia, 1, true);
-        return XPens.fuchsia;
+        if (fuchsia == null)
+          fuchsia = new XPen(XColors.Fuchsia, 1, true);
+        return fuchsia;
       }
     }
 
@@ -547,9 +547,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.gainsboro == null)
-          XPens.gainsboro = new XPen(XColors.Gainsboro, 1, true);
-        return XPens.gainsboro;
+        if (gainsboro == null)
+          gainsboro = new XPen(XColors.Gainsboro, 1, true);
+        return gainsboro;
       }
     }
 
@@ -558,9 +558,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.ghostWhite == null)
-          XPens.ghostWhite = new XPen(XColors.GhostWhite, 1, true);
-        return XPens.ghostWhite;
+        if (ghostWhite == null)
+          ghostWhite = new XPen(XColors.GhostWhite, 1, true);
+        return ghostWhite;
       }
     }
 
@@ -569,9 +569,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.gold == null)
-          XPens.gold = new XPen(XColors.Gold, 1, true);
-        return XPens.gold;
+        if (gold == null)
+          gold = new XPen(XColors.Gold, 1, true);
+        return gold;
       }
     }
 
@@ -580,9 +580,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.goldenrod == null)
-          XPens.goldenrod = new XPen(XColors.Goldenrod, 1, true);
-        return XPens.goldenrod;
+        if (goldenrod == null)
+          goldenrod = new XPen(XColors.Goldenrod, 1, true);
+        return goldenrod;
       }
     }
 
@@ -591,9 +591,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.gray == null)
-          XPens.gray = new XPen(XColors.Gray, 1, true);
-        return XPens.gray;
+        if (gray == null)
+          gray = new XPen(XColors.Gray, 1, true);
+        return gray;
       }
     }
 
@@ -602,9 +602,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.green == null)
-          XPens.green = new XPen(XColors.Green, 1, true);
-        return XPens.green;
+        if (green == null)
+          green = new XPen(XColors.Green, 1, true);
+        return green;
       }
     }
 
@@ -613,9 +613,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.greenYellow == null)
-          XPens.greenYellow = new XPen(XColors.GreenYellow, 1, true);
-        return XPens.greenYellow;
+        if (greenYellow == null)
+          greenYellow = new XPen(XColors.GreenYellow, 1, true);
+        return greenYellow;
       }
     }
 
@@ -624,9 +624,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.honeydew == null)
-          XPens.honeydew = new XPen(XColors.Honeydew, 1, true);
-        return XPens.honeydew;
+        if (honeydew == null)
+          honeydew = new XPen(XColors.Honeydew, 1, true);
+        return honeydew;
       }
     }
 
@@ -635,9 +635,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.hotPink == null)
-          XPens.hotPink = new XPen(XColors.HotPink, 1, true);
-        return XPens.hotPink;
+        if (hotPink == null)
+          hotPink = new XPen(XColors.HotPink, 1, true);
+        return hotPink;
       }
     }
 
@@ -646,9 +646,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.indianRed == null)
-          XPens.indianRed = new XPen(XColors.IndianRed, 1, true);
-        return XPens.indianRed;
+        if (indianRed == null)
+          indianRed = new XPen(XColors.IndianRed, 1, true);
+        return indianRed;
       }
     }
 
@@ -657,9 +657,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.indigo == null)
-          XPens.indigo = new XPen(XColors.Indigo, 1, true);
-        return XPens.indigo;
+        if (indigo == null)
+          indigo = new XPen(XColors.Indigo, 1, true);
+        return indigo;
       }
     }
 
@@ -668,9 +668,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.ivory == null)
-          XPens.ivory = new XPen(XColors.Ivory, 1, true);
-        return XPens.ivory;
+        if (ivory == null)
+          ivory = new XPen(XColors.Ivory, 1, true);
+        return ivory;
       }
     }
 
@@ -679,9 +679,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.khaki == null)
-          XPens.khaki = new XPen(XColors.Khaki, 1, true);
-        return XPens.khaki;
+        if (khaki == null)
+          khaki = new XPen(XColors.Khaki, 1, true);
+        return khaki;
       }
     }
 
@@ -690,9 +690,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.lavender == null)
-          XPens.lavender = new XPen(XColors.Lavender, 1, true);
-        return XPens.lavender;
+        if (lavender == null)
+          lavender = new XPen(XColors.Lavender, 1, true);
+        return lavender;
       }
     }
 
@@ -701,9 +701,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.lavenderBlush == null)
-          XPens.lavenderBlush = new XPen(XColors.LavenderBlush, 1, true);
-        return XPens.lavenderBlush;
+        if (lavenderBlush == null)
+          lavenderBlush = new XPen(XColors.LavenderBlush, 1, true);
+        return lavenderBlush;
       }
     }
 
@@ -712,9 +712,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.lawnGreen == null)
-          XPens.lawnGreen = new XPen(XColors.LawnGreen, 1, true);
-        return XPens.lawnGreen;
+        if (lawnGreen == null)
+          lawnGreen = new XPen(XColors.LawnGreen, 1, true);
+        return lawnGreen;
       }
     }
 
@@ -723,9 +723,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.lemonChiffon == null)
-          XPens.lemonChiffon = new XPen(XColors.LemonChiffon, 1, true);
-        return XPens.lemonChiffon;
+        if (lemonChiffon == null)
+          lemonChiffon = new XPen(XColors.LemonChiffon, 1, true);
+        return lemonChiffon;
       }
     }
 
@@ -734,9 +734,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.lightBlue == null)
-          XPens.lightBlue = new XPen(XColors.LightBlue, 1, true);
-        return XPens.lightBlue;
+        if (lightBlue == null)
+          lightBlue = new XPen(XColors.LightBlue, 1, true);
+        return lightBlue;
       }
     }
 
@@ -745,9 +745,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.lightCoral == null)
-          XPens.lightCoral = new XPen(XColors.LightCoral, 1, true);
-        return XPens.lightCoral;
+        if (lightCoral == null)
+          lightCoral = new XPen(XColors.LightCoral, 1, true);
+        return lightCoral;
       }
     }
 
@@ -756,9 +756,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.lightCyan == null)
-          XPens.lightCyan = new XPen(XColors.LightCyan, 1, true);
-        return XPens.lightCyan;
+        if (lightCyan == null)
+          lightCyan = new XPen(XColors.LightCyan, 1, true);
+        return lightCyan;
       }
     }
 
@@ -767,9 +767,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.lightGoldenrodYellow == null)
-          XPens.lightGoldenrodYellow = new XPen(XColors.LightGoldenrodYellow, 1, true);
-        return XPens.lightGoldenrodYellow;
+        if (lightGoldenrodYellow == null)
+          lightGoldenrodYellow = new XPen(XColors.LightGoldenrodYellow, 1, true);
+        return lightGoldenrodYellow;
       }
     }
 
@@ -778,9 +778,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.lightGray == null)
-          XPens.lightGray = new XPen(XColors.LightGray, 1, true);
-        return XPens.lightGray;
+        if (lightGray == null)
+          lightGray = new XPen(XColors.LightGray, 1, true);
+        return lightGray;
       }
     }
 
@@ -789,9 +789,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.lightGreen == null)
-          XPens.lightGreen = new XPen(XColors.LightGreen, 1, true);
-        return XPens.lightGreen;
+        if (lightGreen == null)
+          lightGreen = new XPen(XColors.LightGreen, 1, true);
+        return lightGreen;
       }
     }
 
@@ -800,9 +800,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.lightPink == null)
-          XPens.lightPink = new XPen(XColors.LightPink, 1, true);
-        return XPens.lightPink;
+        if (lightPink == null)
+          lightPink = new XPen(XColors.LightPink, 1, true);
+        return lightPink;
       }
     }
 
@@ -811,9 +811,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.lightSalmon == null)
-          XPens.lightSalmon = new XPen(XColors.LightSalmon, 1, true);
-        return XPens.lightSalmon;
+        if (lightSalmon == null)
+          lightSalmon = new XPen(XColors.LightSalmon, 1, true);
+        return lightSalmon;
       }
     }
 
@@ -822,9 +822,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.lightSeaGreen == null)
-          XPens.lightSeaGreen = new XPen(XColors.LightSeaGreen, 1, true);
-        return XPens.lightSeaGreen;
+        if (lightSeaGreen == null)
+          lightSeaGreen = new XPen(XColors.LightSeaGreen, 1, true);
+        return lightSeaGreen;
       }
     }
 
@@ -833,9 +833,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.lightSkyBlue == null)
-          XPens.lightSkyBlue = new XPen(XColors.LightSkyBlue, 1, true);
-        return XPens.lightSkyBlue;
+        if (lightSkyBlue == null)
+          lightSkyBlue = new XPen(XColors.LightSkyBlue, 1, true);
+        return lightSkyBlue;
       }
     }
 
@@ -844,9 +844,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.lightSlateGray == null)
-          XPens.lightSlateGray = new XPen(XColors.LightSlateGray, 1, true);
-        return XPens.lightSlateGray;
+        if (lightSlateGray == null)
+          lightSlateGray = new XPen(XColors.LightSlateGray, 1, true);
+        return lightSlateGray;
       }
     }
 
@@ -855,9 +855,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.lightSteelBlue == null)
-          XPens.lightSteelBlue = new XPen(XColors.LightSteelBlue, 1, true);
-        return XPens.lightSteelBlue;
+        if (lightSteelBlue == null)
+          lightSteelBlue = new XPen(XColors.LightSteelBlue, 1, true);
+        return lightSteelBlue;
       }
     }
 
@@ -866,9 +866,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.lightYellow == null)
-          XPens.lightYellow = new XPen(XColors.LightYellow, 1, true);
-        return XPens.lightYellow;
+        if (lightYellow == null)
+          lightYellow = new XPen(XColors.LightYellow, 1, true);
+        return lightYellow;
       }
     }
 
@@ -877,9 +877,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.lime == null)
-          XPens.lime = new XPen(XColors.Lime, 1, true);
-        return XPens.lime;
+        if (lime == null)
+          lime = new XPen(XColors.Lime, 1, true);
+        return lime;
       }
     }
 
@@ -888,9 +888,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.limeGreen == null)
-          XPens.limeGreen = new XPen(XColors.LimeGreen, 1, true);
-        return XPens.limeGreen;
+        if (limeGreen == null)
+          limeGreen = new XPen(XColors.LimeGreen, 1, true);
+        return limeGreen;
       }
     }
 
@@ -899,9 +899,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.linen == null)
-          XPens.linen = new XPen(XColors.Linen, 1, true);
-        return XPens.linen;
+        if (linen == null)
+          linen = new XPen(XColors.Linen, 1, true);
+        return linen;
       }
     }
 
@@ -910,9 +910,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.magenta == null)
-          XPens.magenta = new XPen(XColors.Magenta, 1, true);
-        return XPens.magenta;
+        if (magenta == null)
+          magenta = new XPen(XColors.Magenta, 1, true);
+        return magenta;
       }
     }
 
@@ -921,9 +921,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.maroon == null)
-          XPens.maroon = new XPen(XColors.Maroon, 1, true);
-        return XPens.maroon;
+        if (maroon == null)
+          maroon = new XPen(XColors.Maroon, 1, true);
+        return maroon;
       }
     }
 
@@ -932,9 +932,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.mediumAquamarine == null)
-          XPens.mediumAquamarine = new XPen(XColors.MediumAquamarine, 1, true);
-        return XPens.mediumAquamarine;
+        if (mediumAquamarine == null)
+          mediumAquamarine = new XPen(XColors.MediumAquamarine, 1, true);
+        return mediumAquamarine;
       }
     }
 
@@ -943,9 +943,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.mediumBlue == null)
-          XPens.mediumBlue = new XPen(XColors.MediumBlue, 1, true);
-        return XPens.mediumBlue;
+        if (mediumBlue == null)
+          mediumBlue = new XPen(XColors.MediumBlue, 1, true);
+        return mediumBlue;
       }
     }
 
@@ -954,9 +954,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.mediumOrchid == null)
-          XPens.mediumOrchid = new XPen(XColors.MediumOrchid, 1, true);
-        return XPens.mediumOrchid;
+        if (mediumOrchid == null)
+          mediumOrchid = new XPen(XColors.MediumOrchid, 1, true);
+        return mediumOrchid;
       }
     }
 
@@ -965,9 +965,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.mediumPurple == null)
-          XPens.mediumPurple = new XPen(XColors.MediumPurple, 1, true);
-        return XPens.mediumPurple;
+        if (mediumPurple == null)
+          mediumPurple = new XPen(XColors.MediumPurple, 1, true);
+        return mediumPurple;
       }
     }
 
@@ -976,9 +976,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.mediumSeaGreen == null)
-          XPens.mediumSeaGreen = new XPen(XColors.MediumSeaGreen, 1, true);
-        return XPens.mediumSeaGreen;
+        if (mediumSeaGreen == null)
+          mediumSeaGreen = new XPen(XColors.MediumSeaGreen, 1, true);
+        return mediumSeaGreen;
       }
     }
 
@@ -987,9 +987,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.mediumSlateBlue == null)
-          XPens.mediumSlateBlue = new XPen(XColors.MediumSlateBlue, 1, true);
-        return XPens.mediumSlateBlue;
+        if (mediumSlateBlue == null)
+          mediumSlateBlue = new XPen(XColors.MediumSlateBlue, 1, true);
+        return mediumSlateBlue;
       }
     }
 
@@ -998,9 +998,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.mediumSpringGreen == null)
-          XPens.mediumSpringGreen = new XPen(XColors.MediumSpringGreen, 1, true);
-        return XPens.mediumSpringGreen;
+        if (mediumSpringGreen == null)
+          mediumSpringGreen = new XPen(XColors.MediumSpringGreen, 1, true);
+        return mediumSpringGreen;
       }
     }
 
@@ -1009,9 +1009,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.mediumTurquoise == null)
-          XPens.mediumTurquoise = new XPen(XColors.MediumTurquoise, 1, true);
-        return XPens.mediumTurquoise;
+        if (mediumTurquoise == null)
+          mediumTurquoise = new XPen(XColors.MediumTurquoise, 1, true);
+        return mediumTurquoise;
       }
     }
 
@@ -1020,9 +1020,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.mediumVioletRed == null)
-          XPens.mediumVioletRed = new XPen(XColors.MediumVioletRed, 1, true);
-        return XPens.mediumVioletRed;
+        if (mediumVioletRed == null)
+          mediumVioletRed = new XPen(XColors.MediumVioletRed, 1, true);
+        return mediumVioletRed;
       }
     }
 
@@ -1031,9 +1031,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.midnightBlue == null)
-          XPens.midnightBlue = new XPen(XColors.MidnightBlue, 1, true);
-        return XPens.midnightBlue;
+        if (midnightBlue == null)
+          midnightBlue = new XPen(XColors.MidnightBlue, 1, true);
+        return midnightBlue;
       }
     }
 
@@ -1042,9 +1042,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.mintCream == null)
-          XPens.mintCream = new XPen(XColors.MintCream, 1, true);
-        return XPens.mintCream;
+        if (mintCream == null)
+          mintCream = new XPen(XColors.MintCream, 1, true);
+        return mintCream;
       }
     }
 
@@ -1053,9 +1053,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.mistyRose == null)
-          XPens.mistyRose = new XPen(XColors.MistyRose, 1, true);
-        return XPens.mistyRose;
+        if (mistyRose == null)
+          mistyRose = new XPen(XColors.MistyRose, 1, true);
+        return mistyRose;
       }
     }
 
@@ -1064,9 +1064,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.moccasin == null)
-          XPens.moccasin = new XPen(XColors.Moccasin, 1, true);
-        return XPens.moccasin;
+        if (moccasin == null)
+          moccasin = new XPen(XColors.Moccasin, 1, true);
+        return moccasin;
       }
     }
 
@@ -1075,9 +1075,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.navajoWhite == null)
-          XPens.navajoWhite = new XPen(XColors.NavajoWhite, 1, true);
-        return XPens.navajoWhite;
+        if (navajoWhite == null)
+          navajoWhite = new XPen(XColors.NavajoWhite, 1, true);
+        return navajoWhite;
       }
     }
 
@@ -1086,9 +1086,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.navy == null)
-          XPens.navy = new XPen(XColors.Navy, 1, true);
-        return XPens.navy;
+        if (navy == null)
+          navy = new XPen(XColors.Navy, 1, true);
+        return navy;
       }
     }
 
@@ -1097,9 +1097,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.oldLace == null)
-          XPens.oldLace = new XPen(XColors.OldLace, 1, true);
-        return XPens.oldLace;
+        if (oldLace == null)
+          oldLace = new XPen(XColors.OldLace, 1, true);
+        return oldLace;
       }
     }
 
@@ -1108,9 +1108,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.olive == null)
-          XPens.olive = new XPen(XColors.Olive, 1, true);
-        return XPens.olive;
+        if (olive == null)
+          olive = new XPen(XColors.Olive, 1, true);
+        return olive;
       }
     }
 
@@ -1119,9 +1119,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.oliveDrab == null)
-          XPens.oliveDrab = new XPen(XColors.OliveDrab, 1, true);
-        return XPens.oliveDrab;
+        if (oliveDrab == null)
+          oliveDrab = new XPen(XColors.OliveDrab, 1, true);
+        return oliveDrab;
       }
     }
 
@@ -1130,9 +1130,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.orange == null)
-          XPens.orange = new XPen(XColors.Orange, 1, true);
-        return XPens.orange;
+        if (orange == null)
+          orange = new XPen(XColors.Orange, 1, true);
+        return orange;
       }
     }
 
@@ -1141,9 +1141,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.orangeRed == null)
-          XPens.orangeRed = new XPen(XColors.OrangeRed, 1, true);
-        return XPens.orangeRed;
+        if (orangeRed == null)
+          orangeRed = new XPen(XColors.OrangeRed, 1, true);
+        return orangeRed;
       }
     }
 
@@ -1152,9 +1152,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.orchid == null)
-          XPens.orchid = new XPen(XColors.Orchid, 1, true);
-        return XPens.orchid;
+        if (orchid == null)
+          orchid = new XPen(XColors.Orchid, 1, true);
+        return orchid;
       }
     }
 
@@ -1163,9 +1163,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.paleGoldenrod == null)
-          XPens.paleGoldenrod = new XPen(XColors.PaleGoldenrod, 1, true);
-        return XPens.paleGoldenrod;
+        if (paleGoldenrod == null)
+          paleGoldenrod = new XPen(XColors.PaleGoldenrod, 1, true);
+        return paleGoldenrod;
       }
     }
 
@@ -1174,9 +1174,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.paleGreen == null)
-          XPens.paleGreen = new XPen(XColors.PaleGreen, 1, true);
-        return XPens.paleGreen;
+        if (paleGreen == null)
+          paleGreen = new XPen(XColors.PaleGreen, 1, true);
+        return paleGreen;
       }
     }
 
@@ -1185,9 +1185,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.paleTurquoise == null)
-          XPens.paleTurquoise = new XPen(XColors.PaleTurquoise, 1, true);
-        return XPens.paleTurquoise;
+        if (paleTurquoise == null)
+          paleTurquoise = new XPen(XColors.PaleTurquoise, 1, true);
+        return paleTurquoise;
       }
     }
 
@@ -1196,9 +1196,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.paleVioletRed == null)
-          XPens.paleVioletRed = new XPen(XColors.PaleVioletRed, 1, true);
-        return XPens.paleVioletRed;
+        if (paleVioletRed == null)
+          paleVioletRed = new XPen(XColors.PaleVioletRed, 1, true);
+        return paleVioletRed;
       }
     }
 
@@ -1207,9 +1207,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.papayaWhip == null)
-          XPens.papayaWhip = new XPen(XColors.PapayaWhip, 1, true);
-        return XPens.papayaWhip;
+        if (papayaWhip == null)
+          papayaWhip = new XPen(XColors.PapayaWhip, 1, true);
+        return papayaWhip;
       }
     }
 
@@ -1218,9 +1218,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.peachPuff == null)
-          XPens.peachPuff = new XPen(XColors.PeachPuff, 1, true);
-        return XPens.peachPuff;
+        if (peachPuff == null)
+          peachPuff = new XPen(XColors.PeachPuff, 1, true);
+        return peachPuff;
       }
     }
 
@@ -1229,9 +1229,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.peru == null)
-          XPens.peru = new XPen(XColors.Peru, 1, true);
-        return XPens.peru;
+        if (peru == null)
+          peru = new XPen(XColors.Peru, 1, true);
+        return peru;
       }
     }
 
@@ -1240,9 +1240,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.pink == null)
-          XPens.pink = new XPen(XColors.Pink, 1, true);
-        return XPens.pink;
+        if (pink == null)
+          pink = new XPen(XColors.Pink, 1, true);
+        return pink;
       }
     }
 
@@ -1251,9 +1251,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.plum == null)
-          XPens.plum = new XPen(XColors.Plum, 1, true);
-        return XPens.plum;
+        if (plum == null)
+          plum = new XPen(XColors.Plum, 1, true);
+        return plum;
       }
     }
 
@@ -1262,9 +1262,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.powderBlue == null)
-          XPens.powderBlue = new XPen(XColors.PowderBlue, 1, true);
-        return XPens.powderBlue;
+        if (powderBlue == null)
+          powderBlue = new XPen(XColors.PowderBlue, 1, true);
+        return powderBlue;
       }
     }
 
@@ -1273,9 +1273,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.purple == null)
-          XPens.purple = new XPen(XColors.Purple, 1, true);
-        return XPens.purple;
+        if (purple == null)
+          purple = new XPen(XColors.Purple, 1, true);
+        return purple;
       }
     }
 
@@ -1284,9 +1284,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.red == null)
-          XPens.red = new XPen(XColors.Red, 1, true);
-        return XPens.red;
+        if (red == null)
+          red = new XPen(XColors.Red, 1, true);
+        return red;
       }
     }
 
@@ -1295,9 +1295,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.rosyBrown == null)
-          XPens.rosyBrown = new XPen(XColors.RosyBrown, 1, true);
-        return XPens.rosyBrown;
+        if (rosyBrown == null)
+          rosyBrown = new XPen(XColors.RosyBrown, 1, true);
+        return rosyBrown;
       }
     }
 
@@ -1306,9 +1306,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.royalBlue == null)
-          XPens.royalBlue = new XPen(XColors.RoyalBlue, 1, true);
-        return XPens.royalBlue;
+        if (royalBlue == null)
+          royalBlue = new XPen(XColors.RoyalBlue, 1, true);
+        return royalBlue;
       }
     }
 
@@ -1317,9 +1317,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.saddleBrown == null)
-          XPens.saddleBrown = new XPen(XColors.SaddleBrown, 1, true);
-        return XPens.saddleBrown;
+        if (saddleBrown == null)
+          saddleBrown = new XPen(XColors.SaddleBrown, 1, true);
+        return saddleBrown;
       }
     }
 
@@ -1328,9 +1328,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.salmon == null)
-          XPens.salmon = new XPen(XColors.Salmon, 1, true);
-        return XPens.salmon;
+        if (salmon == null)
+          salmon = new XPen(XColors.Salmon, 1, true);
+        return salmon;
       }
     }
 
@@ -1339,9 +1339,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.sandyBrown == null)
-          XPens.sandyBrown = new XPen(XColors.SandyBrown, 1, true);
-        return XPens.sandyBrown;
+        if (sandyBrown == null)
+          sandyBrown = new XPen(XColors.SandyBrown, 1, true);
+        return sandyBrown;
       }
     }
 
@@ -1350,9 +1350,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.seaGreen == null)
-          XPens.seaGreen = new XPen(XColors.SeaGreen, 1, true);
-        return XPens.seaGreen;
+        if (seaGreen == null)
+          seaGreen = new XPen(XColors.SeaGreen, 1, true);
+        return seaGreen;
       }
     }
 
@@ -1361,9 +1361,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.seaShell == null)
-          XPens.seaShell = new XPen(XColors.SeaShell, 1, true);
-        return XPens.seaShell;
+        if (seaShell == null)
+          seaShell = new XPen(XColors.SeaShell, 1, true);
+        return seaShell;
       }
     }
 
@@ -1372,9 +1372,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.sienna == null)
-          XPens.sienna = new XPen(XColors.Sienna, 1, true);
-        return XPens.sienna;
+        if (sienna == null)
+          sienna = new XPen(XColors.Sienna, 1, true);
+        return sienna;
       }
     }
 
@@ -1383,9 +1383,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.silver == null)
-          XPens.silver = new XPen(XColors.Silver, 1, true);
-        return XPens.silver;
+        if (silver == null)
+          silver = new XPen(XColors.Silver, 1, true);
+        return silver;
       }
     }
 
@@ -1394,9 +1394,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.skyBlue == null)
-          XPens.skyBlue = new XPen(XColors.SkyBlue, 1, true);
-        return XPens.skyBlue;
+        if (skyBlue == null)
+          skyBlue = new XPen(XColors.SkyBlue, 1, true);
+        return skyBlue;
       }
     }
 
@@ -1405,9 +1405,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.slateBlue == null)
-          XPens.slateBlue = new XPen(XColors.SlateBlue, 1, true);
-        return XPens.slateBlue;
+        if (slateBlue == null)
+          slateBlue = new XPen(XColors.SlateBlue, 1, true);
+        return slateBlue;
       }
     }
 
@@ -1416,9 +1416,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.slateGray == null)
-          XPens.slateGray = new XPen(XColors.SlateGray, 1, true);
-        return XPens.slateGray;
+        if (slateGray == null)
+          slateGray = new XPen(XColors.SlateGray, 1, true);
+        return slateGray;
       }
     }
 
@@ -1427,9 +1427,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.snow == null)
-          XPens.snow = new XPen(XColors.Snow, 1, true);
-        return XPens.snow;
+        if (snow == null)
+          snow = new XPen(XColors.Snow, 1, true);
+        return snow;
       }
     }
 
@@ -1438,9 +1438,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.springGreen == null)
-          XPens.springGreen = new XPen(XColors.SpringGreen, 1, true);
-        return XPens.springGreen;
+        if (springGreen == null)
+          springGreen = new XPen(XColors.SpringGreen, 1, true);
+        return springGreen;
       }
     }
 
@@ -1449,9 +1449,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.steelBlue == null)
-          XPens.steelBlue = new XPen(XColors.SteelBlue, 1, true);
-        return XPens.steelBlue;
+        if (steelBlue == null)
+          steelBlue = new XPen(XColors.SteelBlue, 1, true);
+        return steelBlue;
       }
     }
 
@@ -1460,9 +1460,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.tan == null)
-          XPens.tan = new XPen(XColors.Tan, 1, true);
-        return XPens.tan;
+        if (tan == null)
+          tan = new XPen(XColors.Tan, 1, true);
+        return tan;
       }
     }
 
@@ -1471,9 +1471,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.teal == null)
-          XPens.teal = new XPen(XColors.Teal, 1, true);
-        return XPens.teal;
+        if (teal == null)
+          teal = new XPen(XColors.Teal, 1, true);
+        return teal;
       }
     }
 
@@ -1482,9 +1482,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.thistle == null)
-          XPens.thistle = new XPen(XColors.Thistle, 1, true);
-        return XPens.thistle;
+        if (thistle == null)
+          thistle = new XPen(XColors.Thistle, 1, true);
+        return thistle;
       }
     }
 
@@ -1493,9 +1493,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.tomato == null)
-          XPens.tomato = new XPen(XColors.Tomato, 1, true);
-        return XPens.tomato;
+        if (tomato == null)
+          tomato = new XPen(XColors.Tomato, 1, true);
+        return tomato;
       }
     }
 
@@ -1504,9 +1504,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.transparent == null)
-          XPens.transparent = new XPen(XColors.Transparent, 1, true);
-        return XPens.transparent;
+        if (transparent == null)
+          transparent = new XPen(XColors.Transparent, 1, true);
+        return transparent;
       }
     }
 
@@ -1515,9 +1515,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.turquoise == null)
-          XPens.turquoise = new XPen(XColors.Turquoise, 1, true);
-        return XPens.turquoise;
+        if (turquoise == null)
+          turquoise = new XPen(XColors.Turquoise, 1, true);
+        return turquoise;
       }
     }
 
@@ -1526,9 +1526,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.violet == null)
-          XPens.violet = new XPen(XColors.Violet, 1, true);
-        return XPens.violet;
+        if (violet == null)
+          violet = new XPen(XColors.Violet, 1, true);
+        return violet;
       }
     }
 
@@ -1537,9 +1537,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.wheat == null)
-          XPens.wheat = new XPen(XColors.Wheat, 1, true);
-        return XPens.wheat;
+        if (wheat == null)
+          wheat = new XPen(XColors.Wheat, 1, true);
+        return wheat;
       }
     }
 
@@ -1548,9 +1548,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.white == null)
-          XPens.white = new XPen(XColors.White, 1, true);
-        return XPens.white;
+        if (white == null)
+          white = new XPen(XColors.White, 1, true);
+        return white;
       }
     }
 
@@ -1559,9 +1559,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.whiteSmoke == null)
-          XPens.whiteSmoke = new XPen(XColors.WhiteSmoke, 1, true);
-        return XPens.whiteSmoke;
+        if (whiteSmoke == null)
+          whiteSmoke = new XPen(XColors.WhiteSmoke, 1, true);
+        return whiteSmoke;
       }
     }
 
@@ -1570,9 +1570,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.yellow == null)
-          XPens.yellow = new XPen(XColors.Yellow, 1, true);
-        return XPens.yellow;
+        if (yellow == null)
+          yellow = new XPen(XColors.Yellow, 1, true);
+        return yellow;
       }
     }
 
@@ -1581,9 +1581,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (XPens.yellowGreen == null)
-          XPens.yellowGreen = new XPen(XColors.YellowGreen, 1, true);
-        return XPens.yellowGreen;
+        if (yellowGreen == null)
+          yellowGreen = new XPen(XColors.YellowGreen, 1, true);
+        return yellowGreen;
       }
     }
 

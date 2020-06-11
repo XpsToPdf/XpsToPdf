@@ -65,7 +65,7 @@ namespace PdfSharp.Pdf
     public double Value
     {
       // This class must behave like a value type. Therefore it cannot be changed (like System.String).
-      get { return this.value; }
+      get { return value; }
     }
     double value;
 
@@ -74,7 +74,7 @@ namespace PdfSharp.Pdf
     /// </summary>
     public override string ToString()
     {
-      return this.value.ToString("0.###", CultureInfo.InvariantCulture);
+      return value.ToString("0.###", CultureInfo.InvariantCulture);
     }
 
     /// <summary>

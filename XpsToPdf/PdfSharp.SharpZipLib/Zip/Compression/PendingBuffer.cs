@@ -149,7 +149,7 @@ namespace PdfSharp.SharpZipLib.Zip.Compression
       {
         throw new SharpZipBaseException();
       }
-      System.Array.Copy(block, offset, buf, end, len);
+      Array.Copy(block, offset, buf, end, len);
       end += len;
     }
 
@@ -262,13 +262,13 @@ namespace PdfSharp.SharpZipLib.Zip.Compression
       if (length > end - start)
       {
         length = end - start;
-        System.Array.Copy(buf, start, output, offset, length);
+        Array.Copy(buf, start, output, offset, length);
         start = 0;
         end = 0;
       }
       else
       {
-        System.Array.Copy(buf, start, output, offset, length);
+        Array.Copy(buf, start, output, offset, length);
         start += length;
       }
       return length;
@@ -284,7 +284,7 @@ namespace PdfSharp.SharpZipLib.Zip.Compression
     public byte[] ToByteArray()
     {
       byte[] ret = new byte[end - start];
-      System.Array.Copy(buf, start, ret, 0, ret.Length);
+      Array.Copy(buf, start, ret, 0, ret.Length);
       start = 0;
       end = 0;
       return ret;

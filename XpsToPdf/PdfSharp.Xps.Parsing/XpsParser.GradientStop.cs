@@ -19,18 +19,18 @@ namespace PdfSharp.Xps.Parsing
       GradientStop gs = new GradientStop();
       while (MoveToNextAttribute())
       {
-        switch (this.reader.Name)
+        switch (reader.Name)
         {
           case "Color":
-            gs.Color = Color.Parse(this.reader.Value);
+            gs.Color = Color.Parse(reader.Value);
             break;
 
           case "Offset":
-            gs.Offset = ParseDouble(this.reader.Value);
+            gs.Offset = ParseDouble(reader.Value);
             break;
 
           default:
-            UnexpectedAttribute(this.reader.Name);
+            UnexpectedAttribute(reader.Name);
             break;
         }
       }

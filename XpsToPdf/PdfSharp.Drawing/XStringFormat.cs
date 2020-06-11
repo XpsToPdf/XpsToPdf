@@ -104,10 +104,10 @@ namespace PdfSharp.Drawing
     /// </summary>
     public XStringAlignment Alignment
     { 
-      get {return this.alignment;}
+      get {return alignment;}
       set
       {
-        this.alignment = value;
+        alignment = value;
 #if GDI
         this.stringFormat.Alignment = (StringAlignment)value;
 #endif
@@ -127,10 +127,10 @@ namespace PdfSharp.Drawing
     /// </summary>
     public XLineAlignment LineAlignment
     { 
-      get {return this.lineAlignment;}
+      get {return lineAlignment;}
       set
       {
-        this.lineAlignment = value;
+        lineAlignment = value;
 #if GDI
         if (value == XLineAlignment.BaseLine)
           this.stringFormat.LineAlignment = StringAlignment.Near;
@@ -222,10 +222,10 @@ namespace PdfSharp.Drawing
     /// </summary>
     public XStringFormatFlags FormatFlags
     {
-      get {return this.formatFlags;}
+      get {return formatFlags;}
       set
       {
-        this.formatFlags = value;
+        formatFlags = value;
 #if GDI
         this.stringFormat.FormatFlags = (StringFormatFlags)value;
 #endif

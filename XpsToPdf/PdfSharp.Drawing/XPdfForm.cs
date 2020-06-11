@@ -91,12 +91,12 @@ namespace PdfSharp.Drawing
     internal XPdfForm(Stream stream)
     {
       // Create a dummy unique path
-      this.path = "*" + Guid.NewGuid().ToString("B");
+      path = "*" + Guid.NewGuid().ToString("B");
 
       if (PdfReader.TestPdfFile(stream) == 0)
         throw new ArgumentException("The specified stream has no valid PDF file header.", "stream");
 
-      this.externalDocument = PdfReader.Open(stream);
+      externalDocument = PdfReader.Open(stream);
     }
 
     /// <summary>
@@ -128,7 +128,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     internal override void Finish()
     {
-      if (this.formState == FormState.NotATemplate || this.formState == FormState.Finished)
+      if (formState == FormState.NotATemplate || formState == FormState.Finished)
         return;
 
       base.Finish();
@@ -163,17 +163,17 @@ namespace PdfSharp.Drawing
     // TODO: NYI: Dispose
     protected override void Dispose(bool disposing)
     {
-      if (!this.disposed)
+      if (!disposed)
       {
-        this.disposed = true;
+        disposed = true;
         try
         {
           if (disposing)
           {
             //...
           }
-          if (this.externalDocument != null)
-            PdfDocument.Tls.DetachDocument(this.externalDocument.Handle);
+          if (externalDocument != null)
+            PdfDocument.Tls.DetachDocument(externalDocument.Handle);
           //...
         }
         finally
@@ -191,8 +191,8 @@ namespace PdfSharp.Drawing
     /// </summary>
     public XImage PlaceHolder
     {
-      get { return this.placeHolder; }
-      set { this.placeHolder = value; }
+      get { return placeHolder; }
+      set { placeHolder = value; }
     }
     XImage placeHolder;
 
@@ -205,7 +205,7 @@ namespace PdfSharp.Drawing
       {
         if (IsTemplate)
           return null;
-        PdfPage page = ExternalDocument.Pages[this.pageNumber - 1];
+        PdfPage page = ExternalDocument.Pages[pageNumber - 1];
         return page;
       }
     }
@@ -219,9 +219,9 @@ namespace PdfSharp.Drawing
       {
         if (IsTemplate)
           return 1;
-        if (this.pageCount == -1)
-          this.pageCount = ExternalDocument.Pages.Count;
-        return this.pageCount;
+        if (pageCount == -1)
+          pageCount = ExternalDocument.Pages.Count;
+        return pageCount;
       }
     }
     int pageCount = -1;
@@ -234,7 +234,7 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        PdfPage page = ExternalDocument.Pages[this.pageNumber - 1];
+        PdfPage page = ExternalDocument.Pages[pageNumber - 1];
         return page.Width;
       }
     }
@@ -247,7 +247,7 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        PdfPage page = ExternalDocument.Pages[this.pageNumber - 1];
+        PdfPage page = ExternalDocument.Pages[pageNumber - 1];
         return page.Height;
       }
     }
@@ -259,7 +259,7 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        PdfPage page = ExternalDocument.Pages[this.pageNumber - 1];
+        PdfPage page = ExternalDocument.Pages[pageNumber - 1];
         return page.Width;
       }
     }
@@ -271,7 +271,7 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        PdfPage page = ExternalDocument.Pages[this.pageNumber - 1];
+        PdfPage page = ExternalDocument.Pages[pageNumber - 1];
         return page.Height;
       }
     }
@@ -309,7 +309,7 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        PdfPage page = ExternalDocument.Pages[this.pageNumber - 1];
+        PdfPage page = ExternalDocument.Pages[pageNumber - 1];
         return new XSize(page.Width, page.Height);
       }
     }
@@ -319,14 +319,14 @@ namespace PdfSharp.Drawing
     /// </summary>
     public override XMatrix Transform
     {
-      get { return this.transform; }
+      get { return transform; }
       set
       {
-        if (this.transform != value)
+        if (transform != value)
         {
           // discard PdfFromXObject when Transform changed
-          this.pdfForm = null;
-          this.transform = value;
+          pdfForm = null;
+          transform = value;
         }
       }
     }
@@ -337,17 +337,17 @@ namespace PdfSharp.Drawing
     /// </summary>
     public int PageNumber
     {
-      get { return this.pageNumber; }
+      get { return pageNumber; }
       set
       {
         if (IsTemplate)
           throw new InvalidOperationException("The page number of an XPdfForm template cannot be modified.");
 
-        if (this.pageNumber != value)
+        if (pageNumber != value)
         {
-          this.pageNumber = value;
+          pageNumber = value;
           // dispose PdfFromXObject when number has changed
-          this.pdfForm = null;
+          pdfForm = null;
         }
       }
     }
@@ -379,9 +379,9 @@ namespace PdfSharp.Drawing
         if (IsTemplate)
           throw new InvalidOperationException("This XPdfForm is a template and not an imported PDF page; therefore it has no external document.");
 
-        if (this.externalDocument == null)
-          this.externalDocument = PdfDocument.Tls.GetDocument(path);
-        return this.externalDocument;
+        if (externalDocument == null)
+          externalDocument = PdfDocument.Tls.GetDocument(path);
+        return externalDocument;
       }
     }
     internal PdfDocument externalDocument;

@@ -16,27 +16,27 @@ namespace PdfSharp.Xps.Parsing
     /// </summary>
     SignatureDefinition ParseSignatureDefinition()
     {
-      Debug.Assert(this.reader.Name == "");
-      bool isEmptyElement = this.reader.IsEmptyElement;
+      Debug.Assert(reader.Name == "");
+      bool isEmptyElement = reader.IsEmptyElement;
       SignatureDefinition signatureDefinition = new SignatureDefinition();
       while (MoveToNextAttribute())
       {
-        switch (this.reader.Name)
+        switch (reader.Name)
         {
           case "SpotID":
-            signatureDefinition.SpotID = this.reader.Value;
+            signatureDefinition.SpotID = reader.Value;
             break;
 
           case "SignerName":
-            signatureDefinition.SignerName = this.reader.Value;
+            signatureDefinition.SignerName = reader.Value;
             break;
 
           case "xml:lang":
-            signatureDefinition.lang = this.reader.Value;
+            signatureDefinition.lang = reader.Value;
             break;
           
           default:
-            UnexpectedAttribute(this.reader.Name);
+            UnexpectedAttribute(reader.Name);
             break;
         }
       }

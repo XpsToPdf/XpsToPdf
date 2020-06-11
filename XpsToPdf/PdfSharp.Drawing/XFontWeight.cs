@@ -63,7 +63,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     public int Weight
     {
-      get { return (this.weight); }
+      get { return (weight); }
     }
     private int weight;
 

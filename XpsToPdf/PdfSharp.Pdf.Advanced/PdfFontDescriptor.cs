@@ -151,7 +151,7 @@ namespace PdfSharp.Pdf.Advanced
     /// </summary>
     public bool IsSymbolFont
     {
-      get { return this.isSymbolFont; }
+      get { return isSymbolFont; }
     }
     bool isSymbolFont;
 
@@ -209,7 +209,7 @@ namespace PdfSharp.Pdf.Advanced
     PdfFontDescriptorFlags FlagsFromDescriptor(OpenTypeDescriptor descriptor)
     {
       PdfFontDescriptorFlags flags = 0;
-      this.isSymbolFont = descriptor.fontData.cmap.symbol;
+      isSymbolFont = descriptor.fontData.cmap.symbol;
       flags |= descriptor.fontData.cmap.symbol ? PdfFontDescriptorFlags.Symbolic : PdfFontDescriptorFlags.Nonsymbolic;
       return flags;
     }
@@ -395,9 +395,9 @@ namespace PdfSharp.Pdf.Advanced
       {
         get
         {
-          if (Keys.meta == null)
-            Keys.meta = CreateMeta(typeof(Keys));
-          return Keys.meta;
+          if (meta == null)
+            meta = CreateMeta(typeof(Keys));
+          return meta;
         }
       }
       static DictionaryMeta meta;

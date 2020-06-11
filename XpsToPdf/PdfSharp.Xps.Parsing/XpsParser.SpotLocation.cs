@@ -16,27 +16,27 @@ namespace PdfSharp.Xps.Parsing
     /// </summary>
     SpotLocation ParseSpotLocation()
     {
-      Debug.Assert(this.reader.Name == "");
-      bool isEmptyElement = this.reader.IsEmptyElement;
+      Debug.Assert(reader.Name == "");
+      bool isEmptyElement = reader.IsEmptyElement;
       SpotLocation spotLocation = new SpotLocation();
       while (MoveToNextAttribute())
       {
-        switch (this.reader.Name)
+        switch (reader.Name)
         {
           case "StartX":
-            spotLocation.StartX = double.Parse(this.reader.Value);
+            spotLocation.StartX = double.Parse(reader.Value);
             break;
 
           case "StartY":
-            spotLocation.StartY = double.Parse(this.reader.Value);
+            spotLocation.StartY = double.Parse(reader.Value);
             break;
 
           case "PageURI":
-            spotLocation.PageURI = this.reader.Value;
+            spotLocation.PageURI = reader.Value;
             break;
 
           default:
-            UnexpectedAttribute(this.reader.Name);
+            UnexpectedAttribute(reader.Name);
             break;
         }
       }

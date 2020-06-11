@@ -65,7 +65,7 @@ namespace PdfSharp.Pdf
     /// </summary>
     public PdfLiteral(string format, params object[] args)
     {
-      this.value = PdfEncoders.Format(format, args);
+      value = PdfEncoders.Format(format, args);
     }
 
     /// <summary>
@@ -82,7 +82,7 @@ namespace PdfSharp.Pdf
     public string Value
     {
       // This class must behave like a value type. Therefore it cannot be changed (like System.String).
-      get { return this.value; }
+      get { return value; }
     }
     readonly string value = String.Empty;
 
@@ -91,7 +91,7 @@ namespace PdfSharp.Pdf
     /// </summary>
     public override string ToString()
     {
-      return this.value;
+      return value;
     }
 
     internal override void WriteObject(PdfWriter writer)

@@ -59,9 +59,9 @@ namespace PdfSharp.Pdf.Internal
     {
       get
       {
-        if (PdfEncoders.rawEncoding == null)
-          PdfEncoders.rawEncoding = new RawEncoding();
-        return PdfEncoders.rawEncoding;
+        if (rawEncoding == null)
+          rawEncoding = new RawEncoding();
+        return rawEncoding;
       }
     }
     static Encoding rawEncoding;
@@ -73,9 +73,9 @@ namespace PdfSharp.Pdf.Internal
     {
       get
       {
-        if (PdfEncoders.rawUnicodeEncoding == null)
-          PdfEncoders.rawUnicodeEncoding = new RawUnicodeEncoding();
-        return PdfEncoders.rawUnicodeEncoding;
+        if (rawUnicodeEncoding == null)
+          rawUnicodeEncoding = new RawUnicodeEncoding();
+        return rawUnicodeEncoding;
       }
     }
     static Encoding rawUnicodeEncoding;
@@ -87,14 +87,14 @@ namespace PdfSharp.Pdf.Internal
     {
       get
       {
-        if (PdfEncoders.winAnsiEncoding == null)
-          PdfEncoders.winAnsiEncoding =
+        if (winAnsiEncoding == null)
+          winAnsiEncoding =
 #if !SILVERLIGHT
             Encoding.GetEncoding(1252);
 #else
  Encoding.GetEncoding("utf-8"); // AGHACK
 #endif
-        return PdfEncoders.winAnsiEncoding;
+        return winAnsiEncoding;
       }
     }
     static Encoding winAnsiEncoding;
@@ -106,9 +106,9 @@ namespace PdfSharp.Pdf.Internal
     {
       get
       {
-        if (PdfEncoders.docEncoding == null)
-          PdfEncoders.docEncoding = new DocEncoding();
-        return PdfEncoders.docEncoding;
+        if (docEncoding == null)
+          docEncoding = new DocEncoding();
+        return docEncoding;
       }
     }
     static Encoding docEncoding;
@@ -120,9 +120,9 @@ namespace PdfSharp.Pdf.Internal
     {
       get
       {
-        if (PdfEncoders.unicodeEncoding == null)
-          PdfEncoders.unicodeEncoding = Encoding.Unicode;
-        return PdfEncoders.unicodeEncoding;
+        if (unicodeEncoding == null)
+          unicodeEncoding = Encoding.Unicode;
+        return unicodeEncoding;
       }
     }
     static Encoding unicodeEncoding;

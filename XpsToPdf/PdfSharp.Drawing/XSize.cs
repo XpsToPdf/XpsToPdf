@@ -69,8 +69,8 @@ namespace PdfSharp.Drawing
     [Obsolete("Use explicit conversion to make your code more readable.")]
     public XSize(XPoint pt)  // DELETE: 08-12-31
     {
-      this.width = pt.X;
-      this.height = pt.Y;
+      width = pt.X;
+      height = pt.Y;
     }
 
     /// <summary>
@@ -160,7 +160,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     public XPoint ToXPoint()
     {
-      return new XPoint(this.width, this.height);
+      return new XPoint(width, height);
     }
 
     /// <summary>
@@ -168,7 +168,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     public XVector ToXVector()
     {
-      return new XVector(this.width, this.height);
+      return new XVector(width, height);
     }
 
 #if GDI
@@ -185,9 +185,9 @@ namespace PdfSharp.Drawing
     /// <summary>
     /// Converts this XSize to a System.Windows.Size.
     /// </summary>
-    public System.Windows.Size ToSize()
+    public Size ToSize()
     {
-      return new System.Windows.Size(this.width, this.height);
+      return new Size(width, height);
     }
 #endif
 
@@ -214,7 +214,7 @@ namespace PdfSharp.Drawing
     /// <summary>
     /// Creates an XSize from a System.Drawing.Size.
     /// </summary>
-    public static XSize FromSize(System.Windows.Size size)
+    public static XSize FromSize(Size size)
     {
       return new XSize(size.Width, size.Height);
     }
@@ -260,7 +260,7 @@ namespace PdfSharp.Drawing
         return "Empty";
 
       char numericListSeparator = TokenizerHelper.GetNumericListSeparator(provider);
-      return string.Format(provider, "{1:" + format + "}{0}{2:" + format + "}", new object[] { numericListSeparator, this.width, this.height });
+      return string.Format(provider, "{1:" + format + "}{0}{2:" + format + "}", new object[] { numericListSeparator, width, height });
     }
 
     /// <summary>
@@ -276,7 +276,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     public bool IsEmpty
     {
-      get { return this.width < 0; }
+      get { return width < 0; }
     }
 
     /// <summary>
@@ -284,14 +284,14 @@ namespace PdfSharp.Drawing
     /// </summary>
     public double Width
     {
-      get { return this.width; }
+      get { return width; }
       set
       {
         if (IsEmpty)
           throw new InvalidOperationException("CannotModifyEmptySize"); //SR.Get(SRID.Size_CannotModifyEmptySize, new object[0]));
         if (value < 0)
           throw new ArgumentException("WidthCannotBeNegative"); //SR.Get(SRID.Size_WidthCannotBeNegative, new object[0]));
-        this.width = value;
+        width = value;
       }
     }
 
@@ -300,14 +300,14 @@ namespace PdfSharp.Drawing
     /// </summary>
     public double Height
     {
-      get { return this.height; }
+      get { return height; }
       set
       {
         if (IsEmpty)
           throw new InvalidOperationException("CannotModifyEmptySize"); // SR.Get(SRID.Size_CannotModifyEmptySize, new object[0]));
         if (value < 0)
           throw new ArgumentException("HeightCannotBeNegative"); //SR.Get(SRID.Size_HeightCannotBeNegative, new object[0]));
-        this.height = value;
+        height = value;
       }
     }
 
@@ -331,7 +331,7 @@ namespace PdfSharp.Drawing
     /// <summary>
     /// Performs an explicit conversion from Size to XSize.
     /// </summary>
-    public static explicit operator XSize(System.Windows.Size size)
+    public static explicit operator XSize(Size size)
     {
       return new XSize(size.Width, size.Height);
     }

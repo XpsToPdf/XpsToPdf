@@ -63,9 +63,9 @@ namespace PdfSharp.Pdf.Security
     {
       set
       {
-        if (this.document.securitySettings.DocumentSecurityLevel == PdfDocumentSecurityLevel.None)
-          this.document.securitySettings.DocumentSecurityLevel = PdfDocumentSecurityLevel.Encrypted128Bit;
-        this.userPassword = value;
+        if (document.securitySettings.DocumentSecurityLevel == PdfDocumentSecurityLevel.None)
+          document.securitySettings.DocumentSecurityLevel = PdfDocumentSecurityLevel.Encrypted128Bit;
+        userPassword = value;
       }
     }
     internal string userPassword;
@@ -79,9 +79,9 @@ namespace PdfSharp.Pdf.Security
     {
       set
       {
-        if (this.document.securitySettings.DocumentSecurityLevel == PdfDocumentSecurityLevel.None)
-          this.document.securitySettings.DocumentSecurityLevel = PdfDocumentSecurityLevel.Encrypted128Bit;
-        this.ownerPassword = value;
+        if (document.securitySettings.DocumentSecurityLevel == PdfDocumentSecurityLevel.None)
+          document.securitySettings.DocumentSecurityLevel = PdfDocumentSecurityLevel.Encrypted128Bit;
+        ownerPassword = value;
       }
     }
     internal string ownerPassword;
@@ -106,7 +106,7 @@ namespace PdfSharp.Pdf.Security
     /// </summary>
     public void EncryptDocument()
     {
-      foreach (PdfReference iref in this.document.irefTable.AllReferences)
+      foreach (PdfReference iref in document.irefTable.AllReferences)
       {
         if (!ReferenceEquals(iref.Value, this))
           EncryptObject(iref.Value);
@@ -255,10 +255,10 @@ namespace PdfSharp.Pdf.Security
       InitWidhOwnerPassword(documentID, inputPassword, oValue, pValue, strongEncryption);
       if (EqualsKey(uValue, keyLength))
       {
-        this.document.SecuritySettings.hasOwnerPermissions = true;
+        document.SecuritySettings.hasOwnerPermissions = true;
         return PasswordValidity.OwnerPassword;
       }
-      this.document.SecuritySettings.hasOwnerPermissions = false;
+      document.SecuritySettings.hasOwnerPermissions = false;
 
       // Now try user password
       password = PdfEncoders.RawEncoding.GetBytes(inputPassword);
@@ -352,13 +352,13 @@ namespace PdfSharp.Pdf.Security
     {
       byte[] ownerKey = new byte[32];
 #if !SILVERLIGHT
-      byte[] digest = this.md5.ComputeHash(ownerPad);
+      byte[] digest = md5.ComputeHash(ownerPad);
       if (strongEncryption)
       {
         byte[] mkey = new byte[16];
         // Hash the pad 50 times
         for (int idx = 0; idx < 50; idx++)
-          digest = this.md5.ComputeHash(digest);
+          digest = md5.ComputeHash(digest);
         Array.Copy(userPad, 0, ownerKey, 0, 32);
         // Encrypt the key
         for (int i = 0; i < 20; i++)
@@ -385,11 +385,11 @@ namespace PdfSharp.Pdf.Security
     {
 #if !SILVERLIGHT
       this.ownerKey = ownerKey;
-      this.encryptionKey = new byte[strongEncryption ? 16 : 5];
+      encryptionKey = new byte[strongEncryption ? 16 : 5];
 
-      this.md5.Initialize();
-      this.md5.TransformBlock(userPad, 0, userPad.Length, userPad, 0);
-      this.md5.TransformBlock(ownerKey, 0, ownerKey.Length, ownerKey, 0);
+      md5.Initialize();
+      md5.TransformBlock(userPad, 0, userPad.Length, userPad, 0);
+      md5.TransformBlock(ownerKey, 0, ownerKey.Length, ownerKey, 0);
 
       // Split permission into 4 bytes
       byte[] permission = new byte[4];
@@ -397,21 +397,21 @@ namespace PdfSharp.Pdf.Security
       permission[1] = (byte)(permissions >> 8);
       permission[2] = (byte)(permissions >> 16);
       permission[3] = (byte)(permissions >> 24);
-      this.md5.TransformBlock(permission, 0, 4, permission, 0);
-      this.md5.TransformBlock(documentID, 0, documentID.Length, documentID, 0);
-      this.md5.TransformFinalBlock(permission, 0, 0);
-      byte[] digest = this.md5.Hash;
-      this.md5.Initialize();
+      md5.TransformBlock(permission, 0, 4, permission, 0);
+      md5.TransformBlock(documentID, 0, documentID.Length, documentID, 0);
+      md5.TransformFinalBlock(permission, 0, 0);
+      byte[] digest = md5.Hash;
+      md5.Initialize();
       // Create the hash 50 times (only for 128 bit)
-      if (this.encryptionKey.Length == 16)
+      if (encryptionKey.Length == 16)
       {
         for (int idx = 0; idx < 50; idx++)
         {
-          digest = this.md5.ComputeHash(digest);
-          this.md5.Initialize();
+          digest = md5.ComputeHash(digest);
+          md5.Initialize();
         }
       }
-      Array.Copy(digest, 0, this.encryptionKey, 0, this.encryptionKey.Length);
+      Array.Copy(digest, 0, encryptionKey, 0, encryptionKey.Length);
 #endif
     }
 
@@ -421,28 +421,28 @@ namespace PdfSharp.Pdf.Security
     void SetupUserKey(byte[] documentID)
     {
 #if !SILVERLIGHT
-      if (this.encryptionKey.Length == 16)
+      if (encryptionKey.Length == 16)
       {
-        this.md5.TransformBlock(passwordPadding, 0, passwordPadding.Length, passwordPadding, 0);
-        this.md5.TransformFinalBlock(documentID, 0, documentID.Length);
-        byte[] digest = this.md5.Hash;
-        this.md5.Initialize();
-        Array.Copy(digest, 0, this.userKey, 0, 16);
+        md5.TransformBlock(passwordPadding, 0, passwordPadding.Length, passwordPadding, 0);
+        md5.TransformFinalBlock(documentID, 0, documentID.Length);
+        byte[] digest = md5.Hash;
+        md5.Initialize();
+        Array.Copy(digest, 0, userKey, 0, 16);
         for (int idx = 16; idx < 32; idx++)
-          this.userKey[idx] = 0;
+          userKey[idx] = 0;
         //Encrypt the key
         for (int i = 0; i < 20; i++)
         {
-          for (int j = 0; j < this.encryptionKey.Length; j++)
-            digest[j] = (byte)(this.encryptionKey[j] ^ i);
-          PrepareRC4Key(digest, 0, this.encryptionKey.Length);
-          EncryptRC4(this.userKey, 0, 16);
+          for (int j = 0; j < encryptionKey.Length; j++)
+            digest[j] = (byte)(encryptionKey[j] ^ i);
+          PrepareRC4Key(digest, 0, encryptionKey.Length);
+          EncryptRC4(userKey, 0, 16);
         }
       }
       else
       {
-        PrepareRC4Key(this.encryptionKey);
-        EncryptRC4(passwordPadding, this.userKey);
+        PrepareRC4Key(encryptionKey);
+        EncryptRC4(passwordPadding, userKey);
       }
 #endif
     }
@@ -452,7 +452,7 @@ namespace PdfSharp.Pdf.Security
     /// </summary>
     void PrepareKey()
     {
-      PrepareRC4Key(this.key, 0, this.keySize);
+      PrepareRC4Key(key, 0, keySize);
     }
 
     /// <summary>
@@ -471,14 +471,14 @@ namespace PdfSharp.Pdf.Security
       int idx1 = 0;
       int idx2 = 0;
       for (int idx = 0; idx < 256; idx++)
-        this.state[idx] = (byte)idx;
+        state[idx] = (byte)idx;
       byte tmp;
       for (int idx = 0; idx < 256; idx++)
       {
-        idx2 = (key[idx1 + offset] + this.state[idx] + idx2) & 255;
-        tmp = this.state[idx];
-        this.state[idx] = this.state[idx2];
-        this.state[idx2] = tmp;
+        idx2 = (key[idx1 + offset] + state[idx] + idx2) & 255;
+        tmp = state[idx];
+        state[idx] = state[idx2];
+        state[idx2] = tmp;
         idx1 = (idx1 + 1) % length;
       }
     }
@@ -518,11 +518,11 @@ namespace PdfSharp.Pdf.Security
       for (int idx = offset; idx < length; idx++)
       {
         x = (x + 1) & 255;
-        y = (this.state[x] + y) & 255;
-        b = this.state[x];
-        this.state[x] = this.state[y];
-        this.state[y] = b;
-        outputData[idx] = (byte)(inputData[idx] ^ state[(this.state[x] + this.state[y]) & 255]);
+        y = (state[x] + y) & 255;
+        b = state[x];
+        state[x] = state[y];
+        state[y] = b;
+        outputData[idx] = (byte)(inputData[idx] ^ state[(state[x] + state[y]) & 255]);
       }
     }
 
@@ -533,7 +533,7 @@ namespace PdfSharp.Pdf.Security
     {
       for (int idx = 0; idx < length; idx++)
       {
-        if (this.userKey[idx] != value[idx])
+        if (userKey[idx] != value[idx])
           return false;
       }
       return true;
@@ -546,20 +546,20 @@ namespace PdfSharp.Pdf.Security
     {
 #if !SILVERLIGHT
       byte[] objectId = new byte[5];
-      this.md5.Initialize();
+      md5.Initialize();
       // Split the object number and generation
       objectId[0] = (byte)id.ObjectNumber;
       objectId[1] = (byte)(id.ObjectNumber >> 8);
       objectId[2] = (byte)(id.ObjectNumber >> 16);
       objectId[3] = (byte)id.GenerationNumber;
       objectId[4] = (byte)(id.GenerationNumber >> 8);
-      this.md5.TransformBlock(this.encryptionKey, 0, this.encryptionKey.Length, this.encryptionKey, 0);
-      this.md5.TransformFinalBlock(objectId, 0, objectId.Length);
-      this.key = this.md5.Hash;
-      this.md5.Initialize();
-      this.keySize = this.encryptionKey.Length + 5;
-      if (this.keySize > 16)
-        this.keySize = 16;
+      md5.TransformBlock(encryptionKey, 0, encryptionKey.Length, encryptionKey, 0);
+      md5.TransformFinalBlock(objectId, 0, objectId.Length);
+      key = md5.Hash;
+      md5.Initialize();
+      keySize = encryptionKey.Length + 5;
+      if (keySize > 16)
+        keySize = 16;
 #endif
     }
 
@@ -569,9 +569,9 @@ namespace PdfSharp.Pdf.Security
     public void PrepareEncryption()
     {
 #if !SILVERLIGHT
-      Debug.Assert(this.document.securitySettings.DocumentSecurityLevel != PdfDocumentSecurityLevel.None);
-      int permissions = (int)this.Permission;
-      bool strongEncryption = this.document.securitySettings.DocumentSecurityLevel == PdfDocumentSecurityLevel.Encrypted128Bit;
+      Debug.Assert(document.securitySettings.DocumentSecurityLevel != PdfDocumentSecurityLevel.None);
+      int permissions = (int)Permission;
+      bool strongEncryption = document.securitySettings.DocumentSecurityLevel == PdfDocumentSecurityLevel.Encrypted128Bit;
 
       PdfInteger vValue;
       PdfInteger length;
@@ -590,11 +590,11 @@ namespace PdfSharp.Pdf.Security
         rValue = new PdfInteger(2);
       }
 
-      if (String.IsNullOrEmpty(this.userPassword))
-        this.userPassword = "";
+      if (String.IsNullOrEmpty(userPassword))
+        userPassword = "";
       // Use user password twice if no owner password provided.
-      if (String.IsNullOrEmpty(this.ownerPassword))
-        this.ownerPassword = this.userPassword;
+      if (String.IsNullOrEmpty(ownerPassword))
+        ownerPassword = userPassword;
 
       // Correct permission bits
       permissions |= (int)(strongEncryption ? (uint)0xfffff0c0 : (uint)0xffffffc0);
@@ -602,21 +602,21 @@ namespace PdfSharp.Pdf.Security
 
       PdfInteger pValue = new PdfInteger(permissions);
 
-      Debug.Assert(this.ownerPassword.Length > 0, "Empty owner password.");
-      byte[] userPad = PadPassword(this.userPassword);
-      byte[] ownerPad = PadPassword(this.ownerPassword);
+      Debug.Assert(ownerPassword.Length > 0, "Empty owner password.");
+      byte[] userPad = PadPassword(userPassword);
+      byte[] ownerPad = PadPassword(ownerPassword);
 
-      this.md5.Initialize();
-      this.ownerKey = ComputeOwnerKey(userPad, ownerPad, strongEncryption);
-      byte[] documentID = PdfEncoders.RawEncoding.GetBytes(this.document.Internals.FirstDocumentID);
-      InitWidhUserPassword(documentID, this.userPassword, this.ownerKey, permissions, strongEncryption);
+      md5.Initialize();
+      ownerKey = ComputeOwnerKey(userPad, ownerPad, strongEncryption);
+      byte[] documentID = PdfEncoders.RawEncoding.GetBytes(document.Internals.FirstDocumentID);
+      InitWidhUserPassword(documentID, userPassword, ownerKey, permissions, strongEncryption);
 
-      PdfString oValue = new PdfString(PdfEncoders.RawEncoding.GetString(this.ownerKey));
-      PdfString uValue = new PdfString(PdfEncoders.RawEncoding.GetString(this.userKey));
+      PdfString oValue = new PdfString(PdfEncoders.RawEncoding.GetString(ownerKey));
+      PdfString uValue = new PdfString(PdfEncoders.RawEncoding.GetString(userKey));
 
-      Elements[Keys.Filter] = new PdfName("/Standard");
-      Elements[Keys.V] = vValue;
-      Elements[Keys.Length] = length;
+      Elements[PdfSecurityHandler.Keys.Filter] = new PdfName("/Standard");
+      Elements[PdfSecurityHandler.Keys.V] = vValue;
+      Elements[PdfSecurityHandler.Keys.Length] = length;
       Elements[Keys.R] = rValue;
       Elements[Keys.O] = oValue;
       Elements[Keys.U] = uValue;

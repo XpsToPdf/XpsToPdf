@@ -60,19 +60,19 @@ namespace PdfSharp.Xps
         throw new ArgumentNullException("xpsDocumentPath");
 
       this.pdfDocument = pdfDocument;
-      this.xpsDocument = XpsDocument.Open(xpsDocumentPath);
+      xpsDocument = XpsDocument.Open(xpsDocumentPath);
 
       Initialize();
     }
 
     void Initialize()
     {
-      this.context = new DocumentRenderingContext(this.pdfDocument);
+      context = new DocumentRenderingContext(pdfDocument);
     }
 
     DocumentRenderingContext Context
     {
-      get { return this.context; }
+      get { return context; }
     }
     DocumentRenderingContext context;
 
@@ -81,9 +81,9 @@ namespace PdfSharp.Xps
     /// </summary>
     public PdfPage CreatePage(int xpsPageIndex)
     {
-      FixedPage fixedPage = this.xpsDocument.GetDocument().GetFixedPage(xpsPageIndex);
+      FixedPage fixedPage = xpsDocument.GetDocument().GetFixedPage(xpsPageIndex);
 
-      PdfPage page = this.pdfDocument.AddPage();
+      PdfPage page = pdfDocument.AddPage();
       page.Width = XUnit.FromPresentation(fixedPage.Width);
       page.Height = XUnit.FromPresentation(fixedPage.Height);
       return page;
@@ -98,16 +98,16 @@ namespace PdfSharp.Xps
     {
       if (page == null)
         throw new ArgumentNullException("page");
-      if (!ReferenceEquals(page.Owner, this.pdfDocument))
+      if (!ReferenceEquals(page.Owner, pdfDocument))
         throw new InvalidOperationException(PSXSR.PageMustBelongToPdfDocument);
       // Debug.Assert(xpsPageIndex==0, "xpsPageIndex must be 0 at this stage of implementation.");
       try
       {
-        FixedPage fpage = this.xpsDocument.GetDocument().GetFixedPage(xpsPageIndex);
+        FixedPage fpage = xpsDocument.GetDocument().GetFixedPage(xpsPageIndex);
 
         // ZipPackage pack = ZipPackage.Open(xpsFilename) as ZipPackage;
         Uri uri = new Uri("/Documents/1/Pages/1.fpage", UriKind.Relative);
-        ZipPackagePart part = this.xpsDocument.Package.GetPart(uri) as ZipPackagePart;
+        ZipPackagePart part = xpsDocument.Package.GetPart(uri) as ZipPackagePart;
         if (part != null)
         {
           using (Stream stream = part.GetStream())
@@ -115,11 +115,11 @@ namespace PdfSharp.Xps
           {
             string xml = sr.ReadToEnd();
 #if true && DEBUG
-            if (!String.IsNullOrEmpty(this.xpsDocument.Path))
+            if (!String.IsNullOrEmpty(xpsDocument.Path))
             {
               string xmlPath =
-                IOPath.Combine(IOPath.GetDirectoryName(this.xpsDocument.Path),
-                               IOPath.GetFileNameWithoutExtension(this.xpsDocument.Path)) + ".xml";
+                IOPath.Combine(IOPath.GetDirectoryName(xpsDocument.Path),
+                               IOPath.GetFileNameWithoutExtension(xpsDocument.Path)) + ".xml";
               using (StreamWriter sw = new StreamWriter(xmlPath))
               {
                 sw.Write(xml);
@@ -144,7 +144,7 @@ namespace PdfSharp.Xps
     /// </summary>
     public PdfDocument PdfDocument
     {
-      get { return this.pdfDocument; }
+      get { return pdfDocument; }
     }
     PdfDocument pdfDocument;
 
@@ -153,7 +153,7 @@ namespace PdfSharp.Xps
     /// </summary>
     public XpsDocument XpsDocument
     {
-      get { return this.xpsDocument; }
+      get { return xpsDocument; }
     }
     XpsDocument xpsDocument;
 
@@ -339,7 +339,7 @@ namespace PdfSharp.Xps
 
     static public void SaveXpsPageToBitmap(string xpsFileName)
     {
-      System.Windows.Xps.Packaging.XpsDocument xpsDoc = new System.Windows.Xps.Packaging.XpsDocument(xpsFileName, System.IO.FileAccess.Read);
+      System.Windows.Xps.Packaging.XpsDocument xpsDoc = new System.Windows.Xps.Packaging.XpsDocument(xpsFileName, FileAccess.Read);
       System.Windows.Documents.FixedDocumentSequence docSeq = xpsDoc.GetFixedDocumentSequence();
 
       // You can get the total page count from docSeq.PageCount    
@@ -351,7 +351,7 @@ namespace PdfSharp.Xps
                                     (int)docPage.Size.Height,
                                     96, // WPF (Avalon) units are 96dpi based    
                                     96,
-                                    System.Windows.Media.PixelFormats.Default);
+                                    PixelFormats.Default);
 
         renderTarget.Render(docPage.Visual);
 

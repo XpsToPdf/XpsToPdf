@@ -86,7 +86,7 @@ namespace PdfSharp.Drawing
 
     public override int GetHashCode()
     {
-      return this.x.GetHashCode() ^ this.y.GetHashCode();
+      return x.GetHashCode() ^ y.GetHashCode();
     }
 
     //public static XVector Parse(string source)
@@ -101,14 +101,14 @@ namespace PdfSharp.Drawing
 
     public double X
     {
-      get { return this.x; }
-      set { this.x = value; }
+      get { return x; }
+      set { x = value; }
     }
 
     public double Y
     {
-      get { return this.y; }
-      set { this.y = value; }
+      get { return y; }
+      set { y = value; }
     }
 
     public override string ToString()
@@ -129,22 +129,22 @@ namespace PdfSharp.Drawing
     internal string ConvertToString(string format, IFormatProvider provider)
     {
       const char numericListSeparator = ',';
-      return string.Format(provider, "{1:" + format + "}{0}{2:" + format + "}", new object[] { numericListSeparator, this.x, this.y });
+      return string.Format(provider, "{1:" + format + "}{0}{2:" + format + "}", new object[] { numericListSeparator, x, y });
     }
 
     public double Length
     {
-      get { return Math.Sqrt((this.x * this.x) + (this.y * this.y)); }
+      get { return Math.Sqrt((x * x) + (y * y)); }
     }
 
     public double LengthSquared
     {
-      get { return this.x * this.x + this.y * this.y; }
+      get { return x * x + y * y; }
     }
 
     public void Normalize()
     {
-      this = this / Math.Max(Math.Abs(this.x), Math.Abs(this.y));
+      this = this / Math.Max(Math.Abs(x), Math.Abs(y));
       this = this / Length;
     }
 
@@ -167,8 +167,8 @@ namespace PdfSharp.Drawing
 
     public void Negate()
     {
-      this.x = -this.x;
-      this.y = -this.y;
+      x = -x;
+      y = -y;
     }
 
     public static XVector operator +(XVector vector1, XVector vector2)

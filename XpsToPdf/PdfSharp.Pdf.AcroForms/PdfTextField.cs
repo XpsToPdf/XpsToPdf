@@ -60,8 +60,8 @@ namespace PdfSharp.Pdf.AcroForms
     /// </summary>
     public string Text
     {
-      get { return Elements.GetString(Keys.V); }
-      set { Elements.SetString(Keys.V, value); RenderAppearance(); } //HACK in PdfTextField
+      get { return Elements.GetString(PdfAcroField.Keys.V); }
+      set { Elements.SetString(PdfAcroField.Keys.V, value); RenderAppearance(); } //HACK in PdfTextField
     }
 
     /// <summary>
@@ -69,8 +69,8 @@ namespace PdfSharp.Pdf.AcroForms
     /// </summary>
     public XFont Font
     {
-      get { return this.font; }
-      set { this.font = value; }
+      get { return font; }
+      set { font = value; }
     }
     XFont font = new XFont("Courier New", 10);
 
@@ -79,8 +79,8 @@ namespace PdfSharp.Pdf.AcroForms
     /// </summary>
     public XColor ForeColor
     {
-      get { return this.foreColor; }
-      set { this.foreColor = value; }
+      get { return foreColor; }
+      set { foreColor = value; }
     }
     XColor foreColor = XColors.Black;
 
@@ -89,8 +89,8 @@ namespace PdfSharp.Pdf.AcroForms
     /// </summary>
     public XColor BackColor
     {
-      get { return this.backColor; }
-      set { this.backColor = value; }
+      get { return backColor; }
+      set { backColor = value; }
     }
     XColor backColor = XColor.Empty;
 
@@ -141,7 +141,7 @@ namespace PdfSharp.Pdf.AcroForms
     void RenderAppearance()
     {
       PdfRectangle rect = Elements.GetRectangle(PdfAnnotation.Keys.Rect);
-      XForm form = new XForm(this.document, rect.Size);
+      XForm form = new XForm(document, rect.Size);
       XGraphics gfx = XGraphics.FromForm(form);
 
       if (backColor != XColor.Empty)
@@ -158,7 +158,7 @@ namespace PdfSharp.Pdf.AcroForms
       PdfDictionary ap = Elements[PdfAnnotation.Keys.AP] as PdfDictionary;
       if (ap == null)
       {
-        ap = new PdfDictionary(this.document);
+        ap = new PdfDictionary(document);
         Elements[PdfAnnotation.Keys.AP] = ap;
       }
 
@@ -191,9 +191,9 @@ namespace PdfSharp.Pdf.AcroForms
       {
         get
         {
-          if (Keys.meta == null)
-            Keys.meta = CreateMeta(typeof(Keys));
-          return Keys.meta;
+          if (meta == null)
+            meta = CreateMeta(typeof(Keys));
+          return meta;
         }
       }
       static DictionaryMeta meta;

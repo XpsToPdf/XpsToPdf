@@ -16,31 +16,31 @@ namespace PdfSharp.Xps.Parsing
     /// </summary>
     OutlineEntry ParseOutlineEntry()
     {
-      Debug.Assert(this.reader.Name == "");
-      bool isEmptyElement = this.reader.IsEmptyElement;
+      Debug.Assert(reader.Name == "");
+      bool isEmptyElement = reader.IsEmptyElement;
       OutlineEntry outlineEntry = new OutlineEntry();
       while (MoveToNextAttribute())
       {
-        switch (this.reader.Name)
+        switch (reader.Name)
         {
           case "OutlineLevel":
-            outlineEntry.OutlineLevel = int.Parse(this.reader.Value);
+            outlineEntry.OutlineLevel = int.Parse(reader.Value);
             break;
 
           case "OutlineTarget":
-            outlineEntry.OutlineTarget = this.reader.Value;
+            outlineEntry.OutlineTarget = reader.Value;
             break;
 
           case "Description":
-            outlineEntry.Description = this.reader.Value;
+            outlineEntry.Description = reader.Value;
             break;
 
           case "xml:lang":
-            outlineEntry.lang = this.reader.Value;
+            outlineEntry.lang = reader.Value;
             break;
           
           default:
-            UnexpectedAttribute(this.reader.Name);
+            UnexpectedAttribute(reader.Name);
             break;
         }
       }

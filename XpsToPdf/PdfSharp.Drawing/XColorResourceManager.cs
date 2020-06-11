@@ -127,7 +127,7 @@ namespace PdfSharp.Drawing
       ColorResourceInfo colorInfo = GetColorInfo(knownColor);
 
       // Currently German only
-      if (this.cultureInfo.TwoLetterISOLanguageName == "de")
+      if (cultureInfo.TwoLetterISOLanguageName == "de")
         return colorInfo.NameDE;
 
       return colorInfo.Name;
@@ -343,9 +343,9 @@ namespace PdfSharp.Drawing
       {
         this.knownColor = knownColor;
         this.color = color;
-        this.Argb = argb;
-        this.Name = name;
-        this.NameDE = nameDE;
+        Argb = argb;
+        Name = name;
+        NameDE = nameDE;
       }
       public XKnownColor knownColor;
       public XColor color;

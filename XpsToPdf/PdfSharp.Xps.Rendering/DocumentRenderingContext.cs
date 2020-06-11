@@ -28,7 +28,7 @@ namespace PdfSharp.Xps.Rendering
     /// </summary>
     public PdfDocument PdfDocument
     {
-      get { return this.pdfDocument; }
+      get { return pdfDocument; }
     }
     PdfDocument pdfDocument;
 

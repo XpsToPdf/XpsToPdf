@@ -138,15 +138,15 @@ namespace PdfSharp.Pdf
       PdfObjectID objectID = new PdfObjectID(objectNumber, generationNumber);
 
       // TODO: check imported
-      if (this.iref == null)
-        this.iref = this.document.irefTable[objectID];
-      if (this.iref == null)
+      if (iref == null)
+        iref = document.irefTable[objectID];
+      if (iref == null)
       {
-        this.iref = new PdfReference(this);
-        this.iref.ObjectID = objectID;
+        iref = new PdfReference(this);
+        iref.ObjectID = objectID;
       }
-      this.iref.Value = this;
-      this.iref.Document = this.document;
+      iref.Value = this;
+      iref.Document = document;
     }
 
     //internal void SetObjectID2(PdfObjectID objectID)
@@ -163,7 +163,7 @@ namespace PdfSharp.Pdf
     /// </summary>
     public virtual PdfDocument Owner
     {
-      get { return this.document; }
+      get { return document; }
     }
 
     /// <summary>
@@ -173,13 +173,13 @@ namespace PdfSharp.Pdf
     {
       set
       {
-        if (!ReferenceEquals(this.document, value))
+        if (!ReferenceEquals(document, value))
         {
-          if (this.document != null)
+          if (document != null)
             throw new InvalidOperationException("Cannot change document.");
-          this.document = value;
-          if (this.iref != null)
-            this.iref.Document = value;
+          document = value;
+          if (iref != null)
+            iref.Document = value;
         }
       }
     }
@@ -191,7 +191,7 @@ namespace PdfSharp.Pdf
     public bool IsIndirect
     {
       // An object is an indirect object if and only if is has an indirect reference value.
-      get { return this.iref != null; }
+      get { return iref != null; }
     }
 
     /// <summary>
@@ -202,9 +202,9 @@ namespace PdfSharp.Pdf
     {
       get
       {
-        if (this.internals == null)
-          this.internals = new PdfObjectInternals(this);
-        return this.internals;
+        if (internals == null)
+          internals = new PdfObjectInternals(this);
+        return internals;
       }
     }
     PdfObjectInternals internals;
@@ -242,7 +242,7 @@ namespace PdfSharp.Pdf
     /// </summary>
     internal PdfObjectID ObjectID
     {
-      get { return this.iref != null ? this.iref.ObjectID : PdfObjectID.Empty; }
+      get { return iref != null ? iref.ObjectID : PdfObjectID.Empty; }
     }
 
     /// <summary>
@@ -523,11 +523,11 @@ namespace PdfSharp.Pdf
     /// </summary>
     public PdfReference Reference
     {
-      get { return this.iref; }
+      get { return iref; }
       set
       {
         //Debug.Assert(value.Value == null);
-        this.iref = value;
+        iref = value;
       }
     }
     internal PdfReference iref;

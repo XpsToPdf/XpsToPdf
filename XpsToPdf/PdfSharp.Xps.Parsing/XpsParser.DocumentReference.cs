@@ -16,19 +16,19 @@ namespace PdfSharp.Xps.Parsing
     /// </summary>
     DocumentReference ParseDocumentReference()
     {
-      Debug.Assert(this.reader.Name == "DocumentReference");
-      bool isEmptyElement = this.reader.IsEmptyElement;
+      Debug.Assert(reader.Name == "DocumentReference");
+      bool isEmptyElement = reader.IsEmptyElement;
       DocumentReference documentReference = new DocumentReference();
       while (MoveToNextAttribute())
       {
-        switch (this.reader.Name)
+        switch (reader.Name)
         {
           case "Source":
-            documentReference.Source = this.reader.Value;
+            documentReference.Source = reader.Value;
             break;
 
           default:
-            UnexpectedAttribute(this.reader.Name);
+            UnexpectedAttribute(reader.Name);
             break;
         }
       }

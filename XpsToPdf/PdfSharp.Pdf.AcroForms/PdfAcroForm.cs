@@ -59,12 +59,12 @@ namespace PdfSharp.Pdf.AcroForms
     {
       get
       {
-        if (this.fields == null)
+        if (fields == null)
         {
           object o = Elements.GetValue(Keys.Fields, VCF.CreateIndirect);
-          this.fields = (PdfAcroField.PdfAcroFieldCollection)o;
+          fields = (PdfAcroField.PdfAcroFieldCollection)o;
         }
-        return this.fields;
+        return fields;
       }
     }
     PdfAcroField.PdfAcroFieldCollection fields;
@@ -132,9 +132,9 @@ namespace PdfSharp.Pdf.AcroForms
       {
         get
         {
-          if (Keys.meta == null)
-            Keys.meta = CreateMeta(typeof(Keys));
-          return Keys.meta;
+          if (meta == null)
+            meta = CreateMeta(typeof(Keys));
+          return meta;
         }
       }
       static DictionaryMeta meta;

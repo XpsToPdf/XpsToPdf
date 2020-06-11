@@ -73,7 +73,7 @@ namespace PdfSharp.Pdf
     /// </summary>
     public bool Value
     {
-      get { return this.value; }
+      get { return value; }
       //set {this.value = value;}
     }
     bool value;
@@ -83,7 +83,7 @@ namespace PdfSharp.Pdf
     /// </summary>
     public override string ToString()
     {
-      return this.value ? bool.TrueString : bool.FalseString;
+      return value ? bool.TrueString : bool.FalseString;
     }
 
     /// <summary>
@@ -92,7 +92,7 @@ namespace PdfSharp.Pdf
     internal override void WriteObject(PdfWriter writer)
     {
       writer.WriteBeginObject(this);
-      writer.Write(this.value);
+      writer.Write(value);
       writer.WriteEndObject();
     }
   }

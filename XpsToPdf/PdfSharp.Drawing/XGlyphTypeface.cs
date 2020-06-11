@@ -91,12 +91,12 @@ namespace PdfSharp.Drawing
     void Initialize(byte[] data)
     {
       // Cache data and return a FontData
-      this.fontData = FontDataStock.Global.RegisterFontData(data);
+      fontData = FontDataStock.Global.RegisterFontData(data);
     }
 
     internal FontData FontData
     {
-      get { return this.fontData; }
+      get { return fontData; }
     }
     private FontData fontData;
 

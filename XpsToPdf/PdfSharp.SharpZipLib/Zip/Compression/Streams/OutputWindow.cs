@@ -105,7 +105,7 @@ namespace PdfSharp.SharpZipLib.Zip.Compression.Streams
       {
         if (len <= dist)
         {
-          System.Array.Copy(window, rep_start, window, windowEnd, len);
+          Array.Copy(window, rep_start, window, windowEnd, len);
           windowEnd += len;
         }
         else
@@ -174,7 +174,7 @@ namespace PdfSharp.SharpZipLib.Zip.Compression.Streams
         offset += len - WINDOW_SIZE;
         len = WINDOW_SIZE;
       }
-      System.Array.Copy(dict, offset, window, 0, len);
+      Array.Copy(dict, offset, window, 0, len);
       windowEnd = len & WINDOW_MASK;
     }
 
@@ -223,11 +223,11 @@ namespace PdfSharp.SharpZipLib.Zip.Compression.Streams
 
       if (tailLen > 0)
       {
-        System.Array.Copy(window, WINDOW_SIZE - tailLen, output, offset, tailLen);
+        Array.Copy(window, WINDOW_SIZE - tailLen, output, offset, tailLen);
         offset += tailLen;
         len = copy_end;
       }
-      System.Array.Copy(window, copy_end - len, output, offset, len);
+      Array.Copy(window, copy_end - len, output, offset, len);
       windowFilled -= copied;
       if (windowFilled < 0)
       {

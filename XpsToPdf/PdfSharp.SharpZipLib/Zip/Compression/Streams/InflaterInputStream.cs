@@ -279,16 +279,16 @@ namespace PdfSharp.SharpZipLib.Zip.Compression.Streams
       }
 
       this.baseInputStream = baseInputStream;
-      this.inf = inflater;
+      inf = inflater;
       buf = new byte[bufferSize];
 
       if (baseInputStream.CanSeek)
       {
-        this.len = (int)baseInputStream.Length;
+        len = (int)baseInputStream.Length;
       }
       else
       {
-        this.len = 0;
+        len = 0;
       }
     }
 

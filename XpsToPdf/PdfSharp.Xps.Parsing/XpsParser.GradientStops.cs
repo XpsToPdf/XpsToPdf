@@ -17,10 +17,10 @@ namespace PdfSharp.Xps.Parsing
     GradientStopCollection ParseGradientStops()
     {
       GradientStopCollection gradientStops = new GradientStopCollection();
-      if (!this.reader.IsEmptyElement)
+      if (!reader.IsEmptyElement)
       {
         MoveToNextElement();
-        while (this.reader.IsStartElement())
+        while (reader.IsStartElement())
         {
           GradientStop gs = ParseGradientStop();
           gradientStops.Add(gs);

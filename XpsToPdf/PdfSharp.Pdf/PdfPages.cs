@@ -141,7 +141,7 @@ namespace PdfSharp.Pdf
         // TODO: check this case
         Owner.irefTable.Add(page);
         PagesArray.Elements.Insert(index, page.Reference);
-        Elements.SetInteger(PdfPages.Keys.Count, PagesArray.Elements.Count);
+        Elements.SetInteger(Keys.Count, PagesArray.Elements.Count);
         return page;
       }
 
@@ -153,7 +153,7 @@ namespace PdfSharp.Pdf
 
         Owner.irefTable.Add(page);
         PagesArray.Elements.Insert(index, page.Reference);
-        Elements.SetInteger(PdfPages.Keys.Count, PagesArray.Elements.Count);
+        Elements.SetInteger(Keys.Count, PagesArray.Elements.Count);
       }
       else
       {
@@ -161,7 +161,7 @@ namespace PdfSharp.Pdf
         page = ImportExternalPage(page);
         Owner.irefTable.Add(page);
         PagesArray.Elements.Insert(index, page.Reference);
-        Elements.SetInteger(PdfPages.Keys.Count, PagesArray.Elements.Count);
+        Elements.SetInteger(Keys.Count, PagesArray.Elements.Count);
         PdfAnnotations.FixImportedAnnotation(page);
       }
       if (Owner.Settings.TrimMargins.AreSet)
@@ -175,7 +175,7 @@ namespace PdfSharp.Pdf
     public void Remove(PdfPage page)
     {
       PagesArray.Elements.Remove(page.Reference);
-      Elements.SetInteger(PdfPages.Keys.Count, PagesArray.Elements.Count);
+      Elements.SetInteger(Keys.Count, PagesArray.Elements.Count);
     }
 
     /// <summary>
@@ -184,7 +184,7 @@ namespace PdfSharp.Pdf
     public void RemoveAt(int index)
     {
       PagesArray.Elements.RemoveAt(index);
-      Elements.SetInteger(PdfPages.Keys.Count, PagesArray.Elements.Count);
+      Elements.SetInteger(Keys.Count, PagesArray.Elements.Count);
     }
 
     /// <summary>
@@ -217,13 +217,13 @@ namespace PdfSharp.Pdf
       if (importPage.Owner.openMode != PdfDocumentOpenMode.Import)
         throw new InvalidOperationException("A PDF document must be opened with PdfDocumentOpenMode.Import to import pages from it.");
 
-      PdfPage page = new PdfPage(this.document);
+      PdfPage page = new PdfPage(document);
 
-      CloneElement(page, importPage, PdfPage.Keys.Resources, false);
+      CloneElement(page, importPage, PdfPage.InheritablePageKeys.Resources, false);
       CloneElement(page, importPage, PdfPage.Keys.Contents, false);
-      CloneElement(page, importPage, PdfPage.Keys.MediaBox, true);
-      CloneElement(page, importPage, PdfPage.Keys.CropBox, true);
-      CloneElement(page, importPage, PdfPage.Keys.Rotate, true);
+      CloneElement(page, importPage, PdfPage.InheritablePageKeys.MediaBox, true);
+      CloneElement(page, importPage, PdfPage.InheritablePageKeys.CropBox, true);
+      CloneElement(page, importPage, PdfPage.InheritablePageKeys.Rotate, true);
       CloneElement(page, importPage, PdfPage.Keys.BleedBox, true);
       CloneElement(page, importPage, PdfPage.Keys.TrimBox, true);
       CloneElement(page, importPage, PdfPage.Keys.ArtBox, true);
@@ -243,9 +243,9 @@ namespace PdfSharp.Pdf
     /// </summary>
     void CloneElement(PdfPage page, PdfPage importPage, string key, bool deepcopy)
     {
-      Debug.Assert(page.Owner == this.document);
+      Debug.Assert(page.Owner == document);
       Debug.Assert(importPage.Owner != null);
-      Debug.Assert(importPage.Owner != this.document);
+      Debug.Assert(importPage.Owner != document);
 
       PdfItem item = importPage.Elements[key];
       if (item != null)
@@ -263,14 +263,14 @@ namespace PdfSharp.Pdf
           if (deepcopy)
           {
             Debug.Assert(root.Owner != null, "See 'else' case for details");
-            root = PdfObject.DeepCopyClosure(this.document, root);
+            root = DeepCopyClosure(document, root);
           }
           else
           {
             // The owner can be null if the item is not a reference
             if (root.Owner == null)
               root.Document = importPage.Owner;
-            root = PdfObject.ImportClosure(importedObjectTable, page.Owner, root);
+            root = ImportClosure(importedObjectTable, page.Owner, root);
           }
 
           if (root.Reference == null)
@@ -293,9 +293,9 @@ namespace PdfSharp.Pdf
     {
       get
       {
-        if (this.pagesArray == null)
-          this.pagesArray = (PdfArray)Elements.GetValue(Keys.Kids, VCF.Create);
-        return this.pagesArray;
+        if (pagesArray == null)
+          pagesArray = (PdfArray)Elements.GetValue(Keys.Kids, VCF.Create);
+        return pagesArray;
       }
     }
     PdfArray pagesArray;
@@ -386,7 +386,7 @@ namespace PdfSharp.Pdf
       // Arrays have a limit of 8192 entries, but I successfully tested documents
       // with 50000 pages and no page tree.
       // ==> wait for bug report.
-      int count = this.pagesArray.Elements.Count;
+      int count = pagesArray.Elements.Count;
       for (int idx = 0; idx < count; idx++)
       {
 
@@ -412,25 +412,25 @@ namespace PdfSharp.Pdf
       internal PdfPagesEnumerator(PdfPages list)
       {
         this.list = list;
-        this.index = -1;
+        index = -1;
       }
 
       public bool MoveNext()
       {
-        if (this.index < this.list.Count - 1)
+        if (index < list.Count - 1)
         {
-          this.index++;
-          this.currentElement = this.list[this.index];
+          index++;
+          currentElement = list[index];
           return true;
         }
-        this.index = this.list.Count;
+        index = list.Count;
         return false;
       }
 
       public void Reset()
       {
-        this.currentElement = null;
-        this.index = -1;
+        currentElement = null;
+        index = -1;
       }
 
       object IEnumerator.Current
@@ -442,9 +442,9 @@ namespace PdfSharp.Pdf
       {
         get
         {
-          if (this.index == -1 || this.index >= this.list.Count)
+          if (index == -1 || index >= list.Count)
             throw new InvalidOperationException(PSSR.ListEnumCurrentOutOfRange);
-          return this.currentElement;
+          return currentElement;
         }
       }
     }
@@ -489,9 +489,9 @@ namespace PdfSharp.Pdf
       {
         get
         {
-          if (Keys.meta == null)
-            Keys.meta = CreateMeta(typeof(Keys));
-          return Keys.meta;
+          if (meta == null)
+            meta = CreateMeta(typeof(Keys));
+          return meta;
         }
       }
       static DictionaryMeta meta;

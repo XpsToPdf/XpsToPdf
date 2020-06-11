@@ -54,21 +54,21 @@ namespace PdfSharp.Xps.Rendering
 
         public XMatrix DefaultPageTransform
         {
-            get { return this.defaultPageTransform; }
-            set { this.defaultPageTransform = value; }
+            get { return defaultPageTransform; }
+            set { defaultPageTransform = value; }
         }
         XMatrix defaultPageTransform = new XMatrix();
 
         public XMatrix Transform
         {
-            get { return this.transform; }
+            get { return transform; }
         }
         XMatrix transform = new XMatrix();
 
         public XMatrix MultiplyTransform(XMatrix matrix)
         {
-            this.transform.Prepend(matrix);
-            return this.transform;
+            transform.Prepend(matrix);
+            return transform;
         }
 
         /// <summary>
@@ -76,7 +76,7 @@ namespace PdfSharp.Xps.Rendering
         /// </summary>
         public double Opacity
         {
-            get { return this.opacity; }
+            get { return opacity; }
         }
         double opacity = 1;
 
@@ -128,8 +128,8 @@ namespace PdfSharp.Xps.Rendering
 
                 //if (this.realizedLineWith != width)
                 {
-                    this.writer.WriteLiteral("{0:0.###} w\n", thickness);
-                    this.realizedLineWith = thickness;
+                    writer.WriteLiteral("{0:0.###} w\n", thickness);
+                    realizedLineWith = thickness;
                 }
 
                 RealizeStrokeStyle(path);
@@ -139,17 +139,17 @@ namespace PdfSharp.Xps.Rendering
                 double opacity = path.Opacity * color.ScA;
                 if (opacity < 1)
                 {
-                    PdfExtGState extGState = this.writer.Owner.ExtGStateTable.GetExtGStateStroke(color.ScA);
-                    string gs = this.writer.Resources.AddExtGState(extGState);
-                    this.writer.WriteLiteral("{0} gs\n", gs);
+                    PdfExtGState extGState = writer.Owner.ExtGStateTable.GetExtGStateStroke(color.ScA);
+                    string gs = writer.Resources.AddExtGState(extGState);
+                    writer.WriteLiteral("{0} gs\n", gs);
 
                     // Must create transparany group
                     //if (color.ScA < 1)
-                    this.writer.CreateDefaultTransparencyGroup();
+                    writer.CreateDefaultTransparencyGroup();
                 }
-                this.writer.WriteRgb(color, " RG\n");
+                writer.WriteRgb(color, " RG\n");
 
-                this.realizedStrokeColor = color;
+                realizedStrokeColor = color;
             }
             else
             {
@@ -277,32 +277,32 @@ namespace PdfSharp.Xps.Rendering
 
         void RealizeStrokeStyle(Path path)
         {
-            if (this.realizedLineCap != (int)path.StrokeStartLineCap)
+            if (realizedLineCap != (int)path.StrokeStartLineCap)
             {
                 // HACK: Set Triangle to Square
                 int[] pdfValue = { 0, 1, 2, 2 };  // Flat, Round, Square, Triangle,
                 //int[] pdfValue = { 1, 1, 1, 1 };  // Flat, Round, Square, Triangle,
 
                 int value = pdfValue[(int)path.StrokeStartLineCap];
-                this.writer.WriteLiteral("{0} J\n", value);
-                this.realizedLineCap = value;
+                writer.WriteLiteral("{0} J\n", value);
+                realizedLineCap = value;
             }
 
-            if (this.realizedLineJoin != (int)path.StrokeLineJoin)
+            if (realizedLineJoin != (int)path.StrokeLineJoin)
             {
                 int[] pdfValue = { 0, 2, 1 };  // Miter, Bevel, Round
 
                 int value = pdfValue[(int)path.StrokeLineJoin];
-                this.writer.WriteLiteral("{0} j\n", value);
-                this.realizedLineJoin = value;
+                writer.WriteLiteral("{0} j\n", value);
+                realizedLineJoin = value;
 
                 // TODO: Check implementation in PDFsharp PDF renderer!
                 if (path.StrokeLineJoin == LineJoin.Miter)
                 {
-                    if (this.realizedMiterLimit != path.StrokeMiterLimit && path.StrokeMiterLimit != 0)
+                    if (realizedMiterLimit != path.StrokeMiterLimit && path.StrokeMiterLimit != 0)
                     {
-                        this.writer.WriteLiteral("{0:0.##} M\n", path.StrokeMiterLimit);
-                        this.realizedMiterLimit = path.StrokeMiterLimit;
+                        writer.WriteLiteral("{0:0.##} M\n", path.StrokeMiterLimit);
+                        realizedMiterLimit = path.StrokeMiterLimit;
                     }
                 }
             }
@@ -402,7 +402,7 @@ namespace PdfSharp.Xps.Rendering
                     ////if (this.realizedDashPattern != pattern)
                     //{
                     //  this.realizedDashPattern = pattern;
-                    this.writer.WriteLiteral(pattern);
+                    writer.WriteLiteral(pattern);
                     //}
                 }
             }
@@ -413,9 +413,9 @@ namespace PdfSharp.Xps.Rendering
         /// </summary>
         public void RealizeStrokeOpacity(double opacity)
         {
-            PdfExtGState extGState = this.writer.Owner.ExtGStateTable.GetExtGStateStroke(opacity);
-            string gsName = this.writer.Resources.AddExtGState(extGState);
-            this.writer.WriteLiteral(gsName + " gs\n");
+            PdfExtGState extGState = writer.Owner.ExtGStateTable.GetExtGStateStroke(opacity);
+            string gsName = writer.Resources.AddExtGState(extGState);
+            writer.WriteLiteral(gsName + " gs\n");
         }
 
         /// <summary>
@@ -423,8 +423,8 @@ namespace PdfSharp.Xps.Rendering
         /// </summary>
         public void RealizeExtGState(PdfExtGState xgState)
         {
-            string gsName = this.writer.Resources.AddExtGState(xgState);
-            this.writer.WriteLiteral(gsName + " gs\n");
+            string gsName = writer.Resources.AddExtGState(xgState);
+            writer.WriteLiteral(gsName + " gs\n");
         }
 
         #endregion
@@ -445,20 +445,20 @@ namespace PdfSharp.Xps.Rendering
                 Color color = sbrush.Color;
                 //color = ColorSpaceHelper.EnsureColorMode(colorMode, color);
 
-                this.writer.WriteRgb(color, " rg\n");
+                writer.WriteRgb(color, " rg\n");
 
                 //if (this.renderer.Owner.Version >= 14 && this.realizedStrokeColor.A != color.A)
                 //if (this.realizedFillColor.ScA != color.ScA)
                 {
-                    PdfExtGState extGState = this.writer.Owner.ExtGStateTable.GetExtGStateNonStroke(color.ScA);
-                    string gs = this.writer.Resources.AddExtGState(extGState);
-                    this.writer.WriteLiteral("{0} gs\n", gs);
+                    PdfExtGState extGState = writer.Owner.ExtGStateTable.GetExtGStateNonStroke(color.ScA);
+                    string gs = writer.Resources.AddExtGState(extGState);
+                    writer.WriteLiteral("{0} gs\n", gs);
 
                     // Must create transparany group
                     if (color.ScA < 1)
-                        this.writer.CreateDefaultTransparencyGroup();
+                        writer.CreateDefaultTransparencyGroup();
                 }
-                this.realizedFillColor = color;
+                realizedFillColor = color;
 
                 //if (colorMode != PdfColorMode.Cmyk)
                 //{
@@ -521,9 +521,9 @@ namespace PdfSharp.Xps.Rendering
         /// </summary>
         public void RealizeFillOpacity(double opacity)
         {
-            PdfExtGState extGState = this.writer.Owner.ExtGStateTable.GetExtGStateNonStroke(opacity);
-            string gsName = this.writer.Resources.AddExtGState(extGState);
-            this.writer.WriteLiteral(gsName + " gs\n");
+            PdfExtGState extGState = writer.Owner.ExtGStateTable.GetExtGStateNonStroke(opacity);
+            string gsName = writer.Resources.AddExtGState(extGState);
+            writer.WriteLiteral(gsName + " gs\n");
         }
 
         //void RealizeLinearGradientBrush(LinearGradientBrush brush)
@@ -548,19 +548,19 @@ namespace PdfSharp.Xps.Rendering
         /// </summary>
         void RealizeFillHack(Color color)
         {
-            this.writer.WriteRgb(color, " rg\n");
+            writer.WriteRgb(color, " rg\n");
 
             //if (this.realizedFillColor.ScA != color.ScA)
             {
-                PdfExtGState extGState = this.writer.Owner.ExtGStateTable.GetExtGStateNonStroke(color.ScA);
-                string gs = this.writer.Resources.AddExtGState(extGState);
-                this.writer.WriteLiteral("{0} gs\n", gs);
+                PdfExtGState extGState = writer.Owner.ExtGStateTable.GetExtGStateNonStroke(color.ScA);
+                string gs = writer.Resources.AddExtGState(extGState);
+                writer.WriteLiteral("{0} gs\n", gs);
 
                 // Must create transparany group
                 if (color.ScA < 1)
-                    this.writer.CreateDefaultTransparencyGroup();
+                    writer.CreateDefaultTransparencyGroup();
             }
-            this.realizedFillColor = color;
+            realizedFillColor = color;
         }
         //    #region Text
 
@@ -580,7 +580,7 @@ namespace PdfSharp.Xps.Rendering
                 if (fpage == null)
                 {
                     GetType();
-                    this.realizedFont = new PdfFont(null);
+                    realizedFont = new PdfFont(null);
                 }
                 FixedPayload payload = fpage.Document.Payload;
 
@@ -591,12 +591,12 @@ namespace PdfSharp.Xps.Rendering
 
                 // Get the page local resource name and define font.PdfFont if it is not yet defined
                 string fontName = writer.GetFontName(font);
-                this.realizedFont = font.PdfFont;
+                realizedFont = font.PdfFont;
 
                 //if (fontName != this.realizedFontName || this.realizedFontSize != font.Size)
                 {
                     //this.writer.WriteLiteral("{0} {1:0.###} Tf\n", fontName, -glyphs.FontRenderingEmSize);
-                    this.writer.WriteLiteral("{0} {1:0.###} Tf\n", fontName, -glyphs.FontRenderingEmSize);
+                    writer.WriteLiteral("{0} {1:0.###} Tf\n", fontName, -glyphs.FontRenderingEmSize);
 
                     //this.realizedFontName = fontName;
                     //this.realizedFontSize = font.Size;

@@ -73,25 +73,25 @@ namespace PdfSharp.Drawing
 
     public string FontFamilyName
     {
-      get { return this.fontFamilyName; }
+      get { return fontFamilyName; }
     }
     string fontFamilyName;
 
     public XFontWeight Weight
     {
-      get { return this.weight; }
+      get { return weight; }
     }
     private XFontWeight weight;
 
     public XFontStyle Style
     {
-      get { return this.style; }
+      get { return style; }
     }
     private XFontStyle style;
 
     public XFontStretch Stretch
     {
-      get { return this.stretch; }
+      get { return stretch; }
     }
     private XFontStretch stretch;
   }

@@ -49,13 +49,13 @@ namespace PdfSharp.Pdf
     /// </summary>
     public XPrivateFontCollection PrivateFontCollection
     {
-      internal get { return this.privateFontCollection; }
+      internal get { return privateFontCollection; }
       set
       {
-        if (this.privateFontCollection != null)
+        if (privateFontCollection != null)
           throw new InvalidOperationException("PrivateFontCollection can only be set once.");
 
-        this.privateFontCollection = value;
+        privateFontCollection = value;
       }
     }
     private XPrivateFontCollection privateFontCollection;
@@ -68,23 +68,23 @@ namespace PdfSharp.Pdf
     {
       get
       {
-        if (this.trimMargins == null)
-          this.trimMargins = new TrimMargins();
-        return this.trimMargins;
+        if (trimMargins == null)
+          trimMargins = new TrimMargins();
+        return trimMargins;
       }
       set
       {
-        if (this.trimMargins == null)
-          this.trimMargins = new TrimMargins();
+        if (trimMargins == null)
+          trimMargins = new TrimMargins();
         if (value != null)
         {
-          this.trimMargins.Left = value.Left;
-          this.trimMargins.Right = value.Right;
-          this.trimMargins.Top = value.Top;
-          this.trimMargins.Bottom = value.Bottom;
+          trimMargins.Left = value.Left;
+          trimMargins.Right = value.Right;
+          trimMargins.Top = value.Top;
+          trimMargins.Bottom = value.Bottom;
         }
         else
-          this.trimMargins.All = 0;
+          trimMargins.All = 0;
       }
     }
     TrimMargins trimMargins = new TrimMargins();

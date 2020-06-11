@@ -50,9 +50,9 @@ namespace PdfSharp.Xps.XpsModel
 
     public IEnumerator<FixedDocument> GetEnumerator()
     {
-      int count = this.fpayload.DocumentCount;
+      int count = fpayload.DocumentCount;
       for (int idx = 0; idx < count; idx++)
-        yield return this.fpayload.GetDocument(idx);
+        yield return fpayload.GetDocument(idx);
     }
 
     System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()

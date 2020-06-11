@@ -16,19 +16,19 @@ namespace PdfSharp.Xps.Parsing
     /// </summary>
     ListItemStructure ParseListItemStructure()
     {
-      Debug.Assert(this.reader.Name == "");
-      bool isEmptyElement = this.reader.IsEmptyElement;
+      Debug.Assert(reader.Name == "");
+      bool isEmptyElement = reader.IsEmptyElement;
       ListItemStructure listItemStructure = new ListItemStructure();
       while (MoveToNextAttribute())
       {
-        switch (this.reader.Name)
+        switch (reader.Name)
         {
           case "Marker":
-            listItemStructure.Marker = this.reader.Value;
+            listItemStructure.Marker = reader.Value;
             break;
 
           default:
-            UnexpectedAttribute(this.reader.Name);
+            UnexpectedAttribute(reader.Name);
             break;
         }
       }

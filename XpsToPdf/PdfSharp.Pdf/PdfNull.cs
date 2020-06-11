@@ -54,7 +54,7 @@ namespace PdfSharp.Pdf
       return "null";
     }
 
-    internal override void WriteObject(PdfSharp.Pdf.IO.PdfWriter writer)
+    internal override void WriteObject(IO.PdfWriter writer)
     {
       // Implementet because it must be overridden.
       writer.WriteRaw(" null ");

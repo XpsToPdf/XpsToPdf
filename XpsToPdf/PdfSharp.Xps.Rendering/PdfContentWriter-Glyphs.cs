@@ -100,7 +100,7 @@ namespace PdfSharp.Xps.Rendering
       //    break;
       //}
 
-      PdfFont realizedFont = this.graphicsState.realizedFont;
+      PdfFont realizedFont = graphicsState.realizedFont;
       Debug.Assert(realizedFont != null);
       realizedFont.AddChars(glyphs.UnicodeString);
 
@@ -241,7 +241,7 @@ namespace PdfSharp.Xps.Rendering
       int glyphIdx = 0;
       bool stop = false;
 
-      PdfFont realizedFont = this.graphicsState.realizedFont;
+      PdfFont realizedFont = graphicsState.realizedFont;
       OpenTypeDescriptor descriptor = realizedFont.FontDescriptor.descriptor;
       int glyphIndex;
 
@@ -318,7 +318,7 @@ namespace PdfSharp.Xps.Rendering
             WriteLiteral("{0:0.####} {1:0.####} Td {2}Tj\n", pos.x, pos.y, outputText.ToString());
 
             double width = descriptor.GlyphIndexToPdfWidth(glyphIndex);
-            if (!PdfSharp.Internal.DoubleUtil.IsNaN(mapping.AdvanceWidth))
+            if (!DoubleUtil.IsNaN(mapping.AdvanceWidth))
               width = mapping.AdvanceWidth * 10;
             pos = new XPoint(accumulatedWidth + width * boldSimulationFactor / 1000 * glyphs.FontRenderingEmSize, 0);
 
@@ -378,7 +378,7 @@ namespace PdfSharp.Xps.Rendering
       int glyphIdx = 0;
       bool stop = false;
 
-      PdfFont realizedFont = this.graphicsState.realizedFont;
+      PdfFont realizedFont = graphicsState.realizedFont;
       OpenTypeDescriptor descriptor = realizedFont.FontDescriptor.descriptor;
       int glyphIndex;
 
@@ -498,7 +498,7 @@ namespace PdfSharp.Xps.Rendering
             WriteLiteral("{0:0.####} {1:0.####} Td {2}Tj\n", pos.x, pos.y, outputText.ToString());
 
             double width = descriptor.GlyphIndexToPdfWidth(glyphIndex);
-            if (!PdfSharp.Internal.DoubleUtil.IsNaN(mapping.AdvanceWidth))
+            if (!DoubleUtil.IsNaN(mapping.AdvanceWidth))
               width = mapping.AdvanceWidth * 10;
             pos = new XPoint(accumulatedWidth + width * boldSimulationFactor / 1000 * glyphs.FontRenderingEmSize, 0);
 

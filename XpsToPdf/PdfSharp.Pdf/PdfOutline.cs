@@ -128,8 +128,8 @@ namespace PdfSharp.Pdf
 
     internal int Count
     {
-      get { return this.count; }
-      set { this.count = value; }
+      get { return count; }
+      set { count = value; }
     }
     int count;
 
@@ -148,8 +148,8 @@ namespace PdfSharp.Pdf
 
     internal PdfOutline Parent
     {
-      get { return this.parent; }
-      set { this.parent = value; }
+      get { return parent; }
+      set { parent = value; }
     }
     PdfOutline parent;
 
@@ -171,8 +171,8 @@ namespace PdfSharp.Pdf
     /// </summary>
     public PdfPage DestinationPage
     {
-      get { return this.destinationPage; }
-      set { this.destinationPage = value; }
+      get { return destinationPage; }
+      set { destinationPage = value; }
     }
     PdfPage destinationPage;
 
@@ -181,8 +181,8 @@ namespace PdfSharp.Pdf
     /// </summary>
     public bool Opened
     {
-      get { return this.opened2; }
-      set { this.opened2 = value; }
+      get { return opened2; }
+      set { opened2 = value; }
       // TODO: adjust openCount of ascendant...
 #if false
       set 
@@ -223,8 +223,8 @@ namespace PdfSharp.Pdf
     /// <value>The color of the text.</value>
     public XColor TextColor
     {
-      get { return this.textColor; }
-      set { this.textColor = value; }
+      get { return textColor; }
+      set { textColor = value; }
     }
     XColor textColor;
 
@@ -235,9 +235,9 @@ namespace PdfSharp.Pdf
     {
       get
       {
-        if (this.outlines == null)
-          this.outlines = new PdfOutlineCollection(this.Owner, this);
-        return this.outlines;
+        if (outlines == null)
+          outlines = new PdfOutlineCollection(Owner, this);
+        return outlines;
       }
     }
     PdfOutlineCollection outlines;
@@ -247,50 +247,50 @@ namespace PdfSharp.Pdf
     /// </summary>
     internal override void PrepareForSave()
     {
-      bool hasKids = this.outlines != null && this.outlines.Count > 0;
-      if (this.parent != null || hasKids)
+      bool hasKids = outlines != null && outlines.Count > 0;
+      if (parent != null || hasKids)
       {
-        if (this.parent == null)
+        if (parent == null)
         {
           // This is the outline dictionary (the root)
-          Elements[Keys.First] = this.outlines[0].Reference;
-          Elements[Keys.Last] = this.outlines[this.outlines.Count - 1].Reference;
+          Elements[Keys.First] = outlines[0].Reference;
+          Elements[Keys.Last] = outlines[outlines.Count - 1].Reference;
 
           // TODO: /Count - the meaning is not completely clear to me
-          if (this.openCount > 0)
-            Elements[Keys.Count] = new PdfInteger(this.openCount);
+          if (openCount > 0)
+            Elements[Keys.Count] = new PdfInteger(openCount);
         }
         else
         {
           // This is an outline item dictionary
-          Elements[Keys.Parent] = this.parent.Reference;
+          Elements[Keys.Parent] = parent.Reference;
 
-          int count = this.parent.outlines.Count;
-          int index = this.parent.outlines.IndexOf(this);
+          int count = parent.outlines.Count;
+          int index = parent.outlines.IndexOf(this);
           Debug.Assert(index != -1);
 
           if (DestinationPage != null)
-            Elements[Keys.Dest] = new PdfArray(this.Owner,
+            Elements[Keys.Dest] = new PdfArray(Owner,
               DestinationPage.Reference,
               new PdfLiteral("/XYZ null null 0"));
 
           if (index > 0)
-            Elements[Keys.Prev] = this.parent.outlines[index - 1].Reference;
+            Elements[Keys.Prev] = parent.outlines[index - 1].Reference;
 
           if (index < count - 1)
-            Elements[Keys.Next] = this.parent.outlines[index + 1].Reference;
+            Elements[Keys.Next] = parent.outlines[index + 1].Reference;
 
           if (hasKids)
           {
-            Elements[Keys.First] = this.outlines[0].Reference;
-            Elements[Keys.Last] = this.outlines[this.outlines.Count - 1].Reference;
+            Elements[Keys.First] = outlines[0].Reference;
+            Elements[Keys.Last] = outlines[outlines.Count - 1].Reference;
           }
           // TODO: /Count - the meaning is not completely clear to me
-          if (this.openCount > 0)
-            Elements[Keys.Count] = new PdfInteger((this.opened2 ? 1 : -1) * this.openCount);
+          if (openCount > 0)
+            Elements[Keys.Count] = new PdfInteger((opened2 ? 1 : -1) * openCount);
 
-          if (this.textColor != XColor.Empty && this.Owner.HasVersion("1.4"))
-            Elements[Keys.C] = new PdfLiteral("[{0}]", PdfEncoders.ToString(this.textColor, PdfColorMode.Rgb));
+          if (textColor != XColor.Empty && Owner.HasVersion("1.4"))
+            Elements[Keys.C] = new PdfLiteral("[{0}]", PdfEncoders.ToString(textColor, PdfColorMode.Rgb));
 
           // if (this.Style != PdfOutlineStyle.Regular && this.Document.HasVersion("1.4"))
           //  //pdf.AppendFormat("/F {0}\n", (int)this.style);
@@ -298,18 +298,18 @@ namespace PdfSharp.Pdf
         }
         // Prepare kids
         if (hasKids)
-          foreach (PdfOutline outline in this.outlines)
+          foreach (PdfOutline outline in outlines)
             outline.PrepareForSave();
       }
     }
 
     internal override void WriteObject(PdfWriter writer)
     {
-      bool hasKids = this.outlines != null && this.outlines.Count > 0;
-      if (this.parent != null || hasKids)
+      bool hasKids = outlines != null && outlines.Count > 0;
+      if (parent != null || hasKids)
       {
         // Everything done in PrepareForSave
-        if (this.parent == null)
+        if (parent == null)
         {
           // This is the outline dictionary (the root)
         }
@@ -337,7 +337,7 @@ namespace PdfSharp.Pdf
       /// </summary>
       public bool HasOutline
       {
-        get { return this.outlines != null && this.outlines.Count > 0; }
+        get { return outlines != null && outlines.Count > 0; }
       }
 
       /// <summary>
@@ -345,7 +345,7 @@ namespace PdfSharp.Pdf
       /// </summary>
       public int Count
       {
-        get { return this.outlines.Count; }
+        get { return outlines.Count; }
       }
 
       //internal int CountOpen()
@@ -364,20 +364,20 @@ namespace PdfSharp.Pdf
         if (outline == null)
           throw new ArgumentNullException("outline");
 
-        if (!Object.ReferenceEquals(Owner, outline.DestinationPage.Owner))
+        if (!ReferenceEquals(Owner, outline.DestinationPage.Owner))
           throw new ArgumentException("Destination page must belong to this document.");
 
         // TODO check the parent problems...
         outline.Document = Owner;
-        outline.parent = this.parent;
+        outline.parent = parent;
 
 
-        this.outlines.Add(outline);
-        this.Owner.irefTable.Add(outline);
+        outlines.Add(outline);
+        Owner.irefTable.Add(outline);
 
         if (outline.Opened)
         {
-          outline = this.parent;
+          outline = parent;
           while (outline != null)
           {
             outline.openCount++;
@@ -445,7 +445,7 @@ namespace PdfSharp.Pdf
       /// </summary>
       public int IndexOf(PdfOutline item)
       {
-        return this.outlines.IndexOf(item);
+        return outlines.IndexOf(item);
       }
 
       /// <summary>
@@ -455,9 +455,9 @@ namespace PdfSharp.Pdf
       {
         get
         {
-          if (index < 0 || index >= this.outlines.Count)
+          if (index < 0 || index >= outlines.Count)
             throw new ArgumentOutOfRangeException("index", index, PSSR.OutlineIndexOutOfRange);
-          return (PdfOutline)this.outlines[index];
+          return (PdfOutline)outlines[index];
         }
         //set
         //{
@@ -610,9 +610,9 @@ namespace PdfSharp.Pdf
       {
         get
         {
-          if (Keys.meta == null)
-            Keys.meta = CreateMeta(typeof(Keys));
-          return Keys.meta;
+          if (meta == null)
+            meta = CreateMeta(typeof(Keys));
+          return meta;
         }
       }
       static DictionaryMeta meta;

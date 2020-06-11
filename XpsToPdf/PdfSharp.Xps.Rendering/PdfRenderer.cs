@@ -37,7 +37,7 @@ namespace PdfSharp.Xps.Rendering
     {
       this.page = page;
 
-      this.context = new DocumentRenderingContext(page.Owner);
+      context = new DocumentRenderingContext(page.Owner);
 
       //this.page.Width = fixedPage.Width;
       //this.page.Height = fixedPage.Height;
@@ -60,18 +60,18 @@ namespace PdfSharp.Xps.Rendering
       //}
       page.RenderContent = content;
 
-      this.writer = new PdfContentWriter(this.context, this.page);
+      writer = new PdfContentWriter(context, this.page);
 
       //Initialize();
 
-      this.writer.BeginContent(false);
-      this.writer.WriteElements(fixedPage.Content);
-      this.writer.EndContent();
+      writer.BeginContent(false);
+      writer.WriteElements(fixedPage.Content);
+      writer.EndContent();
     }
 
     internal PdfDocument Document
     {
-      get { return this.page.document; }
+      get { return page.document; }
     }
 
     PdfPage page;

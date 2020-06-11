@@ -160,8 +160,8 @@ namespace PdfSharp.Drawing.BarCodes
     /// </summary>
     public int QuietZone
     {
-      get { return this.quietZone; }
-      set { this.quietZone = value; }
+      get { return quietZone; }
+      set { quietZone = value; }
     }
     int quietZone;
 
@@ -172,7 +172,7 @@ namespace PdfSharp.Drawing.BarCodes
     {
       XGraphicsState state = gfx.Save();
 
-      switch (this.direction)
+      switch (direction)
       {
         case CodeDirection.RightToLeft:
           gfx.RotateAtTransform(180, position);
@@ -187,14 +187,14 @@ namespace PdfSharp.Drawing.BarCodes
           break;
       }
 
-      XPoint pos = position + CodeBase.CalcDistance(this.anchor, AnchorType.TopLeft, this.size);
+      XPoint pos = position + CalcDistance(anchor, AnchorType.TopLeft, size);
 
-      if (this.matrixImage == null)
-        this.matrixImage = DataMatrixImage.GenerateMatrixImage(Text, Encoding, Rows, Columns);
+      if (matrixImage == null)
+        matrixImage = DataMatrixImage.GenerateMatrixImage(Text, Encoding, Rows, Columns);
 
       if (QuietZone > 0)
       {
-        XSize sizeWithZone = new XSize(this.size.width, this.size.height);
+        XSize sizeWithZone = new XSize(size.width, size.height);
         sizeWithZone.width = sizeWithZone.width / (Columns + 2 * QuietZone) * Columns;
         sizeWithZone.height = sizeWithZone.height / (Rows + 2 * QuietZone) * Rows;
 
@@ -206,7 +206,7 @@ namespace PdfSharp.Drawing.BarCodes
         gfx.DrawImage(matrixImage, posWithZone.x, posWithZone.y, sizeWithZone.width, sizeWithZone.height);
       }
       else
-        gfx.DrawImage(matrixImage, pos.x, pos.y, this.size.width, this.size.height);
+        gfx.DrawImage(matrixImage, pos.x, pos.y, size.width, size.height);
 
       gfx.Restore(state);
     }

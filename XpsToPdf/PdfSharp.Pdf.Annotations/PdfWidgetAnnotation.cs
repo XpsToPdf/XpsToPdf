@@ -57,7 +57,7 @@ namespace PdfSharp.Pdf.Annotations
 
     void Initialize()
     {
-      Elements.SetName(Keys.Subtype, "/Widget");
+      Elements.SetName(PdfAnnotation.Keys.Subtype, "/Widget");
     }
 
     /// <summary>
@@ -93,9 +93,9 @@ namespace PdfSharp.Pdf.Annotations
       {
         get
         {
-          if (Keys.meta == null)
-            Keys.meta = CreateMeta(typeof(Keys));
-          return Keys.meta;
+          if (meta == null)
+            meta = CreateMeta(typeof(Keys));
+          return meta;
         }
       }
       static DictionaryMeta meta;

@@ -17,7 +17,7 @@ namespace PdfSharp.Xps.Parsing
     Brush ParseBrush()
     {
       Brush brush = null;
-      switch (this.reader.Name)
+      switch (reader.Name)
       {
         case "ImageBrush":
           brush = ParseImageBrush();

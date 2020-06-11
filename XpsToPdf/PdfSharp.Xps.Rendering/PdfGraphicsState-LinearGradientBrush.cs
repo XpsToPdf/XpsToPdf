@@ -19,12 +19,12 @@ namespace PdfSharp.Xps.Rendering
     [Obsolete]
     void RealizeLinearGradientBrush(LinearGradientBrush brush, XForm xform)
     {
-      XMatrix matrix = this.currentTransform;
-      PdfShadingPattern pattern = new PdfShadingPattern(this.writer.Owner);
+      XMatrix matrix = currentTransform;
+      PdfShadingPattern pattern = new PdfShadingPattern(writer.Owner);
       pattern.Elements[PdfShadingPattern.Keys.PatternType] = new PdfInteger(2); // shading pattern
 
       // Setup shading
-      PdfShading shading = new PdfShading(this.writer.Owner);
+      PdfShading shading = new PdfShading(writer.Owner);
       PdfColorMode colorMode = PdfColorMode.Rgb; //this.document.Options.ColorMode;
 
       PdfDictionary function = BuildShadingFunction(brush.GradientStops, colorMode);
@@ -53,17 +53,17 @@ namespace PdfSharp.Xps.Rendering
       pattern.Elements[PdfShadingPattern.Keys.Shading] = shading;
       pattern.Elements[PdfShadingPattern.Keys.Matrix] = PdfLiteral.FromMatrix(matrix); // new PdfLiteral("[" + PdfEncoders.ToString(matrix) + "]");
 
-      string name = this.writer.Resources.AddPattern(pattern);
-      this.writer.WriteLiteral("/Pattern cs\n", name);
-      this.writer.WriteLiteral("{0} scn\n", name);
+      string name = writer.Resources.AddPattern(pattern);
+      writer.WriteLiteral("/Pattern cs\n", name);
+      writer.WriteLiteral("{0} scn\n", name);
 
       double alpha = brush.Opacity * brush.GradientStops.GetAverageAlpha();
-      if (alpha < 1 && this.writer.renderMode == RenderMode.Default)
+      if (alpha < 1 && writer.renderMode == RenderMode.Default)
       {
 #if true
-        PdfExtGState extGState = this.writer.Owner.ExtGStateTable.GetExtGStateNonStroke(alpha);
-        string gs = this.writer.Resources.AddExtGState(extGState);
-        this.writer.WriteLiteral("{0} gs\n", gs);
+        PdfExtGState extGState = writer.Owner.ExtGStateTable.GetExtGStateNonStroke(alpha);
+        string gs = writer.Resources.AddExtGState(extGState);
+        writer.WriteLiteral("{0} gs\n", gs);
 #else
 #if true
         if (xform == null)
@@ -160,13 +160,13 @@ namespace PdfSharp.Xps.Rendering
     {
       XMatrix matrix = new XMatrix(); // this.renderer.defaultViewMatrix;
       //matrix.MultiplyPrepend(this.Transform);
-      matrix = this.currentTransform;
+      matrix = currentTransform;
       //matrix.MultiplyPrepend(XMatrix.CreateScaling(1.3, 1));
-      PdfShadingPattern pattern = new PdfShadingPattern(this.writer.Owner);
+      PdfShadingPattern pattern = new PdfShadingPattern(writer.Owner);
       pattern.Elements[PdfShadingPattern.Keys.PatternType] = new PdfInteger(2); // shading pattern
 
       // Setup shading
-      PdfShading shading = new PdfShading(this.writer.Owner);
+      PdfShading shading = new PdfShading(writer.Owner);
 
       PdfColorMode colorMode = PdfColorMode.Rgb; //this.document.Options.ColorMode;
 
@@ -197,17 +197,17 @@ namespace PdfSharp.Xps.Rendering
       pattern.Elements[PdfShadingPattern.Keys.Shading] = shading;
       pattern.Elements[PdfShadingPattern.Keys.Matrix] = PdfLiteral.FromMatrix(matrix); // new PdfLiteral("[" + PdfEncoders.ToString(matrix) + "]");
 
-      string name = this.writer.Resources.AddPattern(pattern);
-      this.writer.WriteLiteral("/Pattern cs\n", name);
-      this.writer.WriteLiteral("{0} scn\n", name);
+      string name = writer.Resources.AddPattern(pattern);
+      writer.WriteLiteral("/Pattern cs\n", name);
+      writer.WriteLiteral("{0} scn\n", name);
 
       double alpha = brush.Opacity * brush.GradientStops.GetAverageAlpha();
       if (alpha < 1)
       {
 #if true
-        PdfExtGState extGState = this.writer.Owner.ExtGStateTable.GetExtGStateNonStroke(alpha);
-        string gs = this.writer.Resources.AddExtGState(extGState);
-        this.writer.WriteLiteral("{0} gs\n", gs);
+        PdfExtGState extGState = writer.Owner.ExtGStateTable.GetExtGStateNonStroke(alpha);
+        string gs = writer.Resources.AddExtGState(extGState);
+        writer.WriteLiteral("{0} gs\n", gs);
 #else
         if (xform == null)
         {
@@ -262,7 +262,7 @@ namespace PdfSharp.Xps.Rendering
     /// </summary>
     PdfDictionary BuildShadingFunction(GradientStopCollection gradients, PdfColorMode colorMode)
     {
-      bool softMask = this.writer.renderMode == RenderMode.SoftMask;
+      bool softMask = writer.renderMode == RenderMode.SoftMask;
       PdfDictionary func = new PdfDictionary();
       int count = gradients.Count;
       Debug.Assert(count >= 2);

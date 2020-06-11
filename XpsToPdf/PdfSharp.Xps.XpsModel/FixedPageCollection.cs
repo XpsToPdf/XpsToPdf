@@ -50,9 +50,9 @@ namespace PdfSharp.Xps.XpsModel
 
     public IEnumerator<FixedPage> GetEnumerator()
     {
-      int count = this.fdoc.PageCount;
+      int count = fdoc.PageCount;
       for (int idx = 0; idx < count; idx++)
-        yield return this.fdoc.GetFixedPage(idx);
+        yield return fdoc.GetFixedPage(idx);
     }
 
     System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()

@@ -221,7 +221,7 @@ namespace PdfSharp.SharpZipLib.Zip.Compression.Streams
       {
         length = avail;
       }
-      System.Array.Copy(window, window_start, output, offset, length);
+      Array.Copy(window, window_start, output, offset, length);
       window_start += length;
 
       if (((window_start - window_end) & 1) != 0)

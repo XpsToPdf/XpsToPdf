@@ -54,7 +54,7 @@ namespace PdfSharp.Fonts
     /// </summary>
     public string FontFile
     {
-      get { return this.fontFile; }
+      get { return fontFile; }
     }
     protected string fontFile;
 
@@ -63,7 +63,7 @@ namespace PdfSharp.Fonts
     /// </summary>
     public string FontType
     {
-      get { return this.fontType; }
+      get { return fontType; }
     }
     protected string fontType;
 
@@ -72,7 +72,7 @@ namespace PdfSharp.Fonts
     /// </summary>
     public string FontName
     {
-      get { return this.fontName; }
+      get { return fontName; }
     }
     protected string fontName;
 
@@ -81,7 +81,7 @@ namespace PdfSharp.Fonts
     /// </summary>
     public string FullName
     {
-      get { return this.fullName; }
+      get { return fullName; }
     }
     protected string fullName;
 
@@ -90,7 +90,7 @@ namespace PdfSharp.Fonts
     /// </summary>
     public string FamilyName
     {
-      get { return this.familyName; }
+      get { return familyName; }
     }
     protected string familyName;
 
@@ -99,7 +99,7 @@ namespace PdfSharp.Fonts
     /// </summary>
     public string Weight
     {
-      get { return this.weight; }
+      get { return weight; }
     }
     protected string weight;
 
@@ -116,7 +116,7 @@ namespace PdfSharp.Fonts
     /// </summary>
     public float ItalicAngle
     {
-      get { return this.italicAngle; }
+      get { return italicAngle; }
     }
     protected float italicAngle;
 
@@ -133,7 +133,7 @@ namespace PdfSharp.Fonts
     /// </summary>
     public int XMin
     {
-      get { return this.xMin; }
+      get { return xMin; }
     }
     protected int xMin;
 
@@ -142,7 +142,7 @@ namespace PdfSharp.Fonts
     /// </summary>
     public int YMin
     {
-      get { return this.yMin; }
+      get { return yMin; }
     }
     protected int yMin;
 
@@ -151,7 +151,7 @@ namespace PdfSharp.Fonts
     /// </summary>
     public int XMax
     {
-      get { return this.xMax; }
+      get { return xMax; }
     }
     protected int xMax;
 
@@ -160,7 +160,7 @@ namespace PdfSharp.Fonts
     /// </summary>
     public int YMax
     {
-      get { return this.yMax; }
+      get { return yMax; }
     }
     protected int yMax;
 
@@ -169,7 +169,7 @@ namespace PdfSharp.Fonts
     /// </summary>
     public bool IsFixedPitch
     {
-      get { return this.isFixedPitch; }
+      get { return isFixedPitch; }
     }
     protected bool isFixedPitch;
 
@@ -180,7 +180,7 @@ namespace PdfSharp.Fonts
     /// </summary>
     public int UnderlinePosition
     {
-      get { return this.underlinePosition; }
+      get { return underlinePosition; }
     }
     protected int underlinePosition;
 
@@ -189,7 +189,7 @@ namespace PdfSharp.Fonts
     /// </summary>
     public int UnderlineThickness
     {
-      get { return this.underlineThickness; }
+      get { return underlineThickness; }
     }
     protected int underlineThickness;
 
@@ -198,7 +198,7 @@ namespace PdfSharp.Fonts
     /// </summary>
     public int StrikeoutPosition
     {
-      get { return this.strikeoutPosition; }
+      get { return strikeoutPosition; }
     }
     protected int strikeoutPosition;
 
@@ -207,7 +207,7 @@ namespace PdfSharp.Fonts
     /// </summary>
     public int StrikeoutSize
     {
-      get { return this.strikeoutSize; }
+      get { return strikeoutSize; }
     }
     protected int strikeoutSize;
 
@@ -216,7 +216,7 @@ namespace PdfSharp.Fonts
     /// </summary>
     public string Version
     {
-      get { return this.version; }
+      get { return version; }
     }
     protected string version;
 
@@ -234,7 +234,7 @@ namespace PdfSharp.Fonts
     /// </summary>
     public string EncodingScheme
     {
-      get { return this.encodingScheme; }
+      get { return encodingScheme; }
     }
     protected string encodingScheme;
 
@@ -243,7 +243,7 @@ namespace PdfSharp.Fonts
     /// </summary>
     public int UnitsPerEm
     {
-      get { return this.unitsPerEm; }
+      get { return unitsPerEm; }
     }
     protected int unitsPerEm;
 
@@ -252,7 +252,7 @@ namespace PdfSharp.Fonts
     /// </summary>
     public int CapHeight
     {
-      get { return this.capHeight; }
+      get { return capHeight; }
     }
     protected int capHeight;
 
@@ -261,7 +261,7 @@ namespace PdfSharp.Fonts
     /// </summary>
     public int XHeight
     {
-      get { return this.xHeight; }
+      get { return xHeight; }
     }
     protected int xHeight;
 
@@ -270,7 +270,7 @@ namespace PdfSharp.Fonts
     /// </summary>
     public int Ascender
     {
-      get { return this.ascender; }
+      get { return ascender; }
     }
     protected int ascender;
 
@@ -279,7 +279,7 @@ namespace PdfSharp.Fonts
     /// </summary>
     public int Descender
     {
-      get { return this.descender; }
+      get { return descender; }
     }
     protected int descender;
 
@@ -288,7 +288,7 @@ namespace PdfSharp.Fonts
     /// </summary>
     public int Leading
     {
-      get { return this.leading; }
+      get { return leading; }
     }
     protected int leading;
 
@@ -297,7 +297,7 @@ namespace PdfSharp.Fonts
     /// </summary>
     public int Flags
     {
-      get { return this.flags; }
+      get { return flags; }
     }
     protected int flags;
 
@@ -306,7 +306,7 @@ namespace PdfSharp.Fonts
     /// </summary>
     public int StemV
     {
-      get { return this.stemV; }
+      get { return stemV; }
     }
     protected int stemV;
 
@@ -317,12 +317,12 @@ namespace PdfSharp.Fonts
     {
       get
       {
-        if (this.fontMetrics == null)
+        if (fontMetrics == null)
         {
-          this.fontMetrics = new XFontMetrics(this.fontName, this.unitsPerEm, this.ascender, this.descender, this.leading, this.capHeight,
-            this.xHeight, this.stemV, 0, 0, 0);
+          fontMetrics = new XFontMetrics(fontName, unitsPerEm, ascender, descender, leading, capHeight,
+            xHeight, stemV, 0, 0, 0);
         }
-        return this.fontMetrics;
+        return fontMetrics;
       }
     }
     XFontMetrics fontMetrics;

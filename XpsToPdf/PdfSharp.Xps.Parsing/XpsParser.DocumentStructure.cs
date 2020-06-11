@@ -16,15 +16,15 @@ namespace PdfSharp.Xps.Parsing
     /// </summary>
     DocumentStructure ParseDocumentStructure()
     {
-      Debug.Assert(this.reader.Name == "DocumentStructure");
-      bool isEmptyElement = this.reader.IsEmptyElement;
+      Debug.Assert(reader.Name == "DocumentStructure");
+      bool isEmptyElement = reader.IsEmptyElement;
       DocumentStructure documentStructure = new DocumentStructure();
       if (!isEmptyElement)
       {
         MoveToNextElement();
-        while (this.reader.IsStartElement())
+        while (reader.IsStartElement())
         {
-          switch (this.reader.Name)
+          switch (reader.Name)
           {
             case "Outline":
               documentStructure.Outline = ParseDocumentOutline();

@@ -117,7 +117,7 @@ namespace PdfSharp.SharpZipLib.Zip.Compression
       public Tree(DeflaterHuffman dh, int elems, int minCodes, int maxLength)
       {
         this.dh = dh;
-        this.minNumCodes = minCodes;
+        minNumCodes = minCodes;
         this.maxLength = maxLength;
         freqs = new short[elems];
         bl_counts = new int[maxLength];
@@ -229,7 +229,7 @@ namespace PdfSharp.SharpZipLib.Zip.Compression
 
       void BuildLength(int[] childs)
       {
-        this.length = new byte[freqs.Length];
+        length = new byte[freqs.Length];
         int numNodes = childs.Length / 2;
         int numLeafs = (numNodes + 1) / 2;
         int overflow = 0;
@@ -260,7 +260,7 @@ namespace PdfSharp.SharpZipLib.Zip.Compression
             /* A leaf node */
             int bitLength = lengths[i];
             bl_counts[bitLength - 1]++;
-            this.length[childs[2 * i]] = (byte)lengths[i];
+            length[childs[2 * i]] = (byte)lengths[i];
           }
         }
 

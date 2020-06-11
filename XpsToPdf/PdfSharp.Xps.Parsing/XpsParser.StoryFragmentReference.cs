@@ -16,23 +16,23 @@ namespace PdfSharp.Xps.Parsing
     /// </summary>
     StoryFragmentReference ParseStoryFragmentReference()
     {
-      Debug.Assert(this.reader.Name == "");
-      bool isEmptyElement = this.reader.IsEmptyElement;
+      Debug.Assert(reader.Name == "");
+      bool isEmptyElement = reader.IsEmptyElement;
       StoryFragmentReference storyFragmentReference = new StoryFragmentReference();
       while (MoveToNextAttribute())
       {
-        switch (this.reader.Name)
+        switch (reader.Name)
         {
           case "Page":
-            storyFragmentReference.Page = int.Parse(this.reader.Value);
+            storyFragmentReference.Page = int.Parse(reader.Value);
             break;
 
           case "FragmentName":
-            storyFragmentReference.FragmentName = this.reader.Value;
+            storyFragmentReference.FragmentName = reader.Value;
             break;
 
           default:
-            UnexpectedAttribute(this.reader.Name);
+            UnexpectedAttribute(reader.Name);
             break;
         }
       }

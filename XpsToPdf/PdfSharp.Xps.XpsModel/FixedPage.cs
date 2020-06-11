@@ -22,8 +22,8 @@ namespace PdfSharp.Xps.XpsModel
     /// </summary>
     public string UriString
     {
-      get { return this.uriString; }
-      internal set { this.uriString = value; }
+      get { return uriString; }
+      internal set { uriString = value; }
     }
     string uriString;
 
@@ -32,8 +32,8 @@ namespace PdfSharp.Xps.XpsModel
     /// </summary>
     public FixedDocument Document
     {
-      get { return this.document; }
-      internal set { this.document = value; }
+      get { return document; }
+      internal set { document = value; }
     }
     FixedDocument document;
 

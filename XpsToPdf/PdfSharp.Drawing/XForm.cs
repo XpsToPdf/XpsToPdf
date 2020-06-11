@@ -143,13 +143,13 @@ namespace PdfSharp.Drawing
       if (document == null)
         throw new ArgumentNullException("document", "An XPdfForm template must be associated with a document at creation time.");
 
-      this.formState = FormState.Created;
+      formState = FormState.Created;
       this.document = document;
-      this.pdfForm = new PdfFormXObject(document, this);
+      pdfForm = new PdfFormXObject(document, this);
       //this.templateSize = size;
       this.viewBox = viewBox;
       PdfRectangle rect = new PdfRectangle(viewBox);
-      this.pdfForm.Elements.SetRectangle(PdfFormXObject.Keys.BBox, rect);
+      pdfForm.Elements.SetRectangle(PdfFormXObject.Keys.BBox, rect);
     }
 
     /// <summary>
@@ -194,10 +194,10 @@ namespace PdfSharp.Drawing
     /// </summary>
     public void DrawingFinished()
     {
-      if (this.formState == FormState.Finished)
+      if (formState == FormState.Finished)
         return;
 
-      if (this.formState == FormState.NotATemplate)
+      if (formState == FormState.NotATemplate)
         throw new InvalidOperationException("This object is an imported PDF page and you cannot finish drawing on it because you must not draw on it at all.");
 
       Finish();
@@ -208,17 +208,17 @@ namespace PdfSharp.Drawing
     /// </summary>
     internal void AssociateGraphics(XGraphics gfx)
     {
-      if (this.formState == FormState.NotATemplate)
+      if (formState == FormState.NotATemplate)
         throw new NotImplementedException("The current version of PDFsharp cannot draw on an imported page.");
 
-      if (this.formState == FormState.UnderConstruction)
+      if (formState == FormState.UnderConstruction)
         throw new InvalidOperationException("An XGraphics object already exists for this form.");
 
-      if (this.formState == FormState.Finished)
+      if (formState == FormState.Finished)
         throw new InvalidOperationException("After drawing a form it cannot be modified anymore.");
 
-      Debug.Assert(this.formState == FormState.Created);
-      this.formState = FormState.UnderConstruction;
+      Debug.Assert(formState == FormState.Created);
+      formState = FormState.UnderConstruction;
       this.gfx = gfx;
     }
     internal XGraphics gfx;
@@ -272,7 +272,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     internal PdfDocument Owner
     {
-      get { return this.document; }
+      get { return document; }
     }
     PdfDocument document;
 
@@ -283,9 +283,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (this.document == null)
+        if (document == null)
           return PdfColorMode.Undefined;
-        return this.document.Options.ColorMode;
+        return document.Options.ColorMode;
       }
     }
 
@@ -294,7 +294,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     internal bool IsTemplate
     {
-      get { return this.formState != FormState.NotATemplate; }
+      get { return formState != FormState.NotATemplate; }
     }
     internal FormState formState;
 
@@ -305,7 +305,7 @@ namespace PdfSharp.Drawing
     public override double Width
     {
       //get { return this.templateSize.width; }
-      get { return this.viewBox.Width; }
+      get { return viewBox.Width; }
     }
 
     /// <summary>
@@ -315,7 +315,7 @@ namespace PdfSharp.Drawing
     public override double Height
     {
       //get { return this.templateSize.height; }
-      get { return this.viewBox.height; }
+      get { return viewBox.height; }
     }
 
     /// <summary>
@@ -324,7 +324,7 @@ namespace PdfSharp.Drawing
     public override double PointWidth
     {
       //get { return this.templateSize.width; }
-      get { return this.viewBox.width; }
+      get { return viewBox.width; }
     }
 
     /// <summary>
@@ -333,7 +333,7 @@ namespace PdfSharp.Drawing
     public override double PointHeight
     {
       //get { return this.templateSize.height; }
-      get { return this.viewBox.height; }
+      get { return viewBox.height; }
     }
 
     /// <summary>
@@ -342,7 +342,7 @@ namespace PdfSharp.Drawing
     public override int PixelWidth
     {
       //get { return (int)this.templateSize.width; }
-      get { return (int)this.viewBox.width; }
+      get { return (int)viewBox.width; }
     }
 
     /// <summary>
@@ -351,7 +351,7 @@ namespace PdfSharp.Drawing
     public override int PixelHeight
     {
       //get { return (int)this.templateSize.height; }
-      get { return (int)this.viewBox.height; }
+      get { return (int)viewBox.height; }
     }
 
     /// <summary>
@@ -360,7 +360,7 @@ namespace PdfSharp.Drawing
     public override XSize Size
     {
       //get { return this.templateSize; }
-      get { return this.viewBox.Size; }
+      get { return viewBox.Size; }
     }
     //XSize templateSize;
 
@@ -369,7 +369,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     public XRect ViewBox
     {
-      get { return this.viewBox; }
+      get { return viewBox; }
     }
     XRect viewBox;
 
@@ -394,8 +394,8 @@ namespace PdfSharp.Drawing
     /// </summary>
     public XRect BoundingBox
     {
-      get { return this.boundingBox; }
-      set { this.boundingBox = value; }  // TODO: pdfForm = null
+      get { return boundingBox; }
+      set { boundingBox = value; }  // TODO: pdfForm = null
     }
     XRect boundingBox;
 
@@ -404,12 +404,12 @@ namespace PdfSharp.Drawing
     /// </summary>
     public virtual XMatrix Transform
     {
-      get { return this.transform; }
+      get { return transform; }
       set
       {
-        if (this.formState == FormState.Finished)
+        if (formState == FormState.Finished)
           throw new InvalidOperationException("After a XPdfForm was once drawn it must not be modified.");
-        this.transform = value;
+        transform = value;
       }
     }
     internal XMatrix transform = new XMatrix();  //XMatrix.Identity;
@@ -441,7 +441,7 @@ namespace PdfSharp.Drawing
     internal string GetFontName(XFont font, out PdfFont pdfFont)
     {
       Debug.Assert(IsTemplate, "This function is for form templates only.");
-      pdfFont = this.document.FontTable.GetFont(font);
+      pdfFont = document.FontTable.GetFont(font);
       Debug.Assert(pdfFont != null);
       string name = Resources.AddFont(pdfFont);
       return name;
@@ -459,7 +459,7 @@ namespace PdfSharp.Drawing
     internal string TryGetFontName(string idName, out PdfFont pdfFont)
     {
       Debug.Assert(IsTemplate, "This function is for form templates only.");
-      pdfFont = this.document.FontTable.TryGetFont(idName);
+      pdfFont = document.FontTable.TryGetFont(idName);
       string name = null;
       if (pdfFont != null)
         name = Resources.AddFont(pdfFont);
@@ -472,7 +472,7 @@ namespace PdfSharp.Drawing
     internal string GetFontName(string idName, byte[] fontData, out PdfFont pdfFont)
     {
       Debug.Assert(IsTemplate, "This function is for form templates only.");
-      pdfFont = this.document.FontTable.GetFont(idName, fontData);
+      pdfFont = document.FontTable.GetFont(idName, fontData);
       //pdfFont = new PdfType0Font(Owner, idName, fontData);
       //pdfFont.Document = this.document;
       Debug.Assert(pdfFont != null);
@@ -491,7 +491,7 @@ namespace PdfSharp.Drawing
     internal string GetImageName(XImage image)
     {
       Debug.Assert(IsTemplate, "This function is for form templates only.");
-      PdfImage pdfImage = this.document.ImageTable.GetImage(image);
+      PdfImage pdfImage = document.ImageTable.GetImage(image);
       Debug.Assert(pdfImage != null);
       string name = Resources.AddImage(pdfImage);
       return name;
@@ -510,9 +510,9 @@ namespace PdfSharp.Drawing
       get
       {
         Debug.Assert(IsTemplate, "This function is for form templates only.");
-        if (this.pdfForm.Reference == null)
-          this.document.irefTable.Add(this.pdfForm);
-        return this.pdfForm;
+        if (pdfForm.Reference == null)
+          document.irefTable.Add(pdfForm);
+        return pdfForm;
       }
     }
 
@@ -522,7 +522,7 @@ namespace PdfSharp.Drawing
     internal string GetFormName(XForm form)
     {
       Debug.Assert(IsTemplate, "This function is for form templates only.");
-      PdfFormXObject pdfForm = this.document.FormTable.GetForm(form);
+      PdfFormXObject pdfForm = document.FormTable.GetForm(form);
       Debug.Assert(pdfForm != null);
       string name = Resources.AddForm(pdfForm);
       return name;

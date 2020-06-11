@@ -72,9 +72,9 @@ namespace PdfSharp.Pdf.Advanced
     public PdfReference(PdfObject pdfObject)
     {
       Debug.Assert(pdfObject.Reference == null, "Must not create iref for an object that already has one.");
-      this.value = pdfObject;
+      value = pdfObject;
 #if UNIQUE_IREF && DEBUG
-      this.uid = ++PdfReference.counter;
+      uid = ++counter;
 #endif
     }
 
@@ -86,7 +86,7 @@ namespace PdfSharp.Pdf.Advanced
       this.objectID = objectID;
       this.position = position;
 #if UNIQUE_IREF && DEBUG
-      this.uid = ++PdfReference.counter;
+      uid = ++counter;
 #endif
     }
 
@@ -99,7 +99,7 @@ namespace PdfSharp.Pdf.Advanced
 
       // Each line must be exactly 20 bytes long, otherwise Acrobat repairs the file.
       string text = String.Format("{0:0000000000} {1:00000} n\n",
-        this.position, this.objectID.GenerationNumber); // this.InUse ? 'n' : 'f');
+        position, objectID.GenerationNumber); // this.InUse ? 'n' : 'f');
       writer.WriteRaw(text);
     }
 
@@ -116,13 +116,13 @@ namespace PdfSharp.Pdf.Advanced
     /// </summary>
     public PdfObjectID ObjectID
     {
-      get { return this.objectID; }
+      get { return objectID; }
       set
       {
-        if (this.objectID != value)
+        if (objectID != value)
         {
-          this.objectID = value;
-          if (this.Document != null)
+          objectID = value;
+          if (Document != null)
           {
             //PdfXRefTable table = this.Document.xrefTable;
             //table.Remove(this);
@@ -139,7 +139,7 @@ namespace PdfSharp.Pdf.Advanced
     /// </summary>
     public int ObjectNumber
     {
-      get { return this.objectID.ObjectNumber; }
+      get { return objectID.ObjectNumber; }
     }
 
     /// <summary>
@@ -147,7 +147,7 @@ namespace PdfSharp.Pdf.Advanced
     /// </summary>
     public int GenerationNumber
     {
-      get { return this.objectID.GenerationNumber; }
+      get { return objectID.GenerationNumber; }
     }
 
     /// <summary>
@@ -155,8 +155,8 @@ namespace PdfSharp.Pdf.Advanced
     /// </summary>
     public int Position
     {
-      get { return this.position; }
-      set { this.position = value; }
+      get { return position; }
+      set { position = value; }
     }
     int position;  // I know it should be long, but I have never seen a 2GB PDF file.
 
@@ -172,11 +172,11 @@ namespace PdfSharp.Pdf.Advanced
     /// </summary>
     public PdfObject Value
     {
-      get { return this.value; }
+      get { return value; }
       set
       {
         Debug.Assert(value != null, "The value of a PdfReference must never be null.");
-        Debug.Assert(value.Reference == null || Object.ReferenceEquals(value.Reference, this), "The reference of the value must be null or this.");
+        Debug.Assert(value.Reference == null || ReferenceEquals(value.Reference, this), "The reference of the value must be null or this.");
         this.value = value;
         // value must never be null
         value.Reference = this;
@@ -197,8 +197,8 @@ namespace PdfSharp.Pdf.Advanced
     /// </summary>
     public PdfDocument Document
     {
-      get { return this.document; }
-      set { this.document = value; }
+      get { return document; }
+      set { document = value; }
     }
     PdfDocument document;
 
@@ -207,7 +207,7 @@ namespace PdfSharp.Pdf.Advanced
     /// </summary>
     public override string ToString()
     {
-      return this.objectID.ToString() + " R";
+      return objectID.ToString() + " R";
     }
 
     internal static PdfReferenceComparer Comparer

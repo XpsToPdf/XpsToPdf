@@ -53,7 +53,7 @@ namespace PdfSharp.Xps.XpsModel
 
     public override int GetHashCode()
     {
-      return this.X.GetHashCode() ^ this.Y.GetHashCode();
+      return X.GetHashCode() ^ Y.GetHashCode();
     }
 
     /// <summary>

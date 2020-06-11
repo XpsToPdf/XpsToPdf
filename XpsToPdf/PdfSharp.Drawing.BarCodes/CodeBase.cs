@@ -84,8 +84,8 @@ namespace PdfSharp.Drawing.BarCodes
     /// </summary>
     public XSize Size
     {
-      get { return this.size; }
-      set { this.size = value; }
+      get { return size; }
+      set { size = value; }
     }
     internal XSize size;
 
@@ -94,11 +94,11 @@ namespace PdfSharp.Drawing.BarCodes
     /// </summary>
     public string Text
     {
-      get { return this.text; }
+      get { return text; }
       set
       {
         CheckCode(value);
-        this.text = value;
+        text = value;
       }
     }
     internal string text;
@@ -108,8 +108,8 @@ namespace PdfSharp.Drawing.BarCodes
     /// </summary>
     public AnchorType Anchor
     {
-      get { return this.anchor; }
-      set { this.anchor = value; }
+      get { return anchor; }
+      set { anchor = value; }
     }
     internal AnchorType anchor;
 
@@ -118,8 +118,8 @@ namespace PdfSharp.Drawing.BarCodes
     /// </summary>
     public CodeDirection Direction
     {
-      get { return this.direction; }
-      set { this.direction = value; }
+      get { return direction; }
+      set { direction = value; }
     }
     internal CodeDirection direction;
 
@@ -143,7 +143,7 @@ namespace PdfSharp.Drawing.BarCodes
         return new XVector();
 
       XVector result;
-      Delta delta = CodeBase.deltas[(int)oldType, (int)newType];
+      Delta delta = deltas[(int)oldType, (int)newType];
       result = new XVector(size.width / 2 * delta.x, size.height / 2 * delta.y);
       return result;
     }

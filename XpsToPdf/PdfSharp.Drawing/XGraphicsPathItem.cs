@@ -48,7 +48,7 @@ namespace PdfSharp.Drawing
     public XGraphicsPathItem(XGraphicsPathItemType type)
     {
       this.type   = type;
-      this.points = null;
+      points = null;
     }
 
 #if GDI
@@ -68,7 +68,7 @@ namespace PdfSharp.Drawing
     public XGraphicsPathItem Clone()
     {
       XGraphicsPathItem item = MemberwiseClone() as XGraphicsPathItem;
-      item.points = this.points.Clone() as XPoint[];
+      item.points = points.Clone() as XPoint[];
       return item;
     }
 

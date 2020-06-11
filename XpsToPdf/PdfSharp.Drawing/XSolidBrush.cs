@@ -72,7 +72,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     public XSolidBrush(XSolidBrush brush)
     {
-      this.color = brush.Color;
+      color = brush.Color;
     }
 
     /// <summary>
@@ -80,17 +80,17 @@ namespace PdfSharp.Drawing
     /// </summary>
     public XColor Color
     {
-      get { return this.color; }
+      get { return color; }
       set
       {
-        if (this.immutable)
+        if (immutable)
           throw new ArgumentException(PSSR.CannotChangeImmutableObject("XSolidBrush"));
-        this.color = value;
+        color = value;
 #if GDI
         this.gdiDirty = this.gdiDirty || this.color != value;
 #endif
 #if WPF
-        this.wpfDirty = this.wpfDirty || this.color != value;
+        wpfDirty = wpfDirty || color != value;
 #endif
 #if GDI && WPF
         this.gdiDirty = this.wpfDirty = true;
@@ -121,15 +121,15 @@ namespace PdfSharp.Drawing
 #endif
 
 #if WPF
-    internal override System.Windows.Media.Brush RealizeWpfBrush()
+    internal override Brush RealizeWpfBrush()
     {
-      if (this.wpfDirty)
+      if (wpfDirty)
       {
-        if (this.wpfBrush == null)
-          this.wpfBrush = new SolidColorBrush(this.color.ToWpfColor());
+        if (wpfBrush == null)
+          wpfBrush = new SolidColorBrush(color.ToWpfColor());
         else
-          this.wpfBrush.Color = this.color.ToWpfColor();
-        this.wpfDirty = false;
+          wpfBrush.Color = color.ToWpfColor();
+        wpfDirty = false;
       }
 
 #if DEBUG_
@@ -137,7 +137,7 @@ namespace PdfSharp.Drawing
       System.Windows.Media.SolidColorBrush brush1 = new System.Windows.Media.SolidColorBrush(clr); //System.Drawing.Color.FromArgb(128, 128, 0, 0));
       Debug.Assert(this.wpfBrush.Color == brush1.Color);  // Crashes during unit testing
 #endif
-      return this.wpfBrush;
+      return wpfBrush;
     }
 #endif
 

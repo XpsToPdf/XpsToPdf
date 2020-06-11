@@ -16,7 +16,7 @@ namespace PdfSharp.Xps.XpsModel
     /// </summary>
     public int PageCount
     {
-      get { return this.PageContentUriStrings.Count; }
+      get { return PageContentUriStrings.Count; }
     }
 
     /// <summary>
@@ -24,7 +24,7 @@ namespace PdfSharp.Xps.XpsModel
     /// </summary>
     public XpsDocument XpsDocument
     {
-      get { return this.fpayload.XpsDocument; }
+      get { return fpayload.XpsDocument; }
     }
 
     /// <summary>
@@ -32,8 +32,8 @@ namespace PdfSharp.Xps.XpsModel
     /// </summary>
     public string UriString
     {
-      get { return this.uriString; }
-      internal set { this.uriString = value; }
+      get { return uriString; }
+      internal set { uriString = value; }
     }
     string uriString;
 
@@ -42,8 +42,8 @@ namespace PdfSharp.Xps.XpsModel
     /// </summary>
     internal FixedPayload Payload
     {
-      get { return this.fpayload; }
-      set { this.fpayload = value; }
+      get { return fpayload; }
+      set { fpayload = value; }
     }
     FixedPayload fpayload;
 
@@ -66,9 +66,9 @@ namespace PdfSharp.Xps.XpsModel
     {
       get
       {
-        if (this.pages == null)
-          this.pages = new FixedPageCollection(this);
-        return this.pages;
+        if (pages == null)
+          pages = new FixedPageCollection(this);
+        return pages;
       }
     }
     FixedPageCollection pages;

@@ -120,7 +120,7 @@ namespace PdfSharp.Drawing.BarCodes
 
     public XImage DrawMatrix()
     {
-      return CreateImage(DataMatrix(), this.rows, this.columns);
+      return CreateImage(DataMatrix(), rows, columns);
     }
 
     /// <summary>
@@ -128,8 +128,8 @@ namespace PdfSharp.Drawing.BarCodes
     /// </summary>
     internal char[] DataMatrix()
     {
-      int matrixColumns = this.columns;
-      int matrixRows = this.rows;
+      int matrixColumns = columns;
+      int matrixRows = rows;
       Ecc200Block matrix = new Ecc200Block(0, 0, 0, 0, 0, 0, 0);
 
       foreach (Ecc200Block eccmatrix in ecc200Sizes)

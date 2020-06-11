@@ -57,7 +57,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     public string Name
     {
-      get { return this.name; }
+      get { return name; }
     }
     string name;
 
@@ -66,7 +66,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     public int UnitsPerEm 
     {
-      get { return this.unitsPerEm; }
+      get { return unitsPerEm; }
     }
     int unitsPerEm;
 
@@ -75,7 +75,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     public int Ascent
     {
-      get { return this.ascent; }
+      get { return ascent; }
     }
     int ascent;
 
@@ -84,7 +84,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     public int Descent
     {
-      get { return this.descent; }
+      get { return descent; }
     }
     int descent;
 
@@ -94,7 +94,7 @@ namespace PdfSharp.Drawing
     /// <value>The average width.</value>
     public int AverageWidth
     {
-      get { return this.averageWidth; }
+      get { return averageWidth; }
     }
     int averageWidth;
 
@@ -103,7 +103,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     public int CapHeight
     {
-      get { return this.capHeight; }
+      get { return capHeight; }
     }
     int capHeight;
 
@@ -112,7 +112,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     public int Leading
     {
-      get { return this.leading; }
+      get { return leading; }
     }
     int leading;
 
@@ -121,7 +121,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     public int MaxWidth
     {
-      get { return this.maxWidth; }
+      get { return maxWidth; }
     }
     int maxWidth;
 
@@ -130,7 +130,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     public int StemH
     {
-      get { return this.stemH; }
+      get { return stemH; }
     }
     int stemH;
 
@@ -139,7 +139,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     public int StemV
     {
-      get { return this.stemV; }
+      get { return stemV; }
     }
     int stemV;
 
@@ -148,7 +148,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     public int XHeight
     {
-      get { return this.xHeight; }
+      get { return xHeight; }
     }
     int xHeight;
   }

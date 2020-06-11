@@ -108,8 +108,8 @@ namespace PdfSharp.Pdf.Content.Objects  // TODO: split into single files
     /// </summary>
     public string Text
     {
-      get { return this.text; }
-      set { this.text = value; }
+      get { return text; }
+      set { text = value; }
     }
     string text;
 
@@ -118,7 +118,7 @@ namespace PdfSharp.Pdf.Content.Objects  // TODO: split into single files
     /// </summary>
     public override string ToString()
     {
-      return "% " + this.text;
+      return "% " + text;
     }
 
     internal override void WriteObject(ContentWriter writer)
@@ -149,9 +149,9 @@ namespace PdfSharp.Pdf.Content.Objects  // TODO: split into single files
     protected override CObject Copy()
     {
       CObject obj = base.Copy();
-      this.items = new List<CObject>(this.items);
-      for (int idx = 0; idx < this.items.Count; idx++)
-        this.items[idx] = this.items[idx].Clone();
+      items = new List<CObject>(items);
+      for (int idx = 0; idx < items.Count; idx++)
+        items[idx] = items[idx].Clone();
       return obj;
     }
 
@@ -163,7 +163,7 @@ namespace PdfSharp.Pdf.Content.Objects  // TODO: split into single files
     {
       int count = sequence.Count;
       for (int idx = 0; idx < count; idx++)
-        this.items.Add(sequence[idx]);
+        items.Add(sequence[idx]);
     }
 
     #region IList Members
@@ -173,7 +173,7 @@ namespace PdfSharp.Pdf.Content.Objects  // TODO: split into single files
     /// </summary>
     public void Add(CObject value)
     {
-      this.items.Add(value);
+      items.Add(value);
     }
 
     /// <summary>
@@ -181,7 +181,7 @@ namespace PdfSharp.Pdf.Content.Objects  // TODO: split into single files
     /// </summary>
     public void Clear()
     {
-      this.items.Clear();
+      items.Clear();
     }
 
     //bool IList.Contains(object value)
@@ -194,7 +194,7 @@ namespace PdfSharp.Pdf.Content.Objects  // TODO: split into single files
     /// </summary>
     public bool Contains(CObject value)
     {
-      return this.items.Contains(value);
+      return items.Contains(value);
     }
 
     /// <summary>
@@ -202,7 +202,7 @@ namespace PdfSharp.Pdf.Content.Objects  // TODO: split into single files
     /// </summary>
     public int IndexOf(CObject value)
     {
-      return this.items.IndexOf(value);
+      return items.IndexOf(value);
     }
 
     /// <summary>
@@ -210,7 +210,7 @@ namespace PdfSharp.Pdf.Content.Objects  // TODO: split into single files
     /// </summary>
     public void Insert(int index, CObject value)
     {
-      this.items.Insert(index, value);
+      items.Insert(index, value);
     }
 
     /////// <summary>
@@ -234,7 +234,7 @@ namespace PdfSharp.Pdf.Content.Objects  // TODO: split into single files
     /// </summary>
     public bool Remove(CObject value)
     {
-      return this.items.Remove(value);
+      return items.Remove(value);
     }
 
     /// <summary>
@@ -242,7 +242,7 @@ namespace PdfSharp.Pdf.Content.Objects  // TODO: split into single files
     /// </summary>
     public void RemoveAt(int index)
     {
-      this.items.RemoveAt(index);
+      items.RemoveAt(index);
     }
 
     /// <summary>
@@ -251,8 +251,8 @@ namespace PdfSharp.Pdf.Content.Objects  // TODO: split into single files
     /// <value></value>
     public CObject this[int index]
     {
-      get { return (CObject)this.items[index]; }
-      set { this.items[index] = value; }
+      get { return (CObject)items[index]; }
+      set { items[index] = value; }
     }
     #endregion
 
@@ -263,7 +263,7 @@ namespace PdfSharp.Pdf.Content.Objects  // TODO: split into single files
     /// </summary>
     public void CopyTo(CObject[] array, int index)
     {
-      this.items.CopyTo(array, index);
+      items.CopyTo(array, index);
     }
 
 
@@ -272,7 +272,7 @@ namespace PdfSharp.Pdf.Content.Objects  // TODO: split into single files
     /// </summary>
     public int Count
     {
-      get { return this.items.Count; }
+      get { return items.Count; }
     }
 
     ///// <summary>
@@ -300,7 +300,7 @@ namespace PdfSharp.Pdf.Content.Objects  // TODO: split into single files
     /// </summary>
     public IEnumerator<CObject> GetEnumerator()
     {
-      return this.items.GetEnumerator();
+      return items.GetEnumerator();
     }
 
     #endregion
@@ -330,8 +330,8 @@ namespace PdfSharp.Pdf.Content.Objects  // TODO: split into single files
     {
       StringBuilder s = new StringBuilder();
 
-      for (int idx = 0; idx < this.items.Count; idx++)
-        s.Append(this.items[idx].ToString());
+      for (int idx = 0; idx < items.Count; idx++)
+        s.Append(items[idx].ToString());
 
       return s.ToString();
     }
@@ -343,8 +343,8 @@ namespace PdfSharp.Pdf.Content.Objects  // TODO: split into single files
 
     internal override void WriteObject(ContentWriter writer)
     {
-      for (int idx = 0; idx < this.items.Count; idx++)
-        (this.items[idx] as CObject).WriteObject(writer);
+      for (int idx = 0; idx < items.Count; idx++)
+        (items[idx] as CObject).WriteObject(writer);
     }
 
     #region IList<CObject> Members
@@ -483,7 +483,7 @@ namespace PdfSharp.Pdf.Content.Objects  // TODO: split into single files
     /// </summary>
     public int Value
     {
-      get { return this.value; }
+      get { return value; }
       set { this.value = value; }
     }
     int value;
@@ -493,7 +493,7 @@ namespace PdfSharp.Pdf.Content.Objects  // TODO: split into single files
     /// </summary>
     public override string ToString()
     {
-      return this.value.ToString(CultureInfo.InvariantCulture);
+      return value.ToString(CultureInfo.InvariantCulture);
     }
 
     internal override void WriteObject(ContentWriter writer)
@@ -530,7 +530,7 @@ namespace PdfSharp.Pdf.Content.Objects  // TODO: split into single files
     /// </summary>
     public double Value
     {
-      get { return this.value; }
+      get { return value; }
       set { this.value = value; }
     }
     double value;
@@ -540,7 +540,7 @@ namespace PdfSharp.Pdf.Content.Objects  // TODO: split into single files
     /// </summary>
     public override string ToString()
     {
-      return this.value.ToString(CultureInfo.InvariantCulture);
+      return value.ToString(CultureInfo.InvariantCulture);
     }
 
     internal override void WriteObject(ContentWriter writer)
@@ -577,7 +577,7 @@ namespace PdfSharp.Pdf.Content.Objects  // TODO: split into single files
     /// </summary>
     public string Value
     {
-      get { return this.value; }
+      get { return value; }
       set { this.value = value; }
     }
     string value;
@@ -588,10 +588,10 @@ namespace PdfSharp.Pdf.Content.Objects  // TODO: split into single files
     public override string ToString()
     {
       StringBuilder s = new StringBuilder("(");
-      int length = this.value.Length;
+      int length = value.Length;
       for (int ich = 0; ich < length; ich++)
       {
-        char ch = this.value[ich];
+        char ch = value[ich];
         switch (ch)
         {
           case Chars.LF:
@@ -663,7 +663,7 @@ namespace PdfSharp.Pdf.Content.Objects  // TODO: split into single files
     /// </summary>
     public CName()
     {
-      this.name = "/";
+      name = "/";
     }
 
     /// <summary>
@@ -697,14 +697,14 @@ namespace PdfSharp.Pdf.Content.Objects  // TODO: split into single files
     /// </summary>
     public string Name
     {
-      get { return this.name; }
+      get { return name; }
       set
       {
         if (name == null || name.Length == 0)
           throw new ArgumentNullException("name");
         if (name[0] != '/')
           throw new ArgumentException(PSSR.NameMustStartWithSlash);
-        this.name = value;
+        name = value;
       }
     }
     string name;
@@ -714,7 +714,7 @@ namespace PdfSharp.Pdf.Content.Objects  // TODO: split into single files
     /// </summary>
     public override string ToString()
     {
-      return this.name;
+      return name;
     }
 
     internal override void WriteObject(ContentWriter writer)
@@ -801,7 +801,7 @@ namespace PdfSharp.Pdf.Content.Objects  // TODO: split into single files
     /// <value>The name.</value>
     public virtual string Name
     {
-      get { return this.opcode.Name; }
+      get { return opcode.Name; }
     }
 
     /// <summary>
@@ -812,9 +812,9 @@ namespace PdfSharp.Pdf.Content.Objects  // TODO: split into single files
     {
       get
       {
-        if (this.seqence == null)
-          this.seqence = new CSequence();
-        return this.seqence;
+        if (seqence == null)
+          seqence = new CSequence();
+        return seqence;
       }
     }
     CSequence seqence;
@@ -824,7 +824,7 @@ namespace PdfSharp.Pdf.Content.Objects  // TODO: split into single files
     /// </summary>
     public OpCode OpCode
     {
-      get { return this.opcode; }
+      get { return opcode; }
     }
     OpCode opcode;
 
@@ -834,14 +834,14 @@ namespace PdfSharp.Pdf.Content.Objects  // TODO: split into single files
     /// </summary>
     public override string ToString()
     {
-      return this.Name;
+      return Name;
     }
 
     internal override void WriteObject(ContentWriter writer)
     {
-      int count = this.seqence != null ? this.seqence.Count : 0;
+      int count = seqence != null ? seqence.Count : 0;
       for (int idx = 0; idx < count; idx++)
-        this.seqence[idx].WriteObject(writer);
+        seqence[idx].WriteObject(writer);
       writer.WriteLineRaw(ToString());
     }
   }

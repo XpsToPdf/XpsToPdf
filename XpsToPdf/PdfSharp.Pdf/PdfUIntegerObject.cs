@@ -77,7 +77,7 @@ namespace PdfSharp.Pdf
     /// </summary>
     public uint Value
     {
-      get { return this.value; }
+      get { return value; }
       //set {this.value = value;}
     }
     uint value;
@@ -96,7 +96,7 @@ namespace PdfSharp.Pdf
     internal override void WriteObject(PdfWriter writer)
     {
       writer.WriteBeginObject(this);
-      writer.Write(this.value);
+      writer.Write(value);
       writer.WriteEndObject();
     }
   }

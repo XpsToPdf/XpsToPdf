@@ -15,8 +15,8 @@ namespace PdfSharp.Xps.XpsModel
     /// </summary>
     public XpsElement Parent
     {
-      get { return this.parent; }
-      set { this.parent = value; }
+      get { return parent; }
+      set { parent = value; }
     }
     XpsElement parent;
 

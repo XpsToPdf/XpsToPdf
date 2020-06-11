@@ -50,7 +50,7 @@ namespace PdfSharp.Pdf
     /// </summary>
     public PdfStringObject()
     {
-      this.flags = PdfStringFlags.RawEncoding;
+      flags = PdfStringFlags.RawEncoding;
     }
 
     /// <summary>
@@ -62,7 +62,7 @@ namespace PdfSharp.Pdf
       : base(document)
     {
       this.value = value;
-      this.flags = PdfStringFlags.RawEncoding;
+      flags = PdfStringFlags.RawEncoding;
     }
 
     /// <summary>
@@ -75,7 +75,7 @@ namespace PdfSharp.Pdf
       this.value = value;
       //if ((flags & PdfStringFlags.EncodingMask) == 0)
       //  flags |= PdfStringFlags.PDFDocEncoding;
-      this.flags = (PdfStringFlags)encoding;
+      flags = (PdfStringFlags)encoding;
     }
 
     internal PdfStringObject(string value, PdfStringFlags flags)
@@ -91,7 +91,7 @@ namespace PdfSharp.Pdf
     /// </summary>
     public int Length
     {
-      get { return this.value == null ? 0 : this.value.Length; }
+      get { return value == null ? 0 : value.Length; }
     }
 
     /// <summary>
@@ -99,8 +99,8 @@ namespace PdfSharp.Pdf
     /// </summary>
     public PdfStringEncoding Encoding
     {
-      get { return (PdfStringEncoding)(this.flags & PdfStringFlags.EncodingMask); }
-      set { this.flags = (this.flags & ~PdfStringFlags.EncodingMask) | ((PdfStringFlags)value & PdfStringFlags.EncodingMask); }
+      get { return (PdfStringEncoding)(flags & PdfStringFlags.EncodingMask); }
+      set { flags = (flags & ~PdfStringFlags.EncodingMask) | ((PdfStringFlags)value & PdfStringFlags.EncodingMask); }
     }
 
     /// <summary>
@@ -108,8 +108,8 @@ namespace PdfSharp.Pdf
     /// </summary>
     public bool HexLiteral
     {
-      get { return (this.flags & PdfStringFlags.HexLiteral) != 0; }
-      set { this.flags = value ? this.flags | PdfStringFlags.HexLiteral : this.flags & ~PdfStringFlags.HexLiteral; }
+      get { return (flags & PdfStringFlags.HexLiteral) != 0; }
+      set { flags = value ? flags | PdfStringFlags.HexLiteral : flags & ~PdfStringFlags.HexLiteral; }
     }
 
     PdfStringFlags flags;
@@ -119,7 +119,7 @@ namespace PdfSharp.Pdf
     /// </summary>
     public string Value
     {
-      get { return this.value ?? ""; }
+      get { return value ?? ""; }
       set { this.value = value ?? ""; }
     }
     string value;
@@ -130,7 +130,7 @@ namespace PdfSharp.Pdf
     internal byte[] EncryptionValue
     {
       // TODO: Unicode case is not handled!
-      get { return this.value == null ? new byte[0] : PdfEncoders.RawEncoding.GetBytes(this.value); }
+      get { return value == null ? new byte[0] : PdfEncoders.RawEncoding.GetBytes(value); }
       set { this.value = PdfEncoders.RawEncoding.GetString(value, 0, value.Length); }
     }
 
@@ -139,7 +139,7 @@ namespace PdfSharp.Pdf
     /// </summary>
     public override string ToString()
     {
-      return this.value;
+      return value;
     }
 
     /// <summary>
@@ -148,7 +148,7 @@ namespace PdfSharp.Pdf
     internal override void WriteObject(PdfWriter writer)
     {
       writer.WriteBeginObject(this);
-      writer.Write(new PdfString(this.value, this.flags));
+      writer.Write(new PdfString(value, flags));
       writer.WriteEndObject();
     }
   }

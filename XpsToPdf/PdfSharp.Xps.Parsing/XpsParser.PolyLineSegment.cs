@@ -16,22 +16,22 @@ namespace PdfSharp.Xps.Parsing
     /// </summary>
     PolyLineSegment ParsePolyLineSegment()
     {
-      Debug.Assert(this.reader.Name == "PolyLineSegment");
+      Debug.Assert(reader.Name == "PolyLineSegment");
       PolyLineSegment seg = new PolyLineSegment();
       while (MoveToNextAttribute())
       {
-        switch (this.reader.Name)
+        switch (reader.Name)
         {
           case "IsStroked":
-            seg.IsStroked = ParseBool(this.reader.Value);
+            seg.IsStroked = ParseBool(reader.Value);
             break;
 
           case "Points":
-            seg.Points = Point.ParsePoints(this.reader.Value);
+            seg.Points = Point.ParsePoints(reader.Value);
             break;
 
           default:
-            UnexpectedAttribute(this.reader.Name);
+            UnexpectedAttribute(reader.Name);
             break;
         }
       }

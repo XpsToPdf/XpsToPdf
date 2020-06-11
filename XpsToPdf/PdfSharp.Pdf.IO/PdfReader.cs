@@ -79,7 +79,7 @@ namespace PdfSharp.Pdf.IO
       try
       {
         int pageNumber;
-        string realPath = PdfSharp.Drawing.XPdfForm.ExtractPageNumber(path, out pageNumber);
+        string realPath = Drawing.XPdfForm.ExtractPageNumber(path, out pageNumber);
         if (File.Exists(realPath)) // prevent unwanted exceptions during debugging
         {
           stream = new FileStream(realPath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
@@ -203,7 +203,7 @@ namespace PdfSharp.Pdf.IO
       Stream stream = new FileStream(path, FileMode.Open, FileAccess.Read);
       try
       {
-        document = PdfReader.Open(stream, password, openmode, provider);
+        document = Open(stream, password, openmode, provider);
         if (document != null)
         {
           document.fullPath = Path.GetFullPath(path);
@@ -430,7 +430,7 @@ namespace PdfSharp.Pdf.IO
     /// </summary>
     public static PdfDocument Open(Stream stream)
     {
-      return PdfReader.Open(stream, PdfDocumentOpenMode.Modify);
+      return Open(stream, PdfDocumentOpenMode.Modify);
     }
   }
 }

@@ -17,7 +17,7 @@ namespace PdfSharp.Xps.Parsing
   {
     XpsParser(XmlTextReader rdr)
     {
-      this.reader = rdr;
+      reader = rdr;
     }
 
     /// <summary>
@@ -43,7 +43,7 @@ namespace PdfSharp.Xps.Parsing
 
     XpsElement Parse()
     {
-      if (!this.reader.Read())
+      if (!reader.Read())
         return null;
 
       XpsElement element;
@@ -53,10 +53,10 @@ namespace PdfSharp.Xps.Parsing
         GetType();
 #endif
 
-      while (this.reader.NodeType == XmlNodeType.XmlDeclaration || this.reader.NodeType == XmlNodeType.Comment)
+      while (reader.NodeType == XmlNodeType.XmlDeclaration || reader.NodeType == XmlNodeType.Comment)
         MoveBeyondThisElement();
 
-      if (this.reader.NodeType == XmlNodeType.Element)
+      if (reader.NodeType == XmlNodeType.Element)
       {
         element = ParseElement();
       }
@@ -82,11 +82,11 @@ namespace PdfSharp.Xps.Parsing
 
     XpsElement ParseElement()
     {
-      if (this.reader.NodeType != XmlNodeType.Element)
+      if (reader.NodeType != XmlNodeType.Element)
         throw new InvalidOperationException(PSXSR.MustStandOnElement);
 
       XpsElement element = null;
-      switch (this.reader.Name)
+      switch (reader.Name)
       {
         case "Canvas":
           element = ParseCanvas();
@@ -205,7 +205,7 @@ namespace PdfSharp.Xps.Parsing
     /// </summary>
     bool MoveToNextAttribute()
     {
-      return this.reader.MoveToNextAttribute();
+      return reader.MoveToNextAttribute();
     }
 
     /// <summary>
@@ -214,10 +214,10 @@ namespace PdfSharp.Xps.Parsing
     /// </summary>
     bool MoveToNextElement()
     {
-      bool success = this.reader.Read();
+      bool success = reader.Read();
       if (success)
       {
-        XmlNodeType type = this.reader.MoveToContent();
+        XmlNodeType type = reader.MoveToContent();
         Debug.Assert(type == XmlNodeType.Element || type == XmlNodeType.EndElement || type == XmlNodeType.None);
         success = type == XmlNodeType.Element;
       }
@@ -229,24 +229,24 @@ namespace PdfSharp.Xps.Parsing
     /// </summary>
     void MoveBeyondThisElement() // string name, int depth)
     {
-      if (!this.reader.IsEmptyElement && this.reader.NodeType != XmlNodeType.Comment)
+      if (!reader.IsEmptyElement && reader.NodeType != XmlNodeType.Comment)
       {
-        if (this.reader.NodeType == XmlNodeType.XmlDeclaration)
+        if (reader.NodeType == XmlNodeType.XmlDeclaration)
         {
           MoveToNextElement();
           return;
         }
-        else if (this.reader.NodeType == XmlNodeType.Attribute)
+        else if (reader.NodeType == XmlNodeType.Attribute)
         {
-          this.reader.MoveToElement();
-          if (this.reader.IsEmptyElement)
+          reader.MoveToElement();
+          if (reader.IsEmptyElement)
           {
             MoveToNextElement();
             return;
           }
         }
         MoveToNextElement();
-        while (this.reader.IsStartElement())
+        while (reader.IsStartElement())
           MoveBeyondThisElement();
       }
       MoveToNextElement(); // next element
@@ -260,7 +260,7 @@ namespace PdfSharp.Xps.Parsing
     [Conditional("DEBUG")]
     void AssertElement(string name)
     {
-      Debug.Assert(this.reader.Name == name, PSXSR.UnexpectedElement(this.reader.Name, name));
+      Debug.Assert(reader.Name == name, PSXSR.UnexpectedElement(reader.Name, name));
     }
 
     void UnexpectedAttribute(string name)
@@ -276,9 +276,9 @@ namespace PdfSharp.Xps.Parsing
     {
       get
       {
-        if (this.resourceDictionaryStack == null)
-          this.resourceDictionaryStack = new ResouceDictionaryStack();
-        return this.resourceDictionaryStack;
+        if (resourceDictionaryStack == null)
+          resourceDictionaryStack = new ResouceDictionaryStack();
+        return resourceDictionaryStack;
       }
     }
     ResouceDictionaryStack resourceDictionaryStack;
@@ -287,25 +287,25 @@ namespace PdfSharp.Xps.Parsing
     {
       public void Push(ResourceDictionary dic)
       {
-        if (this.stack == null)
-          this.stack = new Stack<ResourceDictionary>();
-        this.stack.Push(dic);
+        if (stack == null)
+          stack = new Stack<ResourceDictionary>();
+        stack.Push(dic);
       }
 
       public ResourceDictionary Pop()
       {
-        return this.stack.Pop();
+        return stack.Pop();
       }
 
       public ResourceDictionary Current
       {
         get
         {
-          if (this.stack == null)
+          if (stack == null)
             return null;
-          if (this.stack.Count == 0)
+          if (stack.Count == 0)
             return null;
-          return this.stack.Peek();
+          return stack.Peek();
         }
       }
 

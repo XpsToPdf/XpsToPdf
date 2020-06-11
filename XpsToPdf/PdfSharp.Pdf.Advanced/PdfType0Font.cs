@@ -59,16 +59,16 @@ namespace PdfSharp.Pdf.Advanced
       Elements.SetName(Keys.Encoding, vertical ? "/Identity-V" : "/Identity-H");
 
       OpenTypeDescriptor ttDescriptor = (OpenTypeDescriptor)FontDescriptorStock.Global.CreateDescriptor(font);
-      this.fontDescriptor = new PdfFontDescriptor(document, ttDescriptor);
-      this.fontOptions = font.PdfOptions;
-      Debug.Assert(this.fontOptions != null);
+      fontDescriptor = new PdfFontDescriptor(document, ttDescriptor);
+      fontOptions = font.PdfOptions;
+      Debug.Assert(fontOptions != null);
 
-      this.cmapInfo = new CMapInfo(ttDescriptor);
-      this.descendantFont = new PdfCIDFont(document, this.fontDescriptor, font);
-      this.descendantFont.CMapInfo = this.cmapInfo;
+      cmapInfo = new CMapInfo(ttDescriptor);
+      descendantFont = new PdfCIDFont(document, fontDescriptor, font);
+      descendantFont.CMapInfo = cmapInfo;
 
       // Create ToUnicode map
-      this.toUnicode = new PdfToUnicodeMap(document, this.cmapInfo);
+      toUnicode = new PdfToUnicodeMap(document, cmapInfo);
       document.Internals.AddObject(toUnicode);
       Elements.Add(Keys.ToUnicode, toUnicode);
 
@@ -82,23 +82,23 @@ namespace PdfSharp.Pdf.Advanced
         switch (font.Style & (XFontStyle.Bold | XFontStyle.Italic))
         {
           case XFontStyle.Bold:
-            this.BaseFont += ",Bold";
+            BaseFont += ",Bold";
             break;
 
           case XFontStyle.Italic:
-            this.BaseFont += ",Italic";
+            BaseFont += ",Italic";
             break;
 
           case XFontStyle.Bold | XFontStyle.Italic:
-            this.BaseFont += ",BoldItalic";
+            BaseFont += ",BoldItalic";
             break;
         }
       }
       // CID fonts are always embedded
-      BaseFont = PdfFont.CreateEmbeddedFontSubsetName(BaseFont);
+      BaseFont = CreateEmbeddedFontSubsetName(BaseFont);
 
-      this.fontDescriptor.FontName = BaseFont;
-      this.descendantFont.BaseFont = BaseFont;
+      fontDescriptor.FontName = BaseFont;
+      descendantFont.BaseFont = BaseFont;
 
       PdfArray descendantFonts = new PdfArray(document);
       Owner.irefTable.Add(descendantFont);
@@ -114,16 +114,16 @@ namespace PdfSharp.Pdf.Advanced
       Elements.SetName(Keys.Encoding, vertical ? "/Identity-V" : "/Identity-H");
 
       OpenTypeDescriptor ttDescriptor = (OpenTypeDescriptor)FontDescriptorStock.Global.CreateDescriptor(idName, fontData);
-      this.fontDescriptor = new PdfFontDescriptor(document, ttDescriptor);
-      this.fontOptions = new XPdfFontOptions(PdfFontEncoding.Unicode, PdfFontEmbedding.Always);
-      Debug.Assert(this.fontOptions != null);
+      fontDescriptor = new PdfFontDescriptor(document, ttDescriptor);
+      fontOptions = new XPdfFontOptions(PdfFontEncoding.Unicode, PdfFontEmbedding.Always);
+      Debug.Assert(fontOptions != null);
 
-      this.cmapInfo = new CMapInfo(ttDescriptor);
-      this.descendantFont = new PdfCIDFont(document, this.fontDescriptor, fontData);
-      this.descendantFont.CMapInfo = this.cmapInfo;
+      cmapInfo = new CMapInfo(ttDescriptor);
+      descendantFont = new PdfCIDFont(document, fontDescriptor, fontData);
+      descendantFont.CMapInfo = cmapInfo;
 
       // Create ToUnicode map
-      this.toUnicode = new PdfToUnicodeMap(document, this.cmapInfo);
+      toUnicode = new PdfToUnicodeMap(document, cmapInfo);
       document.Internals.AddObject(toUnicode);
       Elements.Add(Keys.ToUnicode, toUnicode);
 
@@ -145,10 +145,10 @@ namespace PdfSharp.Pdf.Advanced
 
       // CID fonts are always embedded
       if (!BaseFont.Contains("+"))  // HACK in PdfType0Font
-        BaseFont = PdfFont.CreateEmbeddedFontSubsetName(BaseFont);
+        BaseFont = CreateEmbeddedFontSubsetName(BaseFont);
 
-      this.fontDescriptor.FontName = BaseFont;
-      this.descendantFont.BaseFont = BaseFont;
+      fontDescriptor.FontName = BaseFont;
+      descendantFont.BaseFont = BaseFont;
 
       PdfArray descendantFonts = new PdfArray(document);
       Owner.irefTable.Add(descendantFont);
@@ -158,7 +158,7 @@ namespace PdfSharp.Pdf.Advanced
 
     XPdfFontOptions FontOptions
     {
-      get { return this.fontOptions; }
+      get { return fontOptions; }
     }
     XPdfFontOptions fontOptions;
 
@@ -170,7 +170,7 @@ namespace PdfSharp.Pdf.Advanced
 
     internal PdfCIDFont DescendantFont
     {
-      get { return this.descendantFont; }
+      get { return descendantFont; }
     }
     PdfCIDFont descendantFont;
 
@@ -180,11 +180,11 @@ namespace PdfSharp.Pdf.Advanced
 
 #if true
       // use GetGlyphIndices to create the widths array
-      OpenTypeDescriptor descriptor = (OpenTypeDescriptor)this.fontDescriptor.descriptor;
+      OpenTypeDescriptor descriptor = (OpenTypeDescriptor)fontDescriptor.descriptor;
       StringBuilder w = new StringBuilder("[");
-      if (this.cmapInfo != null)
+      if (cmapInfo != null)
       {
-        int[] glyphIndices = this.cmapInfo.GetGlyphIndices();
+        int[] glyphIndices = cmapInfo.GetGlyphIndices();
         int count = glyphIndices.Length;
         int[] glyphWidths = new int[count];
 
@@ -196,7 +196,7 @@ namespace PdfSharp.Pdf.Advanced
         for (int idx = 0; idx < count; idx++)
           w.AppendFormat("{0}[{1}]", glyphIndices[idx], glyphWidths[idx]);
         w.Append("]");
-        this.descendantFont.Elements.SetValue(PdfCIDFont.Keys.W, new PdfLiteral(w.ToString()));
+        descendantFont.Elements.SetValue(PdfCIDFont.Keys.W, new PdfLiteral(w.ToString()));
 #else
       TrueTypeDescriptor descriptor = (TrueTypeDescriptor)this.fontDescriptor.descriptor;
       bool symbol = descriptor.fontData.cmap.symbol;
@@ -235,8 +235,8 @@ namespace PdfSharp.Pdf.Advanced
 #endif
       }
 
-      this.descendantFont.PrepareForSave();
-      this.toUnicode.PrepareForSave();
+      descendantFont.PrepareForSave();
+      toUnicode.PrepareForSave();
     }
 
     /// <summary>
@@ -300,9 +300,9 @@ namespace PdfSharp.Pdf.Advanced
       {
         get
         {
-          if (Keys.meta == null)
-            Keys.meta = CreateMeta(typeof(Keys));
-          return Keys.meta;
+          if (meta == null)
+            meta = CreateMeta(typeof(Keys));
+          return meta;
         }
       }
       static DictionaryMeta meta;

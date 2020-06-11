@@ -49,7 +49,7 @@ namespace PdfSharp.Pdf
     /// </summary>
     public PdfName()
     {
-      this.value = "/";  // Empty name.
+      value = "/";  // Empty name.
     }
 
     /// <summary>
@@ -70,7 +70,7 @@ namespace PdfSharp.Pdf
     /// </summary>
     public override bool Equals(object obj)
     {
-      return this.value.Equals(obj);
+      return value.Equals(obj);
     }
 
     /// <summary>
@@ -78,7 +78,7 @@ namespace PdfSharp.Pdf
     /// </summary>
     public override int GetHashCode()
     {
-      return this.value.GetHashCode();
+      return value.GetHashCode();
     }
 
     /// <summary>
@@ -87,7 +87,7 @@ namespace PdfSharp.Pdf
     public string Value
     {
       // This class must behave like a value type. Therefore it cannot be changed (like System.String).
-      get { return this.value; }
+      get { return value; }
     }
     string value;
 
@@ -96,7 +96,7 @@ namespace PdfSharp.Pdf
     /// </summary>
     public override string ToString()
     {
-      return this.value;
+      return value;
     }
 
     /// <summary>

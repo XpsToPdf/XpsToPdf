@@ -25,14 +25,14 @@ namespace PdfSharp.Xps.XpsModel
 
     public PdfFont PdfFont
     {
-      get { return this.pdfFont; }
-      set { this.pdfFont = value; }
+      get { return pdfFont; }
+      set { pdfFont = value; }
     }
     PdfFont pdfFont;
 
     public byte[] FontData
     {
-      get { return this.fontData; }
+      get { return fontData; }
     }
     byte[] fontData;
   }

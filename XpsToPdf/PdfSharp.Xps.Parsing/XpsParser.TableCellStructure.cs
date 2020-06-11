@@ -16,23 +16,23 @@ namespace PdfSharp.Xps.Parsing
     /// </summary>
     TableCellStructure ParseTableCellStructure()
     {
-      Debug.Assert(this.reader.Name == "");
-      bool isEmptyElement = this.reader.IsEmptyElement;
+      Debug.Assert(reader.Name == "");
+      bool isEmptyElement = reader.IsEmptyElement;
       TableCellStructure tableCellStructure = new TableCellStructure();
       while (MoveToNextAttribute())
       {
-        switch (this.reader.Name)
+        switch (reader.Name)
         {
           case "RowSpan":
-            tableCellStructure.RowSpan = int.Parse(this.reader.Value);
+            tableCellStructure.RowSpan = int.Parse(reader.Value);
             break;
 
           case "ColumnSpan":
-            tableCellStructure.ColumnSpan = int.Parse(this.reader.Value);
+            tableCellStructure.ColumnSpan = int.Parse(reader.Value);
             break;
 
           default:
-            UnexpectedAttribute(this.reader.Name);
+            UnexpectedAttribute(reader.Name);
             break;
         }
       }

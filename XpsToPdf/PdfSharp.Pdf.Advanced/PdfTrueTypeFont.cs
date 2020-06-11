@@ -62,12 +62,12 @@ namespace PdfSharp.Pdf.Advanced
 
       // TrueType with WinAnsiEncoding only
       OpenTypeDescriptor ttDescriptor = (OpenTypeDescriptor)FontDescriptorStock.Global.CreateDescriptor(font);
-      this.fontDescriptor = new PdfFontDescriptor(document, ttDescriptor);
-      this.fontOptions = font.PdfOptions;
-      Debug.Assert(this.fontOptions != null);
+      fontDescriptor = new PdfFontDescriptor(document, ttDescriptor);
+      fontOptions = font.PdfOptions;
+      Debug.Assert(fontOptions != null);
 
       //this.cmapInfo = new CMapInfo(null/*ttDescriptor*/);
-      this.cmapInfo = new CMapInfo(ttDescriptor);
+      cmapInfo = new CMapInfo(ttDescriptor);
 
       BaseFont = font.Name.Replace(" ", "");
       switch (font.Style & (XFontStyle.Bold | XFontStyle.Italic))
@@ -84,11 +84,11 @@ namespace PdfSharp.Pdf.Advanced
           BaseFont += ",BoldItalic";
           break;
       }
-      if (this.fontOptions.FontEmbedding == PdfFontEmbedding.Always)
-        BaseFont = PdfFont.CreateEmbeddedFontSubsetName(BaseFont);
-      this.fontDescriptor.FontName = BaseFont;
+      if (fontOptions.FontEmbedding == PdfFontEmbedding.Always)
+        BaseFont = CreateEmbeddedFontSubsetName(BaseFont);
+      fontDescriptor.FontName = BaseFont;
 
-      Debug.Assert(this.fontOptions.FontEncoding == PdfFontEncoding.WinAnsi);
+      Debug.Assert(fontOptions.FontEncoding == PdfFontEncoding.WinAnsi);
       if (!IsSymbolFont)
         Encoding = "/WinAnsiEncoding";
 
@@ -115,8 +115,8 @@ namespace PdfSharp.Pdf.Advanced
       //#endif
       //        }
 
-      Owner.irefTable.Add(this.fontDescriptor);
-      Elements[Keys.FontDescriptor] = this.fontDescriptor.Reference;
+      Owner.irefTable.Add(fontDescriptor);
+      Elements[Keys.FontDescriptor] = fontDescriptor.Reference;
 
       FontEncoding = font.PdfOptions.FontEncoding;
       FontEmbedding = font.PdfOptions.FontEmbedding;
@@ -124,7 +124,7 @@ namespace PdfSharp.Pdf.Advanced
 
     XPdfFontOptions FontOptions
     {
-      get { return this.fontOptions; }
+      get { return fontOptions; }
     }
     XPdfFontOptions fontOptions;
 
@@ -166,7 +166,7 @@ namespace PdfSharp.Pdf.Advanced
 
       if (FontEmbedding == PdfFontEmbedding.Always || FontEmbedding == PdfFontEmbedding.Automatic)
       {
-        FontData subSet = this.fontDescriptor.descriptor.fontData.CreateFontSubSet(this.cmapInfo.GlyphIndices, false);
+        FontData subSet = fontDescriptor.descriptor.fontData.CreateFontSubSet(cmapInfo.GlyphIndices, false);
         byte[] fontData = subSet.Data;
 
 #if DEBUG_
@@ -174,12 +174,12 @@ namespace PdfSharp.Pdf.Advanced
         byte[] fontSubSet = fss.Process();
         fss.CompareBytes(fontSubSet, fontProgram);
 #endif
-        PdfDictionary fontStream = new PdfDictionary(this.Owner);
-        this.Owner.Internals.AddObject(fontStream);
-        this.fontDescriptor.Elements[PdfFontDescriptor.Keys.FontFile2] = fontStream.Reference;
+        PdfDictionary fontStream = new PdfDictionary(Owner);
+        Owner.Internals.AddObject(fontStream);
+        fontDescriptor.Elements[PdfFontDescriptor.Keys.FontFile2] = fontStream.Reference;
 
         fontStream.Elements["/Length1"] = new PdfInteger(fontData.Length);
-        if (!this.Owner.Options.NoCompression)
+        if (!Owner.Options.NoCompression)
         {
           fontData = Filtering.FlateDecode.Encode(fontData);
           fontStream.Elements["/Filter"] = new PdfName("/FlateDecode");
@@ -195,7 +195,7 @@ namespace PdfSharp.Pdf.Advanced
         PdfArray width = Widths;
         //width.Elements.Clear();
         for (int idx = 0; idx < 256; idx++)
-          width.Elements.Add(new PdfInteger(this.fontDescriptor.descriptor.widths[idx]));
+          width.Elements.Add(new PdfInteger(fontDescriptor.descriptor.widths[idx]));
       //}
       //else
       //{
@@ -310,9 +310,9 @@ namespace PdfSharp.Pdf.Advanced
       {
         get
         {
-          if (Keys.meta == null)
-            Keys.meta = CreateMeta(typeof(Keys));
-          return Keys.meta;
+          if (meta == null)
+            meta = CreateMeta(typeof(Keys));
+          return meta;
         }
       }
       static DictionaryMeta meta;

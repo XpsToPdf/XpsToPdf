@@ -49,20 +49,20 @@ namespace PdfSharp.Internal
       // Preserve us for warning CS0649...
       LOGFONT(int dummy)
       {
-        this.lfHeight = 0;
-        this.lfWidth = 0;
-        this.lfEscapement = 0;
-        this.lfOrientation = 0;
-        this.lfWeight = 0;
-        this.lfItalic = 0;
-        this.lfUnderline = 0;
-        this.lfStrikeOut = 0;
-        this.lfCharSet = 0;
-        this.lfOutPrecision = 0;
-        this.lfClipPrecision = 0;
-        this.lfQuality = 0;
-        this.lfPitchAndFamily = 0;
-        this.lfFaceName = "";
+        lfHeight = 0;
+        lfWidth = 0;
+        lfEscapement = 0;
+        lfOrientation = 0;
+        lfWeight = 0;
+        lfItalic = 0;
+        lfUnderline = 0;
+        lfStrikeOut = 0;
+        lfCharSet = 0;
+        lfOutPrecision = 0;
+        lfClipPrecision = 0;
+        lfQuality = 0;
+        lfPitchAndFamily = 0;
+        lfFaceName = "";
       }
       public int lfHeight;
       public int lfWidth;
@@ -83,20 +83,20 @@ namespace PdfSharp.Internal
       {
         object[] objArray1 = new object[0x1c] 
         { 
-          "lfHeight=", this.lfHeight, 
-          ", lfWidth=", this.lfWidth, 
-          ", lfEscapement=", this.lfEscapement, 
-          ", lfOrientation=", this.lfOrientation, 
-          ", lfWeight=", this.lfWeight, 
-          ", lfItalic=", this.lfItalic, 
-          ", lfUnderline=", this.lfUnderline, 
-          ", lfStrikeOut=", this.lfStrikeOut, 
-          ", lfCharSet=", this.lfCharSet, 
-          ", lfOutPrecision=", this.lfOutPrecision, 
-          ", lfClipPrecision=", this.lfClipPrecision, 
-          ", lfQuality=", this.lfQuality, 
-          ", lfPitchAndFamily=", this.lfPitchAndFamily, 
-          ", lfFaceName=", this.lfFaceName
+          "lfHeight=", lfHeight, 
+          ", lfWidth=", lfWidth, 
+          ", lfEscapement=", lfEscapement, 
+          ", lfOrientation=", lfOrientation, 
+          ", lfWeight=", lfWeight, 
+          ", lfItalic=", lfItalic, 
+          ", lfUnderline=", lfUnderline, 
+          ", lfStrikeOut=", lfStrikeOut, 
+          ", lfCharSet=", lfCharSet, 
+          ", lfOutPrecision=", lfOutPrecision, 
+          ", lfClipPrecision=", lfClipPrecision, 
+          ", lfQuality=", lfQuality, 
+          ", lfPitchAndFamily=", lfPitchAndFamily, 
+          ", lfFaceName=", lfFaceName
         };
         return string.Concat(objArray1);
       }

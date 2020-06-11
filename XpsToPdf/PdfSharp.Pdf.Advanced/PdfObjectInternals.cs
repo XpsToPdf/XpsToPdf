@@ -56,7 +56,7 @@ namespace PdfSharp.Pdf.Advanced
     /// </summary>
     public PdfObjectID ObjectID
     {
-      get { return this.obj.ObjectID; }
+      get { return obj.ObjectID; }
     }
 
     /// <summary>
@@ -64,7 +64,7 @@ namespace PdfSharp.Pdf.Advanced
     /// </summary>
     public int ObjectNumber
     {
-      get { return this.obj.ObjectID.ObjectNumber; }
+      get { return obj.ObjectID.ObjectNumber; }
     }
 
     /// <summary>
@@ -72,7 +72,7 @@ namespace PdfSharp.Pdf.Advanced
     /// </summary>
     public int GenerationNumber
     {
-      get { return this.obj.ObjectID.GenerationNumber; }
+      get { return obj.ObjectID.GenerationNumber; }
     }
 
     /// <summary>
@@ -83,11 +83,11 @@ namespace PdfSharp.Pdf.Advanced
     {
       get
       {
-        if (this.obj is PdfArray)
+        if (obj is PdfArray)
           return "array";
-        else if (this.obj is PdfDictionary)
+        else if (obj is PdfDictionary)
           return "dictionary";
-        return this.obj.GetType().Name;
+        return obj.GetType().Name;
       }
     }
   }

@@ -69,7 +69,7 @@ namespace PdfSharp.Pdf.Advanced
       if (form.pdfForm != null)
       {
         Debug.Assert(form.IsTemplate, "An XPdfForm must not have a PdfFormXObject.");
-        if (object.ReferenceEquals(form.pdfForm.Owner, this.owner))
+        if (ReferenceEquals(form.pdfForm.Owner, owner))
           return form.pdfForm;
         //throw new InvalidOperationException("Because of a current limitation of PDFsharp an XPdfForm object can be used only within one single PdfDocument.");
 
@@ -83,24 +83,24 @@ namespace PdfSharp.Pdf.Advanced
         // Is the external PDF file from which is imported already known for the current document?
         Selector selector = new Selector(form);
         PdfImportedObjectTable importedObjectTable;
-        if (!this.forms.TryGetValue(selector, out importedObjectTable))
+        if (!forms.TryGetValue(selector, out importedObjectTable))
         {
           // No: Get the external document from the form and create ImportedObjectTable.
           PdfDocument doc = pdfForm.ExternalDocument;
-          importedObjectTable = new PdfImportedObjectTable(this.owner, doc);
-          this.forms[selector] = importedObjectTable;
+          importedObjectTable = new PdfImportedObjectTable(owner, doc);
+          forms[selector] = importedObjectTable;
         }
 
         PdfFormXObject xObject = importedObjectTable.GetXObject(pdfForm.PageNumber);
         if (xObject == null)
         {
-          xObject = new PdfFormXObject(this.owner, importedObjectTable, pdfForm);
+          xObject = new PdfFormXObject(owner, importedObjectTable, pdfForm);
           importedObjectTable.SetXObject(pdfForm.PageNumber, xObject);
         }
         return xObject;
       }
       Debug.Assert(form.GetType() == typeof(XForm));
-      form.pdfForm = new PdfFormXObject(this.owner, form);
+      form.pdfForm = new PdfFormXObject(owner, form);
       return form.pdfForm;
     }
 
@@ -112,10 +112,10 @@ namespace PdfSharp.Pdf.Advanced
       // Is the external PDF file from which is imported already known for the current document?
       Selector selector = new Selector(page);
       PdfImportedObjectTable importedObjectTable;
-      if (!this.forms.TryGetValue(selector, out importedObjectTable))
+      if (!forms.TryGetValue(selector, out importedObjectTable))
       {
-        importedObjectTable = new PdfImportedObjectTable(this.owner, page.Owner);
-        this.forms[selector] = importedObjectTable;
+        importedObjectTable = new PdfImportedObjectTable(owner, page.Owner);
+        forms[selector] = importedObjectTable;
       }
       return importedObjectTable;
     }
@@ -124,12 +124,12 @@ namespace PdfSharp.Pdf.Advanced
     {
       if (handle.IsAlive)
       {
-        foreach (Selector selector in this.forms.Keys)
+        foreach (Selector selector in forms.Keys)
         {
-          PdfImportedObjectTable table = (PdfImportedObjectTable)this.forms[selector];
+          PdfImportedObjectTable table = (PdfImportedObjectTable)forms[selector];
           if (table.ExternalDocument != null && table.ExternalDocument.Handle == handle)
           {
-            this.forms.Remove(selector);
+            forms.Remove(selector);
             break;
           }
         }
@@ -140,12 +140,12 @@ namespace PdfSharp.Pdf.Advanced
       while (itemRemoved)
       {
         itemRemoved = false;
-        foreach (Selector selector in this.forms.Keys)
+        foreach (Selector selector in forms.Keys)
         {
-          PdfImportedObjectTable table = this.forms[selector];
+          PdfImportedObjectTable table = forms[selector];
           if (table.ExternalDocument == null)
           {
-            this.forms.Remove(selector);
+            forms.Remove(selector);
             itemRemoved = true;
             break;
           }
@@ -169,7 +169,7 @@ namespace PdfSharp.Pdf.Advanced
       public Selector(XForm form)
       {
         // HACK: just use full path to identify
-        this.path = form.path.ToLower(CultureInfo.InvariantCulture);
+        path = form.path.ToLower(CultureInfo.InvariantCulture);
       }
 
       /// <summary>
@@ -182,13 +182,13 @@ namespace PdfSharp.Pdf.Advanced
         //if (path.Length == 0)
         path = "*" + owner.Guid.ToString("B");
 
-        this.path = path.ToLower(CultureInfo.InvariantCulture);
+        path = path.ToLower(CultureInfo.InvariantCulture);
       }
 
       public string Path
       {
-        get { return this.path; }
-        set { this.path = value; }
+        get { return path; }
+        set { path = value; }
       }
       string path;
 
@@ -197,12 +197,12 @@ namespace PdfSharp.Pdf.Advanced
         Selector selector = obj as Selector;
         if (obj == null)
           return false;
-        return this.path == selector.path; ;
+        return path == selector.path; ;
       }
 
       public override int GetHashCode()
       {
-        return this.path.GetHashCode();
+        return path.GetHashCode();
       }
     }
   }

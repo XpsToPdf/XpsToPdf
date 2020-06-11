@@ -16,30 +16,30 @@ namespace PdfSharp.Xps.Parsing
     void ParseResourceDictionary(ResourceDictionary dict)
     {
       //Debug.Assert(this.reader.Name == "ResourceDictionary");
-      Debug.Assert(this.reader.Name.Contains("Resource"));
+      Debug.Assert(reader.Name.Contains("Resource"));
       try
       {
-        bool isEmptyElement = this.reader.IsEmptyElement;
+        bool isEmptyElement = reader.IsEmptyElement;
         //ResourceDictionary dict = new ResourceDictionary();
         while (MoveToNextAttribute())
         {
-          switch (this.reader.Name)
+          switch (reader.Name)
           {
             case "Source":
-              dict.Source = this.reader.Value;
+              dict.Source = reader.Value;
               break;
 
             default:
-              UnexpectedAttribute(this.reader.Name);
+              UnexpectedAttribute(reader.Name);
               break;
           }
         }
         if (!isEmptyElement)
         {
           MoveToNextElement();
-          while (this.reader.IsStartElement())
+          while (reader.IsStartElement())
           {
-            switch (this.reader.Name)
+            switch (reader.Name)
             {
               case "ImageBrush":
                 ImageBrush ibrush = ParseImageBrush();

@@ -53,11 +53,11 @@ namespace PdfSharp.Xps
     public static bool FlattenArcSegments
     {
 #if DEBUG
-      get { return DevHelper.flattenArcSegments; }
+      get { return flattenArcSegments; }
 #else
       get { return false; }
 #endif
-      set { DevHelper.flattenArcSegments = value; }
+      set { flattenArcSegments = value; }
     }
     static bool flattenArcSegments = false;
 
@@ -67,11 +67,11 @@ namespace PdfSharp.Xps
     public static bool FlattenPolyQuadraticBezierSegment
     {
 #if DEBUG
-      get { return DevHelper.flattenPolyQuadraticBezierSegment; }
+      get { return flattenPolyQuadraticBezierSegment; }
 #else
       get { return true; }
 #endif
-      set { DevHelper.flattenPolyQuadraticBezierSegment = value; }
+      set { flattenPolyQuadraticBezierSegment = value; }
     }
     static bool flattenPolyQuadraticBezierSegment = false;
   }

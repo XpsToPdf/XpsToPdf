@@ -87,7 +87,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     XImage(BitmapSource image)
     {
-      this.wpfImage = image;
+      wpfImage = image;
       Initialize();
     }
 #endif
@@ -111,7 +111,7 @@ namespace PdfSharp.Drawing
 #if WPF && !SILVERLIGHT
       //BitmapSource.Create()
       // BUG: BitmapImage locks the file
-      this.wpfImage = new BitmapImage(new Uri(path));  // AGHACK
+      wpfImage = new BitmapImage(new Uri(path));  // AGHACK
 #endif
 
 #if false
@@ -130,7 +130,7 @@ namespace PdfSharp.Drawing
     XImage(Stream stream)
     {
       // Create a dummy unique path
-      this.path = "*" + Guid.NewGuid().ToString("B");
+      path = "*" + Guid.NewGuid().ToString("B");
 
 #if GDI
       this.gdiImage = Image.FromStream(stream);
@@ -250,17 +250,17 @@ namespace PdfSharp.Drawing
 #endif
 #if WPF
 #if !SILVERLIGHT
-      if (this.wpfImage != null)
+      if (wpfImage != null)
       {
-        string pixelFormat = this.wpfImage.Format.ToString();
-        string filename = GetImageFilename(this.wpfImage);
+        string pixelFormat = wpfImage.Format.ToString();
+        string filename = GetImageFilename(wpfImage);
         // WPF treats all images as images.
         // We give JPEG images a special treatment.
         // Test if it's a JPEG:
         bool isJpeg = IsJpeg; // TestJpeg(filename);
         if (isJpeg)
         {
-          this.format = XImageFormat.Jpeg;
+          format = XImageFormat.Jpeg;
           return;
         }
 
@@ -269,7 +269,7 @@ namespace PdfSharp.Drawing
           case "Bgr32":
           case "Bgra32":
           case "Pbgra32":
-            this.format = XImageFormat.Png;
+            format = XImageFormat.Png;
             break;
 
           //case "{B96B3CAE-0728-11D3-9D7B-0000F81EF32E}":  // jpeg
@@ -282,7 +282,7 @@ namespace PdfSharp.Drawing
           case "Indexed4":
           case "Indexed8":
           case "Gray8":
-            this.format = XImageFormat.Gif;
+            format = XImageFormat.Gif;
             break;
 
           //case "{B96B3CB1-0728-11D3-9D7B-0000F81EF32E}":  // tiff
@@ -301,7 +301,7 @@ namespace PdfSharp.Drawing
 
           default:
             Debug.Assert(false, "Unknown pixel format: " + pixelFormat);
-            this.format = XImageFormat.Gif;
+            format = XImageFormat.Gif;
             break;// throw new InvalidOperationException("Unsupported image format.");
         }
       }
@@ -484,8 +484,8 @@ namespace PdfSharp.Drawing
     /// </summary>
     protected virtual void Dispose(bool disposing)
     {
-      if (!this.disposed)
-        this.disposed = true;
+      if (!disposed)
+        disposed = true;
 
 #if GDI
       if (this.gdiImage != null)
@@ -523,7 +523,7 @@ namespace PdfSharp.Drawing
 #endif
 #if WPF && !GDI
 #if !SILVERLIGHT
-        return this.wpfImage.PixelWidth;
+        return wpfImage.PixelWidth;
 #else
         // AGHACK
         return 100;
@@ -551,7 +551,7 @@ namespace PdfSharp.Drawing
 #endif
 #if WPF && !GDI
 #if !SILVERLIGHT
-        return this.wpfImage.PixelHeight;
+        return wpfImage.PixelHeight;
 #else
         // AGHACK
         return 100;
@@ -579,8 +579,8 @@ namespace PdfSharp.Drawing
 #endif
 #if WPF && !GDI
 #if !SILVERLIGHT
-        Debug.Assert(Math.Abs(this.wpfImage.PixelWidth * 72 / this.wpfImage.DpiX - this.wpfImage.Width * 72.0 / 96.0) < 0.001);
-        return this.wpfImage.Width * 72.0 / 96.0;
+        Debug.Assert(Math.Abs(wpfImage.PixelWidth * 72 / wpfImage.DpiX - wpfImage.Width * 72.0 / 96.0) < 0.001);
+        return wpfImage.Width * 72.0 / 96.0;
 #else
         // AGHACK
         return 100;
@@ -607,8 +607,8 @@ namespace PdfSharp.Drawing
 #endif
 #if WPF || SILVERLIGHT && !GDI
 #if !SILVERLIGHT
-        Debug.Assert(Math.Abs(this.wpfImage.PixelHeight * 72 / this.wpfImage.DpiY - this.wpfImage.Height * 72.0 / 96.0) < 0.001);
-        return this.wpfImage.Height * 72.0 / 96.0;
+        Debug.Assert(Math.Abs(wpfImage.PixelHeight * 72 / wpfImage.DpiY - wpfImage.Height * 72.0 / 96.0) < 0.001);
+        return wpfImage.Height * 72.0 / 96.0;
 #else
         // AGHACK
         return 100;
@@ -635,7 +635,7 @@ namespace PdfSharp.Drawing
 #endif
 #if WPF && !GDI
 #if !SILVERLIGHT
-        return this.wpfImage.PixelWidth;
+        return wpfImage.PixelWidth;
 #else
         // AGHACK
         return 100;
@@ -662,7 +662,7 @@ namespace PdfSharp.Drawing
 #endif
 #if WPF && !GDI
 #if !SILVERLIGHT
-        return this.wpfImage.PixelHeight;
+        return wpfImage.PixelHeight;
 #else
         // AGHACK
         return 100;
@@ -697,7 +697,7 @@ namespace PdfSharp.Drawing
 #endif
 #if WPF && !GDI
 #if !SILVERLIGHT
-        return this.wpfImage.DpiX; //.PixelWidth * 96.0 / this.wpfImage.Width;
+        return wpfImage.DpiX; //.PixelWidth * 96.0 / this.wpfImage.Width;
 #else
         // AGHACK
         return 96;
@@ -724,7 +724,7 @@ namespace PdfSharp.Drawing
 #endif
 #if WPF && !GDI
 #if !SILVERLIGHT
-        return this.wpfImage.DpiY; //.PixelHeight * 96.0 / this.wpfImage.Height;
+        return wpfImage.DpiY; //.PixelHeight * 96.0 / this.wpfImage.Height;
 #else
         // AGHACK
         return 96;
@@ -738,8 +738,8 @@ namespace PdfSharp.Drawing
     /// </summary>
     public virtual bool Interpolate
     {
-      get { return this.interpolate; }
-      set { this.interpolate = value; }
+      get { return interpolate; }
+      set { interpolate = value; }
     }
     bool interpolate = true;
 
@@ -748,7 +748,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     public XImageFormat Format
     {
-      get { return this.format; }
+      get { return format; }
     }
     XImageFormat format;
 

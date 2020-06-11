@@ -9,17 +9,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="PdfSharp.Drawing.Wpf\**" />
+    <Compile Remove="PdfSharp.Forms\**" />
+    <Compile Remove="PdfSharpPdf.AcroForms\**" />
+    <EmbeddedResource Remove="PdfSharp.Drawing.Wpf\**" />
+    <EmbeddedResource Remove="PdfSharp.Forms\**" />
+    <EmbeddedResource Remove="PdfSharpPdf.AcroForms\**" />
+    <None Remove="PdfSharp.Drawing.Wpf\**" />
+    <None Remove="PdfSharp.Forms\**" />
+    <None Remove="PdfSharpPdf.AcroForms\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="PdfSharp.SharpZipLib\ReadMe.txt" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="PdfSharp.SharpZipLib\ReadMe.txt" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="PdfSharp.Drawing.Wpf\" />
-    <Folder Include="PdfSharp.Forms\" />
-    <Folder Include="PdfSharpPdf.AcroForms\enums\" />
   </ItemGroup>
 
   <ItemGroup>

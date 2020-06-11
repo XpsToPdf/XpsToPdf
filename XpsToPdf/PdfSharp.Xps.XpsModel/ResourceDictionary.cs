@@ -20,8 +20,8 @@ namespace PdfSharp.Xps.XpsModel
     /// </summary>
     public ResourceDictionary ResourceParent
     {
-      get { return this.parentResourceDictionary; }
-      set { this.parentResourceDictionary = value; }
+      get { return parentResourceDictionary; }
+      set { parentResourceDictionary = value; }
     }
     ResourceDictionary parentResourceDictionary;
 
@@ -33,7 +33,7 @@ namespace PdfSharp.Xps.XpsModel
       get 
       {
         XpsElement element;
-        this.elements.TryGetValue(key, out element);
+        elements.TryGetValue(key, out element);
         return element; 
       }
     }

@@ -71,7 +71,7 @@ namespace PdfSharp
       string message;
       try
       {
-        message = PSSR.GetString(id);
+        message = GetString(id);
         message = message != null ? Format(message, args) : "INTERNAL ERROR: Message not found in resources.";
         return message;
       }
@@ -104,7 +104,7 @@ namespace PdfSharp
     /// </summary>
     public static string GetString(PSMsgID id)
     {
-      return PSSR.ResMngr.GetString(id.ToString());
+      return ResMngr.GetString(id.ToString());
     }
 
     #endregion
@@ -329,15 +329,15 @@ namespace PdfSharp
     {
       get
       {
-        if (PSSR.resmngr == null)
+        if (resmngr == null)
         {
 #if true_
           // Force the English language, even on German Windows.
           System.Threading.Thread.CurrentThread.CurrentUICulture = System.Globalization.CultureInfo.InvariantCulture;
 #endif
-          PSSR.resmngr = new ResourceManager("PdfSharp.Resources.Messages", Assembly.GetExecutingAssembly());
+          resmngr = new ResourceManager("PdfSharp.Resources.Messages", Assembly.GetExecutingAssembly());
         }
-        return PSSR.resmngr;
+        return resmngr;
       }
     }
     static ResourceManager resmngr;

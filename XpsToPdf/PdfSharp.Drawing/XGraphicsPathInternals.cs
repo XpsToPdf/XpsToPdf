@@ -68,7 +68,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     public PathGeometry WpfPath
     {
-      get { return this.path.pathGeometry; }
+      get { return path.pathGeometry; }
     }
 #endif
   }

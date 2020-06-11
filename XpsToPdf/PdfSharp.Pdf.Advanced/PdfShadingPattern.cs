@@ -69,7 +69,7 @@ namespace PdfSharp.Pdf.Advanced
       if (brush == null)
         throw new ArgumentNullException("brush");
 
-      PdfShading shading = new PdfShading(this.document);
+      PdfShading shading = new PdfShading(document);
       shading.SetupFromBrush(brush);
       Elements[Keys.Shading] = shading;
       //Elements[Keys.Matrix] = new PdfLiteral("[" + PdfEncoders.ToString(matrix) + "]");
@@ -124,9 +124,9 @@ namespace PdfSharp.Pdf.Advanced
       {
         get
         {
-          if (Keys.meta == null)
-            Keys.meta = CreateMeta(typeof(Keys));
-          return Keys.meta;
+          if (meta == null)
+            meta = CreateMeta(typeof(Keys));
+          return meta;
         }
       }
       static DictionaryMeta meta;

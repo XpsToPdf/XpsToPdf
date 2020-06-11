@@ -17,40 +17,40 @@ namespace PdfSharp.Xps.Parsing
     /// </summary>
     PathGeometry ParsePathGeometry()
     {
-      Debug.Assert(this.reader.Name == "PathGeometry");
-      bool isEmptyElement = this.reader.IsEmptyElement;
+      Debug.Assert(reader.Name == "PathGeometry");
+      bool isEmptyElement = reader.IsEmptyElement;
       PathGeometry geo = new PathGeometry();
       while (MoveToNextAttribute())
       {
-        switch (this.reader.Name)
+        switch (reader.Name)
         {
           case "Transform":
-            geo.Transform = ParseMatrixTransform(this.reader.Value);
+            geo.Transform = ParseMatrixTransform(reader.Value);
             break;
 
           case "Figures":
-            geo.Figures = ParsePathGeometry(this.reader.Value).Figures;
+            geo.Figures = ParsePathGeometry(reader.Value).Figures;
             break;
 
           case "FillRule":
-            geo.FillRule = ParseEnum<FillRule>(this.reader.Value);
+            geo.FillRule = ParseEnum<FillRule>(reader.Value);
             break;
 
           case "x:Key":
-            geo.Key = this.reader.Value;
+            geo.Key = reader.Value;
             break;
 
           default:
-            UnexpectedAttribute(this.reader.Name);
+            UnexpectedAttribute(reader.Name);
             break;
         }
       }
       if (!isEmptyElement)
       {
         MoveToNextElement();
-        while (this.reader.IsStartElement())
+        while (reader.IsStartElement())
         {
-          switch (this.reader.Name)
+          switch (reader.Name)
           {
             case "PathGeometry.RenderTransform":
               MoveToNextElement();

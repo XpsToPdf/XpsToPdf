@@ -47,35 +47,35 @@ namespace PdfSharp.Drawing
   {
     public GraphicsStateStack(XGraphics gfx)
     {
-      this.current = new InternalGraphicsState(gfx);
+      current = new InternalGraphicsState(gfx);
     }
 
     public int Count
     {
-      get { return this.stack.Count; }
+      get { return stack.Count; }
     }
 
     public void Push(InternalGraphicsState state)
     {
-      this.stack.Push(state);
+      stack.Push(state);
       state.Pushed();
     }
 
     public int Restore(InternalGraphicsState state)
     {
-      if (!this.stack.Contains(state))
+      if (!stack.Contains(state))
         throw new ArgumentException("State not on stack.", "state");
       if (state.invalid)
         throw new ArgumentException("State already restored.", "state");
 
       int count = 1;
-      InternalGraphicsState top = (InternalGraphicsState)this.stack.Pop();
+      InternalGraphicsState top = (InternalGraphicsState)stack.Pop();
       top.Popped();
       while (top != state)
       {
         count++;
         state.invalid = true;
-        top = (InternalGraphicsState)this.stack.Pop();
+        top = (InternalGraphicsState)stack.Pop();
         top.Popped();
       }
       state.invalid = true;
@@ -86,9 +86,9 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (this.stack.Count == 0)
-          return this.current;
-        return this.stack.Peek();
+        if (stack.Count == 0)
+          return current;
+        return stack.Peek();
       }
     }
     InternalGraphicsState current;

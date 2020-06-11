@@ -42,7 +42,7 @@ namespace PdfSharp.Fonts.OpenType
   {
     FontDataStock()
     {
-      this.fontDataTable = new Dictionary<string, FontData>();
+      fontDataTable = new Dictionary<string, FontData>();
     }
 
     public FontData RegisterFontData(byte[] data)
@@ -51,16 +51,16 @@ namespace PdfSharp.Fonts.OpenType
       string key = String.Format("??{0:X}", checksum);
 
       FontData fontData;
-      if (!this.fontDataTable.TryGetValue(key, out fontData))
+      if (!fontDataTable.TryGetValue(key, out fontData))
       {
         lock (typeof(FontDataStock))
         {
           // may be created by other thread meanwhile
-          if (!this.fontDataTable.TryGetValue(key, out fontData))
+          if (!fontDataTable.TryGetValue(key, out fontData))
           {
             fontData = new FontData(data);
-            this.fontDataTable.Add(key, fontData);
-            this.lastEntry = fontData;
+            fontDataTable.Add(key, fontData);
+            lastEntry = fontData;
           }
         }
       }

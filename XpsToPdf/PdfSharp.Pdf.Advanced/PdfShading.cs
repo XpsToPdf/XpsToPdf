@@ -67,7 +67,7 @@ namespace PdfSharp.Pdf.Advanced
       if (brush == null)
         throw new ArgumentNullException("brush");
 
-      PdfColorMode colorMode = this.document.Options.ColorMode;
+      PdfColorMode colorMode = document.Options.ColorMode;
       XColor color1 = ColorSpaceHelper.EnsureColorMode(colorMode, brush.color1);
       XColor color2 = ColorSpaceHelper.EnsureColorMode(colorMode, brush.color2);
 
@@ -243,9 +243,9 @@ namespace PdfSharp.Pdf.Advanced
       {
         get
         {
-          if (Keys.meta == null)
-            Keys.meta = CreateMeta(typeof(Keys));
-          return Keys.meta;
+          if (meta == null)
+            meta = CreateMeta(typeof(Keys));
+          return meta;
         }
       }
       static DictionaryMeta meta;

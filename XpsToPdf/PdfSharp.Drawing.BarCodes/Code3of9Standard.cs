@@ -189,8 +189,8 @@ namespace PdfSharp.Drawing.BarCodes
        * 
        * Total width = (13 + 6 * r + (3 * r + 7) * code.Length) * thin
        */
-      double thinLineAmount = 13 + 6 * this.wideNarrowRatio + (3 * this.wideNarrowRatio + 7) * this.text.Length;
-      info.ThinBarWidth = this.Size.Width / thinLineAmount;
+      double thinLineAmount = 13 + 6 * wideNarrowRatio + (3 * wideNarrowRatio + 7) * text.Length;
+      info.ThinBarWidth = Size.Width / thinLineAmount;
     }
 
     /// <summary>
@@ -223,12 +223,12 @@ namespace PdfSharp.Drawing.BarCodes
       InitRendering(info);
       info.CurrPosInString = 0;
       //info.CurrPos = info.Center - this.size / 2;
-      info.CurrPos = position - CodeBase.CalcDistance(AnchorType.TopLeft, this.anchor, this.size);
+      info.CurrPos = position - CalcDistance(AnchorType.TopLeft, anchor, size);
 
       if (TurboBit)
         RenderTurboBit(info, true);
       RenderStart(info);
-      while (info.CurrPosInString < this.text.Length)
+      while (info.CurrPosInString < text.Length)
       {
         RenderNextChar(info);
         RenderGap(info, false);
@@ -244,7 +244,7 @@ namespace PdfSharp.Drawing.BarCodes
 
     private void RenderNextChar(BarCodeRenderInfo info)
     {
-      RenderChar(info, this.text[info.CurrPosInString]);
+      RenderChar(info, text[info.CurrPosInString]);
       ++info.CurrPosInString;
     }
 

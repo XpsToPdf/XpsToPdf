@@ -61,9 +61,9 @@ namespace PdfSharp.Drawing
     {
 #if !SILVERLIGHT
       return new BezierSegment(
-        new System.Windows.Point(pt1.X + tension3 * (pt2.X - pt0.X), pt1.Y + tension3 * (pt2.Y - pt0.Y)),
-        new System.Windows.Point(pt2.X - tension3 * (pt3.X - pt1.X), pt2.Y - tension3 * (pt3.Y - pt1.Y)),
-        new System.Windows.Point(pt2.X, pt2.Y), true);
+        new Point(pt1.X + tension3 * (pt2.X - pt0.X), pt1.Y + tension3 * (pt2.Y - pt0.Y)),
+        new Point(pt2.X - tension3 * (pt3.X - pt1.X), pt2.Y - tension3 * (pt3.Y - pt1.Y)),
+        new Point(pt2.X, pt2.Y), true);
 #else
       return new BezierSegment(); // AGHACK
 #endif
@@ -74,18 +74,18 @@ namespace PdfSharp.Drawing
     /// <summary>
     /// Creates a path geometry from a polygon.
     /// </summary>
-    public static PathGeometry CreatePolygonGeometry(System.Windows.Point[] points, XFillMode fillMode, bool closed)
+    public static PathGeometry CreatePolygonGeometry(Point[] points, XFillMode fillMode, bool closed)
     {
       PolyLineSegment seg = new PolyLineSegment();
       int count = points.Length;
       // For correct drawing the start point of the segment must not be the same as the first point
       for (int idx = 1; idx < count; idx++)
-        seg.Points.Add(new System.Windows.Point(points[idx].X, points[idx].Y));
+        seg.Points.Add(new Point(points[idx].X, points[idx].Y));
 #if !SILVERLIGHT
       seg.IsStroked = true;
 #endif
       PathFigure fig = new PathFigure();
-      fig.StartPoint = new System.Windows.Point(points[0].X, points[0].Y);
+      fig.StartPoint = new Point(points[0].X, points[0].Y);
       fig.Segments.Add(seg);
       fig.IsClosed = closed;
       PathGeometry geo = new PathGeometry();
@@ -100,7 +100,7 @@ namespace PdfSharp.Drawing
     /// Creates the arc segment from parameters of the GDI+ DrawArc function.
     /// </summary>
     public static ArcSegment CreateArcSegment(double x, double y, double width, double height, double startAngle,
-      double sweepAngle, out System.Windows.Point startPoint)
+      double sweepAngle, out Point startPoint)
     {
       // Normalize the angles
       double α = startAngle;
@@ -168,9 +168,9 @@ namespace PdfSharp.Drawing
       sinβ = Math.Sin(β);
       cosβ = Math.Cos(β);
 
-      startPoint = new System.Windows.Point(x0 + δx * cosα, y0 + δy * sinα);
-      System.Windows.Point destPoint = new System.Windows.Point(x0 + δx * cosβ, y0 + δy * sinβ);
-      System.Windows.Size size = new System.Windows.Size(δx, δy);
+      startPoint = new Point(x0 + δx * cosα, y0 + δy * sinα);
+      Point destPoint = new Point(x0 + δx * cosβ, y0 + δy * sinβ);
+      Size size = new Size(δx, δy);
       bool isLargeArc = Math.Abs(sweepAngle) >= 180;
       SweepDirection sweepDirection = sweepAngle > 0 ? SweepDirection.Clockwise : SweepDirection.Counterclockwise;
 #if !SILVERLIGHT

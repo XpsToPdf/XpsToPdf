@@ -64,7 +64,7 @@ namespace PdfSharp.Pdf.Annotations
 
     void Initialize()
     {
-      Elements.SetName(Keys.Subtype, "/Stamp");
+      Elements.SetName(PdfAnnotation.Keys.Subtype, "/Stamp");
       Color = XColors.Yellow;
     }
 
@@ -126,9 +126,9 @@ namespace PdfSharp.Pdf.Annotations
       {
         get
         {
-          if (Keys.meta == null)
-            Keys.meta = CreateMeta(typeof(Keys));
-          return Keys.meta;
+          if (meta == null)
+            meta = CreateMeta(typeof(Keys));
+          return meta;
         }
       }
       static DictionaryMeta meta;

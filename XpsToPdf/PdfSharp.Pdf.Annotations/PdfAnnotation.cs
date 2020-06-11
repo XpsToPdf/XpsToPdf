@@ -102,8 +102,8 @@ namespace PdfSharp.Pdf.Annotations
     /// </summary>
     public PdfAnnotations Parent
     {
-      get { return this.parent; }
-      set { this.parent = value; }
+      get { return parent; }
+      set { parent = value; }
     }
     PdfAnnotations parent;
 
@@ -192,7 +192,7 @@ namespace PdfSharp.Pdf.Annotations
       set
       {
         // TODO: an array.SetColor(clr) function may be useful here
-        PdfArray array = new PdfArray(this.Owner, new PdfReal[] 
+        PdfArray array = new PdfArray(Owner, new PdfReal[] 
           { new PdfReal(value.R / 255.0), new PdfReal(value.G / 255.0), new PdfReal(value.B / 255.0) });
         Elements[Keys.C] = array;
         Elements.SetDateTime(Keys.M, DateTime.Now);

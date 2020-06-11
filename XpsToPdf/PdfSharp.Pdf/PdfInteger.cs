@@ -65,7 +65,7 @@ namespace PdfSharp.Pdf
     public int Value
     {
       // This class must behave like a value type. Therefore it cannot be changed (like System.String).
-      get { return this.value; }
+      get { return value; }
     }
     readonly int value;
 
@@ -89,7 +89,7 @@ namespace PdfSharp.Pdf
 
     ulong IConvertible.ToUInt64(IFormatProvider provider)
     {
-      return Convert.ToUInt64(this.value);
+      return Convert.ToUInt64(value);
     }
 
     sbyte IConvertible.ToSByte(IFormatProvider provider)
@@ -115,7 +115,7 @@ namespace PdfSharp.Pdf
 
     bool IConvertible.ToBoolean(IFormatProvider provider)
     {
-      return Convert.ToBoolean(this.value);
+      return Convert.ToBoolean(value);
     }
 
     int IConvertible.ToInt32(IFormatProvider provider)
@@ -125,12 +125,12 @@ namespace PdfSharp.Pdf
 
     ushort IConvertible.ToUInt16(IFormatProvider provider)
     {
-      return Convert.ToUInt16(this.value);
+      return Convert.ToUInt16(value);
     }
 
     short IConvertible.ToInt16(IFormatProvider provider)
     {
-      return Convert.ToInt16(this.value);
+      return Convert.ToInt16(value);
     }
 
     string IConvertible.ToString(IFormatProvider provider)
@@ -140,12 +140,12 @@ namespace PdfSharp.Pdf
 
     byte IConvertible.ToByte(IFormatProvider provider)
     {
-      return Convert.ToByte(this.value);
+      return Convert.ToByte(value);
     }
 
     char IConvertible.ToChar(IFormatProvider provider)
     {
-      return Convert.ToChar(this.value);
+      return Convert.ToChar(value);
     }
 
     long IConvertible.ToInt64(IFormatProvider provider)
@@ -174,7 +174,7 @@ namespace PdfSharp.Pdf
 
     uint IConvertible.ToUInt32(IFormatProvider provider)
     {
-      return Convert.ToUInt32(this.value);
+      return Convert.ToUInt32(value);
     }
 
     #endregion

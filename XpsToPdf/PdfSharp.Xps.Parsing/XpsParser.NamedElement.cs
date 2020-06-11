@@ -16,19 +16,19 @@ namespace PdfSharp.Xps.Parsing
     /// </summary>
     NamedElement ParseNamedElement()
     {
-      Debug.Assert(this.reader.Name == "");
-      bool isEmptyElement = this.reader.IsEmptyElement;
+      Debug.Assert(reader.Name == "");
+      bool isEmptyElement = reader.IsEmptyElement;
       NamedElement namedElement = new NamedElement();
       while (MoveToNextAttribute())
       {
-        switch (this.reader.Name)
+        switch (reader.Name)
         {
           case "NameReference":
-            namedElement.NameReference = this.reader.Value;
+            namedElement.NameReference = reader.Value;
             break;
 
           default:
-            UnexpectedAttribute(this.reader.Name);
+            UnexpectedAttribute(reader.Name);
             break;
         }
       }

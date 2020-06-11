@@ -72,7 +72,7 @@ namespace PdfSharp.Pdf
     public DateTime Value
     {
       // This class must behave like a value type. Therefore it cannot be changed (like System.String).
-      get { return this.value; }
+      get { return value; }
     }
     DateTime value;
 
@@ -81,8 +81,8 @@ namespace PdfSharp.Pdf
     /// </summary>
     public override string ToString()
     {
-      string delta = this.value.ToString("zzz").Replace(':', '\'');
-      return String.Format("D:{0:yyyyMMddHHmmss}{1}'", this.value, delta);
+      string delta = value.ToString("zzz").Replace(':', '\'');
+      return String.Format("D:{0:yyyyMMddHHmmss}{1}'", value, delta);
     }
 
     /// <summary>

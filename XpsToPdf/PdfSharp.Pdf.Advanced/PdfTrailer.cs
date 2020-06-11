@@ -73,7 +73,7 @@ namespace PdfSharp.Pdf.Advanced
     /// </summary>
     public PdfCatalog Root
     {
-      get {return (PdfCatalog)Elements.GetValue(PdfTrailer.Keys.Root, VCF.CreateIndirect);}
+      get {return (PdfCatalog)Elements.GetValue(Keys.Root, VCF.CreateIndirect);}
     }
 
     /// <summary>
@@ -112,7 +112,7 @@ namespace PdfSharp.Pdf.Advanced
     /// </summary>
     internal PdfArray CreateNewDocumentIDs()
     {
-      PdfArray array = new PdfArray(this.document);
+      PdfArray array = new PdfArray(document);
       byte[] docID = Guid.NewGuid().ToByteArray();
       string id = PdfEncoders.RawEncoding.GetString(docID, 0, docID.Length);
       array.Elements.Add(new PdfString(id, PdfStringFlags.HexLiteral));
@@ -128,9 +128,9 @@ namespace PdfSharp.Pdf.Advanced
     {
       get 
       {
-        if (this.securityHandler == null)
-          this.securityHandler = (PdfStandardSecurityHandler)Elements.GetValue(Keys.Encrypt, VCF.CreateIndirect);
-        return this.securityHandler;
+        if (securityHandler == null)
+          securityHandler = (PdfStandardSecurityHandler)Elements.GetValue(Keys.Encrypt, VCF.CreateIndirect);
+        return securityHandler;
       }
     }
     internal PdfStandardSecurityHandler securityHandler;
@@ -150,7 +150,7 @@ namespace PdfSharp.Pdf.Advanced
     internal override void WriteObject(PdfWriter writer)
     {
       // Delete /XRefStm entry, if any
-      this.elements.Remove(Keys.XRefStm);
+      elements.Remove(Keys.XRefStm);
 
       // Don't encypt myself
       PdfStandardSecurityHandler securityHandler = writer.SecurityHandler;
@@ -165,41 +165,41 @@ namespace PdfSharp.Pdf.Advanced
     internal void Finish()
     {
       // \Root
-      PdfReference iref = document.trailer.Elements[PdfTrailer.Keys.Root] as PdfReference;
+      PdfReference iref = document.trailer.Elements[Keys.Root] as PdfReference;
       if (iref != null && iref.Value == null)
       {
         iref = document.irefTable[iref.ObjectID];
         Debug.Assert(iref.Value != null);
-        this.document.trailer.Elements[PdfTrailer.Keys.Root] = iref;
+        document.trailer.Elements[Keys.Root] = iref;
       }
 
       // \Info
-      iref = this.document.trailer.Elements[PdfTrailer.Keys.Info] as PdfReference;
+      iref = document.trailer.Elements[Keys.Info] as PdfReference;
       if (iref != null && iref.Value == null)
       {
         iref = document.irefTable[iref.ObjectID];
         Debug.Assert(iref.Value != null);
-        this.document.trailer.Elements[PdfTrailer.Keys.Info] = iref;
+        document.trailer.Elements[Keys.Info] = iref;
       }
 
       // \Encrypt
-      iref = this.document.trailer.Elements[PdfTrailer.Keys.Encrypt] as PdfReference;
+      iref = document.trailer.Elements[Keys.Encrypt] as PdfReference;
       if (iref != null)
       {
         iref = document.irefTable[iref.ObjectID];
         Debug.Assert(iref.Value != null);
-        this.document.trailer.Elements[PdfTrailer.Keys.Encrypt] = iref;
+        document.trailer.Elements[Keys.Encrypt] = iref;
 
         // The encryption dictionary (security handler) was read in before the XRefTable construction 
         // was completed. The next lines fix that state (it take several hours to find that bugs...).
-        iref.Value = this.document.trailer.securityHandler;
-        this.document.trailer.securityHandler.Reference = iref;
+        iref.Value = document.trailer.securityHandler;
+        document.trailer.securityHandler.Reference = iref;
         iref.Value.Reference = iref;
       }
 
       Elements.Remove(Keys.Prev);
 
-      this.document.irefTable.IsUnderConstruction = false;
+      document.irefTable.IsUnderConstruction = false;
     }
 
     /// <summary>
@@ -267,9 +267,9 @@ namespace PdfSharp.Pdf.Advanced
       {
         get
         {
-          if (Keys.meta == null)
-            Keys.meta = CreateMeta(typeof(Keys));
-          return Keys.meta;
+          if (meta == null)
+            meta = CreateMeta(typeof(Keys));
+          return meta;
         }
       }
       static DictionaryMeta meta;

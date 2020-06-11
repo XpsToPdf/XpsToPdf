@@ -24,7 +24,7 @@ namespace PdfSharp.Xps.XpsModel
     /// </summary>
     public GlyphIndices()
     {
-      this.glyphMapping = new GlyphMapping[0];
+      glyphMapping = new GlyphMapping[0];
     }
 
     /// <summary>
@@ -32,7 +32,7 @@ namespace PdfSharp.Xps.XpsModel
     /// </summary>
     public GlyphIndices(string indices)
     {
-      this.glyphMapping = GlyphIndicesParser.Parse(indices);
+      glyphMapping = GlyphIndicesParser.Parse(indices);
     }
 
     /// <summary>
@@ -40,7 +40,7 @@ namespace PdfSharp.Xps.XpsModel
     /// </summary>
     public int Count
     {
-      get { return this.glyphMapping.Length; }
+      get { return glyphMapping.Length; }
     }
 
     /// <summary>
@@ -48,7 +48,7 @@ namespace PdfSharp.Xps.XpsModel
     /// </summary>
     public GlyphMapping this[int idx]
     {
-      get { return this.glyphMapping[idx]; }
+      get { return glyphMapping[idx]; }
     }
     GlyphMapping[] glyphMapping;
 
@@ -56,9 +56,9 @@ namespace PdfSharp.Xps.XpsModel
     {
       get
       {
-        if (this.complexity == 0)
-          this.complexity = CalcGlyphIndicesComplexity();
-        return this.complexity;
+        if (complexity == 0)
+          complexity = CalcGlyphIndicesComplexity();
+        return complexity;
       }
     }
     GlyphIndicesComplexity complexity;
@@ -69,10 +69,10 @@ namespace PdfSharp.Xps.XpsModel
     GlyphIndicesComplexity CalcGlyphIndicesComplexity()
     {
       GlyphIndicesComplexity result = GlyphIndicesComplexity.None;
-      int count = this.glyphMapping != null ? this.glyphMapping.Length : 0;
+      int count = glyphMapping != null ? glyphMapping.Length : 0;
       for (int idx = 0; idx < count; idx++)
       {
-        GlyphMapping gm = this.glyphMapping[idx];
+        GlyphMapping gm = glyphMapping[idx];
 
         if (gm.ClusterCodeUnitCount > 1 || gm.ClusterGlyphCount > 1)
         {
@@ -222,7 +222,7 @@ namespace PdfSharp.Xps.XpsModel
 
     GlyphIndices.GlyphMapping[] Parse()
     {
-      string[] parts = this.indices.Split(new char[] { ';' });
+      string[] parts = indices.Split(new char[] { ';' });
       int count = parts.Length;
       GlyphIndices.GlyphMapping[] glyphMapping = new GlyphIndices.GlyphMapping[count];
 

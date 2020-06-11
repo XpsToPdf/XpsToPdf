@@ -15,39 +15,39 @@ namespace PdfSharp.Xps.Parsing
     /// </summary>
     Path ParsePath()
     {
-      Debug.Assert(this.reader.Name == "Path");
-      bool isEmptyElement = this.reader.IsEmptyElement;
+      Debug.Assert(reader.Name == "Path");
+      bool isEmptyElement = reader.IsEmptyElement;
       Path path = new Path();
       while (MoveToNextAttribute())
       {
-        switch (this.reader.Name)
+        switch (reader.Name)
         {
           case "Data":
-            path.Data = ParsePathGeometry(this.reader.Value);
+            path.Data = ParsePathGeometry(reader.Value);
             break;
 
           case "Fill":
-            path.Fill = ParseBrush(this.reader.Value); 
+            path.Fill = ParseBrush(reader.Value); 
             break;
 
           case "RenderTransform":
-            path.RenderTransform = ParseMatrixTransform(this.reader.Value);
+            path.RenderTransform = ParseMatrixTransform(reader.Value);
             break;
 
           case "Clip":
-            path.Clip = ParsePathGeometry(this.reader.Value);
+            path.Clip = ParsePathGeometry(reader.Value);
             break;
 
           case "Opacity":
-            path.Opacity = ParseDouble(this.reader.Value);
+            path.Opacity = ParseDouble(reader.Value);
             break;
 
           case "OpacityMask":
-            path.OpacityMask = ParseBrush(this.reader.Value);
+            path.OpacityMask = ParseBrush(reader.Value);
             break;
 
           case "Stroke":
-            path.Stroke = ParseBrush(this.reader.Value);
+            path.Stroke = ParseBrush(reader.Value);
             break;
 
           case "StrokeDashArray":
@@ -63,27 +63,27 @@ namespace PdfSharp.Xps.Parsing
             break;
 
           case "StrokeEndLineCap":
-            path.StrokeEndLineCap = ParseEnum<LineCap>(this.reader.Value);
+            path.StrokeEndLineCap = ParseEnum<LineCap>(reader.Value);
             break;
 
           case "StrokeStartLineCap":
-            path.StrokeStartLineCap = ParseEnum<LineCap>(this.reader.Value);
+            path.StrokeStartLineCap = ParseEnum<LineCap>(reader.Value);
             break;
 
           case "StrokeLineJoin":
-            path.StrokeLineJoin = ParseEnum<LineJoin>(this.reader.Value);
+            path.StrokeLineJoin = ParseEnum<LineJoin>(reader.Value);
             break;
 
           case "StrokeMiterLimit":
-            path.StrokeMiterLimit = ParseDouble(this.reader.Value);
+            path.StrokeMiterLimit = ParseDouble(reader.Value);
             break;
 
           case "StrokeThickness":
-            path.StrokeThickness = ParseDouble(this.reader.Value);
+            path.StrokeThickness = ParseDouble(reader.Value);
             break;
 
           case "Name":
-            path.Name = this.reader.Value;
+            path.Name = reader.Value;
             break;
 
           case "FixedPage_NavigateUri":
@@ -92,23 +92,23 @@ namespace PdfSharp.Xps.Parsing
             break;
 
           case "AutomationProperties_Name":
-            path.AutomationProperties_Name = this.reader.Value;
+            path.AutomationProperties_Name = reader.Value;
             break;
 
           case "AutomationProperties.HelpText":
-            path.AutomationProperties_HelpText = this.reader.Value;
+            path.AutomationProperties_HelpText = reader.Value;
             break;
 
           case "SnapsToDevicePixels":
-            path.SnapsToDevicePixels = ParseBool(this.reader.Value);
+            path.SnapsToDevicePixels = ParseBool(reader.Value);
             break;
 
           case "xml:lang":
-            path.lang = this.reader.Value;
+            path.lang = reader.Value;
             break;
 
           case "x:Key":
-            path.Key = this.reader.Value;
+            path.Key = reader.Value;
             break;
 
           case "xml:id":
@@ -118,16 +118,16 @@ namespace PdfSharp.Xps.Parsing
             break;
 
           default:
-            UnexpectedAttribute(this.reader.Name);
+            UnexpectedAttribute(reader.Name);
             break;
         }
       }
       if (!isEmptyElement)
       {
         MoveToNextElement();
-        while (this.reader.IsStartElement())
+        while (reader.IsStartElement())
         {
-          switch (this.reader.Name)
+          switch (reader.Name)
           {
             case "Path.RenderTransform":
               MoveToNextElement();

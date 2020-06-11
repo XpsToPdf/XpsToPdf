@@ -16,12 +16,12 @@ namespace PdfSharp.Xps.Parsing
     /// </summary>
     FixedDocument ParseFixedDocument()
     {
-      Debug.Assert(this.reader.Name == "FixedDocument");
-      bool isEmptyElement = this.reader.IsEmptyElement;
+      Debug.Assert(reader.Name == "FixedDocument");
+      bool isEmptyElement = reader.IsEmptyElement;
       FixedDocument fdoc = new FixedDocument();
       while (MoveToNextAttribute())
       {
-        switch (this.reader.Name)
+        switch (reader.Name)
         {
           default:
             //UnexpectedAttribute();
@@ -31,19 +31,19 @@ namespace PdfSharp.Xps.Parsing
       if (!isEmptyElement)
       {
         MoveToNextElement();
-        while (this.reader.IsStartElement())
+        while (reader.IsStartElement())
         {
-          switch (this.reader.Name)
+          switch (reader.Name)
           {
             case "PageContent":
               {
-                isEmptyElement = this.reader.IsEmptyElement;
+                isEmptyElement = reader.IsEmptyElement;
                 while (MoveToNextAttribute())
                 {
-                  switch (this.reader.Name)
+                  switch (reader.Name)
                   {
                     case "Source":
-                      fdoc.PageContentUriStrings.Add(this.reader.Value);
+                      fdoc.PageContentUriStrings.Add(reader.Value);
                       break;
 
                     case "Width":
@@ -55,7 +55,7 @@ namespace PdfSharp.Xps.Parsing
                       break;
 
                     default:
-                      UnexpectedAttribute(this.reader.Name);
+                      UnexpectedAttribute(reader.Name);
                       break;
                   }
                 }
@@ -63,7 +63,7 @@ namespace PdfSharp.Xps.Parsing
                 {
                   MoveToNextElement();
                   // Move beyond PageContent.LinkTargets
-                  if (this.reader.IsStartElement())
+                  if (reader.IsStartElement())
                     MoveBeyondThisElement();
                 }
               }

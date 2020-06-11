@@ -50,7 +50,7 @@ namespace PdfSharp.Pdf.Advanced
     {
       Elements.SetName(Keys.Type, "/Catalog");
 
-      this.version = "1.4";  // HACK in PdfCatalog
+      version = "1.4";  // HACK in PdfCatalog
     }
 
     PdfCatalog(PdfDictionary dictionary)
@@ -62,7 +62,7 @@ namespace PdfSharp.Pdf.Advanced
     /// </summary>
     public string Version
     {
-      get { return this.version; }
+      get { return version; }
       set
       {
         switch (value)
@@ -74,7 +74,7 @@ namespace PdfSharp.Pdf.Advanced
 
           case "1.3":
           case "1.4":
-            this.version = value;
+            version = value;
             break;
 
           case "1.5":
@@ -95,13 +95,13 @@ namespace PdfSharp.Pdf.Advanced
     {
       get
       {
-        if (this.pages == null)
+        if (pages == null)
         {
-          this.pages = (PdfPages)Elements.GetValue(Keys.Pages, VCF.CreateIndirect);
-          if (this.Owner.IsImported)
-            this.pages.FlattenPageTree();
+          pages = (PdfPages)Elements.GetValue(Keys.Pages, VCF.CreateIndirect);
+          if (Owner.IsImported)
+            pages.FlattenPageTree();
         }
-        return this.pages;
+        return pages;
       }
     }
     PdfPages pages;
@@ -131,9 +131,9 @@ namespace PdfSharp.Pdf.Advanced
     {
       get
       {
-        if (this.viewerPreferences == null)
-          this.viewerPreferences = (PdfViewerPreferences)Elements.GetValue(Keys.ViewerPreferences, VCF.CreateIndirect);
-        return this.viewerPreferences;
+        if (viewerPreferences == null)
+          viewerPreferences = (PdfViewerPreferences)Elements.GetValue(Keys.ViewerPreferences, VCF.CreateIndirect);
+        return viewerPreferences;
       }
     }
     PdfViewerPreferences viewerPreferences;
@@ -145,9 +145,9 @@ namespace PdfSharp.Pdf.Advanced
     {
       get
       {
-        if (this.outline == null)
-          this.outline = (PdfOutline)Elements.GetValue(Keys.Outlines, VCF.CreateIndirect);
-        return this.outline.Outlines;
+        if (outline == null)
+          outline = (PdfOutline)Elements.GetValue(Keys.Outlines, VCF.CreateIndirect);
+        return outline.Outlines;
       }
     }
     PdfOutline outline;
@@ -159,9 +159,9 @@ namespace PdfSharp.Pdf.Advanced
     {
       get
       {
-        if (this.acroForm == null)
-          this.acroForm = (PdfAcroForm)Elements.GetValue(Keys.AcroForm);
-        return this.acroForm;
+        if (acroForm == null)
+          acroForm = (PdfAcroForm)Elements.GetValue(Keys.AcroForm);
+        return acroForm;
       }
     }
     PdfAcroForm acroForm;
@@ -186,20 +186,20 @@ namespace PdfSharp.Pdf.Advanced
     /// </summary>
     internal override void PrepareForSave()
     {
-      if (this.pages != null)
-        this.pages.PrepareForSave();
+      if (pages != null)
+        pages.PrepareForSave();
 
-      if (this.outline != null && this.outline.Outlines.Count > 0)
+      if (outline != null && outline.Outlines.Count > 0)
       {
         if (Elements[Keys.PageMode] == null)
           PageMode = PdfPageMode.UseOutlines;
-        this.outline.PrepareForSave();
+        outline.PrepareForSave();
       }
     }
 
     internal override void WriteObject(PdfWriter writer)
     {
-      if (this.outline != null && this.outline.Outlines.Count > 0)
+      if (outline != null && outline.Outlines.Count > 0)
       {
         if (Elements[Keys.PageMode] == null)
           PageMode = PdfPageMode.UseOutlines;
@@ -411,9 +411,9 @@ namespace PdfSharp.Pdf.Advanced
       {
         get
         {
-          if (Keys.meta == null)
-            Keys.meta = CreateMeta(typeof(Keys));
-          return Keys.meta;
+          if (meta == null)
+            meta = CreateMeta(typeof(Keys));
+          return meta;
         }
       }
       static DictionaryMeta meta;

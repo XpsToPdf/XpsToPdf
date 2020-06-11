@@ -58,10 +58,10 @@ namespace PdfSharp.Pdf.Advanced
     {
       get
       {
-        Debug.Assert(this.fontDescriptor != null);
+        Debug.Assert(fontDescriptor != null);
         //if (this.fontDescriptor2 == null)
         //  this.fontDescriptor2 = (PdfFontDescriptor)Elements.GetValue(Keys.FontDescriptor, VCF.CreateIndirect);
-        return this.fontDescriptor;
+        return fontDescriptor;
       }
     }
     internal PdfFontDescriptor fontDescriptor;
@@ -81,7 +81,7 @@ namespace PdfSharp.Pdf.Advanced
     /// </summary>
     public bool IsSymbolFont
     {
-      get { return this.fontDescriptor.IsSymbolFont; }
+      get { return fontDescriptor.IsSymbolFont; }
     }
 
 #if true_
@@ -117,14 +117,14 @@ namespace PdfSharp.Pdf.Advanced
 
     internal void AddChars(string text)
     {
-      if (this.cmapInfo != null)
-        this.cmapInfo.AddChars(text);
+      if (cmapInfo != null)
+        cmapInfo.AddChars(text);
     }
 
     internal void AddGlyphIndices(string glyphIndices)
     {
-      if (this.cmapInfo != null)
-        this.cmapInfo.AddGlyphIndices(glyphIndices);
+      if (cmapInfo != null)
+        cmapInfo.AddGlyphIndices(glyphIndices);
     }
 
     /// <summary>
@@ -132,8 +132,8 @@ namespace PdfSharp.Pdf.Advanced
     /// </summary>
     internal CMapInfo CMapInfo
     {
-      get { return this.cmapInfo; }
-      set { this.cmapInfo = value; }
+      get { return cmapInfo; }
+      set { cmapInfo = value; }
     }
     internal CMapInfo cmapInfo;
 
@@ -142,8 +142,8 @@ namespace PdfSharp.Pdf.Advanced
     /// </summary>
     internal PdfToUnicodeMap ToUnicodeMap
     {
-      get { return this.toUnicode; }
-      set { this.toUnicode = value; }
+      get { return toUnicode; }
+      set { toUnicode = value; }
     }
     internal PdfToUnicodeMap toUnicode;
 

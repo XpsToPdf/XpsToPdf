@@ -217,8 +217,8 @@ namespace PdfSharp.SharpZipLib.Zip.Compression.Streams
 					break;
 				}
 				
-				if (this.Password != null) {
-					this.EncryptBlock(buf, 0, len);
+				if (Password != null) {
+					EncryptBlock(buf, 0, len);
 				}
 				
 				baseOutputStream.Write(buf, 0, len);
@@ -321,8 +321,8 @@ namespace PdfSharp.SharpZipLib.Zip.Compression.Streams
 					break;
 				}
 				
-				if (this.Password != null) {
-					this.EncryptBlock(buf, 0, len);
+				if (Password != null) {
+					EncryptBlock(buf, 0, len);
 				}
 				
 				baseOutputStream.Write(buf, 0, len);

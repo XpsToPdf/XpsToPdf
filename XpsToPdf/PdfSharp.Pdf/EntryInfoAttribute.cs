@@ -83,54 +83,54 @@ namespace PdfSharp.Pdf
     public KeyInfoAttribute(KeyType keyType)
     {
       //this.version = version;
-      this.KeyType = keyType;
+      KeyType = keyType;
     }
 
     public KeyInfoAttribute(string version, KeyType keyType)
     {
       this.version = version;
-      this.KeyType = keyType;
+      KeyType = keyType;
     }
 
     public KeyInfoAttribute(KeyType keyType, Type objectType)
     {
       //this.version = version;
-      this.KeyType = keyType;
+      KeyType = keyType;
       this.objectType = objectType;
     }
 
     public KeyInfoAttribute(string version, KeyType keyType, Type objectType)
     {
       //this.version = version;
-      this.KeyType = keyType;
+      KeyType = keyType;
       this.objectType = objectType;
     }
 
     public string Version
     {
-      get { return this.version; }
-      set { this.version = value; }
+      get { return version; }
+      set { version = value; }
     }
     string version = "1.0";
 
     public KeyType KeyType
     {
-      get { return this.entryType; }
-      set { this.entryType = value; }
+      get { return entryType; }
+      set { entryType = value; }
     }
     KeyType entryType;
 
     public Type ObjectType
     {
-      get { return this.objectType; }
-      set { this.objectType = value; }
+      get { return objectType; }
+      set { objectType = value; }
     }
     Type objectType;
 
     public string FixedValue
     {
-      get { return this.fixedValue; }
-      set { this.fixedValue = value; }
+      get { return fixedValue; }
+      set { fixedValue = value; }
     }
     string fixedValue;
   }

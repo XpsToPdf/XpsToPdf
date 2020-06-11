@@ -54,7 +54,7 @@ namespace PdfSharp.Pdf.Advanced
     internal PdfTransparencyGroupAttributes(PdfDocument thisDocument)
       : base(thisDocument)
     {
-      Elements.SetName(Keys.S, "/Transparency");
+      Elements.SetName(PdfGroupAttributes.Keys.S, "/Transparency");
     }
 
     /// <summary>
@@ -132,9 +132,9 @@ namespace PdfSharp.Pdf.Advanced
       {
         get
         {
-          if (Keys.meta == null)
-            Keys.meta = CreateMeta(typeof(Keys));
-          return Keys.meta;
+          if (meta == null)
+            meta = CreateMeta(typeof(Keys));
+          return meta;
         }
       }
       static DictionaryMeta meta;

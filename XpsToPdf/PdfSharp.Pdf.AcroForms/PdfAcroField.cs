@@ -203,19 +203,19 @@ namespace PdfSharp.Pdf.AcroForms
     /// <summary>
     /// Gets the collection of fields within this field.
     /// </summary>
-    public PdfAcroField.PdfAcroFieldCollection Fields
+    public PdfAcroFieldCollection Fields
     {
       get
       {
-        if (this.fields == null)
+        if (fields == null)
         {
           object o = Elements.GetValue(Keys.Kids, VCF.CreateIndirect);
-          this.fields = (PdfAcroField.PdfAcroFieldCollection)o;
+          fields = (PdfAcroFieldCollection)o;
         }
-        return this.fields;
+        return fields;
       }
     }
-    PdfAcroField.PdfAcroFieldCollection fields;
+    PdfAcroFieldCollection fields;
 
     /// <summary>
     /// Holds a collection of interactive fields.
@@ -393,7 +393,7 @@ namespace PdfSharp.Pdf.AcroForms
       /// <summary>
       /// (Optional) An array of indirect references to the immediate children of this field.
       /// </summary>
-      [KeyInfo(KeyType.Array | KeyType.Optional, typeof(PdfAcroField.PdfAcroFieldCollection))]
+      [KeyInfo(KeyType.Array | KeyType.Optional, typeof(PdfAcroFieldCollection))]
       public const string Kids = "/Kids";
 
       /// <summary>

@@ -16,38 +16,38 @@ namespace PdfSharp.Xps.Parsing
     /// </summary>
     VisualBrush ParseVisualBrush()
     {
-      bool isEmptyElement = this.reader.IsEmptyElement;
+      bool isEmptyElement = reader.IsEmptyElement;
       VisualBrush brush = new VisualBrush();
       while (MoveToNextAttribute())
       {
-        switch (this.reader.Name)
+        switch (reader.Name)
         {
           case "Opacity":
-            brush.Opacity = ParseDouble(this.reader.Value);
+            brush.Opacity = ParseDouble(reader.Value);
             break;
 
           case "Transform":
-            brush.Transform = ParseMatrixTransform(this.reader.Value);
+            brush.Transform = ParseMatrixTransform(reader.Value);
             break;
 
           case "Viewbox":
-            brush.Viewbox = Rect.Parse(this.reader.Value);
+            brush.Viewbox = Rect.Parse(reader.Value);
             break;
 
           case "Viewport":
-            brush.Viewport = Rect.Parse(this.reader.Value);
+            brush.Viewport = Rect.Parse(reader.Value);
             break;
 
           case "TileMode":
-            brush.TileMode = ParseEnum<TileMode>(this.reader.Value);
+            brush.TileMode = ParseEnum<TileMode>(reader.Value);
             break;
 
           case "ViewboxUnits":
-            brush.ViewboxUnits = ParseEnum<ViewUnits>(this.reader.Value);
+            brush.ViewboxUnits = ParseEnum<ViewUnits>(reader.Value);
             break;
 
           case "ViewportUnits":
-            brush.ViewportUnits = ParseEnum<ViewUnits>(this.reader.Value);
+            brush.ViewportUnits = ParseEnum<ViewUnits>(reader.Value);
             break;
 
           case "Visual":
@@ -55,16 +55,16 @@ namespace PdfSharp.Xps.Parsing
             break;
 
           case "x:Key":
-            brush.Key = this.reader.Value;
+            brush.Key = reader.Value;
             break;
         }
       }
       if (!isEmptyElement)
       {
         MoveToNextElement();
-        while (this.reader.IsStartElement())
+        while (reader.IsStartElement())
         {
-          switch (this.reader.Name)
+          switch (reader.Name)
           {
             case "VisualBrush.Transform":
               MoveToNextElement();

@@ -76,7 +76,7 @@ namespace PdfSharp.Drawing
 #endif
 #endif
 #if WPF
-    internal abstract System.Windows.Media. Brush RealizeWpfBrush();
+    internal abstract Brush RealizeWpfBrush();
 #endif
   }
 }

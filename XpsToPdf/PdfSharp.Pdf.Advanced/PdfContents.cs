@@ -79,10 +79,10 @@ namespace PdfSharp.Pdf.Advanced
     /// </summary>
     public PdfContent AppendContent()
     {
-      Debug.Assert(this.Owner != null);
+      Debug.Assert(Owner != null);
 
       SetModified();
-      PdfContent content = new PdfContent(this.Owner);
+      PdfContent content = new PdfContent(Owner);
       Owner.irefTable.Add(content);
       Debug.Assert(content.Reference != null);
       Elements.Add(content.Reference);
@@ -94,10 +94,10 @@ namespace PdfSharp.Pdf.Advanced
     /// </summary>
     public PdfContent PrependContent()
     {
-      Debug.Assert(this.Owner != null);
+      Debug.Assert(Owner != null);
 
       SetModified();
-      PdfContent content = new PdfContent(this.Owner);
+      PdfContent content = new PdfContent(Owner);
       Owner.irefTable.Add(content);
       Debug.Assert(content.Reference != null);
       Elements.Insert(0, content.Reference);
@@ -123,16 +123,16 @@ namespace PdfSharp.Pdf.Advanced
         bytes[bytes1.Length] = (byte)'\n';
         bytes2.CopyTo(bytes, bytes1.Length + 1);
       }
-      PdfContent content = new PdfContent(this.Owner);
+      PdfContent content = new PdfContent(Owner);
       content.Stream = new PdfDictionary.PdfStream(bytes, content);
       return content;
     }
 
     void SetModified()
     {
-      if (!this.modified)
+      if (!modified)
       {
-        this.modified = true;
+        modified = true;
         int count = Elements.Count;
 
         if (count == 1)

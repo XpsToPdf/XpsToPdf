@@ -66,15 +66,15 @@ namespace PdfSharp.Pdf.IO
     public Parser(PdfDocument document, Stream pdf)
     {
       this.document = document;
-      this.lexer = new Lexer(pdf);
-      this.stack = new ShiftStack();
+      lexer = new Lexer(pdf);
+      stack = new ShiftStack();
     }
 
     public Parser(PdfDocument document)
     {
       this.document = document;
-      this.lexer = document.lexer;
-      this.stack = new ShiftStack();
+      lexer = document.lexer;
+      stack = new ShiftStack();
     }
 
     /// <summary>
@@ -82,13 +82,13 @@ namespace PdfSharp.Pdf.IO
     /// </summary>
     public int MoveToObject(PdfObjectID objectID)
     {
-      int position = this.document.irefTable[objectID].Position;
-      return this.lexer.Position = position;
+      int position = document.irefTable[objectID].Position;
+      return lexer.Position = position;
     }
 
     public Symbol Symbol
     {
-      get { return this.lexer.Symbol; }
+      get { return lexer.Symbol; }
     }
 
     /// <summary>
@@ -149,7 +149,7 @@ namespace PdfSharp.Pdf.IO
         case Symbol.BeginArray:
           PdfArray array;
           if (pdfObject == null)
-            array = new PdfArray(this.document);
+            array = new PdfArray(document);
           else
             array = (PdfArray)pdfObject;
           //PdfObject.RegisterObject(array, objectID, generation);
@@ -160,7 +160,7 @@ namespace PdfSharp.Pdf.IO
         case Symbol.BeginDictionary:
           PdfDictionary dict;
           if (pdfObject == null)
-            dict = new PdfDictionary(this.document);
+            dict = new PdfDictionary(document);
           else
             dict = (PdfDictionary)pdfObject;
           //PdfObject.RegisterObject(dict, objectID, generation);
@@ -175,43 +175,43 @@ namespace PdfSharp.Pdf.IO
         // it is true that Acrobat Web Capture 6.0 creates this object, but obviously never 
         // creates a reference to it!
         case Symbol.Null:
-          pdfObject = new PdfNullObject(this.document);
+          pdfObject = new PdfNullObject(document);
           pdfObject.SetObjectID(objectNumber, generationNumber);
           ReadSymbol(Symbol.EndObj);
           return pdfObject;
 
         case Symbol.Boolean:
-          pdfObject = new PdfBooleanObject(this.document, string.Compare(this.lexer.Token, Boolean.TrueString, true) == 0); //!!!mod THHO 19.11.09
+          pdfObject = new PdfBooleanObject(document, string.Compare(lexer.Token, Boolean.TrueString, true) == 0); //!!!mod THHO 19.11.09
           pdfObject.SetObjectID(objectNumber, generationNumber);
           ReadSymbol(Symbol.EndObj);
           return pdfObject;
 
         case Symbol.Integer:
-          pdfObject = new PdfIntegerObject(this.document, this.lexer.TokenToInteger);
+          pdfObject = new PdfIntegerObject(document, lexer.TokenToInteger);
           pdfObject.SetObjectID(objectNumber, generationNumber);
           ReadSymbol(Symbol.EndObj);
           return pdfObject;
 
         case Symbol.UInteger:
-          pdfObject = new PdfUIntegerObject(this.document, this.lexer.TokenToUInteger);
+          pdfObject = new PdfUIntegerObject(document, lexer.TokenToUInteger);
           pdfObject.SetObjectID(objectNumber, generationNumber);
           ReadSymbol(Symbol.EndObj);
           return pdfObject;
 
         case Symbol.Real:
-          pdfObject = new PdfRealObject(this.document, this.lexer.TokenToReal);
+          pdfObject = new PdfRealObject(document, lexer.TokenToReal);
           pdfObject.SetObjectID(objectNumber, generationNumber);
           ReadSymbol(Symbol.EndObj);
           return pdfObject;
 
         case Symbol.String:
-          pdfObject = new PdfStringObject(this.document, this.lexer.Token);
+          pdfObject = new PdfStringObject(document, lexer.Token);
           pdfObject.SetObjectID(objectNumber, generationNumber);
           ReadSymbol(Symbol.EndObj);
           return pdfObject;
 
         case Symbol.Name:
-          pdfObject = new PdfNameObject(this.document, this.lexer.Token);
+          pdfObject = new PdfNameObject(document, lexer.Token);
           pdfObject.SetObjectID(objectNumber, generationNumber);
           ReadSymbol(Symbol.EndObj);
           return pdfObject;
@@ -230,7 +230,7 @@ namespace PdfSharp.Pdf.IO
         PdfDictionary dict = (PdfDictionary)pdfObject;
         Debug.Assert(checkForStream, "Unexpected stream...");
         int length = GetStreamLength(dict);
-        byte[] bytes = this.lexer.ReadStream(length);
+        byte[] bytes = lexer.ReadStream(length);
 #if true_
         if (dict.Elements.GetString("/Filter") == "/FlateDecode")
         {
@@ -262,7 +262,7 @@ namespace PdfSharp.Pdf.IO
         symbol = ScanNextToken();
       }
       if (symbol != Symbol.EndObj)
-        throw new PdfReaderException(PSSR.UnexpectedToken(this.lexer.Token));
+        throw new PdfReaderException(PSSR.UnexpectedToken(lexer.Token));
       return pdfObject;
     }
 
@@ -294,13 +294,13 @@ namespace PdfSharp.Pdf.IO
       Debug.Assert(Symbol == Symbol.BeginArray);
 
       if (array == null)
-        array = new PdfArray(this.document);
+        array = new PdfArray(document);
 
-      int sp = this.stack.SP;
+      int sp = stack.SP;
       ParseObject(Symbol.EndArray);
-      int count = this.stack.SP - sp;
-      PdfItem[] items = this.stack.ToArray(sp, count);
-      this.stack.Reduce(count);
+      int count = stack.SP - sp;
+      PdfItem[] items = stack.ToArray(sp, count);
+      stack.Reduce(count);
       for (int idx = 0; idx < count; idx++)
       {
         PdfItem val = items[idx];
@@ -326,15 +326,15 @@ namespace PdfSharp.Pdf.IO
 #endif
 
       if (dict == null)
-        dict = new PdfDictionary(this.document);
+        dict = new PdfDictionary(document);
       DictionaryMeta meta = dict.Meta;
 
-      int sp = this.stack.SP;
+      int sp = stack.SP;
       ParseObject(Symbol.EndDictionary);
-      int count = this.stack.SP - sp;
+      int count = stack.SP - sp;
       Debug.Assert(count % 2 == 0);
-      PdfItem[] items = this.stack.ToArray(sp, count);
-      this.stack.Reduce(count);
+      PdfItem[] items = stack.ToArray(sp, count);
+      stack.Reduce(count);
       for (int idx = 0; idx < count; idx += 2)
       {
         PdfItem val = items[idx];
@@ -384,94 +384,94 @@ namespace PdfSharp.Pdf.IO
             break;
 
           case Symbol.Null:
-            this.stack.Shift(PdfNull.Value);
+            stack.Shift(PdfNull.Value);
             break;
 
           case Symbol.Boolean:
-            this.stack.Shift(new PdfBoolean(this.lexer.TokenToBoolean));
+            stack.Shift(new PdfBoolean(lexer.TokenToBoolean));
             break;
 
           case Symbol.Integer:
-            this.stack.Shift(new PdfInteger(this.lexer.TokenToInteger));
+            stack.Shift(new PdfInteger(lexer.TokenToInteger));
             break;
 
           case Symbol.UInteger:
-            this.stack.Shift(new PdfUInteger(this.lexer.TokenToUInteger));
+            stack.Shift(new PdfUInteger(lexer.TokenToUInteger));
             break;
 
           case Symbol.Real:
-            this.stack.Shift(new PdfReal(this.lexer.TokenToReal));
+            stack.Shift(new PdfReal(lexer.TokenToReal));
             break;
 
           case Symbol.String:
             //this.stack.Shift(new PdfString(this.lexer.Token, PdfStringFlags.PDFDocEncoding));
-            this.stack.Shift(new PdfString(this.lexer.Token, PdfStringFlags.RawEncoding));
+            stack.Shift(new PdfString(lexer.Token, PdfStringFlags.RawEncoding));
             break;
 
           case Symbol.UnicodeString:
-            this.stack.Shift(new PdfString(this.lexer.Token, PdfStringFlags.Unicode));
+            stack.Shift(new PdfString(lexer.Token, PdfStringFlags.Unicode));
             break;
 
           case Symbol.HexString:
-            this.stack.Shift(new PdfString(this.lexer.Token, PdfStringFlags.HexLiteral));
+            stack.Shift(new PdfString(lexer.Token, PdfStringFlags.HexLiteral));
             break;
 
           case Symbol.UnicodeHexString:
-            this.stack.Shift(new PdfString(this.lexer.Token, PdfStringFlags.Unicode | PdfStringFlags.HexLiteral));
+            stack.Shift(new PdfString(lexer.Token, PdfStringFlags.Unicode | PdfStringFlags.HexLiteral));
             break;
 
           case Symbol.Name:
-            this.stack.Shift(new PdfName(this.lexer.Token));
+            stack.Shift(new PdfName(lexer.Token));
             break;
 
           case Symbol.R:
             {
-              Debug.Assert(this.stack.GetItem(-1) is PdfInteger && this.stack.GetItem(-2) is PdfInteger);
-              PdfObjectID objectID = new PdfObjectID(this.stack.GetInteger(-2), this.stack.GetInteger(-1));
+              Debug.Assert(stack.GetItem(-1) is PdfInteger && stack.GetItem(-2) is PdfInteger);
+              PdfObjectID objectID = new PdfObjectID(stack.GetInteger(-2), stack.GetInteger(-1));
 
-              PdfReference iref = this.document.irefTable[objectID];
+              PdfReference iref = document.irefTable[objectID];
               if (iref == null)
               {
                 // If a document has more than one PdfXRefTable it is possible that the first trailer has
                 // indirect references to objects whos iref entry is not yet read in.
-                if (this.document.irefTable.IsUnderConstruction)
+                if (document.irefTable.IsUnderConstruction)
                 {
                   // XRefTable not complete when trailer is read. Create temporary irefs that are
                   // removed later in PdfTrailer.FixXRefs.
                   iref = new PdfReference(objectID, 0);
-                  this.stack.Reduce(iref, 2);
+                  stack.Reduce(iref, 2);
                   break;
                 }
                 // PDF Reference section 3.2.9:
                 // An indirect reference to an undefined object is not an error;
                 // it is simply treated as a reference to the null object.
-                this.stack.Reduce(PdfNull.Value, 2);
+                stack.Reduce(PdfNull.Value, 2);
                 // Let's see what null objects are good for...
                 //Debug.Assert(false, "Null object detected!");
                 //this.stack.Reduce(PdfNull.Value, 2);
               }
               else
-                this.stack.Reduce(iref, 2);
+                stack.Reduce(iref, 2);
               break;
             }
 
           case Symbol.BeginArray:
-            PdfArray array = new PdfArray(this.document);
+            PdfArray array = new PdfArray(document);
             ReadArray(array, false);
-            this.stack.Shift(array);
+            stack.Shift(array);
             break;
 
           case Symbol.BeginDictionary:
-            PdfDictionary dict = new PdfDictionary(this.document);
+            PdfDictionary dict = new PdfDictionary(document);
             ReadDictionary(dict, false);
-            this.stack.Shift(dict);
+            stack.Shift(dict);
             break;
 
           case Symbol.BeginStream:
             throw new NotImplementedException();
 
           default:
-            string error = this.lexer.Token;
+            string error = lexer.Token;
             Debug.Assert(false, "Unexpected: " + error);
             break;
         }
@@ -481,7 +481,7 @@ namespace PdfSharp.Pdf.IO
 
     Symbol ScanNextToken()
     {
-      return this.lexer.ScanNextToken();
+      return lexer.ScanNextToken();
     }
 
     //protected Symbol ScanNextToken(bool testReference)
@@ -491,8 +491,8 @@ namespace PdfSharp.Pdf.IO
 
     Symbol ScanNextToken(out string token)
     {
-      Symbol symbol = this.lexer.ScanNextToken();
-      token = this.lexer.Token;
+      Symbol symbol = lexer.ScanNextToken();
+      token = lexer.Token;
       return symbol;
     }
 
@@ -536,9 +536,9 @@ namespace PdfSharp.Pdf.IO
     /// </summary>
     Symbol ReadSymbol(Symbol symbol)
     {
-      Symbol current = this.lexer.ScanNextToken();
+      Symbol current = lexer.ScanNextToken();
       if (symbol != current)
-        throw new PdfReaderException(PSSR.UnexpectedToken(this.lexer.Token));
+        throw new PdfReaderException(PSSR.UnexpectedToken(lexer.Token));
       return current;
     }
 
@@ -547,9 +547,9 @@ namespace PdfSharp.Pdf.IO
     /// </summary>
     Symbol ReadToken(string token)
     {
-      Symbol current = this.lexer.ScanNextToken();
-      if (token != this.lexer.Token)
-        throw new PdfReaderException(PSSR.UnexpectedToken(this.lexer.Token));
+      Symbol current = lexer.ScanNextToken();
+      if (token != lexer.Token)
+        throw new PdfReaderException(PSSR.UnexpectedToken(lexer.Token));
       return current;
     }
 
@@ -622,20 +622,20 @@ namespace PdfSharp.Pdf.IO
     /// </summary>
     int ReadInteger(bool canBeIndirect)
     {
-      Symbol symbol = this.lexer.ScanNextToken();
+      Symbol symbol = lexer.ScanNextToken();
       if (symbol == Symbol.Integer)
-        return this.lexer.TokenToInteger;
+        return lexer.TokenToInteger;
       else if (symbol == Symbol.R)
       {
-        int position = this.lexer.Position;
+        int position = lexer.Position;
         //        MoveToObject(this.lexer.Token);
         ReadObjectID(null);
         int n = ReadInteger();
         ReadSymbol(Symbol.EndObj);
-        this.lexer.Position = position;
+        lexer.Position = position;
         return n;
       }
-      throw new PdfReaderException(PSSR.UnexpectedToken(this.lexer.Token));
+      throw new PdfReaderException(PSSR.UnexpectedToken(lexer.Token));
     }
 
     int ReadInteger()
@@ -706,34 +706,34 @@ namespace PdfSharp.Pdf.IO
       //int xrefOffset = 0;
       int length = lexer.PdfLength;
 #if true
-      string trail = this.lexer.ReadRawString(length - 131, 130); //lexer.Pdf.Substring(length - 30);
+      string trail = lexer.ReadRawString(length - 131, 130); //lexer.Pdf.Substring(length - 30);
       int idx = trail.IndexOf("startxref");
-      this.lexer.Position = length - 131 + idx;
+      lexer.Position = length - 131 + idx;
 #else
       string trail = this.lexer.ReadRawString(length - 31, 30); //lexer.Pdf.Substring(length - 30);
       int idx = trail.IndexOf("startxref");
       this.lexer.Position = length - 31 + idx;
 #endif
       ReadSymbol(Symbol.StartXRef);
-      this.lexer.Position = ReadInteger();
+      lexer.Position = ReadInteger();
 
       // Read all trailers
       PdfTrailer trailer;
       while (true)
       {
-        trailer = ReadXRefTableAndTrailer(this.document.irefTable);
+        trailer = ReadXRefTableAndTrailer(document.irefTable);
         // 1st trailer seems to be the best..
-        if (this.document.trailer == null)
-          this.document.trailer = trailer;
+        if (document.trailer == null)
+          document.trailer = trailer;
         int prev = trailer.Elements.GetInteger(PdfTrailer.Keys.Prev);
         if (prev == 0)
           break;
         //if (prev > this.lexer.PdfLength)
         //  break;
-        this.lexer.Position = prev;
+        lexer.Position = prev;
       }
 
-      return this.document.trailer;
+      return document.trailer;
     }
 
     /// <summary>
@@ -754,7 +754,7 @@ namespace PdfSharp.Pdf.IO
         symbol = ScanNextToken();
         if (symbol == Symbol.Integer)
         {
-          int start = this.lexer.TokenToInteger;
+          int start = lexer.TokenToInteger;
           int length = ReadInteger();
           for (int id = start; id < start + length; id++)
           {
@@ -780,12 +780,12 @@ namespace PdfSharp.Pdf.IO
         else if (symbol == Symbol.Trailer)
         {
           ReadSymbol(Symbol.BeginDictionary);
-          PdfTrailer trailer = new PdfTrailer(this.document);
-          this.ReadDictionary(trailer, false);
+          PdfTrailer trailer = new PdfTrailer(document);
+          ReadDictionary(trailer, false);
           return trailer;
         }
         else
-          throw new PdfReaderException(PSSR.UnexpectedToken(this.lexer.Token));
+          throw new PdfReaderException(PSSR.UnexpectedToken(lexer.Token));
       }
     }
 
@@ -1154,15 +1154,15 @@ namespace PdfSharp.Pdf.IO
     ParserState SaveState()
     {
       ParserState state = new ParserState();
-      state.Position = this.lexer.Position;
-      state.Symbol = this.lexer.Symbol;
+      state.Position = lexer.Position;
+      state.Symbol = lexer.Symbol;
       return state;
     }
 
     void RestoreState(ParserState state)
     {
-      this.lexer.Position = state.Position;
-      this.lexer.Symbol = state.Symbol;
+      lexer.Position = state.Position;
+      lexer.Symbol = state.Symbol;
     }
 
     class ParserState

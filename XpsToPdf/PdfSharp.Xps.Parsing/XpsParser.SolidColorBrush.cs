@@ -16,22 +16,22 @@ namespace PdfSharp.Xps.Parsing
     /// </summary>
     SolidColorBrush ParseSolidColorBrush()
     {
-      Debug.Assert(this.reader.Name == "SolidColorBrush");
+      Debug.Assert(reader.Name == "SolidColorBrush");
       SolidColorBrush brush = new SolidColorBrush();
       while (MoveToNextAttribute())
       {
-        switch (this.reader.Name)
+        switch (reader.Name)
         {
           case "Opacity":
-            brush.Opacity = ParseDouble(this.reader.Value);
+            brush.Opacity = ParseDouble(reader.Value);
             break;
 
           case "Color":
-            brush.Color = Color.Parse(this.reader.Value);
+            brush.Color = Color.Parse(reader.Value);
             break;
 
           case "x:Key":
-            brush.Key = this.reader.Value;
+            brush.Key = reader.Value;
             break;
         }
       }

@@ -51,8 +51,8 @@ namespace PdfSharp.Fonts.OpenType
       int length = fontTable.DirectoryEntry.Length;
       if (length > 0)
       {
-        this.table = new byte[length];
-        Buffer.BlockCopy(fontTable.FontData.Data, fontTable.DirectoryEntry.Offset, this.table, 0, length);
+        table = new byte[length];
+        Buffer.BlockCopy(fontTable.FontData.Data, fontTable.DirectoryEntry.Offset, table, 0, length);
       }
     }
 
@@ -65,7 +65,7 @@ namespace PdfSharp.Fonts.OpenType
     protected override OpenTypeFontTable DeepCopy()
     {
       GenericFontTable fontTable = (GenericFontTable)base.DeepCopy();
-      fontTable.table = (byte[])this.table.Clone();
+      fontTable.table = (byte[])table.Clone();
       return fontTable;
     }
 

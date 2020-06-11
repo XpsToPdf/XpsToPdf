@@ -16,90 +16,90 @@ namespace PdfSharp.Xps.Parsing
     /// </summary>
     Glyphs ParseGlyphs()
     {
-      Debug.Assert(this.reader.Name == "Glyphs");
+      Debug.Assert(reader.Name == "Glyphs");
       Glyphs glyphs = new Glyphs();
       while (MoveToNextAttribute())
       {
-        switch (this.reader.Name)
+        switch (reader.Name)
         {
           case "BidiLevel":
-            glyphs.BidiLevel = Int32.Parse(this.reader.Value);
+            glyphs.BidiLevel = Int32.Parse(reader.Value);
             break;
 
           case "CaretStops":
-            glyphs.CaretStops = this.reader.Value;
+            glyphs.CaretStops = reader.Value;
             break;
 
           case "DeviceFontName":
-            glyphs.DeviceFontName = this.reader.Value;
+            glyphs.DeviceFontName = reader.Value;
             break;
 
           case "Fill":
-            glyphs.Fill = ParseBrush(this.reader.Value); 
+            glyphs.Fill = ParseBrush(reader.Value); 
             break;
 
           case "FontRenderingEmSize":
-            glyphs.FontRenderingEmSize = ParseDouble(this.reader.Value);
+            glyphs.FontRenderingEmSize = ParseDouble(reader.Value);
             break;
 
           case "FontUri":
-            glyphs.FontUri = this.reader.Value;
+            glyphs.FontUri = reader.Value;
             break;
 
           case "OriginX":
-            glyphs.OriginX = ParseDouble(this.reader.Value);
+            glyphs.OriginX = ParseDouble(reader.Value);
             break;
 
           case "OriginY":
-            glyphs.OriginY = ParseDouble(this.reader.Value);
+            glyphs.OriginY = ParseDouble(reader.Value);
             break;
 
           case "IsSideways":
-            glyphs.IsSideways = ParseBool(this.reader.Value);
+            glyphs.IsSideways = ParseBool(reader.Value);
             break;
 
           case "Indices":
-            glyphs.Indices = new GlyphIndices(this.reader.Value);
+            glyphs.Indices = new GlyphIndices(reader.Value);
             break;
 
           case "UnicodeString":
-            glyphs.UnicodeString = this.reader.Value;
+            glyphs.UnicodeString = reader.Value;
             break;
 
           case "StyleSimulations":
-            glyphs.StyleSimulations = ParseEnum<StyleSimulations>(this.reader.Value);
+            glyphs.StyleSimulations = ParseEnum<StyleSimulations>(reader.Value);
             break;
 
           case "RenderTransform":
-            glyphs.RenderTransform = ParseMatrixTransform(this.reader.Value);
+            glyphs.RenderTransform = ParseMatrixTransform(reader.Value);
             break;
 
           case "Clip":
-            glyphs.Clip = ParsePathGeometry(this.reader.Value);
+            glyphs.Clip = ParsePathGeometry(reader.Value);
             break;
 
           case "Opacity":
-            glyphs.Opacity = ParseDouble(this.reader.Value);
+            glyphs.Opacity = ParseDouble(reader.Value);
             break;
 
           case "Name":
-            glyphs.Name = this.reader.Value;
+            glyphs.Name = reader.Value;
             break;
 
           case "FixedPage.NavigateUri":
-            glyphs.FixedPage_NavigateUri = this.reader.Value;
+            glyphs.FixedPage_NavigateUri = reader.Value;
             break;
 
           case "xml:lang":
-            glyphs.lang = this.reader.Value;
+            glyphs.lang = reader.Value;
             break;
 
           case "x:Key":
-            glyphs.Key = this.reader.Value;
+            glyphs.Key = reader.Value;
             break;
 
           default:
-            UnexpectedAttribute(this.reader.Name);
+            UnexpectedAttribute(reader.Name);
             break;
         }
       }

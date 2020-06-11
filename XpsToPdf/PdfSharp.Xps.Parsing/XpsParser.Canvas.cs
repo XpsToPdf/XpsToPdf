@@ -16,69 +16,69 @@ namespace PdfSharp.Xps.Parsing
     /// </summary>
     Canvas ParseCanvas()
     {
-      Debug.Assert(this.reader.Name == "Canvas");
+      Debug.Assert(reader.Name == "Canvas");
       Canvas canvas = new Canvas();
       try
       {
-        bool isEmptyElement = this.reader.IsEmptyElement;
+        bool isEmptyElement = reader.IsEmptyElement;
         while (MoveToNextAttribute())
         {
-          switch (this.reader.Name)
+          switch (reader.Name)
           {
             case "Name":
-              canvas.Name = this.reader.Value;
+              canvas.Name = reader.Value;
               break;
 
             case "RenderTransform":
-              canvas.RenderTransform = ParseMatrixTransform(this.reader.Value);
+              canvas.RenderTransform = ParseMatrixTransform(reader.Value);
               break;
 
             case "Clip":
-              canvas.Clip = ParsePathGeometry(this.reader.Value);
+              canvas.Clip = ParsePathGeometry(reader.Value);
               break;
 
             case "Opacity":
-              canvas.Opacity = ParseDouble(this.reader.Value);
+              canvas.Opacity = ParseDouble(reader.Value);
               break;
 
             case "OpacityMask":
-              canvas.OpacityMask = ParseBrush(this.reader.Value);
+              canvas.OpacityMask = ParseBrush(reader.Value);
               break;
 
             case "RenderOptions.EdgeMode":
-              canvas.RenderOptions_EdgeMode = this.reader.Value;
+              canvas.RenderOptions_EdgeMode = reader.Value;
               break;
 
             case "FixedPage.NavigateUri":
-              canvas.FixedPage_NavigateUri = this.reader.Value;
+              canvas.FixedPage_NavigateUri = reader.Value;
               break;
 
             case "AutomationProperties.HelpText":
-              canvas.AutomationProperties_HelpText = this.reader.Value;
+              canvas.AutomationProperties_HelpText = reader.Value;
               break;
 
             case "AutomationProperties.Name":
-              canvas.AutomationProperties_Name = this.reader.Value;
+              canvas.AutomationProperties_Name = reader.Value;
               break;
 
             case "xml:lang":
-              canvas.lang = this.reader.Value;
+              canvas.lang = reader.Value;
               break;
 
             case "xmlns:x":
               break;
 
             default:
-              UnexpectedAttribute(this.reader.Name);
+              UnexpectedAttribute(reader.Name);
               break;
           }
         }
         if (!isEmptyElement)
         {
           MoveToNextElement();
-          while (this.reader.IsStartElement())
+          while (reader.IsStartElement())
           {
-            switch (this.reader.Name)
+            switch (reader.Name)
             {
               case "Canvas.Resources":
                 MoveToNextElement();
@@ -110,7 +110,7 @@ namespace PdfSharp.Xps.Parsing
 
               case "Path":
                 {
-                  PdfSharp.Xps.XpsModel.Path path = ParsePath();
+                  XpsModel.Path path = ParsePath();
 #if DEBUG
                   if (!String.IsNullOrEmpty(path.Name))
                     Debug.WriteLine("Path: " + path.Name);
@@ -122,7 +122,7 @@ namespace PdfSharp.Xps.Parsing
 
               case "Glyphs":
                 {
-                  PdfSharp.Xps.XpsModel.Glyphs glyphs = ParseGlyphs();
+                  Glyphs glyphs = ParseGlyphs();
                   canvas.Content.Add(glyphs);
                   glyphs.Parent = canvas;
                 }
@@ -130,7 +130,7 @@ namespace PdfSharp.Xps.Parsing
 
               case "Canvas":
                 {
-                  PdfSharp.Xps.XpsModel.Canvas canvas2 = ParseCanvas();
+                  Canvas canvas2 = ParseCanvas();
                   canvas.Content.Add(canvas2);
                   canvas2.Parent = canvas;
                 }
@@ -155,7 +155,7 @@ namespace PdfSharp.Xps.Parsing
         // If the current ResourceDictionary is from this Canvas, pop it.
         if (canvas != null && canvas.Resources != null)
         {
-          if (Object.ReferenceEquals(canvas.Resources, ResourceDictionaryStack.Current))
+          if (ReferenceEquals(canvas.Resources, ResourceDictionaryStack.Current))
             ResourceDictionaryStack.Pop();
         }
       }

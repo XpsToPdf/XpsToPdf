@@ -123,7 +123,7 @@ namespace PdfSharp
       string message;
       try
       {
-        message = PSXSR.GetString(id);
+        message = GetString(id);
         if (message != null)
           message = Format(message, args);
         else
@@ -159,7 +159,7 @@ namespace PdfSharp
     /// </summary>
     public static string GetString(PSXMsgID id)
     {
-      return PSXSR.ResMngr.GetString(id.ToString());
+      return ResMngr.GetString(id.ToString());
     }
     #endregion
 
@@ -172,15 +172,15 @@ namespace PdfSharp
     {
       get
       {
-        if (PSXSR.resmngr == null)
+        if (resmngr == null)
         {
 #if true_
           // Force the english language, even on a German PC.
           System.Threading.Thread.CurrentThread.CurrentUICulture = System.Globalization.CultureInfo.InvariantCulture;
 #endif
-          PSXSR.resmngr = new ResourceManager("PdfSharp.Resources.Messages", Assembly.GetExecutingAssembly());
+          resmngr = new ResourceManager("PdfSharp.Resources.Messages", Assembly.GetExecutingAssembly());
         }
-        return PSXSR.resmngr;
+        return resmngr;
       }
     }
     static ResourceManager resmngr;

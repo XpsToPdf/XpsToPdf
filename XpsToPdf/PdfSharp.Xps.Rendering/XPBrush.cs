@@ -20,7 +20,7 @@ namespace PdfSharp.Xps.Rendering
 
     Brush Brush
     {
-      get { return this.brush; }
+      get { return brush; }
     }
     Brush brush;
   }

@@ -113,8 +113,8 @@ namespace PdfSharp.Drawing.BarCodes
     /// </summary>
     public TextLocation TextLocation
     {
-      get { return this.textLocation; }
-      set { this.textLocation = value; }
+      get { return textLocation; }
+      set { textLocation = value; }
     }
     internal TextLocation textLocation;
 
@@ -123,8 +123,8 @@ namespace PdfSharp.Drawing.BarCodes
     /// </summary>
     public int DataLength
     {
-      get { return this.dataLength; }
-      set { this.dataLength = value; }
+      get { return dataLength; }
+      set { dataLength = value; }
     }
     internal int dataLength;
 
@@ -133,8 +133,8 @@ namespace PdfSharp.Drawing.BarCodes
     /// </summary>
     public char StartChar
     {
-      get { return this.startChar; }
-      set { this.startChar = value; }
+      get { return startChar; }
+      set { startChar = value; }
     }
     internal char startChar;
 
@@ -143,8 +143,8 @@ namespace PdfSharp.Drawing.BarCodes
     /// </summary>
     public char EndChar
     {
-      get { return this.endChar; }
-      set { this.endChar = value; }
+      get { return endChar; }
+      set { endChar = value; }
     }
     internal char endChar;
 
@@ -154,17 +154,17 @@ namespace PdfSharp.Drawing.BarCodes
     /// </summary>
     public virtual bool TurboBit
     {
-      get { return this.turboBit; }
-      set { this.turboBit = value; }
+      get { return turboBit; }
+      set { turboBit = value; }
     }
     internal bool turboBit;
 
     internal virtual void InitRendering(BarCodeRenderInfo info)
     {
-      if (this.text == null)
+      if (text == null)
         throw new InvalidOperationException(BcgSR.BarCodeNotSet);
 
-      if (this.Size.IsEmpty)
+      if (Size.IsEmpty)
         throw new InvalidOperationException(BcgSR.EmptyBarCodeSize);
     }
 

@@ -65,10 +65,10 @@ namespace PdfSharp.Drawing
     {
       this.color = color;
       this.width = width;
-      this.lineJoin = XLineJoin.Miter;
-      this.lineCap = XLineCap.Flat;
-      this.dashStyle = XDashStyle.Solid;
-      this.dashOffset = 0f;
+      lineJoin = XLineJoin.Miter;
+      lineCap = XLineCap.Flat;
+      dashStyle = XDashStyle.Solid;
+      dashOffset = 0f;
       this.immutable = immutable;
     }
 
@@ -77,15 +77,15 @@ namespace PdfSharp.Drawing
     /// </summary>
     public XPen(XPen pen)
     {
-      this.color = pen.color;
-      this.width = pen.width;
-      this.lineJoin = pen.lineJoin;
-      this.lineCap = pen.lineCap;
-      this.dashStyle = pen.dashStyle;
-      this.dashOffset = pen.dashOffset;
-      this.dashPattern = pen.dashPattern;
-      if (this.dashPattern != null)
-        this.dashPattern = (double[])this.dashPattern.Clone();
+      color = pen.color;
+      width = pen.width;
+      lineJoin = pen.lineJoin;
+      lineCap = pen.lineCap;
+      dashStyle = pen.dashStyle;
+      dashOffset = pen.dashOffset;
+      dashPattern = pen.dashPattern;
+      if (dashPattern != null)
+        dashPattern = (double[])dashPattern.Clone();
     }
 
     /// <summary>
@@ -101,13 +101,13 @@ namespace PdfSharp.Drawing
     /// </summary>
     public XColor Color
     {
-      get { return this.color; }
+      get { return color; }
       set
       {
-        if (this.immutable)
+        if (immutable)
           throw new ArgumentException(PSSR.CannotChangeImmutableObject("XPen"));
-        this.dirty = this.dirty || this.color != value;
-        this.color = value;
+        dirty = dirty || color != value;
+        color = value;
       }
     }
     internal XColor color;
@@ -117,13 +117,13 @@ namespace PdfSharp.Drawing
     /// </summary>
     public double Width
     {
-      get { return this.width; }
+      get { return width; }
       set
       {
-        if (this.immutable)
+        if (immutable)
           throw new ArgumentException(PSSR.CannotChangeImmutableObject("XPen"));
-        this.dirty = this.dirty || this.width != value;
-        this.width = value;
+        dirty = dirty || width != value;
+        width = value;
       }
     }
     internal double width;
@@ -133,13 +133,13 @@ namespace PdfSharp.Drawing
     /// </summary>
     public XLineJoin LineJoin
     {
-      get { return this.lineJoin; }
+      get { return lineJoin; }
       set
       {
-        if (this.immutable)
+        if (immutable)
           throw new ArgumentException(PSSR.CannotChangeImmutableObject("XPen"));
-        this.dirty = this.dirty || this.lineJoin != value;
-        this.lineJoin = value;
+        dirty = dirty || lineJoin != value;
+        lineJoin = value;
       }
     }
     internal XLineJoin lineJoin;
@@ -149,13 +149,13 @@ namespace PdfSharp.Drawing
     /// </summary>
     public XLineCap LineCap
     {
-      get { return this.lineCap; }
+      get { return lineCap; }
       set
       {
-        if (this.immutable)
+        if (immutable)
           throw new ArgumentException(PSSR.CannotChangeImmutableObject("XPen"));
-        this.dirty = this.dirty || this.lineCap != value;
-        this.lineCap = value;
+        dirty = dirty || lineCap != value;
+        lineCap = value;
       }
     }
     internal XLineCap lineCap;
@@ -165,13 +165,13 @@ namespace PdfSharp.Drawing
     /// </summary>
     public double MiterLimit
     {
-      get { return this.miterLimit; }
+      get { return miterLimit; }
       set
       {
-        if (this.immutable)
+        if (immutable)
           throw new ArgumentException(PSSR.CannotChangeImmutableObject("XPen"));
-        this.dirty = this.dirty || this.miterLimit != value;
-        this.miterLimit = value;
+        dirty = dirty || miterLimit != value;
+        miterLimit = value;
       }
     }
     internal double miterLimit;
@@ -181,13 +181,13 @@ namespace PdfSharp.Drawing
     /// </summary>
     public XDashStyle DashStyle
     {
-      get { return this.dashStyle; }
+      get { return dashStyle; }
       set
       {
-        if (this.immutable)
+        if (immutable)
           throw new ArgumentException(PSSR.CannotChangeImmutableObject("XPen"));
-        this.dirty = this.dirty || this.dashStyle != value;
-        this.dashStyle = value;
+        dirty = dirty || dashStyle != value;
+        dashStyle = value;
       }
     }
     internal XDashStyle dashStyle;
@@ -197,13 +197,13 @@ namespace PdfSharp.Drawing
     /// </summary>
     public double DashOffset
     {
-      get { return this.dashOffset; }
+      get { return dashOffset; }
       set
       {
-        if (this.immutable)
+        if (immutable)
           throw new ArgumentException(PSSR.CannotChangeImmutableObject("XPen"));
-        this.dirty = this.dirty || this.dashOffset != value;
-        this.dashOffset = value;
+        dirty = dirty || dashOffset != value;
+        dashOffset = value;
       }
     }
     internal double dashOffset;
@@ -215,13 +215,13 @@ namespace PdfSharp.Drawing
     {
       get
       {
-        if (this.dashPattern == null)
-          this.dashPattern = new double[0];
-        return this.dashPattern;
+        if (dashPattern == null)
+          dashPattern = new double[0];
+        return dashPattern;
       }
       set
       {
-        if (this.immutable)
+        if (immutable)
           throw new ArgumentException(PSSR.CannotChangeImmutableObject("XPen"));
 
         int length = value.Length;
@@ -234,9 +234,9 @@ namespace PdfSharp.Drawing
             throw new ArgumentException("Dash pattern value must greater than zero.");
         }
 
-        this.dirty = true;
-        this.dashStyle = XDashStyle.Custom;
-        this.dashPattern = (double[])value.Clone();
+        dirty = true;
+        dashStyle = XDashStyle.Custom;
+        dashPattern = (double[])value.Clone();
       }
     }
     internal double[] dashPattern;
@@ -307,53 +307,53 @@ namespace PdfSharp.Drawing
 #endif
 
 #if WPF
-    internal System.Windows.Media.Pen RealizeWpfPen()
+    internal Pen RealizeWpfPen()
     {
 #if !SILVERLIGHT
-      if (this.dirty || !this.dirty) // TODOWPF: XPen is frozen by design, WPF Pen can change
+      if (dirty || !dirty) // TODOWPF: XPen is frozen by design, WPF Pen can change
       {
         //if (this.wpfPen == null)
-        this.wpfPen = new System.Windows.Media.Pen(new SolidColorBrush(this.color.ToWpfColor()), this.width);
+        wpfPen = new Pen(new SolidColorBrush(color.ToWpfColor()), width);
         //else
         //{
         //  this.wpfPen.Brush = new SolidColorBrush(this.color.ToWpfColor());
         //  this.wpfPen.Thickness = this.width;
         //}
         PenLineCap lineCap = XConvert.ToPenLineCap(this.lineCap);
-        this.wpfPen.StartLineCap = lineCap;
-        this.wpfPen.EndLineCap = lineCap;
-        this.wpfPen.LineJoin = XConvert.ToPenLineJoin(this.lineJoin);
-        if (this.dashStyle == XDashStyle.Custom)
+        wpfPen.StartLineCap = lineCap;
+        wpfPen.EndLineCap = lineCap;
+        wpfPen.LineJoin = XConvert.ToPenLineJoin(lineJoin);
+        if (dashStyle == XDashStyle.Custom)
         {
           // TODOWPF: does not work in all cases
-          this.wpfPen.DashStyle = new System.Windows.Media.DashStyle(this.dashPattern, this.dashOffset);
+          wpfPen.DashStyle = new DashStyle(dashPattern, dashOffset);
         }
         else
         {
-          switch (this.dashStyle)
+          switch (dashStyle)
           {
             case XDashStyle.Solid:
-              this.wpfPen.DashStyle = DashStyles.Solid;
+              wpfPen.DashStyle = DashStyles.Solid;
               break;
 
             case XDashStyle.Dash:
               //this.wpfPen.DashStyle = DashStyles.Dash;
-              this.wpfPen.DashStyle = new System.Windows.Media.DashStyle(new double[] { 2, 2 }, 0);
+              wpfPen.DashStyle = new DashStyle(new double[] { 2, 2 }, 0);
               break;
 
             case XDashStyle.Dot:
               //this.wpfPen.DashStyle = DashStyles.Dot;
-              this.wpfPen.DashStyle = new System.Windows.Media.DashStyle(new double[] { 0, 2 }, 1.5);
+              wpfPen.DashStyle = new DashStyle(new double[] { 0, 2 }, 1.5);
               break;
 
             case XDashStyle.DashDot:
               //this.wpfPen.DashStyle = DashStyles.DashDot;
-              this.wpfPen.DashStyle = new System.Windows.Media.DashStyle(new double[] { 2, 2, 0, 2 }, 0);
+              wpfPen.DashStyle = new DashStyle(new double[] { 2, 2, 0, 2 }, 0);
               break;
 
             case XDashStyle.DashDotDot:
               //this.wpfPen.DashStyle = DashStyles.DashDotDot;
-              this.wpfPen.DashStyle = new System.Windows.Media.DashStyle(new double[] { 2, 2, 0, 2, 0, 2 }, 0);
+              wpfPen.DashStyle = new DashStyle(new double[] { 2, 2, 0, 2, 0, 2 }, 0);
               break;
           }
         }
@@ -361,7 +361,7 @@ namespace PdfSharp.Drawing
 #else
       this.wpfPen = new System.Windows.Media.Pen(new SolidColorBrush(this.color.ToWpfColor()), this.width);
 #endif
-      return this.wpfPen;
+      return wpfPen;
     }
 #endif
 
@@ -371,7 +371,7 @@ namespace PdfSharp.Drawing
     System.Drawing.Pen gdiPen;
 #endif
 #if WPF //&& !SILVERLIGHT
-    System.Windows.Media.Pen wpfPen;
+    Pen wpfPen;
 #endif
   }
 }

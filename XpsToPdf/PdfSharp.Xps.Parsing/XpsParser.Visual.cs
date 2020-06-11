@@ -16,24 +16,24 @@ namespace PdfSharp.Xps.Parsing
     /// </summary>
     Visual ParseVisual()
     {
-      bool isEmptyElement = this.reader.IsEmptyElement;
+      bool isEmptyElement = reader.IsEmptyElement;
       Visual visual = new Visual();
       while (MoveToNextAttribute())
       {
-        switch (this.reader.Name)
+        switch (reader.Name)
         {
           default:
-            UnexpectedAttribute(this.reader.Name);
+            UnexpectedAttribute(reader.Name);
             break;
         }
       }
       if (!isEmptyElement)
       {
         MoveToNextElement();
-        while (this.reader.IsStartElement())
+        while (reader.IsStartElement())
         {
           XpsElement element = null;
-          switch (this.reader.Name)
+          switch (reader.Name)
           {
             case "Canvas":
               element = ParseCanvas();

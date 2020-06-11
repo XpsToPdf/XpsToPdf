@@ -55,19 +55,19 @@ namespace PdfSharp.Pdf.Advanced
     /// </summary>
     public PdfImage GetImage(XImage image)
     {
-      PdfImageTable.ImageSelector selector = image.selector;
+      ImageSelector selector = image.selector;
       if (selector == null)
       {
         selector = new ImageSelector(image);
         image.selector = selector;
       }
       PdfImage pdfImage;
-      if (!this.images.TryGetValue(selector, out pdfImage))
+      if (!images.TryGetValue(selector, out pdfImage))
       {
-        pdfImage = new PdfImage(this.owner, image);
+        pdfImage = new PdfImage(owner, image);
         //pdfImage.Document = this.document;
-        Debug.Assert(pdfImage.Owner == this.owner);
-        this.images[selector] = pdfImage;
+        Debug.Assert(pdfImage.Owner == owner);
+        images[selector] = pdfImage;
         //if (this.document.EarlyWrite)
         //{
         //  //pdfFont.Close(); delete 
@@ -98,13 +98,13 @@ namespace PdfSharp.Pdf.Advanced
           image.path = Guid.NewGuid().ToString();
 
         // HACK: just use full path to identify
-        this.path = image.path.ToLower(CultureInfo.InvariantCulture);
+        path = image.path.ToLower(CultureInfo.InvariantCulture);
       }
 
       public string Path
       {
-        get { return this.path; }
-        set { this.path = value; }
+        get { return path; }
+        set { path = value; }
       }
       string path;
 
@@ -113,12 +113,12 @@ namespace PdfSharp.Pdf.Advanced
         ImageSelector selector = obj as ImageSelector;
         if (obj == null)
           return false;
-        return this.path == selector.path; ;
+        return path == selector.path; ;
       }
 
       public override int GetHashCode()
       {
-        return this.path.GetHashCode();
+        return path.GetHashCode();
       }
     }
   }

@@ -125,7 +125,7 @@ namespace PdfSharp.SharpZipLib.Checksums
 		
 		internal static uint ComputeCrc32(uint oldCrc, byte bval)
 		{
-			return (uint)(Crc32.CrcTable[(oldCrc ^ bval) & 0xFF] ^ (oldCrc >> 8));
+			return (uint)(CrcTable[(oldCrc ^ bval) & 0xFF] ^ (oldCrc >> 8));
 		}
 		
 		/// <summary>

@@ -20,7 +20,7 @@ namespace PdfSharp.Xps.XpsModel
     /// </summary>
     XpsDocument(Stream stream)
     {
-      this.package = ZipPackage.Open(stream) as ZipPackage;
+      package = System.IO.Packaging.Package.Open(stream) as ZipPackage;
       Initialize();
     }
 
@@ -29,7 +29,7 @@ namespace PdfSharp.Xps.XpsModel
     /// </summary>
     XpsDocument(string path)
     {
-      this.package = ZipPackage.Open(path) as ZipPackage;
+      package = System.IO.Packaging.Package.Open(path) as ZipPackage;
       this.path = path;
       Initialize();
     }
@@ -55,28 +55,28 @@ namespace PdfSharp.Xps.XpsModel
     /// </summary>
     void Initialize()
     {
-      this.parts = this.package.GetParts();
+      parts = package.GetParts();
       // Assume only one fixed payload 
-      this.fpayload = new FixedPayload(this);
+      fpayload = new FixedPayload(this);
     }
 
     void IDisposable.Dispose()
     {
-      if (!this.disposed)
+      if (!disposed)
       {
         try
         {
-          this.parts = null;
-          this.fpayload = null;
-          if (this.package != null)
+          parts = null;
+          fpayload = null;
+          if (package != null)
           {
-            this.package.Close();
-            this.package = null;
+            package.Close();
+            package = null;
           }
         }
         finally
         {
-          this.disposed = true;
+          disposed = true;
         }
         GC.SuppressFinalize(this);
       }
@@ -93,7 +93,7 @@ namespace PdfSharp.Xps.XpsModel
 
     internal string Path
     {
-      get { return this.path; }
+      get { return path; }
     }
     string path;
 
@@ -102,7 +102,7 @@ namespace PdfSharp.Xps.XpsModel
     /// </summary>
     public int DocumentCount
     {
-      get { return this.fpayload.DocumentCount; }
+      get { return fpayload.DocumentCount; }
     }
 
     /// <summary>
@@ -112,9 +112,9 @@ namespace PdfSharp.Xps.XpsModel
     {
       get
       {
-        if (this.documents == null)
-          this.documents = new FixedDocumentCollection(this.fpayload);
-        return this.documents;
+        if (documents == null)
+          documents = new FixedDocumentCollection(fpayload);
+        return documents;
       }
     }
     FixedDocumentCollection documents;
@@ -132,12 +132,12 @@ namespace PdfSharp.Xps.XpsModel
     /// </summary>
     public FixedDocument GetDocument(int index)
     {
-      return this.fpayload.GetDocument(index);
+      return fpayload.GetDocument(index);
     }
 
     internal XmlTextReader GetPartAsXmlReader(string uri)
     {
-      return GetPartAsXmlReader(this.package, uri);
+      return GetPartAsXmlReader(package, uri);
     }
 
     internal static XmlTextReader GetPartAsXmlReader(ZipPackage package, string uriString)
@@ -165,7 +165,7 @@ namespace PdfSharp.Xps.XpsModel
 
     internal byte[] GetPartAsBytes(string uriString)
     {
-      return GetPartAsBytes(this.package, uriString);
+      return GetPartAsBytes(package, uriString);
     }
 
     internal static byte[] GetPartAsBytes(ZipPackage package, string uriString)
@@ -205,7 +205,7 @@ namespace PdfSharp.Xps.XpsModel
     /// </summary>
     internal ZipPackage Package
     {
-      get { return this.package; }
+      get { return package; }
     }
     ZipPackage package;
 
@@ -214,7 +214,7 @@ namespace PdfSharp.Xps.XpsModel
     /// </summary>
     internal PackagePartCollection Parts
     {
-      get { return this.parts; }
+      get { return parts; }
     }
     PackagePartCollection parts;
 

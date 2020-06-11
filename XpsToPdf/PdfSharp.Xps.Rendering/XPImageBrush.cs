@@ -40,7 +40,7 @@ namespace PdfSharp.Xps.Rendering
       //Debug.Assert(Object.Equals(payload, Context.
 
 
-      this.form = XFormBuilder.FromImageBrush(context, brush);
+      form = XFormBuilder.FromImageBrush(context, brush);
 
       // Get the font object.
       // Important: font.PdfFont is not yet defined here on the first call
@@ -52,19 +52,19 @@ namespace PdfSharp.Xps.Rendering
 
     XForm Form
     {
-      get { return this.form; }
+      get { return form; }
     }
     XForm form;
 
     PdfFormXObject FormXObject
     {
-      get { return this.formXObject; }
+      get { return formXObject; }
     }
     PdfFormXObject formXObject = null;
 
     PdfTilingPattern Pattern
     {
-      get { return this.pattern; }
+      get { return pattern; }
     }
     PdfTilingPattern pattern = null;
   }

@@ -64,7 +64,7 @@ namespace PdfSharp.Pdf
     public bool Value
     {
       // This class must behave like a value type. Therefore it cannot be changed (like System.String).
-      get { return this.value; }
+      get { return value; }
     }
     bool value;
 
@@ -83,7 +83,7 @@ namespace PdfSharp.Pdf
     /// </summary>
     public override string ToString()
     {
-      return this.value ? bool.TrueString : bool.FalseString;
+      return value ? bool.TrueString : bool.FalseString;
     }
 
     /// <summary>

@@ -23,7 +23,7 @@ namespace PdfSharp.Xps.XpsModel
   {
     public FixedPayload(XpsDocument document)
     {
-      this.resMngr = new ResourceManager(this);
+      resMngr = new ResourceManager(this);
       this.document = document;
 
       // HACK: find fdseq
@@ -43,8 +43,8 @@ namespace PdfSharp.Xps.XpsModel
       }
       Debug.Assert(fdseqString != null);
 
-      this.fdseq = XpsParser.Parse(GetPartAsXmlReader(fdseqString)) as FixedDocumentSequence;
-      this.fdocs = new FixedDocument[this.fdseq.DocumentReferences.Count];
+      fdseq = XpsParser.Parse(GetPartAsXmlReader(fdseqString)) as FixedDocumentSequence;
+      fdocs = new FixedDocument[fdseq.DocumentReferences.Count];
     }
 
     /// <summary>
@@ -52,7 +52,7 @@ namespace PdfSharp.Xps.XpsModel
     /// </summary>
     public XpsDocument XpsDocument
     {
-      get { return this.document; }
+      get { return document; }
     }
     XpsDocument document;
 
@@ -61,7 +61,7 @@ namespace PdfSharp.Xps.XpsModel
     /// </summary>
     public int DocumentCount
     {
-      get { return this.fdseq.DocumentReferences.Count; }
+      get { return fdseq.DocumentReferences.Count; }
     }
 
     /// <summary>
@@ -69,20 +69,20 @@ namespace PdfSharp.Xps.XpsModel
     /// </summary>
     public FixedDocument GetDocument(int index)
     {
-      if (index < 0 || index > this.fdocs.Length - 1)
+      if (index < 0 || index > fdocs.Length - 1)
         throw new ArgumentOutOfRangeException("index");
-      FixedDocument fdoc = this.fdocs[index];
+      FixedDocument fdoc = fdocs[index];
       if (fdoc == null)
       {
-        string source = this.fdseq.DocumentReferences[index].Source;
-        fdoc = Parsing.XpsParser.Parse(GetPartAsXmlReader(source)) as FixedDocument;
+        string source = fdseq.DocumentReferences[index].Source;
+        fdoc = XpsParser.Parse(GetPartAsXmlReader(source)) as FixedDocument;
         fdoc.Payload = this;
         source = IOPath.GetDirectoryName(source);
         source = source.Replace('\\', '/');
         if (!source.StartsWith("/"))
           source = "/" + source;
         fdoc.UriString = source;
-        this.fdocs[index] = fdoc;
+        fdocs[index] = fdoc;
       }
       return fdoc;
     }
@@ -92,7 +92,7 @@ namespace PdfSharp.Xps.XpsModel
     /// </summary>
     public ZipPackage Package
     {
-      get { return this.document.Package; }
+      get { return document.Package; }
     }
 
     /// <summary>
@@ -229,12 +229,12 @@ namespace PdfSharp.Xps.XpsModel
 
     XmlTextReader GetPartAsXmlReader(string uriString)
     {
-      return this.document.GetPartAsXmlReader(uriString);
+      return document.GetPartAsXmlReader(uriString);
     }
 
     byte[] GetPartAsBytes(string uriString)
     {
-      return this.document.GetPartAsBytes(uriString);
+      return document.GetPartAsBytes(uriString);
     }
 
     /// <summary>
@@ -259,12 +259,12 @@ namespace PdfSharp.Xps.XpsModel
 
     public Font GetFont(string uriString)
     {
-      return this.resMngr.GetFont(uriString);
+      return resMngr.GetFont(uriString);
     }
 
     public BitmapSource GetImage(string uriString)
     {
-      return this.resMngr.GetImage(uriString);
+      return resMngr.GetImage(uriString);
     }
     ResourceManager resMngr;
 
@@ -280,16 +280,16 @@ namespace PdfSharp.Xps.XpsModel
       {
         string baseName = IOPath.GetFileNameWithoutExtension(uriString);
         Font font;
-        if (this.fonts.TryGetValue(baseName, out font))
+        if (fonts.TryGetValue(baseName, out font))
           return font;
 
-        byte[] fontData = this.payload.GetFontData(uriString);
+        byte[] fontData = payload.GetFontData(uriString);
 
         // Create helper name if font data does not contain a name table.
         string name = String.Format("XPS-Font-{0:00}", ++fontCount);
         name = PdfFont.CreateEmbeddedFontSubsetName(name);
         font = new Font(name, fontData);
-        this.fonts.Add(baseName, font);
+        fonts.Add(baseName, font);
         return font;
       }
       Dictionary<string, Font> fonts = new Dictionary<string, Font>();
@@ -299,7 +299,7 @@ namespace PdfSharp.Xps.XpsModel
       {
         string baseName = IOPath.GetFileNameWithoutExtension(uriString);
 
-        byte[] imageData = this.payload.GetImageData(uriString);
+        byte[] imageData = payload.GetImageData(uriString);
 
         MemoryStream stream = new MemoryStream(imageData);
         BitmapDecoder decoder = BitmapDecoder.Create(stream, BitmapCreateOptions.None, BitmapCacheOption.Default);

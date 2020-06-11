@@ -56,8 +56,8 @@ namespace PdfSharp.Pdf.Advanced
       if (externalDocument == null)
         throw new ArgumentNullException("externalDocument");
       this.owner = owner;
-      this.externalDocumentHandle = externalDocument.Handle;
-      this.xObjects = new PdfFormXObject[externalDocument.PageCount];
+      externalDocumentHandle = externalDocument.Handle;
+      xObjects = new PdfFormXObject[externalDocument.PageCount];
     }
     PdfFormXObject[] xObjects;
 
@@ -66,7 +66,7 @@ namespace PdfSharp.Pdf.Advanced
     /// </summary>
     public PdfDocument Owner
     {
-      get { return this.owner; }
+      get { return owner; }
     }
     PdfDocument owner;
 
@@ -77,8 +77,8 @@ namespace PdfSharp.Pdf.Advanced
     {
       get 
       {
-        if (this.externalDocumentHandle.IsAlive)
-          return this.externalDocumentHandle.Target;
+        if (externalDocumentHandle.IsAlive)
+          return externalDocumentHandle.Target;
         return null; 
       }
     }
@@ -86,12 +86,12 @@ namespace PdfSharp.Pdf.Advanced
 
     public PdfFormXObject GetXObject(int pageNumber)
     {
-      return this.xObjects[pageNumber - 1];
+      return xObjects[pageNumber - 1];
     }
 
     public void SetXObject(int pageNumber, PdfFormXObject xObject)
     {
-      this.xObjects[pageNumber - 1] = xObject;
+      xObjects[pageNumber - 1] = xObject;
     }
 
     /// <summary>
@@ -99,7 +99,7 @@ namespace PdfSharp.Pdf.Advanced
     /// </summary>
     public bool Contains(PdfObjectID externalID)
     {
-      return this.externalIDs.ContainsKey(externalID.ToString());
+      return externalIDs.ContainsKey(externalID.ToString());
     }
 
     /// <summary>
@@ -110,7 +110,7 @@ namespace PdfSharp.Pdf.Advanced
     /// this document. In general the clone has a different object identifier.</param>
     public void Add(PdfObjectID externalID, PdfReference iref)
     {
-      this.externalIDs[externalID.ToString()] = iref;
+      externalIDs[externalID.ToString()] = iref;
     }
 
     /// <summary>
@@ -118,7 +118,7 @@ namespace PdfSharp.Pdf.Advanced
     /// </summary>
     public PdfReference this[PdfObjectID externalID]
     {
-      get { return (PdfReference)this.externalIDs[externalID.ToString()]; }
+      get { return (PdfReference)externalIDs[externalID.ToString()]; }
     }
 
     /// <summary>

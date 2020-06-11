@@ -52,8 +52,8 @@ namespace PdfSharp.Fonts
     /// </summary>
     public void Close(bool closeUnderlyingStream)
     {
-      if (this.stream != null && closeUnderlyingStream)
-        this.stream.Close();
+      if (stream != null && closeUnderlyingStream)
+        stream.Close();
       //this.stream = null;
     }
 
@@ -70,8 +70,8 @@ namespace PdfSharp.Fonts
     /// </summary>
     public int Position
     {
-      get { return (int)this.stream.Position; }
-      set { this.stream.Position = value; }
+      get { return (int)stream.Position; }
+      set { stream.Position = value; }
     }
 
     /// <summary>
@@ -79,7 +79,7 @@ namespace PdfSharp.Fonts
     /// </summary>
     public void WriteByte(byte value)
     {
-      this.stream.WriteByte(value);
+      stream.WriteByte(value);
     }
 
     /// <summary>
@@ -87,7 +87,7 @@ namespace PdfSharp.Fonts
     /// </summary>
     public void WriteByte(int value)
     {
-      this.stream.WriteByte((byte)value);
+      stream.WriteByte((byte)value);
     }
 
     /// <summary>
@@ -95,8 +95,8 @@ namespace PdfSharp.Fonts
     /// </summary>
     public void WriteShort(short value)
     {
-      this.stream.WriteByte((byte)(value >> 8));
-      this.stream.WriteByte((byte)value);
+      stream.WriteByte((byte)(value >> 8));
+      stream.WriteByte((byte)value);
     }
 
     /// <summary>
@@ -112,8 +112,8 @@ namespace PdfSharp.Fonts
     /// </summary>
     public void WriteUShort(ushort value)
     {
-      this.stream.WriteByte((byte)(value >> 8));
-      this.stream.WriteByte((byte)value);
+      stream.WriteByte((byte)(value >> 8));
+      stream.WriteByte((byte)value);
     }
 
     /// <summary>
@@ -129,10 +129,10 @@ namespace PdfSharp.Fonts
     /// </summary>
     public void WriteInt(int value)
     {
-      this.stream.WriteByte((byte)(value >> 24));
-      this.stream.WriteByte((byte)(value >> 16));
-      this.stream.WriteByte((byte)(value >> 8));
-      this.stream.WriteByte((byte)value);
+      stream.WriteByte((byte)(value >> 24));
+      stream.WriteByte((byte)(value >> 16));
+      stream.WriteByte((byte)(value >> 8));
+      stream.WriteByte((byte)value);
     }
 
     /// <summary>
@@ -140,10 +140,10 @@ namespace PdfSharp.Fonts
     /// </summary>
     public void WriteUInt(uint value)
     {
-      this.stream.WriteByte((byte)(value >> 24));
-      this.stream.WriteByte((byte)(value >> 16));
-      this.stream.WriteByte((byte)(value >> 8));
-      this.stream.WriteByte((byte)value);
+      stream.WriteByte((byte)(value >> 24));
+      stream.WriteByte((byte)(value >> 16));
+      stream.WriteByte((byte)(value >> 8));
+      stream.WriteByte((byte)value);
     }
 
     //public short ReadFWord()
@@ -153,12 +153,12 @@ namespace PdfSharp.Fonts
 
     public void Write(byte[] buffer)
     {
-      this.stream.Write(buffer, 0, buffer.Length);
+      stream.Write(buffer, 0, buffer.Length);
     }
 
     public void Write(byte[] buffer, int offset, int count)
     {
-      this.stream.Write(buffer, offset, count);
+      stream.Write(buffer, offset, count);
     }
 
     /// <summary>
@@ -166,7 +166,7 @@ namespace PdfSharp.Fonts
     /// </summary>
     internal Stream Stream
     {
-      get { return this.stream; }
+      get { return stream; }
     }
     
     readonly Stream stream;
