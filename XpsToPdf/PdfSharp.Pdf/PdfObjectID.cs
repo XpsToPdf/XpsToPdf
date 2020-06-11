@@ -29,12 +29,7 @@
 
 using System;
 using System.Diagnostics;
-using System.Collections;
 using System.Globalization;
-using System.Text;
-using System.IO;
-using PdfSharp.Internal;
-using PdfSharp.Pdf.IO;
 
 namespace PdfSharp.Pdf
 {

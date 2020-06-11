@@ -39,7 +39,6 @@
 using System;
 using System.IO;
 using PdfSharp.SharpZipLib.Checksums;
-using PdfSharp.SharpZipLib.Zip.Compression;
 
 namespace PdfSharp.SharpZipLib.Zip.Compression.Streams 
 {

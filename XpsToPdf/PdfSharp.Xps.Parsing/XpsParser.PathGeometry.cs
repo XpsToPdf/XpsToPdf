@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Collections.Generic;
-using System.Globalization;
 using System.Text;
-using System.Xml;
-using System.IO;
 using PdfSharp.Internal;
 using PdfSharp.Xps.XpsModel;
 

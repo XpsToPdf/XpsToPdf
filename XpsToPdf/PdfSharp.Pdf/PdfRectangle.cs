@@ -29,18 +29,12 @@
 
 using System;
 using System.Diagnostics;
-using System.Globalization;
-using System.Collections;
-using System.Text;
 #if GDI
 using System.Drawing;
 #endif
 #if WPF
-using System.Windows.Media;
 #endif
-using PdfSharp.Internal;
 using PdfSharp.Drawing;
-using PdfSharp.Pdf;
 using PdfSharp.Pdf.Advanced;
 using PdfSharp.Pdf.IO;
 using PdfSharp.Pdf.Internal;

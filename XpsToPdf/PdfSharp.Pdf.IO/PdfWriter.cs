@@ -30,11 +30,9 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Collections;
 using System.Globalization;
 using System.Text;
 using System.IO;
-using PdfSharp.Pdf;
 using PdfSharp.Pdf.Advanced;
 using PdfSharp.Pdf.Security;
 using PdfSharp.Pdf.Internal;

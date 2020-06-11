@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.IO.Packaging;
-using PdfSharp.Pdf;
-using PdfSharp.Pdf.Advanced;
+﻿using PdfSharp.Pdf.Advanced;
 
 namespace PdfSharp.Xps.XpsModel
 {

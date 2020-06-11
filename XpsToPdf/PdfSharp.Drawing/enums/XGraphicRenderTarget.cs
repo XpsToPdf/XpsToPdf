@@ -27,7 +27,6 @@
 // DEALINGS IN THE SOFTWARE.
 #endregion
 
-using System.Diagnostics;
 namespace PdfSharp.Drawing
 {
   ///<summary>

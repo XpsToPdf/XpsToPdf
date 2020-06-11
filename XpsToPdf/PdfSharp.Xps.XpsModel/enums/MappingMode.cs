@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace PdfSharp.Xps.XpsModel
+﻿namespace PdfSharp.Xps.XpsModel
 {
   enum MappingMode
   {

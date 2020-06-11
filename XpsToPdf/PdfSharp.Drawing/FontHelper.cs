@@ -29,9 +29,7 @@
 
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Globalization;
-using System.IO;
 //#if GDI
 //using System.Drawing;
 //using System.Drawing.Drawing2D;
@@ -39,15 +37,9 @@ using System.IO;
 //#endif
 #if WPF
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Media;
 #endif
-using PdfSharp.Internal;
-using PdfSharp.Pdf;
-using PdfSharp.Drawing.Pdf;
 using PdfSharp.Fonts;
-using PdfSharp.Fonts.OpenType;
-using PdfSharp.Pdf.Advanced;
 
 namespace PdfSharp.Drawing
 {

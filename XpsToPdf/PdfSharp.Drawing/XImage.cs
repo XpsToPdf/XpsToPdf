@@ -29,23 +29,15 @@
 
 using System;
 using System.Diagnostics;
-using System.Runtime.InteropServices;
 using System.IO;
-using System.ComponentModel;
 #if GDI
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 #endif
 #if WPF
-using System.Windows;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
 #endif
-using PdfSharp;
-using PdfSharp.Internal;
-using PdfSharp.Fonts.OpenType;
-using PdfSharp.Pdf;
 using PdfSharp.Pdf.IO;
 using PdfSharp.Pdf.Advanced;
 

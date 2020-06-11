@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Globalization;
-using System.Collections.Generic;
-using System.Text;
 using PdfSharp.Internal;
 
 namespace PdfSharp.Xps.XpsModel

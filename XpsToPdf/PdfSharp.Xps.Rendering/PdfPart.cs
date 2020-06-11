@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using PdfSharp.Pdf.Advanced;
-using XpsModel = PdfSharp.Xps.XpsModel;
-
-namespace PdfSharp.Xps.Rendering
+﻿namespace PdfSharp.Xps.Rendering
 {
 #if true_
   /// <summary>

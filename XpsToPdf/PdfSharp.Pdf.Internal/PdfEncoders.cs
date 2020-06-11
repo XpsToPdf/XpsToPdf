@@ -29,12 +29,9 @@
 
 using System;
 using System.Diagnostics;
-using System.Collections;
 using System.Globalization;
 using System.Text;
 using PdfSharp.Drawing;
-using System.IO;
-using PdfSharp.Internal;
 using PdfSharp.Pdf.Security;
 
 namespace PdfSharp.Pdf.Internal

@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Diagnostics;
-using System.Collections.Generic;
-using System.Globalization;
 using System.IO;
 using System.IO.Packaging;
-using System.Text;
 using System.Xml;
-using PdfSharp.Xps.Parsing;
 
 namespace PdfSharp.Xps.XpsModel
 {

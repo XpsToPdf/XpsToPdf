@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Globalization;
 using System.Collections.Generic;
 using System.Text;
 using PdfSharp.Xps.XpsModel;
@@ -9,7 +8,6 @@ using PdfSharp.Pdf.Advanced;
 using PdfSharp.Pdf.Internal;
 using PdfSharp.Drawing;
 using PdfSharp.Drawing.Pdf;
-using PdfSharp.Fonts.OpenType;
 
 #pragma warning disable 414, 169, 649 // incomplete code state
 

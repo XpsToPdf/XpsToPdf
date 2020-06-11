@@ -30,14 +30,12 @@
 using System;
 using System.Diagnostics;
 using System.Globalization;
-using System.ComponentModel;
 using System.Runtime.InteropServices;
 #if GDI
 using System.Drawing;
 #endif
 #if WPF
 using System.Windows;
-using System.Windows.Media;
 #endif
 using PdfSharp.Internal;
 

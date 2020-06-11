@@ -28,12 +28,7 @@
 #endregion
 
 using System;
-using System.Diagnostics;
 using System.Collections.Generic;
-using System.Globalization;
-using System.ComponentModel;
-using System.IO;
-using System.Runtime.InteropServices;
 #if GDI
 using System.Drawing;
 using System.Drawing.Text;
@@ -41,8 +36,6 @@ using System.Drawing.Text;
 #if WPF
 using System.Windows.Media;
 #endif
-using PdfSharp.Internal;
-using PdfSharp.Fonts.OpenType;
 
 namespace PdfSharp.Drawing
 {

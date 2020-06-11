@@ -33,8 +33,7 @@ using System.Runtime.InteropServices;
 using System.Drawing;
 #endif
 #if WPF
-using System.Windows.Media;
-using System.Globalization;
+
 #endif
 
 #pragma warning disable 1591

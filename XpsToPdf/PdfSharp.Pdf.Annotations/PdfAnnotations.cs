@@ -30,10 +30,7 @@
 using System;
 using System.Diagnostics;
 using System.Collections;
-using System.Text;
-using System.IO;
 using PdfSharp.Pdf.Advanced;
-using PdfSharp.Pdf.IO;
 using System.Collections.Generic;
 
 namespace PdfSharp.Pdf.Annotations

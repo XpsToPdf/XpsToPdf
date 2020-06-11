@@ -27,10 +27,6 @@
 // DEALINGS IN THE SOFTWARE.
 #endregion
 
-using System;
-using System.Collections;
-using System.Text;
-
 namespace PdfSharp.Drawing.BarCodes
 {
 #if _

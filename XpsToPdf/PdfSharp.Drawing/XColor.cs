@@ -37,7 +37,6 @@ using System.Drawing;
 #if WPF
 using System.Windows.Media;
 #endif
-using PdfSharp.Internal;
 
 namespace PdfSharp.Drawing
 {

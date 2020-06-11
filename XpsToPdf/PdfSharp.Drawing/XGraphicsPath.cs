@@ -28,11 +28,6 @@
 #endregion
 
 using System;
-using System.Diagnostics;
-using System.Collections;
-using System.Globalization;
-using System.Text;
-using System.IO;
 #if GDI
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -41,7 +36,6 @@ using System.Drawing.Drawing2D;
 using System.Windows;
 using System.Windows.Media;
 #endif
-using PdfSharp.Internal;
 
 namespace PdfSharp.Drawing
 {

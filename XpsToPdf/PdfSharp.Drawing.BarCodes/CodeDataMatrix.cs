@@ -29,15 +29,11 @@
 #endregion
 
 using System;
-using System.Diagnostics;
 #if GDI
 using System.Drawing;
 #endif
 #if WPF
-using System.Windows;
-using System.Windows.Media;
 #endif
-using PdfSharp.Drawing;
 
 namespace PdfSharp.Drawing.BarCodes
 {

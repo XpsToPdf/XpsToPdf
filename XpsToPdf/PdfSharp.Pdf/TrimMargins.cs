@@ -27,10 +27,7 @@
 // DEALINGS IN THE SOFTWARE.
 #endregion
 
-using System;
 using System.Diagnostics;
-using System.Collections;
-using System.Text;
 using PdfSharp.Drawing;
 
 namespace PdfSharp.Pdf

@@ -28,10 +28,6 @@
 #endregion
 
 using System;
-using System.Diagnostics;
-using System.Text;
-using PdfSharp.Internal;
-using PdfSharp.Pdf.Internal;
 
 namespace PdfSharp.Pdf.Filters
 {

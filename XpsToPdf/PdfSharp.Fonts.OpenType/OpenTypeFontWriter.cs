@@ -27,10 +27,7 @@
 // DEALINGS IN THE SOFTWARE.
 #endregion
 
-using System;
 using System.Diagnostics;
-using System.Collections.Generic;
-using System.Text;
 using System.IO;
 
 namespace PdfSharp.Fonts.OpenType

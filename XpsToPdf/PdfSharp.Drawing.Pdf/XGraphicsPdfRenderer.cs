@@ -32,7 +32,6 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Collections.Generic;
 using System.Text;
-using System.IO;
 #if GDI
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -43,7 +42,6 @@ using System.Windows.Media;
 #endif
 using PdfSharp.Internal;
 using PdfSharp.Pdf;
-using PdfSharp.Fonts;
 using PdfSharp.Fonts.OpenType;
 using PdfSharp.Pdf.Internal;
 using PdfSharp.Pdf.Advanced;

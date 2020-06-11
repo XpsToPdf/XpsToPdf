@@ -29,14 +29,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Collections;
-using System.Text;
-using System.IO;
-using PdfSharp.Pdf.Advanced;
-using PdfSharp.Drawing;
-using PdfSharp.Fonts.OpenType;
-using PdfSharp.Internal;
 
 namespace PdfSharp.Pdf.Advanced
 {

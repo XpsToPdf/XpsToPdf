@@ -31,7 +31,6 @@ using System;
 using System.Diagnostics;
 using System.Resources;
 using System.Reflection;
-using System.Text.RegularExpressions;
 using PdfSharp.Drawing;
 using PdfSharp.Pdf;
 

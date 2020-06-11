@@ -30,9 +30,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Collections;
 using PdfSharp.Pdf.Advanced;
-using PdfSharp.Pdf.Internal;
 
 namespace PdfSharp.Pdf.AcroForms
 {

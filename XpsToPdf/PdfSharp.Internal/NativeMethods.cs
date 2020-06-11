@@ -28,9 +28,7 @@
 #endregion
 
 using System;
-using System.Diagnostics;
 using System.Runtime.InteropServices;
-using System.Security;
 
 namespace PdfSharp.Internal
 {

@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Diagnostics;
-using System.Collections.Generic;
-using System.Text;
 using System.IO;
 using System.IO.Packaging;
 using System.Xml;
-using System.Windows.Xps;
 using PdfSharp.Pdf;
 using PdfSharp.Xps.Rendering;
 using PdfSharp.Xps.XpsModel;

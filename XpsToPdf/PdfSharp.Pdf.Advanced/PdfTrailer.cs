@@ -29,7 +29,6 @@
 
 using System;
 using System.Diagnostics;
-using System.Collections;
 using PdfSharp.Pdf.IO;
 using PdfSharp.Pdf.Security;
 using PdfSharp.Pdf.Internal;
