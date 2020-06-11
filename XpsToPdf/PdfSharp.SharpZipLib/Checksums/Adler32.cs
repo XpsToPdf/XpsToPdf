@@ -98,13 +98,7 @@ namespace PdfSharp.SharpZipLib.Checksums
     /// <summary>
     /// Returns the Adler32 data checksum computed so far.
     /// </summary>
-    public long Value
-    {
-      get
-      {
-        return checksum;
-      }
-    }
+    public long Value => checksum;
 
     /// <summary>
     /// Creates a new instance of the <code>Adler32</code> class.

@@ -52,10 +52,8 @@ namespace PdfSharp.Drawing
     /// <summary>
     /// Gets the weight of the font, a value between 1 and 999.
     /// </summary>
-    public int Weight
-    {
-      get { return (weight); }
-    }
+    public int Weight => (weight);
+
     private int weight;
 
     //public static XFontWeight FromOpenTypeWeight(int weightValue)

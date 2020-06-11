@@ -262,10 +262,8 @@ namespace PdfSharp.Drawing
     /// <summary>
     /// Gets the owning document.
     /// </summary>
-    internal PdfDocument Owner
-    {
-      get { return document; }
-    }
+    internal PdfDocument Owner => document;
+
     PdfDocument document;
 
     /// <summary>
@@ -284,110 +282,86 @@ namespace PdfSharp.Drawing
     /// <summary>
     /// Gets a value indicating whether this instance is a template.
     /// </summary>
-    internal bool IsTemplate
-    {
-      get { return formState != FormState.NotATemplate; }
-    }
+    internal bool IsTemplate => formState != FormState.NotATemplate;
+
     internal FormState formState;
 
     /// <summary>
     /// Get the width of the page identified by the property PageNumber.
     /// </summary>
     [Obsolete("Use either PixelWidth or PointWidth. Temporarily obsolete because of rearrangements for WPF. Currently same as PixelWidth, but will become PointWidth in future releases of PDFsharp.")]
-    public override double Width
-    {
-      //get { return this.templateSize.width; }
-      get { return viewBox.Width; }
-    }
+    public override double Width =>
+        //get { return this.templateSize.width; }
+        viewBox.Width;
 
     /// <summary>
     /// Get the width of the page identified by the property PageNumber.
     /// </summary>
     [Obsolete("Use either PixelHeight or PointHeight. Temporarily obsolete because of rearrangements for WPF. Currently same as PixelHeight, but will become PointHeight in future releases of PDFsharp.")]
-    public override double Height
-    {
-      //get { return this.templateSize.height; }
-      get { return viewBox.height; }
-    }
+    public override double Height =>
+        //get { return this.templateSize.height; }
+        viewBox.height;
 
     /// <summary>
     /// Get the width in point of this image.
     /// </summary>
-    public override double PointWidth
-    {
-      //get { return this.templateSize.width; }
-      get { return viewBox.width; }
-    }
+    public override double PointWidth =>
+        //get { return this.templateSize.width; }
+        viewBox.width;
 
     /// <summary>
     /// Get the height in point of this image.
     /// </summary>
-    public override double PointHeight
-    {
-      //get { return this.templateSize.height; }
-      get { return viewBox.height; }
-    }
+    public override double PointHeight =>
+        //get { return this.templateSize.height; }
+        viewBox.height;
 
     /// <summary>
     /// Get the width of the page identified by the property PageNumber.
     /// </summary>
-    public override int PixelWidth
-    {
-      //get { return (int)this.templateSize.width; }
-      get { return (int)viewBox.width; }
-    }
+    public override int PixelWidth =>
+        //get { return (int)this.templateSize.width; }
+        (int)viewBox.width;
 
     /// <summary>
     /// Get the height of the page identified by the property PageNumber.
     /// </summary>
-    public override int PixelHeight
-    {
-      //get { return (int)this.templateSize.height; }
-      get { return (int)viewBox.height; }
-    }
+    public override int PixelHeight =>
+        //get { return (int)this.templateSize.height; }
+        (int)viewBox.height;
 
     /// <summary>
     /// Get the size of the page identified by the property PageNumber.
     /// </summary>
-    public override XSize Size
-    {
-      //get { return this.templateSize; }
-      get { return viewBox.Size; }
-    }
+    public override XSize Size =>
+        //get { return this.templateSize; }
+        viewBox.Size;
     //XSize templateSize;
 
     /// <summary>
     /// Gets the view box of the form.
     /// </summary>
-    public XRect ViewBox
-    {
-      get { return viewBox; }
-    }
+    public XRect ViewBox => viewBox;
+
     XRect viewBox;
 
     /// <summary>
     /// Gets 72, the horizontal resolution by design of a form object.
     /// </summary>
-    public override double HorizontalResolution
-    {
-      get { return 72; }
-    }
+    public override double HorizontalResolution => 72;
 
     /// <summary>
     /// Gets 72 always, the vertical resolution by design of a form object.
     /// </summary>
-    public override double VerticalResolution
-    {
-      get { return 72; }
-    }
+    public override double VerticalResolution => 72;
 
     /// <summary>
     /// Gets or sets the bounding box.
     /// </summary>
     public XRect BoundingBox
     {
-      get { return boundingBox; }
-      set { boundingBox = value; }  // TODO: pdfForm = null
+      get => boundingBox;
+      set => boundingBox = value; // TODO: pdfForm = null
     }
     XRect boundingBox;
 
@@ -396,7 +370,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     public virtual XMatrix Transform
     {
-      get { return transform; }
+      get => transform;
       set
       {
         if (formState == FormState.Finished)
@@ -422,10 +396,7 @@ namespace PdfSharp.Drawing
     /// <summary>
     /// Implements the interface because the primary function is internal.
     /// </summary>
-    PdfResources IContentStream.Resources
-    {
-      get { return Resources; }
-    }
+    PdfResources IContentStream.Resources => Resources;
 
     /// <summary>
     /// Gets the resource name of the specified font within this form.
@@ -541,28 +512,19 @@ namespace PdfSharp.Drawing
     /// Gets a value indicating whether this image is cmyk.
     /// </summary>
     /// <value><c>true</c> if this image is cmyk; otherwise, <c>false</c>.</value>
-    public override bool IsCmyk
-    {
-      get { return false; } // not supported and not relevant
-    }
+    public override bool IsCmyk => false; // not supported and not relevant
 
     /// <summary>
     /// Gets a value indicating whether this image is JPEG.
     /// </summary>
     /// <value><c>true</c> if this image is JPEG; otherwise, <c>false</c>.</value>
-    public override bool IsJpeg
-    {
-      get { return base.IsJpeg; }// not supported and not relevant
-    }
+    public override bool IsJpeg => base.IsJpeg; // not supported and not relevant
 
     /// <summary>
     /// Gets the JPEG memory stream (if IsJpeg returns true).
     /// </summary>
     /// <value>The memory.</value>
-    public override MemoryStream Memory
-    {
-      get { throw new NotImplementedException(); }
-    }
+    public override MemoryStream Memory => throw new NotImplementedException();
 #endif
   }
 }

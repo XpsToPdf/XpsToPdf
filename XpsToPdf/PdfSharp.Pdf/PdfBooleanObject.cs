@@ -66,11 +66,9 @@ namespace PdfSharp.Pdf
     /// <summary>
     /// Gets the value of this instance as boolean value.
     /// </summary>
-    public bool Value
-    {
-      get { return value; }
-      //set {this.value = value;}
-    }
+    public bool Value => value;
+
+    //set {this.value = value;}
     bool value;
 
     /// <summary>

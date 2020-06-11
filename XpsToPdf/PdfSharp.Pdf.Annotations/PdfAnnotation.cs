@@ -85,7 +85,7 @@ namespace PdfSharp.Pdf.Annotations
     /// </summary>
     public PdfAnnotationFlags Flags
     {
-      get { return (PdfAnnotationFlags)Elements.GetInteger(Keys.F); }
+      get => (PdfAnnotationFlags)Elements.GetInteger(Keys.F);
       set
       {
         Elements.SetInteger(Keys.F, (int)value);
@@ -98,8 +98,8 @@ namespace PdfSharp.Pdf.Annotations
     /// </summary>
     public PdfAnnotations Parent
     {
-      get { return parent; }
-      set { parent = value; }
+      get => parent;
+      set => parent = value;
     }
     PdfAnnotations parent;
 
@@ -109,7 +109,7 @@ namespace PdfSharp.Pdf.Annotations
     /// </summary>
     public PdfRectangle Rectangle
     {
-      get { return Elements.GetRectangle(Keys.Rect, true); }
+      get => Elements.GetRectangle(Keys.Rect, true);
       set
       {
         Elements.SetRectangle(Keys.Rect, value);
@@ -124,7 +124,7 @@ namespace PdfSharp.Pdf.Annotations
     /// </summary>
     public string Title
     {
-      get { return Elements.GetString(Keys.T, true); }
+      get => Elements.GetString(Keys.T, true);
       set
       {
         Elements.SetString(Keys.T, value);
@@ -138,7 +138,7 @@ namespace PdfSharp.Pdf.Annotations
     /// </summary>
     public string Subject
     {
-      get { return Elements.GetString(Keys.Subj, true); }
+      get => Elements.GetString(Keys.Subj, true);
       set
       {
         Elements.SetString(Keys.Subj, value);
@@ -153,7 +153,7 @@ namespace PdfSharp.Pdf.Annotations
     /// </summary>
     public string Contents
     {
-      get { return Elements.GetString(Keys.Contents, true); }
+      get => Elements.GetString(Keys.Contents, true);
       set
       {
         Elements.SetString(Keys.Contents, value);

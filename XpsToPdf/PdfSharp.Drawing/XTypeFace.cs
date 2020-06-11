@@ -61,28 +61,16 @@ namespace PdfSharp.Drawing
       this.stretch = stretch;
     }
 
-    public string FontFamilyName
-    {
-      get { return fontFamilyName; }
-    }
+    public string FontFamilyName => fontFamilyName;
     string fontFamilyName;
 
-    public XFontWeight Weight
-    {
-      get { return weight; }
-    }
+    public XFontWeight Weight => weight;
     private XFontWeight weight;
 
-    public XFontStyle Style
-    {
-      get { return style; }
-    }
+    public XFontStyle Style => style;
     private XFontStyle style;
 
-    public XFontStretch Stretch
-    {
-      get { return stretch; }
-    }
+    public XFontStretch Stretch => stretch;
     private XFontStretch stretch;
   }
 

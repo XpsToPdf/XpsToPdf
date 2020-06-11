@@ -155,10 +155,7 @@ namespace PdfSharp.Pdf
     /// <summary>
     /// Gets the PdfDocument this object belongs to.
     /// </summary>
-    public virtual PdfDocument Owner
-    {
-      get { return document; }
-    }
+    public virtual PdfDocument Owner => document;
 
     /// <summary>
     /// Gets or sets the PdfDocument this object belongs to.
@@ -182,11 +179,9 @@ namespace PdfSharp.Pdf
     /// <summary>
     /// Indicates whether the object is an indirect object.
     /// </summary>
-    public bool IsIndirect
-    {
-      // An object is an indirect object if and only if is has an indirect reference value.
-      get { return iref != null; }
-    }
+    public bool IsIndirect =>
+        // An object is an indirect object if and only if is has an indirect reference value.
+        iref != null;
 
     /// <summary>
     /// Gets the PdfInternals object of this document, that grants access to some internal structures
@@ -234,26 +229,17 @@ namespace PdfSharp.Pdf
     /// <summary>
     /// Gets the object identifier. Returns PdfObjectID.Empty for direct objects.
     /// </summary>
-    internal PdfObjectID ObjectID
-    {
-      get { return iref != null ? iref.ObjectID : PdfObjectID.Empty; }
-    }
+    internal PdfObjectID ObjectID => iref != null ? iref.ObjectID : PdfObjectID.Empty;
 
     /// <summary>
     /// Gets the object number.
     /// </summary>
-    internal int ObjectNumber
-    {
-      get { return ObjectID.ObjectNumber; }
-    }
+    internal int ObjectNumber => ObjectID.ObjectNumber;
 
     /// <summary>
     /// Gets the generation number.
     /// </summary>
-    internal int GenerationNumber
-    {
-      get { return ObjectID.GenerationNumber; }
-    }
+    internal int GenerationNumber => ObjectID.GenerationNumber;
 
     ///// <summary>
     ///// Creates a deep copy of the specified value and its transitive closure and adds the
@@ -517,12 +503,10 @@ namespace PdfSharp.Pdf
     /// </summary>
     public PdfReference Reference
     {
-      get { return iref; }
-      set
-      {
-        //Debug.Assert(value.Value == null);
-        iref = value;
-      }
+      get => iref;
+      set =>
+          //Debug.Assert(value.Value == null);
+          iref = value;
     }
     internal PdfReference iref;
   }

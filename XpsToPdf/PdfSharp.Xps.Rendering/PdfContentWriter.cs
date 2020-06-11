@@ -75,10 +75,8 @@ namespace PdfSharp.Xps.Rendering
     /// <summary>
     /// Gets the document rendering context this PDF contentwriter belongs to.
     /// </summary>
-    public DocumentRenderingContext Context
-    {
-      get { return context; }
-    }
+    public DocumentRenderingContext Context => context;
+
     DocumentRenderingContext context;
 
     internal void CreateDefaultTransparencyGroup() // HACK
@@ -1166,18 +1164,12 @@ namespace PdfSharp.Xps.Rendering
     /// <summary>
     /// Gets the default page transformation.
     /// </summary>
-    public XMatrix DefaultPageTransform
-    {
-      get { return graphicsState.DefaultPageTransform; }
-    }
+    public XMatrix DefaultPageTransform => graphicsState.DefaultPageTransform;
 
     /// <summary>
     /// Gets the current transformation.
     /// </summary>
-    public XMatrix Transform
-    {
-      get { return graphicsState.Transform; }
-    }
+    public XMatrix Transform => graphicsState.Transform;
 
     /// <summary>
     /// Muliplies the spcified transformation with the current transformation and returns the new value;
@@ -1190,10 +1182,7 @@ namespace PdfSharp.Xps.Rendering
     /// <summary>
     /// Gets the current opacity value.
     /// </summary>
-    public double Opacity
-    {
-      get { return graphicsState.Opacity; }
-    }
+    public double Opacity => graphicsState.Opacity;
 
     /// <summary>
     /// Muliplies the spcified opacity with the current opacity and returns the new value;

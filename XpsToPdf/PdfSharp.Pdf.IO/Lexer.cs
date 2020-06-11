@@ -72,7 +72,7 @@ namespace PdfSharp.Pdf.IO
     /// </summary>
     public int Position
     {
-      get { return idxChar; }
+      get => idxChar;
       set
       {
         idxChar = value;
@@ -827,17 +827,14 @@ namespace PdfSharp.Pdf.IO
     /// </summary>
     public Symbol Symbol
     {
-      get { return symbol; }
-      set { symbol = value; }
+      get => symbol;
+      set => symbol = value;
     }
 
     /// <summary>
     /// Gets the current token.
     /// </summary>
-    internal string Token
-    {
-      get { return token.ToString(); }
-    }
+    internal string Token => token.ToString();
 
     /// <summary>
     /// Interprets current token as boolean literal.
@@ -854,34 +851,21 @@ namespace PdfSharp.Pdf.IO
     /// <summary>
     /// Interprets current token as integer literal.
     /// </summary>
-    internal int TokenToInteger
-    {
-      get
-      {
+    internal int TokenToInteger =>
         //Debug.Assert(this.token.ToString().IndexOf('.') == -1);
-        return Int32.Parse(token.ToString(), CultureInfo.InvariantCulture);
-      }
-    }
+        Int32.Parse(token.ToString(), CultureInfo.InvariantCulture);
 
     /// <summary>
     /// Interprets current token as unsigned integer literal.
     /// </summary>
-    internal uint TokenToUInteger
-    {
-      get
-      {
+    internal uint TokenToUInteger =>
         //Debug.Assert(this.token.ToString().IndexOf('.') == -1);
-        return UInt32.Parse(token.ToString(), CultureInfo.InvariantCulture);
-      }
-    }
+        UInt32.Parse(token.ToString(), CultureInfo.InvariantCulture);
 
     /// <summary>
     /// Interpret current token as real or integer literal.
     /// </summary>
-    internal double TokenToReal
-    {
-      get { return double.Parse(token.ToString(), CultureInfo.InvariantCulture); }
-    }
+    internal double TokenToReal => double.Parse(token.ToString(), CultureInfo.InvariantCulture);
 
     /// <summary>
     /// Indicates whether the specified character is a PDF white-space character.
@@ -923,10 +907,7 @@ namespace PdfSharp.Pdf.IO
       return false;
     }
 
-    public int PdfLength
-    {
-      get { return pdfLength; }
-    }
+    public int PdfLength => pdfLength;
 
     int pdfLength;
     int idxChar;

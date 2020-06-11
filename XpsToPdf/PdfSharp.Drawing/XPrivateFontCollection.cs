@@ -101,10 +101,7 @@ namespace PdfSharp.Drawing
     /// <summary>
     /// Gets the global font collection.
     /// </summary>
-    public static XPrivateFontCollection Global
-    {
-      get { return s_global; }
-    }
+    public static XPrivateFontCollection Global => s_global;
 
     /// <summary>
     /// Sets a new global font collection and returns the previous one, or null if no previous one exists.

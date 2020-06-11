@@ -60,42 +60,36 @@ namespace PdfSharp.Pdf
     /// </summary>
     public string Version
     {
-      get { return version; }
-      set { version = value; }
+      get => version;
+      set => version = value;
     }
     string version;
 
     public KeyType KeyType
     {
-      get { return keyType; }
-      set { keyType = value; }
+      get => keyType;
+      set => keyType = value;
     }
     KeyType keyType;
 
     public string KeyValue
     {
-      get { return keyValue; }
-      set { keyValue = value; }
+      get => keyValue;
+      set => keyValue = value;
     }
     string keyValue;
 
-    public string FixedValue
-    {
-      get { return fixedValue; }
-    }
+    public string FixedValue => fixedValue;
     string fixedValue;
 
     public Type ObjectType
     {
-      get { return objectType; }
-      set { objectType = value; }
+      get => objectType;
+      set => objectType = value;
     }
     Type objectType;
 
-    public bool CanBeIndirect
-    {
-      get { return (keyType & KeyType.MustNotBeIndirect) == 0; }
-    }
+    public bool CanBeIndirect => (keyType & KeyType.MustNotBeIndirect) == 0;
 
     /// <summary>
     /// Returns the type of the object to be created as value for the described key.
@@ -195,10 +189,7 @@ namespace PdfSharp.Pdf
       }
     }
 
-    public KeyDescriptor this[string key]
-    {
-      get { return keyDescriptors[key]; }
-    }
+    public KeyDescriptor this[string key] => keyDescriptors[key];
 
     readonly Dictionary<string, KeyDescriptor> keyDescriptors = new Dictionary<string, KeyDescriptor>();
   }

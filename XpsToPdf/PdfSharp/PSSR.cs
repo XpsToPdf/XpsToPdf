@@ -110,25 +110,13 @@ namespace PdfSharp
 
     #region General messages
 
-    public static string IndexOutOfRange
-    {
-      get { return "The index is out of range."; }
-    }
+    public static string IndexOutOfRange => "The index is out of range.";
 
-    public static string ListEnumCurrentOutOfRange
-    {
-      get { return "Enumeration out of range."; }
-    }
+    public static string ListEnumCurrentOutOfRange => "Enumeration out of range.";
 
-    public static string PageIndexOutOfRange
-    {
-      get { return "The index of a page is out of range."; }
-    }
+    public static string PageIndexOutOfRange => "The index of a page is out of range.";
 
-    public static string OutlineIndexOutOfRange
-    {
-      get { return "The index of an outline is out of range."; }
-    }
+    public static string OutlineIndexOutOfRange => "The index of an outline is out of range.";
 
     public static string InvalidValue(int val, string name, int min, int max)
     {
@@ -136,30 +124,18 @@ namespace PdfSharp
         val, name, min, max);
     }
 
-    public static string ObsoleteFunktionCalled
-    {
-      get { return "The function is obsolete and must not be called."; }
-    }
+    public static string ObsoleteFunktionCalled => "The function is obsolete and must not be called.";
 
-    public static string OwningDocumentRequired
-    {
-      get { return "The PDF object must belong to a PdfDocument, but property Document is null."; }
-    }
+    public static string OwningDocumentRequired => "The PDF object must belong to a PdfDocument, but property Document is null.";
 
     public static string FileNotFound(string path)
     {
       return Format("The file '{0}' does not exist.", path);
     }
 
-    public static string FontDataReadOnly
-    {
-      get { return "Font data is read-only."; }
-    }
+    public static string FontDataReadOnly => "Font data is read-only.";
 
-    public static string ErrorReadingFontData
-    {
-      get { return "Error while parsing an OpenType font."; }
-    }
+    public static string ErrorReadingFontData => "Error while parsing an OpenType font.";
 
     #endregion
 
@@ -167,20 +143,14 @@ namespace PdfSharp
 
     // ----- XGraphics ----------------------------------------------------------------------------
 
-    public static string PointArrayEmpty
-    {
-      get { return "The PointF array must not be empty."; }
-    }
+    public static string PointArrayEmpty => "The PointF array must not be empty.";
 
     public static string PointArrayAtLeast(int count)
     {
       return Format("The point array must contain {0} or more points.", count);
     }
 
-    public static string NeedPenOrBrush
-    {
-      get { return "XPen or XBrush or both must not be null."; }
-    }
+    public static string NeedPenOrBrush => "XPen or XBrush or both must not be null.";
 
     public static string CannotChangeImmutableObject(string typename)
     {
@@ -193,52 +163,26 @@ namespace PdfSharp
 
     // ----- PDF ----------------------------------------------------------------------------------
 
-    public static string InvalidPdf
-    {
-      get { return "The file is not a valid PDF document."; }
-    }
+    public static string InvalidPdf => "The file is not a valid PDF document.";
 
-    public static string InvalidVersionNumber
-    {
-      get { return "Invalid version number. Valid values are 12, 13, and 14."; }
-    }
+    public static string InvalidVersionNumber => "Invalid version number. Valid values are 12, 13, and 14.";
 
-    public static string CannotHandleXRefStreams
-    {
-      get { return "Cannot handle iref streams. The current implementation of PDFsharp cannot handle this PDF feature introduced with Acrobat 6."; }
-    }
+    public static string CannotHandleXRefStreams => "Cannot handle iref streams. The current implementation of PDFsharp cannot handle this PDF feature introduced with Acrobat 6.";
 
-    public static string PasswordRequired
-    {
-      get { return "A password is required to open the PDF document."; }
-    }
+    public static string PasswordRequired => "A password is required to open the PDF document.";
 
-    public static string InvalidPassword
-    {
-      get { return "The specified password is invalid."; }
-    }
+    public static string InvalidPassword => "The specified password is invalid.";
 
-    public static string OwnerPasswordRequired
-    {
-      get { return "To modify the document the owner password is required"; }
-    }
+    public static string OwnerPasswordRequired => "To modify the document the owner password is required";
 
-    public static string UserOrOwnerPasswordRequired
-    {
-      get { return GetString(PSMsgID.UserOrOwnerPasswordRequired); }
-      //get { return "At least a user or an owner password is required to encrypt the document."; }
-    }
+    public static string UserOrOwnerPasswordRequired => GetString(PSMsgID.UserOrOwnerPasswordRequired);
 
-    public static string CannotModify
-    {
-      get { return "The document cannot be modified."; }
-    }
+    //get { return "At least a user or an owner password is required to encrypt the document."; }
+    public static string CannotModify => "The document cannot be modified.";
 
-    public static string NameMustStartWithSlash
-    {
-      //get { return GetString(PSMsgID.NameMustStartWithSlash); }
-      get { return "A PDF name must start with a slash (/)."; }
-    }
+    public static string NameMustStartWithSlash =>
+        //get { return GetString(PSMsgID.NameMustStartWithSlash); }
+        "A PDF name must start with a slash (/).";
 
     public static string ImportPageNumberOutOfRange(int pageNumber, int maxPage, string path)
     {
@@ -246,15 +190,9 @@ namespace PdfSharp
         "The specified page number is {0}, but it must be in the range from 1 to {1}.", pageNumber, maxPage, path);
     }
 
-    public static string MultiplePageInsert
-    {
-      get { return "The page cannot be added to this document because the document already owned this page."; }
-    }
+    public static string MultiplePageInsert => "The page cannot be added to this document because the document already owned this page.";
 
-    public static string UnexpectedTokenInPdfFile
-    {
-      get { return "Unexpected token in PDF file. The PDF file may be corrupt. If it is not, please send us the file for service."; }
-    }
+    public static string UnexpectedTokenInPdfFile => "Unexpected token in PDF file. The PDF file may be corrupt. If it is not, please send us the file for service.";
 
     public static string InappropriateColorSpace(PdfColorMode colorMode, XColorSpace colorSpace)
     {
@@ -311,11 +249,8 @@ namespace PdfSharp
       //return Format("Token '{0}' was not expected.", token);
     }
 
-    public static string UnknownEncryption
-    {
-      get { return GetString(PSMsgID.UnknownEncryption); }
-      //get { return "The PDF document is protected with an encryption not supported by PDFsharp."; }
-    }
+    public static string UnknownEncryption => GetString(PSMsgID.UnknownEncryption);
+    //get { return "The PDF document is protected with an encryption not supported by PDFsharp."; }
 
     #endregion
 

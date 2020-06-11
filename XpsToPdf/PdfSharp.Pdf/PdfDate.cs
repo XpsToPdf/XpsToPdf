@@ -65,11 +65,10 @@ namespace PdfSharp.Pdf
     /// <summary>
     /// Gets the value as DateTime.
     /// </summary>
-    public DateTime Value
-    {
-      // This class must behave like a value type. Therefore it cannot be changed (like System.String).
-      get { return value; }
-    }
+    public DateTime Value =>
+        // This class must behave like a value type. Therefore it cannot be changed (like System.String).
+        value;
+
     DateTime value;
 
     /// <summary>

@@ -51,8 +51,8 @@ namespace PdfSharp.Pdf.Advanced
 
     public int Size
     {
-      get {return Elements.GetInteger(Keys.Size);}
-      set {Elements.SetInteger(Keys.Size, value);}
+      get => Elements.GetInteger(Keys.Size);
+      set => Elements.SetInteger(Keys.Size, value);
     }
 
     // TODO: needed when linearized...
@@ -61,19 +61,13 @@ namespace PdfSharp.Pdf.Advanced
     //  get {return Elements.GetInteger(Keys.Prev);}
     //}
 
-    public PdfDocumentInformation Info
-    {
-      get {return (PdfDocumentInformation)Elements.GetValue(Keys.Info, VCF.CreateIndirect);}
-    }
+    public PdfDocumentInformation Info => (PdfDocumentInformation)Elements.GetValue(Keys.Info, VCF.CreateIndirect);
 
     /// <summary>
     /// (Required; must be an indirect reference)
     /// The catalog dictionary for the PDF document contained in the file.
     /// </summary>
-    public PdfCatalog Root
-    {
-      get {return (PdfCatalog)Elements.GetValue(Keys.Root, VCF.CreateIndirect);}
-    }
+    public PdfCatalog Root => (PdfCatalog)Elements.GetValue(Keys.Root, VCF.CreateIndirect);
 
     /// <summary>
     /// Gets the first or second document identifier.
@@ -277,9 +271,6 @@ namespace PdfSharp.Pdf.Advanced
     /// <summary>
     /// Gets the KeysMeta of this dictionary type.
     /// </summary>
-    internal override DictionaryMeta Meta
-    {
-      get {return Keys.Meta;}
-    }
+    internal override DictionaryMeta Meta => Keys.Meta;
   }
 }

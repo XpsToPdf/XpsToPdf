@@ -57,8 +57,8 @@ namespace PdfSharp.Drawing.Layout
     /// <value>The text.</value>
     public string Text
     {
-      get { return text; }
-      set { text = value; }
+      get => text;
+      set => text = value;
     }
     string text;
 
@@ -67,7 +67,7 @@ namespace PdfSharp.Drawing.Layout
     /// </summary>
     public XFont Font
     {
-      get { return font; }
+      get => font;
       set 
       {
         if (value == null)
@@ -94,8 +94,8 @@ namespace PdfSharp.Drawing.Layout
     /// </summary>
     public XRect LayoutRectangle
     {
-      get { return layoutRectangle; }
-      set { layoutRectangle = value; }
+      get => layoutRectangle;
+      set => layoutRectangle = value;
     }
     XRect layoutRectangle;
 
@@ -104,8 +104,8 @@ namespace PdfSharp.Drawing.Layout
     /// </summary>
     public XParagraphAlignment Alignment
     {
-      get { return alignment; }
-      set { alignment = value; }
+      get => alignment;
+      set => alignment = value;
     }
     XParagraphAlignment alignment = XParagraphAlignment.Left;
 

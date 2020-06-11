@@ -86,9 +86,6 @@ namespace PdfSharp.Pdf.Advanced
     /// <summary>
     /// Gets the KeysMeta of this dictionary type.
     /// </summary>
-    internal override DictionaryMeta Meta
-    {
-      get { return Keys.Meta; }
-    }
+    internal override DictionaryMeta Meta => Keys.Meta;
   }
 }

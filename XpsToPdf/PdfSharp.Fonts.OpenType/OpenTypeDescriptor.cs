@@ -242,23 +242,15 @@ namespace PdfSharp.Fonts.OpenType
     /// <summary>
     /// Gets a value indicating whether this instance belongs to a bold font.
     /// </summary>
-    public override bool IsBoldFace
-    {
-      get
-      {
+    public override bool IsBoldFace =>
         // usWeightClass 700 is Bold
         //Debug.Assert((this.fontData.os2.usWeightClass >= 700) == ((this.fontData.os2.fsSelection & (ushort)OS2Table.FontSelectionFlags.Bold) != 0));
-        return (fontData.os2.fsSelection & (ushort)OS2Table.FontSelectionFlags.Bold) != 0;
-      }
-    }
+        (fontData.os2.fsSelection & (ushort)OS2Table.FontSelectionFlags.Bold) != 0;
 
     /// <summary>
     /// Gets a value indicating whether this instance belongs to an italic font.
     /// </summary>
-    public override bool IsItalicFace
-    {
-      get { return (fontData.os2.fsSelection & (ushort)OS2Table.FontSelectionFlags.Italic) != 0; }
-    }
+    public override bool IsItalicFace => (fontData.os2.fsSelection & (ushort)OS2Table.FontSelectionFlags.Italic) != 0;
 
     internal int DesignUnitsToPdf(double value)
     {

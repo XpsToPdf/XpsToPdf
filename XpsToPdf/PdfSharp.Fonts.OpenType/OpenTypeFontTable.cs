@@ -69,10 +69,8 @@ namespace PdfSharp.Fonts.OpenType
     /// <summary>
     /// Gets the font image the table belongs to.
     /// </summary>
-    public FontData FontData
-    {
-      get { return fontData; }
-    }
+    public FontData FontData => fontData;
+
     internal FontData fontData;
 
     public TableDirectoryEntry DirectoryEntry;

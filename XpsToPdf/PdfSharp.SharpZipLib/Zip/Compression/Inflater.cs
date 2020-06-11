@@ -769,36 +769,18 @@ namespace PdfSharp.SharpZipLib.Zip.Compression
     /// You should then call setInput(). 
     /// NOTE: This method also returns true when the stream is finished.
     /// </summary>
-    public bool IsNeedingInput
-    {
-      get
-      {
-        return input.IsNeedingInput;
-      }
-    }
+    public bool IsNeedingInput => input.IsNeedingInput;
 
     /// <summary>
     /// Returns true, if a preset dictionary is needed to inflate the input.
     /// </summary>
-    public bool IsNeedingDictionary
-    {
-      get
-      {
-        return mode == DECODE_DICT && neededBits == 0;
-      }
-    }
+    public bool IsNeedingDictionary => mode == DECODE_DICT && neededBits == 0;
 
     /// <summary>
     /// Returns true, if the inflater has finished.  This means, that no
     /// input is needed and no output can be produced.
     /// </summary>
-    public bool IsFinished
-    {
-      get
-      {
-        return mode == FINISHED && outputWindow.GetAvailable() == 0;
-      }
-    }
+    public bool IsFinished => mode == FINISHED && outputWindow.GetAvailable() == 0;
 
     /// <summary>
     /// Gets the adler checksum.  This is either the checksum of all
@@ -809,13 +791,7 @@ namespace PdfSharp.SharpZipLib.Zip.Compression
     /// <returns>
     /// the adler checksum.
     /// </returns>
-    public int Adler
-    {
-      get
-      {
-        return IsNeedingDictionary ? readAdler : (int)adler.Value;
-      }
-    }
+    public int Adler => IsNeedingDictionary ? readAdler : (int)adler.Value;
 
     /// <summary>
     /// Gets the total number of output bytes returned by inflate().
@@ -823,13 +799,7 @@ namespace PdfSharp.SharpZipLib.Zip.Compression
     /// <returns>
     /// the total number of output bytes.
     /// </returns>
-    public int TotalOut
-    {
-      get
-      {
-        return totalOut;
-      }
-    }
+    public int TotalOut => totalOut;
 
     /// <summary>
     /// Gets the total number of processed compressed input bytes.
@@ -837,13 +807,7 @@ namespace PdfSharp.SharpZipLib.Zip.Compression
     /// <returns>
     /// The total number of bytes of processed input bytes.
     /// </returns>
-    public int TotalIn
-    {
-      get
-      {
-        return totalIn - RemainingInput;
-      }
-    }
+    public int TotalIn => totalIn - RemainingInput;
 
 #if TEST_HAK		
 		/// <summary>
@@ -873,12 +837,6 @@ namespace PdfSharp.SharpZipLib.Zip.Compression
     /// <returns>
     /// The number of bytes of the input which have not been processed.
     /// </returns>
-    public int RemainingInput
-    {
-      get
-      {
-        return input.AvailableBytes;
-      }
-    }
+    public int RemainingInput => input.AvailableBytes;
   }
 }

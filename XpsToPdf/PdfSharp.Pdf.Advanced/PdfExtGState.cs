@@ -129,7 +129,7 @@ namespace PdfSharp.Pdf.Advanced
     /// </summary>
     public double StrokeAlpha
     {
-      set { Elements.SetReal(Keys.CA, value); }
+      set => Elements.SetReal(Keys.CA, value);
     }
 
     /// <summary>
@@ -137,7 +137,7 @@ namespace PdfSharp.Pdf.Advanced
     /// </summary>
     public double NonStrokeAlpha
     {
-      set { Elements.SetReal(Keys.ca, value); }
+      set => Elements.SetReal(Keys.ca, value);
     }
 
     /// <summary>
@@ -145,7 +145,7 @@ namespace PdfSharp.Pdf.Advanced
     /// </summary>
     public PdfSoftMask SoftMask
     {
-      set { Elements.SetReference(Keys.SMask, value); }
+      set => Elements.SetReference(Keys.SMask, value);
     }
 
     /// <summary>
@@ -334,9 +334,6 @@ namespace PdfSharp.Pdf.Advanced
     /// <summary>
     /// Gets the KeysMeta of this dictionary type.
     /// </summary>
-    internal override DictionaryMeta Meta
-    {
-      get { return Keys.Meta; }
-    }
+    internal override DictionaryMeta Meta => Keys.Meta;
   }
 }

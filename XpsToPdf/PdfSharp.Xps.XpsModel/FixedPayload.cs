@@ -47,19 +47,14 @@ namespace PdfSharp.Xps.XpsModel
     /// <summary>
     /// Gets the XPS document that owns this payload.
     /// </summary>
-    public XpsDocument XpsDocument
-    {
-      get { return document; }
-    }
+    public XpsDocument XpsDocument => document;
+
     XpsDocument document;
 
     /// <summary>
     /// Gets the number of fixed documents in this payload.
     /// </summary>
-    public int DocumentCount
-    {
-      get { return fdseq.DocumentReferences.Count; }
-    }
+    public int DocumentCount => fdseq.DocumentReferences.Count;
 
     /// <summary>
     /// Gets the document with the specified index.
@@ -87,10 +82,7 @@ namespace PdfSharp.Xps.XpsModel
     /// <summary>
     /// Gets the underlying ZIP package.
     /// </summary>
-    public ZipPackage Package
-    {
-      get { return document.Package; }
-    }
+    public ZipPackage Package => document.Package;
 
     /// <summary>
     /// Gets the font data from the resource package part.

@@ -81,10 +81,7 @@ namespace PdfSharp.Pdf.IO
       return lexer.Position = position;
     }
 
-    public Symbol Symbol
-    {
-      get { return lexer.Symbol; }
-    }
+    public Symbol Symbol => lexer.Symbol;
 
     /// <summary>
     /// Reads PDF object from input stream.

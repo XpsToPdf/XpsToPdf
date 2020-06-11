@@ -444,10 +444,8 @@ namespace PdfSharp.Drawing
     /// <summary>
     /// Gets the em-size of this Font object measured in the unit of this Font object.
     /// </summary>
-    public double Size
-    {
-      get { return emSize; }
-    }
+    public double Size => emSize;
+
     double emSize;
 
 
@@ -455,81 +453,65 @@ namespace PdfSharp.Drawing
     /// Gets the line spacing of this font.
     /// </summary>
     [Browsable(false)]
-    public int Height
-    {
-      // Implementation from System.Drawing.Font.cs
-      get { return (int)Math.Ceiling(GetHeight()); }
-      // DELETE
-      //      {
-      //#if GDI && !WPF
-      //        RealizeGdiFont();
-      //        return this.font.Height;
-      //#endif
-      //#if WPF && !GDI
-      //        return (int)this.size;
-      //#endif
-      //#if GDI && WPF
-      //        // netmassdownloader -d "C:\Program Files\Reference Assemblies\Microsoft\Framework\v3.5" -output G:\dotnet-massdownload\SourceCode -v
-      //        RealizeGdiFont();
-      //        int gdiHeight = this.font.Height;
-      //        double wpfHeight1 = this.cellSpace * this.size / this.unitsPerEm;
-      //        //int wpfHeight = (int)wpfHeight1+Math.Round(wpfHeight1, 
-      //        int wpfHeight = Convert.ToInt32(wpfHeight1 + 0.5);
-      //        Debug.Assert(gdiHeight == wpfHeight);
-      //        return gdiHeight;
-      //#endif
-      //      }
-    }
+    public int Height =>
+        // Implementation from System.Drawing.Font.cs
+        (int)Math.Ceiling(GetHeight());
 
+    // DELETE
+    //      {
+    //#if GDI && !WPF
+    //        RealizeGdiFont();
+    //        return this.font.Height;
+    //#endif
+    //#if WPF && !GDI
+    //        return (int)this.size;
+    //#endif
+    //#if GDI && WPF
+    //        // netmassdownloader -d "C:\Program Files\Reference Assemblies\Microsoft\Framework\v3.5" -output G:\dotnet-massdownload\SourceCode -v
+    //        RealizeGdiFont();
+    //        int gdiHeight = this.font.Height;
+    //        double wpfHeight1 = this.cellSpace * this.size / this.unitsPerEm;
+    //        //int wpfHeight = (int)wpfHeight1+Math.Round(wpfHeight1, 
+    //        int wpfHeight = Convert.ToInt32(wpfHeight1 + 0.5);
+    //        Debug.Assert(gdiHeight == wpfHeight);
+    //        return gdiHeight;
+    //#endif
+    //      }
     /// <summary>
     /// Gets style information for this Font object.
     /// </summary>
     [Browsable(false)]
-    public XFontStyle Style
-    {
-      get { return style; }
-    }
+    public XFontStyle Style => style;
+
     XFontStyle style;
 
     /// <summary>
     /// Indicates whether this XFont object is bold.
     /// </summary>
-    public bool Bold
-    {
-      get { return (style & XFontStyle.Bold) == XFontStyle.Bold; }
-    }
+    public bool Bold => (style & XFontStyle.Bold) == XFontStyle.Bold;
 
     /// <summary>
     /// Indicates whether this XFont object is italic.
     /// </summary>
-    public bool Italic
-    {
-      get { return (style & XFontStyle.Italic) == XFontStyle.Italic; }
-    }
+    public bool Italic => (style & XFontStyle.Italic) == XFontStyle.Italic;
 
     /// <summary>
     /// Indicates whether this XFont object is stroke out.
     /// </summary>
-    public bool Strikeout
-    {
-      get { return (style & XFontStyle.Strikeout) == XFontStyle.Strikeout; }
-    }
+    public bool Strikeout => (style & XFontStyle.Strikeout) == XFontStyle.Strikeout;
 
     /// <summary>
     /// Indicates whether this XFont object is underlined.
     /// </summary>
-    public bool Underline
-    {
-      get { return (style & XFontStyle.Underline) == XFontStyle.Underline; }
-    }
+    public bool Underline => (style & XFontStyle.Underline) == XFontStyle.Underline;
 
     /// <summary>
     /// Temporary HACK for XPS to PDF converter.
     /// </summary>
     internal bool IsVertical
     {
-      get { return isVertical; }
-      set { isVertical = value; }
+      get => isVertical;
+      set => isVertical = value;
     }
     bool isVertical;
 
@@ -551,10 +533,7 @@ namespace PdfSharp.Drawing
     /// <summary>
     /// Indicates whether this XFont is encoded as Unicode.
     /// </summary>
-    internal bool Unicode
-    {
-      get { return pdfOptions != null ? pdfOptions.FontEncoding == PdfFontEncoding.Unicode : false; }
-    }
+    internal bool Unicode => pdfOptions != null ? pdfOptions.FontEncoding == PdfFontEncoding.Unicode : false;
 
     /// <summary>
     /// Gets the metrics.

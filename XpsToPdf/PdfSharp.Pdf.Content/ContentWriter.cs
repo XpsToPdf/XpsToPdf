@@ -62,10 +62,7 @@ namespace PdfSharp.Pdf.Content
       Close(true);
     }
 
-    public int Position
-    {
-      get { return (int)stream.Position; }
-    }
+    public int Position => (int)stream.Position;
 
     //public PdfWriterLayout Layout
     //{
@@ -504,8 +501,8 @@ namespace PdfSharp.Pdf.Content
     /// </summary>
     internal int Indent
     {
-      get { return indent; }
-      set { indent = value; }
+      get => indent;
+      set => indent = value;
     }
     protected int indent = 2;
     protected int writeIndent = 0;
@@ -529,10 +526,7 @@ namespace PdfSharp.Pdf.Content
     /// <summary>
     /// Gets an indent string of current indent.
     /// </summary>
-    string IndentBlanks
-    {
-      get { return new string(' ', writeIndent); }
-    }
+    string IndentBlanks => new string(' ', writeIndent);
 
     void WriteIndent()
     {
@@ -597,10 +591,8 @@ namespace PdfSharp.Pdf.Content
     /// <summary>
     /// Gets the underlying stream.
     /// </summary>
-    internal Stream Stream
-    {
-      get { return stream; }
-    }
+    internal Stream Stream => stream;
+
     Stream stream;
 
 

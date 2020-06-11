@@ -68,22 +68,19 @@ namespace PdfSharp.Pdf.IO
       Close(true);
     }
 
-    public int Position
-    {
-      get { return (int)stream.Position; }
-    }
+    public int Position => (int)stream.Position;
 
     public PdfWriterLayout Layout
     {
-      get { return layout; }
-      set { layout = value; }
+      get => layout;
+      set => layout = value;
     }
     PdfWriterLayout layout;
 
     public PdfWriterOptions Options
     {
-      get { return options; }
-      set { options = value; }
+      get => options;
+      set => options = value;
     }
     PdfWriterOptions options;
 
@@ -523,8 +520,8 @@ namespace PdfSharp.Pdf.IO
     /// </summary>
     internal int Indent
     {
-      get { return indent; }
-      set { indent = value; }
+      get => indent;
+      set => indent = value;
     }
     protected int indent = 2;
     protected int writeIndent = 0;
@@ -556,10 +553,7 @@ namespace PdfSharp.Pdf.IO
     /// <summary>
     /// Gets an indent string of current indent.
     /// </summary>
-    string IndentBlanks
-    {
-      get { return new string(' ', writeIndent); }
-    }
+    string IndentBlanks => new string(' ', writeIndent);
 
     void WriteIndent()
     {
@@ -624,16 +618,14 @@ namespace PdfSharp.Pdf.IO
     /// <summary>
     /// Gets the underlying stream.
     /// </summary>
-    internal Stream Stream
-    {
-      get { return stream; }
-    }
+    internal Stream Stream => stream;
+
     Stream stream;
 
     internal PdfStandardSecurityHandler SecurityHandler
     {
-      get { return securityHandler; }
-      set { securityHandler = value; }
+      get => securityHandler;
+      set => securityHandler = value;
     }
     PdfStandardSecurityHandler securityHandler;
 

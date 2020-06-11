@@ -89,8 +89,8 @@ namespace PdfSharp.Pdf
     /// </summary>
     public object Tag
     {
-      get { return tag; }
-      set { tag = value; }
+      get => tag;
+      set => tag = value;
     }
     object tag;
 
@@ -111,10 +111,7 @@ namespace PdfSharp.Pdf
     /// <summary>
     /// Gets a value indicating whether the page is closed.
     /// </summary>
-    internal bool IsClosed
-    {
-      get { return closed; }
-    }
+    internal bool IsClosed => closed;
 
     /// <summary>
     /// Gets or sets the PdfDocument this page belongs to.
@@ -142,8 +139,8 @@ namespace PdfSharp.Pdf
     /// </summary>
     public PageOrientation Orientation
     {
-      get { return orientation; }
-      set { orientation = value; }
+      get => orientation;
+      set => orientation = value;
     }
     PageOrientation orientation;
 
@@ -152,7 +149,7 @@ namespace PdfSharp.Pdf
     /// </summary>
     public PageSize Size
     {
-      get { return pageSize; }
+      get => pageSize;
       set
       {
         if (!Enum.IsDefined(typeof(PageSize), value))
@@ -203,8 +200,8 @@ namespace PdfSharp.Pdf
     /// </summary>
     public PdfRectangle MediaBox
     {
-      get { return Elements.GetRectangle(InheritablePageKeys.MediaBox, true); }
-      set { Elements.SetRectangle(InheritablePageKeys.MediaBox, value); }
+      get => Elements.GetRectangle(InheritablePageKeys.MediaBox, true);
+      set => Elements.SetRectangle(InheritablePageKeys.MediaBox, value);
     }
 
     /// <summary>
@@ -212,8 +209,8 @@ namespace PdfSharp.Pdf
     /// </summary>
     public PdfRectangle CropBox
     {
-      get { return Elements.GetRectangle(InheritablePageKeys.CropBox, true); }
-      set { Elements.SetRectangle(InheritablePageKeys.CropBox, value); }
+      get => Elements.GetRectangle(InheritablePageKeys.CropBox, true);
+      set => Elements.SetRectangle(InheritablePageKeys.CropBox, value);
     }
 
     /// <summary>
@@ -221,8 +218,8 @@ namespace PdfSharp.Pdf
     /// </summary>
     public PdfRectangle BleedBox
     {
-      get { return Elements.GetRectangle(Keys.BleedBox, true); }
-      set { Elements.SetRectangle(Keys.BleedBox, value); }
+      get => Elements.GetRectangle(Keys.BleedBox, true);
+      set => Elements.SetRectangle(Keys.BleedBox, value);
     }
 
     /// <summary>
@@ -230,8 +227,8 @@ namespace PdfSharp.Pdf
     /// </summary>
     public PdfRectangle ArtBox
     {
-      get { return Elements.GetRectangle(Keys.ArtBox, true); }
-      set { Elements.SetRectangle(Keys.ArtBox, value); }
+      get => Elements.GetRectangle(Keys.ArtBox, true);
+      set => Elements.SetRectangle(Keys.ArtBox, value);
     }
 
     /// <summary>
@@ -239,8 +236,8 @@ namespace PdfSharp.Pdf
     /// </summary>
     public PdfRectangle TrimBox
     {
-      get { return Elements.GetRectangle(Keys.TrimBox, true); }
-      set { Elements.SetRectangle(Keys.TrimBox, value); }
+      get => Elements.GetRectangle(Keys.TrimBox, true);
+      set => Elements.SetRectangle(Keys.TrimBox, value);
     }
 
     /// <summary>
@@ -295,7 +292,7 @@ namespace PdfSharp.Pdf
     /// </summary>
     public int Rotate
     {
-      get { return elements.GetInteger(InheritablePageKeys.Rotate); }
+      get => elements.GetInteger(InheritablePageKeys.Rotate);
       set
       {
         if (value / 90 * 90 != value)
@@ -464,10 +461,7 @@ namespace PdfSharp.Pdf
     /// <summary>
     /// Implements the interface because the primary function is internal.
     /// </summary>
-    PdfResources IContentStream.Resources
-    {
-      get { return Resources; }
-    }
+    PdfResources IContentStream.Resources => Resources;
 
     /// <summary>
     /// Gets the resource name of the specified font within this page.
@@ -925,10 +919,7 @@ namespace PdfSharp.Pdf
     /// <summary>
     /// Gets the KeysMeta of this dictionary type.
     /// </summary>
-    internal override DictionaryMeta Meta
-    {
-      get { return Keys.Meta; }
-    }
+    internal override DictionaryMeta Meta => Keys.Meta;
 
     /// <summary>
     /// Predefined keys common to PdfPage and PdfPages.

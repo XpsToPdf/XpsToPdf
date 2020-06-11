@@ -74,11 +74,10 @@ namespace PdfSharp.Pdf
     /// <summary>
     /// Gets the value as litaral string.
     /// </summary>
-    public string Value
-    {
-      // This class must behave like a value type. Therefore it cannot be changed (like System.String).
-      get { return value; }
-    }
+    public string Value =>
+        // This class must behave like a value type. Therefore it cannot be changed (like System.String).
+        value;
+
     readonly string value = String.Empty;
 
     /// <summary>

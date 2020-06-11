@@ -66,7 +66,7 @@ namespace PdfSharp.Drawing.BarCodes
     /// </summary>
     public string Encoding
     {
-      get { return encoding; }
+      get => encoding;
       set
       {
         encoding = value;
@@ -80,7 +80,7 @@ namespace PdfSharp.Drawing.BarCodes
     /// </summary>
     public int Columns
     {
-      get { return columns; }
+      get => columns;
       set
       {
         columns = value;
@@ -94,7 +94,7 @@ namespace PdfSharp.Drawing.BarCodes
     /// </summary>
     public int Rows
     {
-      get { return rows; }
+      get => rows;
       set
       {
         rows = value;
@@ -108,7 +108,7 @@ namespace PdfSharp.Drawing.BarCodes
     /// </summary>
     public new string Text
     {
-      get { return base.Text; }
+      get => base.Text;
       set
       {
         base.Text = value;

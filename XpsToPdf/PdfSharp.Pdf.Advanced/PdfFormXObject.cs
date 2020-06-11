@@ -64,15 +64,15 @@ namespace PdfSharp.Pdf.Advanced
 
     internal double DpiX
     {
-      get { return dpiX; }
-      set { dpiX = value; }
+      get => dpiX;
+      set => dpiX = value;
     }
     double dpiX = 72;
 
     internal double DpiY
     {
-      get { return dpiY; }
-      set { dpiY = value; }
+      get => dpiY;
+      set => dpiY = value;
     }
     double dpiY = 72;
 
@@ -253,10 +253,7 @@ namespace PdfSharp.Pdf.Advanced
     }
     PdfResources resources;
 
-    PdfResources IContentStream.Resources
-    {
-      get { return Resources; }
-    }
+    PdfResources IContentStream.Resources => Resources;
 
     internal string GetFontName(XFont font, out PdfFont pdfFont)
     {
@@ -489,9 +486,6 @@ namespace PdfSharp.Pdf.Advanced
     /// <summary>
     /// Gets the KeysMeta of this dictionary type.
     /// </summary>
-    internal override DictionaryMeta Meta
-    {
-      get { return Keys.Meta; }
-    }
+    internal override DictionaryMeta Meta => Keys.Meta;
   }
 }

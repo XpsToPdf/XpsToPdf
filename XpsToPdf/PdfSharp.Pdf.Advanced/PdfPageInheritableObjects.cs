@@ -47,21 +47,21 @@ namespace PdfSharp.Pdf.Advanced
     /// </summary>
     public PdfRectangle MediaBox
     {
-      get {return mediaBox;}
-      set {mediaBox = value;}
+      get => mediaBox;
+      set => mediaBox = value;
     }
     PdfRectangle mediaBox;
 
     public PdfRectangle CropBox
     {
-      get {return cropBox;}
-      set {cropBox = value;}
+      get => cropBox;
+      set => cropBox = value;
     }
     PdfRectangle cropBox;
 
     public int Rotate
     {
-      get {return rotate;}
+      get => rotate;
       set 
       {
         if (value % 90 != 0)

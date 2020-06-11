@@ -80,18 +80,12 @@ namespace PdfSharp.Drawing
     /// To determine the XGraphicsUnit use property <code>Type</code>.
     /// To get the value in point use the implicit conversion to double.
     /// </summary>
-    public double Value
-    {
-      get { return value; }
-    }
+    public double Value => value;
 
     /// <summary>
     /// Gets the unit of measure.
     /// </summary>
-    public XGraphicsUnit Type
-    {
-      get { return type; }
-    }
+    public XGraphicsUnit Type => type;
 
     /// <summary>
     /// Gets or sets the value in point.

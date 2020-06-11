@@ -72,10 +72,7 @@ namespace PdfSharp.Pdf.Advanced
     /// <summary>
     /// Gets a value indicating whether this instance is symbol font.
     /// </summary>
-    public bool IsSymbolFont
-    {
-      get { return fontDescriptor.IsSymbolFont; }
-    }
+    public bool IsSymbolFont => fontDescriptor.IsSymbolFont;
 
 #if true_
     public string BaseFont
@@ -125,8 +122,8 @@ namespace PdfSharp.Pdf.Advanced
     /// </summary>
     internal CMapInfo CMapInfo
     {
-      get { return cmapInfo; }
-      set { cmapInfo = value; }
+      get => cmapInfo;
+      set => cmapInfo = value;
     }
     internal CMapInfo cmapInfo;
 
@@ -135,8 +132,8 @@ namespace PdfSharp.Pdf.Advanced
     /// </summary>
     internal PdfToUnicodeMap ToUnicodeMap
     {
-      get { return toUnicode; }
-      set { toUnicode = value; }
+      get => toUnicode;
+      set => toUnicode = value;
     }
     internal PdfToUnicodeMap toUnicode;
 

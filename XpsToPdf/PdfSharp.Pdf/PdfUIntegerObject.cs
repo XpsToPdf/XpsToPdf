@@ -70,11 +70,9 @@ namespace PdfSharp.Pdf
     /// <summary>
     /// Gets the value as unsigned integer.
     /// </summary>
-    public uint Value
-    {
-      get { return value; }
-      //set {this.value = value;}
-    }
+    public uint Value => value;
+
+    //set {this.value = value;}
     uint value;
 
     /// <summary>

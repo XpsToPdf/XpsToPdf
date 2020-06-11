@@ -21,13 +21,13 @@ namespace PdfSharp.Xps.XpsModel
 
     public Point TopLeft
     {
-      get { return new Point(X, Y); }
+      get => new Point(X, Y);
       set { X = value.X; Y = value.Y; }
     }
 
     public Size Size
     {
-      get { return new Size(Width, Height); }
+      get => new Size(Width, Height);
       set { Width = value.Width; Height = value.Height; }
     }
 

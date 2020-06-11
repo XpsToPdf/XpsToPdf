@@ -43,10 +43,7 @@ namespace PdfSharp.Drawing
       this.guid = guid;
     }
 
-    internal Guid Guid
-    {
-      get { return guid; }
-    }
+    internal Guid Guid => guid;
 
     /// <summary>
     /// Determines whether the specified object is equal to the current object.
@@ -70,50 +67,32 @@ namespace PdfSharp.Drawing
     /// <summary>
     /// Gets the Portable Network Graphics (PNG) image format. 
     /// </summary>
-    public static XImageFormat Png
-    {
-      get { return png; }
-    }
+    public static XImageFormat Png => png;
 
     /// <summary>
     /// Gets the Graphics Interchange Format (GIF) image format.
     /// </summary>
-    public static XImageFormat Gif
-    {
-      get { return gif; }
-    }
+    public static XImageFormat Gif => gif;
 
     /// <summary>
     /// Gets the Joint Photographic Experts Group (JPEG) image format.
     /// </summary>
-    public static XImageFormat Jpeg
-    {
-      get { return jpeg; }
-    }
+    public static XImageFormat Jpeg => jpeg;
 
     /// <summary>
     /// Gets the Tag Image File Format (TIFF) image format.
     /// </summary>
-    public static XImageFormat Tiff
-    {
-      get { return tiff; }
-    }
+    public static XImageFormat Tiff => tiff;
 
     /// <summary>
     /// Gets the Portable Document Format (PDF) image format
     /// </summary>
-    public static XImageFormat Pdf
-    {
-      get { return pdf; }
-    }
+    public static XImageFormat Pdf => pdf;
 
     /// <summary>
     /// Gets the Windows icon image format.
     /// </summary>
-    public static XImageFormat Icon
-    {
-      get { return icon; }
-    }
+    public static XImageFormat Icon => icon;
 
     static XImageFormat()
     {

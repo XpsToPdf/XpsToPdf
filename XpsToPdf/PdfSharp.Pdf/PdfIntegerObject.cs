@@ -67,11 +67,9 @@ namespace PdfSharp.Pdf
     /// <summary>
     /// Gets the value as integer.
     /// </summary>
-    public int Value
-    {
-      get { return value; }
-      //set {this.value = value;}
-    }
+    public int Value => value;
+
+    //set {this.value = value;}
     int value;
 
     /// <summary>

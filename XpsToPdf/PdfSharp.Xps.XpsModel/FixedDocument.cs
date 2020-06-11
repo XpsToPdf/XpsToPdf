@@ -12,26 +12,20 @@ namespace PdfSharp.Xps.XpsModel
     /// <summary>
     /// Gets the number of fixed pages in this document.
     /// </summary>
-    public int PageCount
-    {
-      get { return PageContentUriStrings.Count; }
-    }
+    public int PageCount => PageContentUriStrings.Count;
 
     /// <summary>
     /// Gets the XPS document that owns this document.
     /// </summary>
-    public XpsDocument XpsDocument
-    {
-      get { return fpayload.XpsDocument; }
-    }
+    public XpsDocument XpsDocument => fpayload.XpsDocument;
 
     /// <summary>
     /// Gets the path to this document.
     /// </summary>
     public string UriString
     {
-      get { return uriString; }
-      internal set { uriString = value; }
+      get => uriString;
+      internal set => uriString = value;
     }
     string uriString;
 
@@ -40,18 +34,15 @@ namespace PdfSharp.Xps.XpsModel
     /// </summary>
     internal FixedPayload Payload
     {
-      get { return fpayload; }
-      set { fpayload = value; }
+      get => fpayload;
+      set => fpayload = value;
     }
     FixedPayload fpayload;
 
     /// <summary>
     /// Gets the underlying ZIP package.
     /// </summary>
-    internal ZipPackage Package
-    {
-      get { return Payload.Package; }
-    }
+    internal ZipPackage Package => Payload.Package;
 
     internal List<string> PageContentUriStrings = new List<string>();
 

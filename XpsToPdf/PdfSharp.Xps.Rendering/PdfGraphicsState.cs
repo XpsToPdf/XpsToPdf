@@ -51,15 +51,12 @@ namespace PdfSharp.Xps.Rendering
 
         public XMatrix DefaultPageTransform
         {
-            get { return defaultPageTransform; }
-            set { defaultPageTransform = value; }
+            get => defaultPageTransform;
+            set => defaultPageTransform = value;
         }
         XMatrix defaultPageTransform = new XMatrix();
 
-        public XMatrix Transform
-        {
-            get { return transform; }
-        }
+        public XMatrix Transform => transform;
         XMatrix transform = new XMatrix();
 
         public XMatrix MultiplyTransform(XMatrix matrix)
@@ -71,10 +68,8 @@ namespace PdfSharp.Xps.Rendering
         /// <summary>
         /// Gets the current opacity value.
         /// </summary>
-        public double Opacity
-        {
-            get { return opacity; }
-        }
+        public double Opacity => opacity;
+
         double opacity = 1;
 
         /// <summary>

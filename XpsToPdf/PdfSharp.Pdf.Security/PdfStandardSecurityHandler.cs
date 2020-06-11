@@ -94,7 +94,7 @@ namespace PdfSharp.Pdf.Security
           permission = PdfUserAccessPermission.PermitAll;
         return permission;
       }
-      set { Elements.SetInteger(Keys.P, (int)value); }
+      set => Elements.SetInteger(Keys.P, (int)value);
     }
 
     /// <summary>
@@ -736,10 +736,8 @@ namespace PdfSharp.Pdf.Security
     /// <summary>
     /// Gets the KeysMeta of this dictionary type.
     /// </summary>
-    internal override DictionaryMeta Meta
-    {
-      get { return Keys.Meta; }
-    }
+    internal override DictionaryMeta Meta => Keys.Meta;
+
     #endregion
   }
 }

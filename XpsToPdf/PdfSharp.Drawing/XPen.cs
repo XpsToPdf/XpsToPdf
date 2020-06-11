@@ -97,7 +97,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     public XColor Color
     {
-      get { return color; }
+      get => color;
       set
       {
         if (immutable)
@@ -113,7 +113,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     public double Width
     {
-      get { return width; }
+      get => width;
       set
       {
         if (immutable)
@@ -129,7 +129,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     public XLineJoin LineJoin
     {
-      get { return lineJoin; }
+      get => lineJoin;
       set
       {
         if (immutable)
@@ -145,7 +145,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     public XLineCap LineCap
     {
-      get { return lineCap; }
+      get => lineCap;
       set
       {
         if (immutable)
@@ -161,7 +161,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     public double MiterLimit
     {
-      get { return miterLimit; }
+      get => miterLimit;
       set
       {
         if (immutable)
@@ -177,7 +177,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     public XDashStyle DashStyle
     {
-      get { return dashStyle; }
+      get => dashStyle;
       set
       {
         if (immutable)
@@ -193,7 +193,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     public double DashOffset
     {
-      get { return dashOffset; }
+      get => dashOffset;
       set
       {
         if (immutable)

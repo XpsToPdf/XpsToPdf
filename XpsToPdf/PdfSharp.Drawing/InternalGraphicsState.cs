@@ -114,8 +114,8 @@ namespace PdfSharp.Drawing
     /// </summary>
     public XMatrix Transform
     {
-      get { return transform; }
-      set { transform = value; }
+      get => transform;
+      set => transform = value;
     }
     XMatrix transform = new XMatrix();  //XMatrix.Identity;
 

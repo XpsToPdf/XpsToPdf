@@ -10,7 +10,7 @@ namespace PdfSharp.Xps.XpsModel
   {
     public byte A
     {
-      get { return sRgbColor.a; }
+      get => sRgbColor.a;
       set
       {
         sRgbColor.a = value;
@@ -20,7 +20,7 @@ namespace PdfSharp.Xps.XpsModel
 
     public byte R
     {
-      get { return sRgbColor.r; }
+      get => sRgbColor.r;
       set
       {
         sRgbColor.r = value;
@@ -30,7 +30,7 @@ namespace PdfSharp.Xps.XpsModel
 
     public byte G
     {
-      get { return sRgbColor.g; }
+      get => sRgbColor.g;
       set
       {
         sRgbColor.g = value;
@@ -40,7 +40,7 @@ namespace PdfSharp.Xps.XpsModel
 
     public byte B
     {
-      get { return sRgbColor.b; }
+      get => sRgbColor.b;
       set
       {
         sRgbColor.b = value;
@@ -50,7 +50,7 @@ namespace PdfSharp.Xps.XpsModel
 
     public float ScA
     {
-      get { return scRgbColor.a; }
+      get => scRgbColor.a;
       set
       {
         scRgbColor.a = value;
@@ -65,7 +65,7 @@ namespace PdfSharp.Xps.XpsModel
 
     public float ScR
     {
-      get { return scRgbColor.r; }
+      get => scRgbColor.r;
       set
       {
         scRgbColor.r = value;
@@ -75,7 +75,7 @@ namespace PdfSharp.Xps.XpsModel
 
     public float ScG
     {
-      get { return scRgbColor.g; }
+      get => scRgbColor.g;
       set
       {
         scRgbColor.g = value;
@@ -85,7 +85,7 @@ namespace PdfSharp.Xps.XpsModel
 
     public float ScB
     {
-      get { return scRgbColor.b; }
+      get => scRgbColor.b;
       set
       {
         scRgbColor.b = value;

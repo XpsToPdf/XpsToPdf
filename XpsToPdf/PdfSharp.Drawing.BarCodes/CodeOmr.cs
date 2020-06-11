@@ -96,8 +96,8 @@ namespace PdfSharp.Drawing.BarCodes
     /// </summary>
     public bool SynchronizeCode
     {
-      get { return synchronizeCode; }
-      set { synchronizeCode = value; }
+      get => synchronizeCode;
+      set => synchronizeCode = value;
     }
     bool synchronizeCode;
 
@@ -106,8 +106,8 @@ namespace PdfSharp.Drawing.BarCodes
     /// </summary>
     public double MakerDistance
     {
-      get { return makerDistance; }
-      set { makerDistance = value; }
+      get => makerDistance;
+      set => makerDistance = value;
     }
     double makerDistance = 12;  // 1/6"
 
@@ -116,8 +116,8 @@ namespace PdfSharp.Drawing.BarCodes
     /// </summary>
     public double MakerThickness
     {
-      get { return makerThickness; }
-      set { makerThickness = value; }
+      get => makerThickness;
+      set => makerThickness = value;
     }
     double makerThickness = 1;
 

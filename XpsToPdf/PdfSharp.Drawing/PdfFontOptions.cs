@@ -150,19 +150,14 @@ namespace PdfSharp.Drawing
     /// Gets a value indicating whether the gets embedded in the PDF file.
     /// </summary>
     [Obsolete("Use FontEmbedding")]
-    public bool Embed
-    {
-      get { return fontEmbedding != PdfFontEmbedding.None; }
-    }
+    public bool Embed => fontEmbedding != PdfFontEmbedding.None;
     //bool embed;
 
     /// <summary>
     /// Gets a value indicating the font embedding.
     /// </summary>
-    public PdfFontEmbedding FontEmbedding
-    {
-      get { return fontEmbedding; }
-    }
+    public PdfFontEmbedding FontEmbedding => fontEmbedding;
+
     PdfFontEmbedding fontEmbedding;
 
     //public bool Subset
@@ -175,53 +170,42 @@ namespace PdfSharp.Drawing
     /// Gets a value indicating whether the font is encoded as Unicode.
     /// </summary>
     [Obsolete("Use FontEncoding")]
-    public bool Unicode
-    {
-      get { return fontEncoding == PdfFontEncoding.Unicode; }
-    }
+    public bool Unicode => fontEncoding == PdfFontEncoding.Unicode;
     //bool unicode;
 
 
     /// <summary>
     /// Gets a value indicating how the font is encoded.
     /// </summary>
-    public PdfFontEncoding FontEncoding
-    {
-      get { return fontEncoding; }
-    }
+    public PdfFontEncoding FontEncoding => fontEncoding;
+
     PdfFontEncoding fontEncoding;
 
     /// <summary>
     /// Not yet implemented.
     /// </summary>
     [Obsolete("Not yet implemented")]
-    public string BaseFont
-    {
-      //get { return this.baseFont; }
-      get { return ""; }
-    }
+    public string BaseFont =>
+        //get { return this.baseFont; }
+        "";
     //string baseFont = "";
 
     /// <summary>
     /// Not yet implemented.
     /// </summary>
     [Obsolete("Not yet implemented")]
-    public string FontFile
-    {
-      //get { return this.fontFile; }
-      get { return ""; }
-    }
+    public string FontFile =>
+        //get { return this.fontFile; }
+        "";
     //string fontFile = "";
 
     /// <summary>
     /// Gets the font image.
     /// </summary>
     [Obsolete("Not yet implemented")]
-    public byte[] FontData
-    {
-      //get { return this.fontData; }
-      get { return null; }
-    }
+    public byte[] FontData =>
+        //get { return this.fontData; }
+        null;
     //byte[] fontData;
 
     // this is part of XGraphics

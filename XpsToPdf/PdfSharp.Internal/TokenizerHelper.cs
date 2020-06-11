@@ -212,10 +212,7 @@ namespace PdfSharp.Internal
       }
     }
 
-    internal bool FoundSeparator
-    {
-      get { return foundSeparator; }
-    }
+    internal bool FoundSeparator => foundSeparator;
     private bool foundSeparator;
 
     private char argSeparator;

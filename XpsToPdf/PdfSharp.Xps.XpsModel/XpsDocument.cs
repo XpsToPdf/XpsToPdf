@@ -86,19 +86,13 @@ namespace PdfSharp.Xps.XpsModel
       ((IDisposable)this).Dispose();
     }
 
-    internal string Path
-    {
-      get { return path; }
-    }
+    internal string Path => path;
     string path;
 
     /// <summary>
     /// Gets the number of fixed documents.
     /// </summary>
-    public int DocumentCount
-    {
-      get { return fpayload.DocumentCount; }
-    }
+    public int DocumentCount => fpayload.DocumentCount;
 
     /// <summary>
     /// Gets a read-only collection of the fixed documents of this XPS document.
@@ -198,19 +192,15 @@ namespace PdfSharp.Xps.XpsModel
     /// <summary>
     /// Gets the underlying ZIP package.
     /// </summary>
-    internal ZipPackage Package
-    {
-      get { return package; }
-    }
+    internal ZipPackage Package => package;
+
     ZipPackage package;
 
     /// <summary>
     /// Gets the underlying ZIP package parts collection.
     /// </summary>
-    internal PackagePartCollection Parts
-    {
-      get { return parts; }
-    }
+    internal PackagePartCollection Parts => parts;
+
     PackagePartCollection parts;
 
     FixedPayload fpayload;

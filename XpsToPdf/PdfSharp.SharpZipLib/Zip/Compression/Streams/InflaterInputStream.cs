@@ -91,53 +91,29 @@ namespace PdfSharp.SharpZipLib.Zip.Compression.Streams
     /// </remarks>
     public bool IsStreamOwner
     {
-      get { return isStreamOwner; }
-      set { isStreamOwner = value; }
+      get => isStreamOwner;
+      set => isStreamOwner = value;
     }
 
     /// <summary>
     /// Gets a value indicating whether the current stream supports reading
     /// </summary>
-    public override bool CanRead
-    {
-      get
-      {
-        return baseInputStream.CanRead;
-      }
-    }
+    public override bool CanRead => baseInputStream.CanRead;
 
     /// <summary>
     /// Gets a value of false indicating seeking is not supported for this stream.
     /// </summary>
-    public override bool CanSeek
-    {
-      get
-      {
-        return false;
-      }
-    }
+    public override bool CanSeek => false;
 
     /// <summary>
     /// Gets a value of false indicating that this stream is not writeable.
     /// </summary>
-    public override bool CanWrite
-    {
-      get
-      {
-        return false;
-      }
-    }
+    public override bool CanWrite => false;
 
     /// <summary>
     /// A value representing the length of the stream in bytes.
     /// </summary>
-    public override long Length
-    {
-      get
-      {
-        return len;
-      }
-    }
+    public override long Length => len;
 
     /// <summary>
     /// The current position within the stream.
@@ -146,14 +122,8 @@ namespace PdfSharp.SharpZipLib.Zip.Compression.Streams
     /// <exception cref="NotSupportedException">Attempting to set the position</exception>
     public override long Position
     {
-      get
-      {
-        return baseInputStream.Position;
-      }
-      set
-      {
-        throw new NotSupportedException("InflaterInputStream Position not supported");
-      }
+      get => baseInputStream.Position;
+      set => throw new NotSupportedException("InflaterInputStream Position not supported");
     }
 
     /// <summary>
@@ -294,13 +264,7 @@ namespace PdfSharp.SharpZipLib.Zip.Compression.Streams
     /// Returns 0 once the end of the stream (EOF) has been reached.
     /// Otherwise returns 1.
     /// </summary>
-    public virtual int Available
-    {
-      get
-      {
-        return inf.IsFinished ? 0 : 1;
-      }
-    }
+    public virtual int Available => inf.IsFinished ? 0 : 1;
 
     /// <summary>
     /// Closes the input stream.  When <see cref="IsStreamOwner"></see>
@@ -325,15 +289,9 @@ namespace PdfSharp.SharpZipLib.Zip.Compression.Streams
     /// </remarks>
     protected int BufferReadSize
     {
-      get
-      {
-        return readChunkSize;
-      }
+      get => readChunkSize;
 
-      set
-      {
-        readChunkSize = value;
-      }
+      set => readChunkSize = value;
     }
 
     /// <summary>

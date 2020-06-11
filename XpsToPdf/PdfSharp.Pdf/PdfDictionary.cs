@@ -251,8 +251,8 @@ namespace PdfSharp.Pdf
     /// </summary>
     public PdfStream Stream
     {
-      get { return stream; }
-      set { stream = value; }
+      get => stream;
+      set => stream = value;
     }
     PdfStream stream;
 
@@ -274,10 +274,7 @@ namespace PdfSharp.Pdf
     /// <summary>
     /// When overridden in a derived class, gets the KeysMeta of this dictionary type.
     /// </summary>
-    internal virtual DictionaryMeta Meta
-    {
-      get { return null; }
-    }
+    internal virtual DictionaryMeta Meta => null;
 
     /// <summary>
     /// Represents the interface to the elements of a PDF dictionary.
@@ -330,10 +327,7 @@ namespace PdfSharp.Pdf
       /// <summary>
       /// Gets the dictionary that this elements object belongs to.
       /// </summary>
-      internal PdfDictionary Owner
-      {
-        get { return owner; }
-      }
+      internal PdfDictionary Owner => owner;
 
       /// <summary>
       /// Converts the specified value to boolean.
@@ -1015,10 +1009,7 @@ namespace PdfSharp.Pdf
       /// <summary>
       /// Gets a value indicating whether the <see cref="T:System.Collections.IDictionary"></see> object is read-only.
       /// </summary>
-      public bool IsReadOnly
-      {
-        get { return false; }
-      }
+      public bool IsReadOnly => false;
 
       /// <summary>
       /// Returns an <see cref="T:System.Collections.IDictionaryEnumerator"></see> object for the <see cref="T:System.Collections.IDictionary"></see> object.
@@ -1274,10 +1265,7 @@ namespace PdfSharp.Pdf
       /// <summary>
       /// Return false.
       /// </summary>
-      public bool IsFixedSize
-      {
-        get { return false; }
-      }
+      public bool IsFixedSize => false;
 
       #endregion
 
@@ -1286,18 +1274,12 @@ namespace PdfSharp.Pdf
       /// <summary>
       /// Return false.
       /// </summary>
-      public bool IsSynchronized
-      {
-        get { return false; }
-      }
+      public bool IsSynchronized => false;
 
       /// <summary>
       /// Gets the number of elements contained in the dictionary.
       /// </summary>
-      public int Count
-      {
-        get { return elements.Count; }
-      }
+      public int Count => elements.Count;
 
       ///// <param name="array">The one-dimensional array that is the destination of the elements copied from.</param>
       ///// <param name="index">The zero-based index in array at which copying begins.</param>
@@ -1318,10 +1300,7 @@ namespace PdfSharp.Pdf
       /// <summary>
       /// The current implementation returns null.
       /// </summary>
-      public object SyncRoot
-      {
-        get { return null; }
-      }
+      public object SyncRoot => null;
 
       #endregion
     }
@@ -1379,10 +1358,7 @@ namespace PdfSharp.Pdf
       /// <summary>
       /// Gets the length of the stream, i.e. the actual number of bytes in the stream.
       /// </summary>
-      public int Length
-      {
-        get { return value != null ? value.Length : 0; }
-      }
+      public int Length => value != null ? value.Length : 0;
 
       //    /// <summary>
       //    /// Gets the native length of the stream, i.e. the number of bytes when they are neither
@@ -1399,7 +1375,7 @@ namespace PdfSharp.Pdf
       /// </summary>
       public byte[] Value
       {
-        get { return value; }
+        get => value;
         set
         {
           if (value == null)

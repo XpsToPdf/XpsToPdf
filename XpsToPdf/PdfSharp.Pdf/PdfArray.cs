@@ -373,10 +373,7 @@ namespace PdfSharp.Pdf
       /// <summary>
       /// Gets all items of this array.
       /// </summary>
-      public PdfItem[] Items
-      {
-        get { return elements.ToArray(); }
-      }
+      public PdfItem[] Items => elements.ToArray();
 
       ///// <summary>
       ///// INTERNAL USE ONLY.
@@ -393,10 +390,7 @@ namespace PdfSharp.Pdf
       /// <summary>
       /// Returns false.
       /// </summary>
-      public bool IsReadOnly
-      {
-        get { return false; }
-      }
+      public bool IsReadOnly => false;
 
       //object IList.this[int index]
       //{
@@ -410,7 +404,7 @@ namespace PdfSharp.Pdf
       /// <value></value>
       public PdfItem this[int index]
       {
-        get { return elements[index]; }
+        get => elements[index];
         set
         {
           if (value == null)
@@ -486,10 +480,7 @@ namespace PdfSharp.Pdf
       /// <summary>
       /// Returns false.
       /// </summary>
-      public bool IsFixedSize
-      {
-        get { return false; }
-      }
+      public bool IsFixedSize => false;
 
       #endregion
 
@@ -498,18 +489,12 @@ namespace PdfSharp.Pdf
       /// <summary>
       /// Returns false.
       /// </summary>
-      public bool IsSynchronized
-      {
-        get { return false; }
-      }
+      public bool IsSynchronized => false;
 
       /// <summary>
       /// Gets the number of elements in the array.
       /// </summary>
-      public int Count
-      {
-        get { return elements.Count; }
-      }
+      public int Count => elements.Count;
 
       /// <summary>
       /// Copies the elements of the array to the specified array.
@@ -522,10 +507,7 @@ namespace PdfSharp.Pdf
       /// <summary>
       /// The current implementation return null.
       /// </summary>
-      public object SyncRoot
-      {
-        get { return null; }
-      }
+      public object SyncRoot => null;
 
       #endregion
 

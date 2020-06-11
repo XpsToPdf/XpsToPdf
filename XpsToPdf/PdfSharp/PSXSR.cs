@@ -43,10 +43,7 @@ namespace PdfSharp
   {
     #region General messages
 
-    public static string IndexOutOfRange
-    {
-      get { return "The index is out of range."; }
-    }
+    public static string IndexOutOfRange => "The index is out of range.";
 
     public static string InvalidValue(int val, string name, int min, int max)
     {
@@ -54,10 +51,7 @@ namespace PdfSharp
         val, name, min, max);
     }
 
-    public static string PageMustBelongToPdfDocument
-    {
-      get { return "The page do not belong to the PDF document."; }
-    }
+    public static string PageMustBelongToPdfDocument => "The page do not belong to the PDF document.";
 
     #endregion
 
@@ -66,18 +60,12 @@ namespace PdfSharp
     /// <summary>
     /// "Content must start with element or comment."
     /// </summary>
-    public static string ElementExpected
-    {
-      get { return "Content must start with element or comment."; }
-    }
+    public static string ElementExpected => "Content must start with element or comment.";
 
     /// <summary>
     /// "Must stand on element."
     /// </summary>
-    public static string MustStandOnElement
-    {
-      get { return "Must stand on element."; }
-    }
+    public static string MustStandOnElement => "Must stand on element.";
 
     ///// <summary>
     ///// "Unexpected element."

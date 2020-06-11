@@ -666,10 +666,7 @@ namespace PdfSharp.Drawing
     /// <summary>
     /// Gets the size in point of the image.
     /// </summary>
-    public virtual XSize Size
-    {
-      get { return new XSize(PointWidth, PointHeight); }
-    }
+    public virtual XSize Size => new XSize(PointWidth, PointHeight);
 
     /// <summary>
     /// Gets the horizontal resolution of the image.
@@ -730,18 +727,16 @@ namespace PdfSharp.Drawing
     /// </summary>
     public virtual bool Interpolate
     {
-      get { return interpolate; }
-      set { interpolate = value; }
+      get => interpolate;
+      set => interpolate = value;
     }
     bool interpolate = true;
 
     /// <summary>
     /// Gets the format of the image.
     /// </summary>
-    public XImageFormat Format
-    {
-      get { return format; }
-    }
+    public XImageFormat Format => format;
+
     XImageFormat format;
 
 #if WPF

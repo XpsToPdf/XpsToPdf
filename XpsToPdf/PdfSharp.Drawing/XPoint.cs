@@ -179,8 +179,8 @@ namespace PdfSharp.Drawing
     /// </summary>
     public double X
     {
-      get { return x; }
-      set { x = value; }
+      get => x;
+      set => x = value;
     }
 
     /// <summary>
@@ -188,8 +188,8 @@ namespace PdfSharp.Drawing
     /// </summary>
     public double Y
     {
-      get { return y; }
-      set { y = value; }
+      get => y;
+      set => y = value;
     }
 
 #if GDI
@@ -259,10 +259,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     [Browsable(false)]
     [Obsolete("Use '== new XPoint()'")]
-    public bool IsEmpty // DELETE: 09-12-31
-    {
-      get { return x == 0 && y == 0; }
-    }
+    public bool IsEmpty => x == 0 && y == 0; // DELETE: 09-12-31
 
     /// <summary>
     /// Adds a point and a vector.

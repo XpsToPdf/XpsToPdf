@@ -106,29 +106,29 @@ namespace PdfSharp.Pdf
 
     public string Version
     {
-      get { return version; }
-      set { version = value; }
+      get => version;
+      set => version = value;
     }
     string version = "1.0";
 
     public KeyType KeyType
     {
-      get { return entryType; }
-      set { entryType = value; }
+      get => entryType;
+      set => entryType = value;
     }
     KeyType entryType;
 
     public Type ObjectType
     {
-      get { return objectType; }
-      set { objectType = value; }
+      get => objectType;
+      set => objectType = value;
     }
     Type objectType;
 
     public string FixedValue
     {
-      get { return fixedValue; }
-      set { fixedValue = value; }
+      get => fixedValue;
+      set => fixedValue = value;
     }
     string fixedValue;
   }

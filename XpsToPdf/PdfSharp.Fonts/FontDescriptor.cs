@@ -45,125 +45,95 @@ namespace PdfSharp.Fonts
     /// <summary>
     /// 
     /// </summary>
-    public string FontFile
-    {
-      get { return fontFile; }
-    }
+    public string FontFile => fontFile;
+
     protected string fontFile;
 
     /// <summary>
     /// 
     /// </summary>
-    public string FontType
-    {
-      get { return fontType; }
-    }
+    public string FontType => fontType;
+
     protected string fontType;
 
     /// <summary>
     /// 
     /// </summary>
-    public string FontName
-    {
-      get { return fontName; }
-    }
+    public string FontName => fontName;
+
     protected string fontName;
 
     /// <summary>
     /// 
     /// </summary>
-    public string FullName
-    {
-      get { return fullName; }
-    }
+    public string FullName => fullName;
+
     protected string fullName;
 
     /// <summary>
     /// 
     /// </summary>
-    public string FamilyName
-    {
-      get { return familyName; }
-    }
+    public string FamilyName => familyName;
+
     protected string familyName;
 
     /// <summary>
     /// 
     /// </summary>
-    public string Weight
-    {
-      get { return weight; }
-    }
+    public string Weight => weight;
+
     protected string weight;
 
     /// <summary>
     /// Gets a value indicating whether this instance belongs to a bold font.
     /// </summary>
-    public virtual bool IsBoldFace
-    {
-      get { return false; }
-    }
+    public virtual bool IsBoldFace => false;
 
     /// <summary>
     /// 
     /// </summary>
-    public float ItalicAngle
-    {
-      get { return italicAngle; }
-    }
+    public float ItalicAngle => italicAngle;
+
     protected float italicAngle;
 
     /// <summary>
     /// Gets a value indicating whether this instance belongs to an italic font.
     /// </summary>
-    public virtual bool IsItalicFace
-    {
-      get { return false; }
-    }
+    public virtual bool IsItalicFace => false;
 
     /// <summary>
     /// 
     /// </summary>
-    public int XMin
-    {
-      get { return xMin; }
-    }
+    public int XMin => xMin;
+
     protected int xMin;
 
     /// <summary>
     /// 
     /// </summary>
-    public int YMin
-    {
-      get { return yMin; }
-    }
+    public int YMin => yMin;
+
     protected int yMin;
 
     /// <summary>
     /// 
     /// </summary>
-    public int XMax
-    {
-      get { return xMax; }
-    }
+    public int XMax => xMax;
+
     protected int xMax;
 
     /// <summary>
     /// 
     /// </summary>
-    public int YMax
-    {
-      get { return yMax; }
-    }
+    public int YMax => yMax;
+
     protected int yMax;
 
     /// <summary>
     /// 
     /// </summary>
-    public bool IsFixedPitch
-    {
-      get { return isFixedPitch; }
-    }
+    public bool IsFixedPitch => isFixedPitch;
+
     protected bool isFixedPitch;
 
     //Rect FontBBox;
@@ -171,46 +141,36 @@ namespace PdfSharp.Fonts
     /// <summary>
     /// 
     /// </summary>
-    public int UnderlinePosition
-    {
-      get { return underlinePosition; }
-    }
+    public int UnderlinePosition => underlinePosition;
+
     protected int underlinePosition;
 
     /// <summary>
     /// 
     /// </summary>
-    public int UnderlineThickness
-    {
-      get { return underlineThickness; }
-    }
+    public int UnderlineThickness => underlineThickness;
+
     protected int underlineThickness;
 
     /// <summary>
     /// 
     /// </summary>
-    public int StrikeoutPosition
-    {
-      get { return strikeoutPosition; }
-    }
+    public int StrikeoutPosition => strikeoutPosition;
+
     protected int strikeoutPosition;
 
     /// <summary>
     /// 
     /// </summary>
-    public int StrikeoutSize
-    {
-      get { return strikeoutSize; }
-    }
+    public int StrikeoutSize => strikeoutSize;
+
     protected int strikeoutSize;
 
     /// <summary>
     /// 
     /// </summary>
-    public string Version
-    {
-      get { return version; }
-    }
+    public string Version => version;
+
     protected string version;
 
     ///// <summary>
@@ -225,82 +185,64 @@ namespace PdfSharp.Fonts
     /// <summary>
     /// 
     /// </summary>
-    public string EncodingScheme
-    {
-      get { return encodingScheme; }
-    }
+    public string EncodingScheme => encodingScheme;
+
     protected string encodingScheme;
 
     /// <summary>
     /// 
     /// </summary>
-    public int UnitsPerEm
-    {
-      get { return unitsPerEm; }
-    }
+    public int UnitsPerEm => unitsPerEm;
+
     protected int unitsPerEm;
 
     /// <summary>
     /// 
     /// </summary>
-    public int CapHeight
-    {
-      get { return capHeight; }
-    }
+    public int CapHeight => capHeight;
+
     protected int capHeight;
 
     /// <summary>
     /// 
     /// </summary>
-    public int XHeight
-    {
-      get { return xHeight; }
-    }
+    public int XHeight => xHeight;
+
     protected int xHeight;
 
     /// <summary>
     /// 
     /// </summary>
-    public int Ascender
-    {
-      get { return ascender; }
-    }
+    public int Ascender => ascender;
+
     protected int ascender;
 
     /// <summary>
     /// 
     /// </summary>
-    public int Descender
-    {
-      get { return descender; }
-    }
+    public int Descender => descender;
+
     protected int descender;
 
     /// <summary>
     /// 
     /// </summary>
-    public int Leading
-    {
-      get { return leading; }
-    }
+    public int Leading => leading;
+
     protected int leading;
 
     /// <summary>
     /// 
     /// </summary>
-    public int Flags
-    {
-      get { return flags; }
-    }
+    public int Flags => flags;
+
     protected int flags;
 
     /// <summary>
     /// 
     /// </summary>
-    public int StemV
-    {
-      get { return stemV; }
-    }
+    public int StemV => stemV;
+
     protected int stemV;
 
     /// <summary>

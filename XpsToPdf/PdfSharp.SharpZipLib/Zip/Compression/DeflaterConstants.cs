@@ -50,13 +50,11 @@ namespace PdfSharp.SharpZipLib.Zip.Compression
 		/// <summary>
 		/// Set to true to enable debugging
 		/// </summary>
-		public static bool DEBUGGING
-		{
-      // Prevent warning 'CS0162: Unreachable code detected' when referencing DEBUGGING
-			get { return false; }
-		}
-		
-		/// <summary>
+		public static bool DEBUGGING =>
+            // Prevent warning 'CS0162: Unreachable code detected' when referencing DEBUGGING
+            false;
+
+        /// <summary>
 		/// Written to Zip file to identify a stored block
 		/// </summary>
 		public const int STORED_BLOCK = 0;

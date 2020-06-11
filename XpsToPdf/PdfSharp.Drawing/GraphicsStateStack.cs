@@ -49,10 +49,7 @@ namespace PdfSharp.Drawing
       current = new InternalGraphicsState(gfx);
     }
 
-    public int Count
-    {
-      get { return stack.Count; }
-    }
+    public int Count => stack.Count;
 
     public void Push(InternalGraphicsState state)
     {

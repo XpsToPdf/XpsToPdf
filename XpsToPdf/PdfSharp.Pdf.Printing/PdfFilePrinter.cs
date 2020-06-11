@@ -95,8 +95,8 @@ namespace PdfSharp.Pdf.Printing
     /// </summary>
     public string PdfFileName
     {
-      get { return pdfFileName; }
-      set { pdfFileName = value; }
+      get => pdfFileName;
+      set => pdfFileName = value;
     }
     string pdfFileName;
 
@@ -106,8 +106,8 @@ namespace PdfSharp.Pdf.Printing
     /// <value>The name of the printer.</value>
     public string PrinterName
     {
-      get { return printerName; }
-      set { printerName = value; }
+      get => printerName;
+      set => printerName = value;
     }
     string printerName;
 
@@ -116,8 +116,8 @@ namespace PdfSharp.Pdf.Printing
     /// </summary>
     public string WorkingDirectory
     {
-      get { return workingDirectory; }
-      set { workingDirectory = value; }
+      get => workingDirectory;
+      set => workingDirectory = value;
     }
     string workingDirectory;
 
@@ -234,8 +234,8 @@ namespace PdfSharp.Pdf.Printing
     /// </summary>
     static public string AdobeReaderPath
     {
-      get { return adobeReaderPath; }
-      set { adobeReaderPath = value; }
+      get => adobeReaderPath;
+      set => adobeReaderPath = value;
     }
     static string adobeReaderPath;
 
@@ -244,8 +244,8 @@ namespace PdfSharp.Pdf.Printing
     /// </summary>
     static public string DefaultPrinterName
     {
-      get { return defaultPrinterName; }
-      set { defaultPrinterName = value; }
+      get => defaultPrinterName;
+      set => defaultPrinterName = value;
     }
     static string defaultPrinterName;
   }

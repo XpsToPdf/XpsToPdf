@@ -265,25 +265,19 @@ namespace PdfSharp.Drawing
     /// <summary>
     /// Returns an empty size, i.e. a size with a width or height less than 0.
     /// </summary>
-    public static XSize Empty
-    {
-      get { return s_empty; }
-    }
+    public static XSize Empty => s_empty;
 
     /// <summary>
     /// Gets a value indicating whether this instance is empty.
     /// </summary>
-    public bool IsEmpty
-    {
-      get { return width < 0; }
-    }
+    public bool IsEmpty => width < 0;
 
     /// <summary>
     /// Gets or sets the width.
     /// </summary>
     public double Width
     {
-      get { return width; }
+      get => width;
       set
       {
         if (IsEmpty)
@@ -299,7 +293,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     public double Height
     {
-      get { return height; }
+      get => height;
       set
       {
         if (IsEmpty)

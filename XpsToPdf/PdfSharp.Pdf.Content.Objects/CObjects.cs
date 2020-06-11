@@ -107,8 +107,8 @@ namespace PdfSharp.Pdf.Content.Objects  // TODO: split into single files
     /// </summary>
     public string Text
     {
-      get { return text; }
-      set { text = value; }
+      get => text;
+      set => text = value;
     }
     string text;
 
@@ -250,8 +250,8 @@ namespace PdfSharp.Pdf.Content.Objects  // TODO: split into single files
     /// <value></value>
     public CObject this[int index]
     {
-      get { return (CObject)items[index]; }
-      set { items[index] = value; }
+      get => (CObject)items[index];
+      set => items[index] = value;
     }
     #endregion
 
@@ -269,10 +269,7 @@ namespace PdfSharp.Pdf.Content.Objects  // TODO: split into single files
     /// <summary>
     /// Gets the number of elements contained in the sequence.
     /// </summary>
-    public int Count
-    {
-      get { return items.Count; }
-    }
+    public int Count => items.Count;
 
     ///// <summary>
     ///// Gets a value indicating whether access to the sequence is synchronized (thread safe).
@@ -365,14 +362,8 @@ namespace PdfSharp.Pdf.Content.Objects  // TODO: split into single files
 
     CObject IList<CObject>.this[int index]
     {
-      get
-      {
-        throw new NotImplementedException();
-      }
-      set
-      {
-        throw new NotImplementedException();
-      }
+      get => throw new NotImplementedException();
+      set => throw new NotImplementedException();
     }
 
     #endregion
@@ -399,15 +390,9 @@ namespace PdfSharp.Pdf.Content.Objects  // TODO: split into single files
       throw new NotImplementedException();
     }
 
-    int ICollection<CObject>.Count
-    {
-      get { throw new NotImplementedException(); }
-    }
+    int ICollection<CObject>.Count => throw new NotImplementedException();
 
-    bool ICollection<CObject>.IsReadOnly
-    {
-      get { throw new NotImplementedException(); }
-    }
+    bool ICollection<CObject>.IsReadOnly => throw new NotImplementedException();
 
     bool ICollection<CObject>.Remove(CObject item)
     {
@@ -482,8 +467,8 @@ namespace PdfSharp.Pdf.Content.Objects  // TODO: split into single files
     /// </summary>
     public int Value
     {
-      get { return value; }
-      set { this.value = value; }
+      get => value;
+      set => this.value = value;
     }
     int value;
 
@@ -529,8 +514,8 @@ namespace PdfSharp.Pdf.Content.Objects  // TODO: split into single files
     /// </summary>
     public double Value
     {
-      get { return value; }
-      set { this.value = value; }
+      get => value;
+      set => this.value = value;
     }
     double value;
 
@@ -576,8 +561,8 @@ namespace PdfSharp.Pdf.Content.Objects  // TODO: split into single files
     /// </summary>
     public string Value
     {
-      get { return value; }
-      set { this.value = value; }
+      get => value;
+      set => this.value = value;
     }
     string value;
 
@@ -696,7 +681,7 @@ namespace PdfSharp.Pdf.Content.Objects  // TODO: split into single files
     /// </summary>
     public string Name
     {
-      get { return name; }
+      get => name;
       set
       {
         if (name == null || name.Length == 0)
@@ -798,10 +783,7 @@ namespace PdfSharp.Pdf.Content.Objects  // TODO: split into single files
     /// Gets or sets the name of the operator
     /// </summary>
     /// <value>The name.</value>
-    public virtual string Name
-    {
-      get { return opcode.Name; }
-    }
+    public virtual string Name => opcode.Name;
 
     /// <summary>
     /// Gets or sets the operands.
@@ -821,10 +803,8 @@ namespace PdfSharp.Pdf.Content.Objects  // TODO: split into single files
     /// <summary>
     /// Gets the operator description for this instance.
     /// </summary>
-    public OpCode OpCode
-    {
-      get { return opcode; }
-    }
+    public OpCode OpCode => opcode;
+
     OpCode opcode;
 
 

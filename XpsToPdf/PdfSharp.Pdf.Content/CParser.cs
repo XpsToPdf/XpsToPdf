@@ -54,10 +54,7 @@ namespace PdfSharp.Pdf.Content
       lexer = new CLexer(content);
     }
 
-    public CSymbol Symbol
-    {
-      get { return lexer.Symbol; }
-    }
+    public CSymbol Symbol => lexer.Symbol;
 
     public CSequence ReadContent()
     {

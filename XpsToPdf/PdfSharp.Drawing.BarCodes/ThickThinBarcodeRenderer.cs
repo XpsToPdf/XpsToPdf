@@ -81,7 +81,7 @@ namespace PdfSharp.Drawing.BarCodes
     /// </summary>
     public override double WideNarrowRatio
     {
-      get { return wideNarrowRatio; }
+      get => wideNarrowRatio;
       set
       {
         if (value > 3 || value < 2)

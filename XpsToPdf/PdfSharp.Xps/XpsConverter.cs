@@ -61,10 +61,7 @@ namespace PdfSharp.Xps
       context = new DocumentRenderingContext(pdfDocument);
     }
 
-    DocumentRenderingContext Context
-    {
-      get { return context; }
-    }
+    DocumentRenderingContext Context => context;
     DocumentRenderingContext context;
 
     /// <summary>
@@ -133,19 +130,15 @@ namespace PdfSharp.Xps
     /// <summary>
     /// Gets the PDF document of this converter.
     /// </summary>
-    public PdfDocument PdfDocument
-    {
-      get { return pdfDocument; }
-    }
+    public PdfDocument PdfDocument => pdfDocument;
+
     PdfDocument pdfDocument;
 
     /// <summary>
     /// Gets the XPS document of this converter.
     /// </summary>
-    public XpsDocument XpsDocument
-    {
-      get { return xpsDocument; }
-    }
+    public XpsDocument XpsDocument => xpsDocument;
+
     XpsDocument xpsDocument;
 
     /// <summary>

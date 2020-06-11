@@ -70,8 +70,8 @@ namespace PdfSharp.Pdf
     /// </summary>
     public XUnit Left
     {
-      get { return left; }
-      set { left = value; }
+      get => left;
+      set => left = value;
     }
     XUnit left;
 
@@ -80,8 +80,8 @@ namespace PdfSharp.Pdf
     /// </summary>
     public XUnit Right
     {
-      get { return right; }
-      set { right = value; }
+      get => right;
+      set => right = value;
     }
     XUnit right;
 
@@ -90,8 +90,8 @@ namespace PdfSharp.Pdf
     /// </summary>
     public XUnit Top
     {
-      get { return top; }
-      set { top = value; }
+      get => top;
+      set => top = value;
     }
     XUnit top;
 
@@ -100,17 +100,14 @@ namespace PdfSharp.Pdf
     /// </summary>
     public XUnit Bottom
     {
-      get { return bottom; }
-      set { bottom = value; }
+      get => bottom;
+      set => bottom = value;
     }
     XUnit bottom;
 
     /// <summary>
     /// Gets a value indicating whether this instance has at least one margin with a value other than zero.
     /// </summary>
-    public bool AreSet
-    {
-      get { return left.Value != 0 || right.Value != 0 || top.Value != 0 || bottom.Value != 0; }
-    }
+    public bool AreSet => left.Value != 0 || right.Value != 0 || top.Value != 0 || bottom.Value != 0;
   }
 }

@@ -173,10 +173,7 @@ namespace PdfSharp.Pdf
     /// <summary>
     /// Tests whether all coordinate are zero.
     /// </summary>
-    public bool IsEmpty
-    {
-      get { return x1 == 0 && y1 == 0 && x2 == 0 && y2 == 0; }
-    }
+    public bool IsEmpty => x1 == 0 && y1 == 0 && x2 == 0 && y2 == 0;
 
     /// <summary>
     /// Tests whether the specified object is a PdfRectangle and has equal coordinates.
@@ -230,70 +227,50 @@ namespace PdfSharp.Pdf
     /// <summary>
     /// Gets or sets the x-coordinate of the first corner of this PdfRectangle.
     /// </summary>
-    public double X1
-    {
-      get { return x1; }
-    }
+    public double X1 => x1;
+
     double x1;
 
     /// <summary>
     /// Gets or sets the y-coordinate of the first corner of this PdfRectangle.
     /// </summary>
-    public double Y1
-    {
-      get { return y1; }
-    }
+    public double Y1 => y1;
+
     double y1;
 
     /// <summary>
     /// Gets or sets the x-coordinate of the second corner of this PdfRectangle.
     /// </summary>
-    public double X2
-    {
-      get { return x2; }
-    }
+    public double X2 => x2;
+
     double x2;
 
     /// <summary>
     /// Gets or sets the y-coordinate of the second corner of this PdfRectangle.
     /// </summary>
-    public double Y2
-    {
-      get { return y2; }
-    }
+    public double Y2 => y2;
+
     double y2;
 
     /// <summary>
     /// Gets X2 - X1.
     /// </summary>
-    public double Width
-    {
-      get { return x2 - x1; }
-    }
+    public double Width => x2 - x1;
 
     /// <summary>
     /// Gets Y2 - Y1.
     /// </summary>
-    public double Height
-    {
-      get { return y2 - y1; }
-    }
+    public double Height => y2 - y1;
 
     /// <summary>
     /// Gets or sets the coordinates of the first point of this PdfRectangle.
     /// </summary>
-    public XPoint Location
-    {
-      get { return new XPoint(x1, y1); }
-    }
+    public XPoint Location => new XPoint(x1, y1);
 
     /// <summary>
     /// Gets or sets the size of this PdfRectangle.
     /// </summary>
-    public XSize Size
-    {
-      get { return new XSize(x2 - x1, y2 - y1); }
-    }
+    public XSize Size => new XSize(x2 - x1, y2 - y1);
 
 #if GDI
     /// <summary>

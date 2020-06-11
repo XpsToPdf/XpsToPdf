@@ -300,7 +300,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     public XColorSpace ColorSpace
     {
-      get { return cs; }
+      get => cs;
       set
       {
         if (!Enum.IsDefined(typeof(XColorSpace), value))
@@ -312,10 +312,7 @@ namespace PdfSharp.Drawing
     /// <summary>
     /// Indicates whether this XColor structure is uninitialized.
     /// </summary>
-    public bool IsEmpty
-    {
-      get { return this == Empty; }
-    }
+    public bool IsEmpty => this == Empty;
 
 #if GDI
 #if UseGdiObjects
@@ -400,10 +397,7 @@ namespace PdfSharp.Drawing
     /// <summary>
     /// Gets a value indicating whether this color is a known color.
     /// </summary>
-    public bool IsKnownColor
-    {
-      get { return XKnownColorTable.IsKnownColor(Argb); }
-    }
+    public bool IsKnownColor => XKnownColorTable.IsKnownColor(Argb);
 
     //public bool IsNamedColor { get; }
     //public bool IsSystemColor { get; }
@@ -569,7 +563,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     public double A
     {
-      get { return a; }
+      get => a;
       set
       {
         if (value < 0)
@@ -586,7 +580,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     public byte R
     {
-      get { return r; }
+      get => r;
       set { r = value; RgbChanged(); }
     }
 
@@ -595,7 +589,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     public byte G
     {
-      get { return g; }
+      get => g;
       set { g = value; RgbChanged(); }
     }
 
@@ -604,32 +598,26 @@ namespace PdfSharp.Drawing
     /// </summary>
     public byte B
     {
-      get { return b; }
+      get => b;
       set { b = value; RgbChanged(); }
     }
 
     /// <summary>
     /// Gets the RGB part value of the color. Internal helper function.
     /// </summary>
-    internal uint Rgb
-    {
-      get { return ((uint)r << 16) | ((uint)g << 8) | b; }
-    }
+    internal uint Rgb => ((uint)r << 16) | ((uint)g << 8) | b;
 
     /// <summary>
     /// Gets the ARGB part value of the color. Internal helper function.
     /// </summary>
-    internal uint Argb
-    {
-      get { return ((uint)(a * 255) << 24) | ((uint)r << 16) | ((uint)g << 8) | b; }
-    }
+    internal uint Argb => ((uint)(a * 255) << 24) | ((uint)r << 16) | ((uint)g << 8) | b;
 
     /// <summary>
     /// Gets or sets the cyan value.
     /// </summary>
     public double C
     {
-      get { return c; }
+      get => c;
       set
       {
         if (value < 0)
@@ -647,7 +635,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     public double M
     {
-      get { return m; }
+      get => m;
       set
       {
         if (value < 0)
@@ -665,7 +653,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     public double Y
     {
-      get { return y; }
+      get => y;
       set
       {
         if (value < 0)
@@ -683,7 +671,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     public double K
     {
-      get { return k; }
+      get => k;
       set
       {
         if (value < 0)
@@ -701,7 +689,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     public double GS
     {
-      get { return gs; }
+      get => gs;
       set
       {
         if (value < 0)
@@ -724,11 +712,9 @@ namespace PdfSharp.Drawing
     /// </summary>
     public string RgbCmykG
     {
-      get
-      {
-        return String.Format(CultureInfo.InvariantCulture,
-          "{0};{1};{2};{3};{4};{5};{6};{7};{8}", r, g, b, c, m, y, k, gs, a);
-      }
+      get =>
+          String.Format(CultureInfo.InvariantCulture,
+              "{0};{1};{2};{3};{4};{5};{6};{7};{8}", r, g, b, c, m, y, k, gs, a);
       set
       {
         string[] values = value.Split(';');

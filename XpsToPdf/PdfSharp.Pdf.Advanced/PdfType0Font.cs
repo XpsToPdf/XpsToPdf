@@ -150,22 +150,16 @@ namespace PdfSharp.Pdf.Advanced
       Elements[Keys.DescendantFonts] = descendantFonts;
     }
 
-    XPdfFontOptions FontOptions
-    {
-      get { return fontOptions; }
-    }
+    XPdfFontOptions FontOptions => fontOptions;
     XPdfFontOptions fontOptions;
 
     public string BaseFont
     {
-      get { return Elements.GetName(Keys.BaseFont); }
-      set { Elements.SetName(Keys.BaseFont, value); }
+      get => Elements.GetName(Keys.BaseFont);
+      set => Elements.SetName(Keys.BaseFont, value);
     }
 
-    internal PdfCIDFont DescendantFont
-    {
-      get { return descendantFont; }
-    }
+    internal PdfCIDFont DescendantFont => descendantFont;
     PdfCIDFont descendantFont;
 
     internal override void PrepareForSave()
@@ -305,9 +299,6 @@ namespace PdfSharp.Pdf.Advanced
     /// <summary>
     /// Gets the KeysMeta of this dictionary type.
     /// </summary>
-    internal override DictionaryMeta Meta
-    {
-      get { return Keys.Meta; }
-    }
+    internal override DictionaryMeta Meta => Keys.Meta;
   }
 }

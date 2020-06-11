@@ -178,32 +178,20 @@ namespace PdfSharp.SharpZipLib.Zip.Compression
 		/// <summary>
 		/// Get current value of Adler checksum
 		/// </summary>		
-		public int Adler {
-			get {
-				return (int)adler.Value;
-			}
-		}
+		public int Adler => (int)adler.Value;
 
-		/// <summary>
+        /// <summary>
 		/// Total data processed
 		/// </summary>		
-		public int TotalIn {
-			get {
-				return totalIn;
-			}
-		}
+		public int TotalIn => totalIn;
 
-		/// <summary>
+        /// <summary>
 		/// Get/set the <see cref="DeflateStrategy">deflate strategy</see>
 		/// </summary>		
 		public DeflateStrategy Strategy {
-			get {
-				return strategy;
-			}
-			set {
-				strategy = value;
-			}
-		}
+			get => strategy;
+            set => strategy = value;
+        }
 		
 		/// <summary>
 		/// Set the deflate level (0-9)

@@ -86,35 +86,23 @@ namespace PdfSharp.Drawing
       fontData = FontDataStock.Global.RegisterFontData(data);
     }
 
-    internal FontData FontData
-    {
-      get { return fontData; }
-    }
+    internal FontData FontData => fontData;
     private FontData fontData;
 
     /// <summary>
     /// Gets the English family name of the font.
     /// </summary>
-    public string FamilyName
-    {
-      get { return "Times"; }
-    }
+    public string FamilyName => "Times";
 
     /// <summary>
     /// Gets a value indicating whether the font weight is bold.
     /// </summary>
-    public bool IsBold
-    {
-      get { return false; }
-    }
+    public bool IsBold => false;
 
     /// <summary>
     /// Gets a value indicating whether the font style is italic.
     /// </summary>
-    public bool IsItalic
-    {
-      get { return false; }
-    }
+    public bool IsItalic => false;
 
     //internal byte[] GetData()
     //{

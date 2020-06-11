@@ -68,16 +68,14 @@ namespace PdfSharp.Pdf.AcroForms
     /// <summary>
     /// Gets the field flags of this instance.
     /// </summary>
-    public PdfAcroFieldFlags Flags
-    {
-      // TODO: This entry is inheritable, thus the implementation is incorrect...
-      get { return (PdfAcroFieldFlags)Elements.GetInteger(Keys.Ff); }
-    }
+    public PdfAcroFieldFlags Flags =>
+        // TODO: This entry is inheritable, thus the implementation is incorrect...
+        (PdfAcroFieldFlags)Elements.GetInteger(Keys.Ff);
 
     internal PdfAcroFieldFlags SetFlags
     {
-      get { return (PdfAcroFieldFlags)Elements.GetInteger(Keys.Ff); }
-      set { Elements.SetInteger(Keys.Ff, (int)value); }
+      get => (PdfAcroFieldFlags)Elements.GetInteger(Keys.Ff);
+      set => Elements.SetInteger(Keys.Ff, (int)value);
     }
 
     /// <summary>
@@ -85,7 +83,7 @@ namespace PdfSharp.Pdf.AcroForms
     /// </summary>
     public PdfItem Value
     {
-      get { return Elements[Keys.V]; }
+      get => Elements[Keys.V];
       set
       {
         if (ReadOnly)
@@ -102,7 +100,7 @@ namespace PdfSharp.Pdf.AcroForms
     /// </summary>
     public bool ReadOnly
     {
-      get { return (Flags & PdfAcroFieldFlags.ReadOnly) != 0; }
+      get => (Flags & PdfAcroFieldFlags.ReadOnly) != 0;
       set
       {
         if (value)
@@ -115,10 +113,7 @@ namespace PdfSharp.Pdf.AcroForms
     /// <summary>
     /// Gets the field with the specified name.
     /// </summary>
-    public PdfAcroField this[string name]
-    {
-      get { return GetValue(name); }
-    }
+    public PdfAcroField this[string name] => GetValue(name);
 
     /// <summary>
     /// Gets a child field by name.
@@ -296,10 +291,7 @@ namespace PdfSharp.Pdf.AcroForms
       /// <summary>
       /// Gets the field with the specified name.
       /// </summary>
-      public PdfAcroField this[string name]
-      {
-        get { return GetValue(name); }
-      }
+      public PdfAcroField this[string name] => GetValue(name);
 
       internal PdfAcroField GetValue(string name)
       {

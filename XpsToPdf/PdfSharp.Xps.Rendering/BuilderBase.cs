@@ -18,10 +18,8 @@ namespace PdfSharp.Xps.Rendering
     /// <summary>
     /// Gets the document rendering context this builder is associated with.
     /// </summary>
-    protected DocumentRenderingContext Context
-    {
-      get { return context; }
-    }
+    protected DocumentRenderingContext Context => context;
+
     DocumentRenderingContext context;
   }
 

@@ -57,10 +57,7 @@ namespace PdfSharp.Pdf.IO
     /// <summary>
     /// Gets the stack pointer index.
     /// </summary>
-    public int SP
-    {
-      get {return sp;}
-    }
+    public int SP => sp;
 
     /// <summary>
     /// Gets the value at the specified index. Valid index is in range 0 up to sp-1.

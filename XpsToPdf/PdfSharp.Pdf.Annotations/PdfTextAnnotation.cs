@@ -75,8 +75,8 @@ namespace PdfSharp.Pdf.Annotations
     /// </summary>
     public bool Open
     {
-      get { return Elements.GetBoolean(Keys.Open); }
-      set { Elements.SetBoolean(Keys.Open, value); }
+      get => Elements.GetBoolean(Keys.Open);
+      set => Elements.SetBoolean(Keys.Open, value);
     }
 
     /// <summary>
@@ -151,9 +151,6 @@ namespace PdfSharp.Pdf.Annotations
     /// <summary>
     /// Gets the KeysMeta of this dictionary type.
     /// </summary>
-    internal override DictionaryMeta Meta
-    {
-      get { return Keys.Meta; }
-    }
+    internal override DictionaryMeta Meta => Keys.Meta;
   }
 }

@@ -67,8 +67,8 @@ namespace PdfSharp.Fonts
     /// </summary>
     public int Position
     {
-      get { return (int)stream.Position; }
-      set { stream.Position = value; }
+      get => (int)stream.Position;
+      set => stream.Position = value;
     }
 
     /// <summary>
@@ -161,11 +161,8 @@ namespace PdfSharp.Fonts
     /// <summary>
     /// Gets the underlying stream.
     /// </summary>
-    internal Stream Stream
-    {
-      get { return stream; }
-    }
-    
+    internal Stream Stream => stream;
+
     readonly Stream stream;
   }
 }

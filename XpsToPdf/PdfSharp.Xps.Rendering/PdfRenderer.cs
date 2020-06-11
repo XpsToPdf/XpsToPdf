@@ -64,10 +64,7 @@ namespace PdfSharp.Xps.Rendering
       writer.EndContent();
     }
 
-    internal PdfDocument Document
-    {
-      get { return page.document; }
-    }
+    internal PdfDocument Document => page.document;
 
     PdfPage page;
     PdfContentWriter writer;

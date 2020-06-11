@@ -58,7 +58,7 @@ namespace PdfSharp.Pdf.Advanced
     /// </summary>
     public string Version
     {
-      get { return version; }
+      get => version;
       set
       {
         switch (value)
@@ -107,8 +107,8 @@ namespace PdfSharp.Pdf.Advanced
     /// </summary>
     internal PdfPageLayout PageLayout
     {
-      get { return (PdfPageLayout)Elements.GetEnumFromName(Keys.PageLayout, PdfPageLayout.SinglePage); }
-      set { Elements.SetEnumAsName(Keys.PageLayout, value); }
+      get => (PdfPageLayout)Elements.GetEnumFromName(Keys.PageLayout, PdfPageLayout.SinglePage);
+      set => Elements.SetEnumAsName(Keys.PageLayout, value);
     }
 
     /// <summary>
@@ -116,8 +116,8 @@ namespace PdfSharp.Pdf.Advanced
     /// </summary>
     internal PdfPageMode PageMode
     {
-      get { return (PdfPageMode)Elements.GetEnumFromName(Keys.PageMode, PdfPageMode.UseNone); }
-      set { Elements.SetEnumAsName(Keys.PageMode, value); }
+      get => (PdfPageMode)Elements.GetEnumFromName(Keys.PageMode, PdfPageMode.UseNone);
+      set => Elements.SetEnumAsName(Keys.PageMode, value);
     }
 
     /// <summary>
@@ -167,7 +167,7 @@ namespace PdfSharp.Pdf.Advanced
     /// </summary>
     public string Language
     {
-      get { return Elements.GetString(Keys.Lang); }
+      get => Elements.GetString(Keys.Lang);
       set 
       {
         if (value == null)
@@ -418,9 +418,6 @@ namespace PdfSharp.Pdf.Advanced
     /// <summary>
     /// Gets the KeysMeta of this dictionary type.
     /// </summary>
-    internal override DictionaryMeta Meta
-    {
-      get { return Keys.Meta; }
-    }
+    internal override DictionaryMeta Meta => Keys.Meta;
   }
 }

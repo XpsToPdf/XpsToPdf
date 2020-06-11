@@ -264,25 +264,19 @@ namespace PdfSharp.Drawing
     /// <summary>
     /// Gets the empty rectangle.
     /// </summary>
-    public static XRect Empty
-    {
-      get { return s_empty; }
-    }
+    public static XRect Empty => s_empty;
 
     /// <summary>
     /// Gets a value indicating whether this instance is empty.
     /// </summary>
-    public bool IsEmpty
-    {
-      get { return width < 0; }
-    }
+    public bool IsEmpty => width < 0;
 
     /// <summary>
     /// Gets or sets the location of the rectangle.
     /// </summary>
     public XPoint Location
     {
-      get { return new XPoint(x, y); }
+      get => new XPoint(x, y);
       set
       {
         if (IsEmpty)
@@ -323,7 +317,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     public double X
     {
-      get { return x; }
+      get => x;
       set
       {
         if (IsEmpty)
@@ -337,7 +331,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     public double Y
     {
-      get { return y; }
+      get => y;
       set
       {
         if (IsEmpty)
@@ -351,7 +345,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     public double Width
     {
-      get { return width; }
+      get => width;
       set
       {
         if (IsEmpty)
@@ -368,7 +362,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     public double Height
     {
-      get { return height; }
+      get => height;
       set
       {
         if (IsEmpty)
@@ -382,18 +376,12 @@ namespace PdfSharp.Drawing
     /// <summary>
     /// Gets the x-axis value of the left side of the rectangle. 
     /// </summary>
-    public double Left
-    {
-      get { return x; }
-    }
+    public double Left => x;
 
     /// <summary>
     /// Gets the y-axis value of the top side of the rectangle. 
     /// </summary>
-    public double Top
-    {
-      get { return y; }
-    }
+    public double Top => y;
 
     /// <summary>
     /// Gets the x-axis value of the right side of the rectangle. 
@@ -424,43 +412,28 @@ namespace PdfSharp.Drawing
     /// <summary>
     /// Gets the position of the top-left corner of the rectangle. 
     /// </summary>
-    public XPoint TopLeft
-    {
-      get { return new XPoint(Left, Top); }
-    }
+    public XPoint TopLeft => new XPoint(Left, Top);
 
     /// <summary>
     /// Gets the position of the top-right corner of the rectangle. 
     /// </summary>
-    public XPoint TopRight
-    {
-      get { return new XPoint(Right, Top); }
-    }
+    public XPoint TopRight => new XPoint(Right, Top);
 
     /// <summary>
     /// Gets the position of the bottom-left corner of the rectangle. 
     /// </summary>
-    public XPoint BottomLeft
-    {
-      get { return new XPoint(Left, Bottom); }
-    }
+    public XPoint BottomLeft => new XPoint(Left, Bottom);
 
     /// <summary>
     /// Gets the position of the bottom-right corner of the rectangle. 
     /// </summary>
-    public XPoint BottomRight
-    {
-      get { return new XPoint(Right, Bottom); }
-    }
+    public XPoint BottomRight => new XPoint(Right, Bottom);
 
     /// <summary>
     /// Gets the center of the rectangle.
     /// </summary>
     //[Browsable(false)]
-    public XPoint Center
-    {
-      get { return new XPoint(x + width / 2, y + height / 2); }
-    }
+    public XPoint Center => new XPoint(x + width / 2, y + height / 2);
 
     /// <summary>
     /// Indicates whether the rectangle contains the specified point. 

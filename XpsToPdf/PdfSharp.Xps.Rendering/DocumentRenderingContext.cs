@@ -19,10 +19,8 @@ namespace PdfSharp.Xps.Rendering
     /// <summary>
     /// Gets the PDF document.
     /// </summary>
-    public PdfDocument PdfDocument
-    {
-      get { return pdfDocument; }
-    }
+    public PdfDocument PdfDocument => pdfDocument;
+
     PdfDocument pdfDocument;
 
     ///// <summary>

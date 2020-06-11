@@ -57,11 +57,10 @@ namespace PdfSharp.Pdf
     /// <summary>
     /// Gets the value as double.
     /// </summary>
-    public double Value
-    {
-      // This class must behave like a value type. Therefore it cannot be changed (like System.String).
-      get { return value; }
-    }
+    public double Value =>
+        // This class must behave like a value type. Therefore it cannot be changed (like System.String).
+        value;
+
     double value;
 
     /// <summary>

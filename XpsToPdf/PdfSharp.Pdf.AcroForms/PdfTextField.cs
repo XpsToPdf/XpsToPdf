@@ -55,7 +55,7 @@ namespace PdfSharp.Pdf.AcroForms
     /// </summary>
     public string Text
     {
-      get { return Elements.GetString(PdfAcroField.Keys.V); }
+      get => Elements.GetString(PdfAcroField.Keys.V);
       set { Elements.SetString(PdfAcroField.Keys.V, value); RenderAppearance(); } //HACK in PdfTextField
     }
 
@@ -64,8 +64,8 @@ namespace PdfSharp.Pdf.AcroForms
     /// </summary>
     public XFont Font
     {
-      get { return font; }
-      set { font = value; }
+      get => font;
+      set => font = value;
     }
     XFont font = new XFont("Courier New", 10);
 
@@ -74,8 +74,8 @@ namespace PdfSharp.Pdf.AcroForms
     /// </summary>
     public XColor ForeColor
     {
-      get { return foreColor; }
-      set { foreColor = value; }
+      get => foreColor;
+      set => foreColor = value;
     }
     XColor foreColor = XColors.Black;
 
@@ -84,8 +84,8 @@ namespace PdfSharp.Pdf.AcroForms
     /// </summary>
     public XColor BackColor
     {
-      get { return backColor; }
-      set { backColor = value; }
+      get => backColor;
+      set => backColor = value;
     }
     XColor backColor = XColor.Empty;
 
@@ -95,8 +95,8 @@ namespace PdfSharp.Pdf.AcroForms
     /// <value>The length of the max.</value>
     public int MaxLength
     {
-      get { return Elements.GetInteger(Keys.MaxLen); }
-      set { Elements.SetInteger(Keys.MaxLen, value); }
+      get => Elements.GetInteger(Keys.MaxLen);
+      set => Elements.SetInteger(Keys.MaxLen, value);
     }
 
     /// <summary>
@@ -104,7 +104,7 @@ namespace PdfSharp.Pdf.AcroForms
     /// </summary>
     public bool MultiLine
     {
-      get { return (Flags & PdfAcroFieldFlags.Multiline) != 0; }
+      get => (Flags & PdfAcroFieldFlags.Multiline) != 0;
       set
       {
         if (value)
@@ -119,7 +119,7 @@ namespace PdfSharp.Pdf.AcroForms
     /// </summary>
     public bool Password
     {
-      get { return (Flags & PdfAcroFieldFlags.Password) != 0; }
+      get => (Flags & PdfAcroFieldFlags.Password) != 0;
       set
       {
         if (value)
@@ -197,9 +197,6 @@ namespace PdfSharp.Pdf.AcroForms
     /// <summary>
     /// Gets the KeysMeta of this dictionary type.
     /// </summary>
-    internal override DictionaryMeta Meta
-    {
-      get { return Keys.Meta; }
-    }
+    internal override DictionaryMeta Meta => Keys.Meta;
   }
 }

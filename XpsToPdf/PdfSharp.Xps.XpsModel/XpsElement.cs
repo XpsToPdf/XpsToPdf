@@ -10,8 +10,8 @@
     /// </summary>
     public XpsElement Parent
     {
-      get { return parent; }
-      set { parent = value; }
+      get => parent;
+      set => parent = value;
     }
     XpsElement parent;
 

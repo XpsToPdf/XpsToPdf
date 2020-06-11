@@ -160,8 +160,8 @@ namespace PdfSharp.Drawing
     /// </summary>
     public XMatrix Transform
     {
-      get { return matrix; }
-      set { matrix = value; }
+      get => matrix;
+      set => matrix = value;
     }
 
     /// <summary>

@@ -100,14 +100,14 @@ namespace PdfSharp.Drawing
 
     public double X
     {
-      get { return x; }
-      set { x = value; }
+      get => x;
+      set => x = value;
     }
 
     public double Y
     {
-      get { return y; }
-      set { y = value; }
+      get => y;
+      set => y = value;
     }
 
     public override string ToString()
@@ -131,15 +131,9 @@ namespace PdfSharp.Drawing
       return string.Format(provider, "{1:" + format + "}{0}{2:" + format + "}", new object[] { numericListSeparator, x, y });
     }
 
-    public double Length
-    {
-      get { return Math.Sqrt((x * x) + (y * y)); }
-    }
+    public double Length => Math.Sqrt((x * x) + (y * y));
 
-    public double LengthSquared
-    {
-      get { return x * x + y * y; }
-    }
+    public double LengthSquared => x * x + y * y;
 
     public void Normalize()
     {

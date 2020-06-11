@@ -73,8 +73,8 @@ namespace PdfSharp.Pdf
     /// </summary>
     public int ObjectNumber
     {
-      get { return objectNumber; }
-      set { objectNumber = value; }
+      get => objectNumber;
+      set => objectNumber = value;
     }
     int objectNumber;
 
@@ -83,18 +83,15 @@ namespace PdfSharp.Pdf
     /// </summary>
     public int GenerationNumber
     {
-      get { return generationNumber; }
-      set { generationNumber = (ushort)value; }
+      get => generationNumber;
+      set => generationNumber = (ushort)value;
     }
     ushort generationNumber;
 
     /// <summary>
     /// Indicates whether this object is an empty object identifier.
     /// </summary>
-    public bool IsEmpty
-    {
-      get { return objectNumber == 0; }
-    }
+    public bool IsEmpty => objectNumber == 0;
 
     /// <summary>
     /// Indicates whether this instance and a specified object are equal.
@@ -145,10 +142,7 @@ namespace PdfSharp.Pdf
     /// <summary>
     /// Creates an empty object identifier.
     /// </summary>
-    public static PdfObjectID Empty
-    {
-      get { return new PdfObjectID(); }
-    }
+    public static PdfObjectID Empty => new PdfObjectID();
 
     /// <summary>
     /// Compares the current object id with another object.

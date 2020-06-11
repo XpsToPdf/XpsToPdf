@@ -42,22 +42,13 @@ namespace PdfSharp.Xps.Rendering
       //XPImage xpImage = new XPImage(bitmapSource);
     }
 
-    XForm Form
-    {
-      get { return form; }
-    }
+    XForm Form => form;
     XForm form;
 
-    PdfFormXObject FormXObject
-    {
-      get { return formXObject; }
-    }
+    PdfFormXObject FormXObject => formXObject;
     PdfFormXObject formXObject = null;
 
-    PdfTilingPattern Pattern
-    {
-      get { return pattern; }
-    }
+    PdfTilingPattern Pattern => pattern;
     PdfTilingPattern pattern = null;
   }
 }

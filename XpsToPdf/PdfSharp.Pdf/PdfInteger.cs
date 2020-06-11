@@ -58,11 +58,10 @@ namespace PdfSharp.Pdf
     /// <summary>
     /// Gets the value as integer
     /// </summary>
-    public int Value
-    {
-      // This class must behave like a value type. Therefore it cannot be changed (like System.String).
-      get { return value; }
-    }
+    public int Value =>
+        // This class must behave like a value type. Therefore it cannot be changed (like System.String).
+        value;
+
     readonly int value;
 
     /// <summary>

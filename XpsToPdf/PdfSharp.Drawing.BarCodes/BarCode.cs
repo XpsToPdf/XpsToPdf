@@ -102,7 +102,7 @@ namespace PdfSharp.Drawing.BarCodes
     /// </summary>
     public virtual double WideNarrowRatio
     {
-      get { return 0; }
+      get => 0;
       set { }
     }
 
@@ -111,8 +111,8 @@ namespace PdfSharp.Drawing.BarCodes
     /// </summary>
     public TextLocation TextLocation
     {
-      get { return textLocation; }
-      set { textLocation = value; }
+      get => textLocation;
+      set => textLocation = value;
     }
     internal TextLocation textLocation;
 
@@ -121,8 +121,8 @@ namespace PdfSharp.Drawing.BarCodes
     /// </summary>
     public int DataLength
     {
-      get { return dataLength; }
-      set { dataLength = value; }
+      get => dataLength;
+      set => dataLength = value;
     }
     internal int dataLength;
 
@@ -131,8 +131,8 @@ namespace PdfSharp.Drawing.BarCodes
     /// </summary>
     public char StartChar
     {
-      get { return startChar; }
-      set { startChar = value; }
+      get => startChar;
+      set => startChar = value;
     }
     internal char startChar;
 
@@ -141,8 +141,8 @@ namespace PdfSharp.Drawing.BarCodes
     /// </summary>
     public char EndChar
     {
-      get { return endChar; }
-      set { endChar = value; }
+      get => endChar;
+      set => endChar = value;
     }
     internal char endChar;
 
@@ -152,8 +152,8 @@ namespace PdfSharp.Drawing.BarCodes
     /// </summary>
     public virtual bool TurboBit
     {
-      get { return turboBit; }
-      set { turboBit = value; }
+      get => turboBit;
+      set => turboBit = value;
     }
     internal bool turboBit;
 

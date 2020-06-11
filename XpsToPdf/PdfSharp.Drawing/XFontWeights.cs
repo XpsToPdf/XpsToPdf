@@ -166,129 +166,81 @@ namespace PdfSharp.Drawing
     /// <summary>
     /// Specifies a "Thin" font weight.
     /// </summary>
-    public static XFontWeight Thin
-    {
-      get { return new XFontWeight(100); }
-    }
+    public static XFontWeight Thin => new XFontWeight(100);
 
     /// <summary>
     /// Specifies a "ExtraLight" font weight.
     /// </summary>
-    public static XFontWeight ExtraLight
-    {
-      get { return new XFontWeight(200); }
-    }
+    public static XFontWeight ExtraLight => new XFontWeight(200);
 
     /// <summary>
     /// Specifies a "UltraLight" font weight.
     /// </summary>
-    public static XFontWeight UltraLight
-    {
-      get { return new XFontWeight(200); }
-    }
+    public static XFontWeight UltraLight => new XFontWeight(200);
 
     /// <summary>
     /// Specifies a "Light" font weight.
     /// </summary>
-    public static XFontWeight Light
-    {
-      get { return new XFontWeight(300); }
-    }
+    public static XFontWeight Light => new XFontWeight(300);
 
     /// <summary>
     /// Specifies a "Normal" font weight.
     /// </summary>
-    public static XFontWeight Normal
-    {
-      get { return new XFontWeight(400); }
-    }
+    public static XFontWeight Normal => new XFontWeight(400);
 
     /// <summary>
     /// Specifies a "Regular" font weight.
     /// </summary>
-    public static XFontWeight Regular
-    {
-      get { return new XFontWeight(400); }
-    }
+    public static XFontWeight Regular => new XFontWeight(400);
 
     /// <summary>
     /// Specifies a "Medium" font weight.
     /// </summary>
-    public static XFontWeight Medium
-    {
-      get { return new XFontWeight(500); }
-    }
+    public static XFontWeight Medium => new XFontWeight(500);
 
     /// <summary>
     /// Specifies a "SemiBold" font weight.
     /// </summary>
-    public static XFontWeight SemiBold
-    {
-      get { return new XFontWeight(600); }
-    }
+    public static XFontWeight SemiBold => new XFontWeight(600);
 
     /// <summary>
     /// Specifies a "DemiBold" font weight.
     /// </summary>
-    public static XFontWeight DemiBold
-    {
-      get { return new XFontWeight(600); }
-    }
+    public static XFontWeight DemiBold => new XFontWeight(600);
 
     /// <summary>
     /// Specifies a "Bold" font weight.
     /// </summary>
-    public static XFontWeight Bold
-    {
-      get { return new XFontWeight(700); }
-    }
+    public static XFontWeight Bold => new XFontWeight(700);
 
     /// <summary>
     /// Specifies a "ExtraBold" font weight.
     /// </summary>
-    public static XFontWeight ExtraBold
-    {
-      get { return new XFontWeight(800); }
-    }
+    public static XFontWeight ExtraBold => new XFontWeight(800);
 
     /// <summary>
     /// Specifies a "UltraBold" font weight.
     /// </summary>
-    public static XFontWeight UltraBold
-    {
-      get { return new XFontWeight(800); }
-    }
+    public static XFontWeight UltraBold => new XFontWeight(800);
 
     /// <summary>
     /// Specifies a "Heavy" font weight.
     /// </summary>
-    public static XFontWeight Heavy
-    {
-      get { return new XFontWeight(900); }
-    }
+    public static XFontWeight Heavy => new XFontWeight(900);
 
     /// <summary>
     /// Specifies a "Black" font weight.
     /// </summary>
-    public static XFontWeight Black
-    {
-      get { return new XFontWeight(900); }
-    }
+    public static XFontWeight Black => new XFontWeight(900);
 
     /// <summary>
     /// Specifies a "ExtraBlack" font weight.
     /// </summary>
-    public static XFontWeight ExtraBlack
-    {
-      get { return new XFontWeight(950); }
-    }
+    public static XFontWeight ExtraBlack => new XFontWeight(950);
 
     /// <summary>
     /// Specifies a "UltraBlack" font weight.
     /// </summary>
-    public static XFontWeight UltraBlack
-    {
-      get { return new XFontWeight(950); }
-    }
+    public static XFontWeight UltraBlack => new XFontWeight(950);
   }
 }

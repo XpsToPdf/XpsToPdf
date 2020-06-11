@@ -182,8 +182,8 @@ namespace PdfSharp.Pdf.Advanced
 
       public string Path
       {
-        get { return path; }
-        set { path = value; }
+        get => path;
+        set => path = value;
       }
       string path;
 

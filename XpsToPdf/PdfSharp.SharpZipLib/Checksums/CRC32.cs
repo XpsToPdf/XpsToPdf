@@ -137,13 +137,9 @@ namespace PdfSharp.SharpZipLib.Checksums
 		/// Returns the CRC32 data checksum computed so far.
 		/// </summary>
 		public long Value {
-			get {
-				return (long)crc;
-			}
-			set {
-				crc = (uint)value;
-			}
-		}
+			get => (long)crc;
+            set => crc = (uint)value;
+        }
 		
 		/// <summary>
 		/// Resets the CRC32 data checksum as if no update was ever called.

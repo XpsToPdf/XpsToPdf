@@ -84,18 +84,15 @@ namespace PdfSharp.Pdf
     /// <summary>
     /// Gets the number of characters in this string.
     /// </summary>
-    public int Length
-    {
-      get { return value == null ? 0 : value.Length; }
-    }
+    public int Length => value == null ? 0 : value.Length;
 
     /// <summary>
     /// Gets or sets the encoding.
     /// </summary>
     public PdfStringEncoding Encoding
     {
-      get { return (PdfStringEncoding)(flags & PdfStringFlags.EncodingMask); }
-      set { flags = (flags & ~PdfStringFlags.EncodingMask) | ((PdfStringFlags)value & PdfStringFlags.EncodingMask); }
+      get => (PdfStringEncoding)(flags & PdfStringFlags.EncodingMask);
+      set => flags = (flags & ~PdfStringFlags.EncodingMask) | ((PdfStringFlags)value & PdfStringFlags.EncodingMask);
     }
 
     /// <summary>
@@ -103,8 +100,8 @@ namespace PdfSharp.Pdf
     /// </summary>
     public bool HexLiteral
     {
-      get { return (flags & PdfStringFlags.HexLiteral) != 0; }
-      set { flags = value ? flags | PdfStringFlags.HexLiteral : flags & ~PdfStringFlags.HexLiteral; }
+      get => (flags & PdfStringFlags.HexLiteral) != 0;
+      set => flags = value ? flags | PdfStringFlags.HexLiteral : flags & ~PdfStringFlags.HexLiteral;
     }
 
     PdfStringFlags flags;
@@ -114,8 +111,8 @@ namespace PdfSharp.Pdf
     /// </summary>
     public string Value
     {
-      get { return value ?? ""; }
-      set { this.value = value ?? ""; }
+      get => value ?? "";
+      set => this.value = value ?? "";
     }
     string value;
 
@@ -125,8 +122,8 @@ namespace PdfSharp.Pdf
     internal byte[] EncryptionValue
     {
       // TODO: Unicode case is not handled!
-      get { return value == null ? new byte[0] : PdfEncoders.RawEncoding.GetBytes(value); }
-      set { this.value = PdfEncoders.RawEncoding.GetString(value, 0, value.Length); }
+      get => value == null ? new byte[0] : PdfEncoders.RawEncoding.GetBytes(value);
+      set => this.value = PdfEncoders.RawEncoding.GetString(value, 0, value.Length);
     }
 
     /// <summary>

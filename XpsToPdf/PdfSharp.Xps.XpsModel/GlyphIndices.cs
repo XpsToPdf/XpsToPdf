@@ -36,18 +36,13 @@ namespace PdfSharp.Xps.XpsModel
     /// <summary>
     /// Gets the number of GlyphMapping elements.
     /// </summary>
-    public int Count
-    {
-      get { return glyphMapping.Length; }
-    }
+    public int Count => glyphMapping.Length;
 
     /// <summary>
     /// Gets the <see cref="PdfSharp.Xps.XpsModel.GlyphIndices.GlyphMapping"/> with the specified idx.
     /// </summary>
-    public GlyphMapping this[int idx]
-    {
-      get { return glyphMapping[idx]; }
-    }
+    public GlyphMapping this[int idx] => glyphMapping[idx];
+
     GlyphMapping[] glyphMapping;
 
     public GlyphIndicesComplexity Complexity
@@ -134,10 +129,7 @@ namespace PdfSharp.Xps.XpsModel
       /// <summary>
       /// Gets a value indicating whether the glyph index is not empty.
       /// </summary>
-      public bool HasGlyphIndex
-      {
-        get { return GlyphIndex != -1; }
-      }
+      public bool HasGlyphIndex => GlyphIndex != -1;
 
       /// <summary>
       /// Advance width indicating placement for the subsequent glyph, relative to the origin of the current
@@ -154,10 +146,7 @@ namespace PdfSharp.Xps.XpsModel
       /// <summary>
       /// Gets a value indicating whether the AdvanceWidth is defined.
       /// </summary>
-      public bool HasAdvanceWidth
-      {
-        get { return !DoubleUtil.IsNaN(AdvanceWidth); }
-      }
+      public bool HasAdvanceWidth => !DoubleUtil.IsNaN(AdvanceWidth);
 
       /// <summary>
       /// Offset in the effective coordinate space relative to glyph origin to move this glyph (x offset for
@@ -178,26 +167,17 @@ namespace PdfSharp.Xps.XpsModel
       /// <summary>
       /// Gets a value indicating whether the UOffset is defined.
       /// </summary>
-      public bool HasUOffset
-      {
-        get { return !DoubleUtil.IsNaN(UOffset); }
-      }
+      public bool HasUOffset => !DoubleUtil.IsNaN(UOffset);
 
       /// <summary>
       /// Gets a value indicating whether the VOffset is defined.
       /// </summary>
-      public bool HasVOffset
-      {
-        get { return !DoubleUtil.IsNaN(VOffset); }
-      }
+      public bool HasVOffset => !DoubleUtil.IsNaN(VOffset);
 
       /// <summary>
       /// Gets a value indicating whether at least one of AdvanceWidth, UOffset, or VOffset is defined.
       /// </summary>
-      public bool HasAdvanceWidthOrOffset
-      {
-        get { return !DoubleUtil.IsNaN(AdvanceWidth) || !DoubleUtil.IsNaN(UOffset) || !DoubleUtil.IsNaN(VOffset); }
-      }
+      public bool HasAdvanceWidthOrOffset => !DoubleUtil.IsNaN(AdvanceWidth) || !DoubleUtil.IsNaN(UOffset) || !DoubleUtil.IsNaN(VOffset);
     }
   }
 

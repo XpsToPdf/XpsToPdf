@@ -51,8 +51,8 @@ namespace PdfSharp.Pdf
     /// </summary>
     public bool HideToolbar
     {
-      get { return Elements.GetBoolean(Keys.HideToolbar); }
-      set { Elements.SetBoolean(Keys.HideToolbar, value); }
+      get => Elements.GetBoolean(Keys.HideToolbar);
+      set => Elements.SetBoolean(Keys.HideToolbar, value);
     }
 
     /// <summary>
@@ -61,8 +61,8 @@ namespace PdfSharp.Pdf
     /// </summary>
     public bool HideMenubar
     {
-      get { return Elements.GetBoolean(Keys.HideMenubar); }
-      set { Elements.SetBoolean(Keys.HideMenubar, value); }
+      get => Elements.GetBoolean(Keys.HideMenubar);
+      set => Elements.SetBoolean(Keys.HideMenubar, value);
     }
 
     /// <summary>
@@ -72,8 +72,8 @@ namespace PdfSharp.Pdf
     /// </summary>
     public bool HideWindowUI
     {
-      get { return Elements.GetBoolean(Keys.HideWindowUI); }
-      set { Elements.SetBoolean(Keys.HideWindowUI, value); }
+      get => Elements.GetBoolean(Keys.HideWindowUI);
+      set => Elements.SetBoolean(Keys.HideWindowUI, value);
     }
 
     /// <summary>
@@ -82,8 +82,8 @@ namespace PdfSharp.Pdf
     /// </summary>
     public bool FitWindow
     {
-      get { return Elements.GetBoolean(Keys.FitWindow); }
-      set { Elements.SetBoolean(Keys.FitWindow, value); }
+      get => Elements.GetBoolean(Keys.FitWindow);
+      set => Elements.SetBoolean(Keys.FitWindow, value);
     }
 
     /// <summary>
@@ -92,8 +92,8 @@ namespace PdfSharp.Pdf
     /// </summary>
     public bool CenterWindow
     {
-      get { return Elements.GetBoolean(Keys.CenterWindow); }
-      set { Elements.SetBoolean(Keys.CenterWindow, value); }
+      get => Elements.GetBoolean(Keys.CenterWindow);
+      set => Elements.SetBoolean(Keys.CenterWindow, value);
     }
 
     /// <summary>
@@ -104,8 +104,8 @@ namespace PdfSharp.Pdf
     /// </summary>
     public bool DisplayDocTitle
     {
-      get { return Elements.GetBoolean(Keys.DisplayDocTitle); }
-      set { Elements.SetBoolean(Keys.DisplayDocTitle, value); }
+      get => Elements.GetBoolean(Keys.DisplayDocTitle);
+      set => Elements.SetBoolean(Keys.DisplayDocTitle, value);
     }
 
     /// <summary>
@@ -305,9 +305,6 @@ namespace PdfSharp.Pdf
     /// <summary>
     /// Gets the KeysMeta of this dictionary type.
     /// </summary>
-    internal override DictionaryMeta Meta
-    {
-      get { return Keys.Meta; }
-    }
+    internal override DictionaryMeta Meta => Keys.Meta;
   }
 }

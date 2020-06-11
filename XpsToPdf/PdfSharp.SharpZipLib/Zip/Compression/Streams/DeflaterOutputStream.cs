@@ -74,69 +74,45 @@ namespace PdfSharp.SharpZipLib.Zip.Compression.Streams
 		/// </summary>
 		public bool IsStreamOwner
 		{
-			get { return isStreamOwner; }
-			set { isStreamOwner = value; }
-		}
+			get => isStreamOwner;
+            set => isStreamOwner = value;
+        }
 		
 		///	<summary>
 		/// Allows client to determine if an entry can be patched after its added
 		/// </summary>
-		public bool CanPatchEntries {
-			get { 
-				return baseOutputStream.CanSeek; 
-			}
-		}
-		
-		/// <summary>
+		public bool CanPatchEntries => baseOutputStream.CanSeek;
+
+        /// <summary>
 		/// Gets value indicating stream can be read from
 		/// </summary>
-		public override bool CanRead {
-			get {
-				return baseOutputStream.CanRead;
-			}
-		}
-		
-		/// <summary>
+		public override bool CanRead => baseOutputStream.CanRead;
+
+        /// <summary>
 		/// Gets a value indicating if seeking is supported for this stream
 		/// This property always returns false
 		/// </summary>
-		public override bool CanSeek {
-			get {
-				return false;
-			}
-		}
-		
-		/// <summary>
+		public override bool CanSeek => false;
+
+        /// <summary>
 		/// Get value indicating if this stream supports writing
 		/// </summary>
-		public override bool CanWrite {
-			get {
-				return baseOutputStream.CanWrite;
-			}
-		}
-		
-		/// <summary>
+		public override bool CanWrite => baseOutputStream.CanWrite;
+
+        /// <summary>
 		/// Get current length of stream
 		/// </summary>
-		public override long Length {
-			get {
-				return baseOutputStream.Length;
-			}
-		}
-		
-		/// <summary>
+		public override long Length => baseOutputStream.Length;
+
+        /// <summary>
 		/// The current position within the stream.
 		/// Always throws a NotSupportedException
 		/// </summary>
 		/// <exception cref="NotSupportedException">Any attempt to set position</exception>
 		public override long Position {
-			get {
-				return baseOutputStream.Position;
-			}
-			set {
-				throw new NotSupportedException("DefalterOutputStream Position not supported");
-			}
-		}
+			get => baseOutputStream.Position;
+            set => throw new NotSupportedException("DefalterOutputStream Position not supported");
+        }
 		
 		/// <summary>
 		/// Sets the current position of this stream to the given value. Not supported by this class!
@@ -385,13 +361,9 @@ namespace PdfSharp.SharpZipLib.Zip.Compression.Streams
 		/// Get/set the password used for encryption.  When null no encryption is performed
 		/// </summary>
 		public string Password {
-			get { 
-				return password; 
-			}
-			set { 
-				password = value; 
-			}
-		}
+			get => password;
+            set => password = value;
+        }
 		
 		
 		/// <summary>

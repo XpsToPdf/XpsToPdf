@@ -9,10 +9,7 @@ namespace PdfSharp.Xps.Rendering
       this.brush = brush;
     }
 
-    Brush Brush
-    {
-      get { return brush; }
-    }
+    Brush Brush => brush;
     Brush brush;
   }
 }

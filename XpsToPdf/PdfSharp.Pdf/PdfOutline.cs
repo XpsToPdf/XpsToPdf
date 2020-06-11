@@ -125,8 +125,8 @@ namespace PdfSharp.Pdf
 
     internal int Count
     {
-      get { return count; }
-      set { count = value; }
+      get => count;
+      set => count = value;
     }
     int count;
 
@@ -145,8 +145,8 @@ namespace PdfSharp.Pdf
 
     internal PdfOutline Parent
     {
-      get { return parent; }
-      set { parent = value; }
+      get => parent;
+      set => parent = value;
     }
     PdfOutline parent;
 
@@ -155,7 +155,7 @@ namespace PdfSharp.Pdf
     /// </summary>
     public string Title
     {
-      get { return Elements.GetString(Keys.Title); }
+      get => Elements.GetString(Keys.Title);
       set
       {
         PdfString s = new PdfString(value, PdfStringEncoding.PDFDocEncoding);
@@ -168,8 +168,8 @@ namespace PdfSharp.Pdf
     /// </summary>
     public PdfPage DestinationPage
     {
-      get { return destinationPage; }
-      set { destinationPage = value; }
+      get => destinationPage;
+      set => destinationPage = value;
     }
     PdfPage destinationPage;
 
@@ -210,8 +210,8 @@ namespace PdfSharp.Pdf
     /// </summary>
     public PdfOutlineStyle Style
     {
-      get { return (PdfOutlineStyle)Elements.GetInteger(Keys.F); }
-      set { Elements.SetInteger(Keys.F, (int)value); }
+      get => (PdfOutlineStyle)Elements.GetInteger(Keys.F);
+      set => Elements.SetInteger(Keys.F, (int)value);
     }
 
     /// <summary>
@@ -220,8 +220,8 @@ namespace PdfSharp.Pdf
     /// <value>The color of the text.</value>
     public XColor TextColor
     {
-      get { return textColor; }
-      set { textColor = value; }
+      get => textColor;
+      set => textColor = value;
     }
     XColor textColor;
 
@@ -332,18 +332,12 @@ namespace PdfSharp.Pdf
       /// <summary>
       /// Indicates whether the outline has at least one entry.
       /// </summary>
-      public bool HasOutline
-      {
-        get { return outlines != null && outlines.Count > 0; }
-      }
+      public bool HasOutline => outlines != null && outlines.Count > 0;
 
       /// <summary>
       /// Gets the number of entries in this collection.
       /// </summary>
-      public int Count
-      {
-        get { return outlines.Count; }
-      }
+      public int Count => outlines.Count;
 
       //internal int CountOpen()
       //{
@@ -618,9 +612,6 @@ namespace PdfSharp.Pdf
     /// <summary>
     /// Gets the KeysMeta of this dictionary type.
     /// </summary>
-    internal override DictionaryMeta Meta
-    {
-      get { return Keys.Meta; }
-    }
+    internal override DictionaryMeta Meta => Keys.Meta;
   }
 }

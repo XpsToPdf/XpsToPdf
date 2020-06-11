@@ -42,286 +42,426 @@ namespace PdfSharp.Drawing
   public static class XColors
   {
     ///<summary>Gets a predefined color.</summary>
-    public static XColor AliceBlue { get { return new XColor(XKnownColor.AliceBlue); } }
+    public static XColor AliceBlue => new XColor(XKnownColor.AliceBlue);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor AntiqueWhite { get { return new XColor(XKnownColor.AntiqueWhite); } }
+    public static XColor AntiqueWhite => new XColor(XKnownColor.AntiqueWhite);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Aqua { get { return new XColor(XKnownColor.Aqua); } }
+    public static XColor Aqua => new XColor(XKnownColor.Aqua);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Aquamarine { get { return new XColor(XKnownColor.Aquamarine); } }
+    public static XColor Aquamarine => new XColor(XKnownColor.Aquamarine);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Azure { get { return new XColor(XKnownColor.Azure); } }
+    public static XColor Azure => new XColor(XKnownColor.Azure);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Beige { get { return new XColor(XKnownColor.Beige); } }
+    public static XColor Beige => new XColor(XKnownColor.Beige);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Bisque { get { return new XColor(XKnownColor.Bisque); } }
+    public static XColor Bisque => new XColor(XKnownColor.Bisque);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Black { get { return new XColor(XKnownColor.Black); } }
+    public static XColor Black => new XColor(XKnownColor.Black);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor BlanchedAlmond { get { return new XColor(XKnownColor.BlanchedAlmond); } }
+    public static XColor BlanchedAlmond => new XColor(XKnownColor.BlanchedAlmond);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Blue { get { return new XColor(XKnownColor.Blue); } }
+    public static XColor Blue => new XColor(XKnownColor.Blue);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor BlueViolet { get { return new XColor(XKnownColor.BlueViolet); } }
+    public static XColor BlueViolet => new XColor(XKnownColor.BlueViolet);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Brown { get { return new XColor(XKnownColor.Brown); } }
+    public static XColor Brown => new XColor(XKnownColor.Brown);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor BurlyWood { get { return new XColor(XKnownColor.BurlyWood); } }
+    public static XColor BurlyWood => new XColor(XKnownColor.BurlyWood);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor CadetBlue { get { return new XColor(XKnownColor.CadetBlue); } }
+    public static XColor CadetBlue => new XColor(XKnownColor.CadetBlue);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Chartreuse { get { return new XColor(XKnownColor.Chartreuse); } }
+    public static XColor Chartreuse => new XColor(XKnownColor.Chartreuse);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Chocolate { get { return new XColor(XKnownColor.Chocolate); } }
+    public static XColor Chocolate => new XColor(XKnownColor.Chocolate);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Coral { get { return new XColor(XKnownColor.Coral); } }
+    public static XColor Coral => new XColor(XKnownColor.Coral);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor CornflowerBlue { get { return new XColor(XKnownColor.CornflowerBlue); } }
+    public static XColor CornflowerBlue => new XColor(XKnownColor.CornflowerBlue);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Cornsilk { get { return new XColor(XKnownColor.Cornsilk); } }
+    public static XColor Cornsilk => new XColor(XKnownColor.Cornsilk);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Crimson { get { return new XColor(XKnownColor.Crimson); } }
+    public static XColor Crimson => new XColor(XKnownColor.Crimson);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Cyan { get { return new XColor(XKnownColor.Cyan); } }
+    public static XColor Cyan => new XColor(XKnownColor.Cyan);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor DarkBlue { get { return new XColor(XKnownColor.DarkBlue); } }
+    public static XColor DarkBlue => new XColor(XKnownColor.DarkBlue);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor DarkCyan { get { return new XColor(XKnownColor.DarkCyan); } }
+    public static XColor DarkCyan => new XColor(XKnownColor.DarkCyan);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor DarkGoldenrod { get { return new XColor(XKnownColor.DarkGoldenrod); } }
+    public static XColor DarkGoldenrod => new XColor(XKnownColor.DarkGoldenrod);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor DarkGray { get { return new XColor(XKnownColor.DarkGray); } }
+    public static XColor DarkGray => new XColor(XKnownColor.DarkGray);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor DarkGreen { get { return new XColor(XKnownColor.DarkGreen); } }
+    public static XColor DarkGreen => new XColor(XKnownColor.DarkGreen);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor DarkKhaki { get { return new XColor(XKnownColor.DarkKhaki); } }
+    public static XColor DarkKhaki => new XColor(XKnownColor.DarkKhaki);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor DarkMagenta { get { return new XColor(XKnownColor.DarkMagenta); } }
+    public static XColor DarkMagenta => new XColor(XKnownColor.DarkMagenta);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor DarkOliveGreen { get { return new XColor(XKnownColor.DarkOliveGreen); } }
+    public static XColor DarkOliveGreen => new XColor(XKnownColor.DarkOliveGreen);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor DarkOrange { get { return new XColor(XKnownColor.DarkOrange); } }
+    public static XColor DarkOrange => new XColor(XKnownColor.DarkOrange);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor DarkOrchid { get { return new XColor(XKnownColor.DarkOrchid); } }
+    public static XColor DarkOrchid => new XColor(XKnownColor.DarkOrchid);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor DarkRed { get { return new XColor(XKnownColor.DarkRed); } }
+    public static XColor DarkRed => new XColor(XKnownColor.DarkRed);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor DarkSalmon { get { return new XColor(XKnownColor.DarkSalmon); } }
+    public static XColor DarkSalmon => new XColor(XKnownColor.DarkSalmon);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor DarkSeaGreen { get { return new XColor(XKnownColor.DarkSeaGreen); } }
+    public static XColor DarkSeaGreen => new XColor(XKnownColor.DarkSeaGreen);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor DarkSlateBlue { get { return new XColor(XKnownColor.DarkSlateBlue); } }
+    public static XColor DarkSlateBlue => new XColor(XKnownColor.DarkSlateBlue);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor DarkSlateGray { get { return new XColor(XKnownColor.DarkSlateGray); } }
+    public static XColor DarkSlateGray => new XColor(XKnownColor.DarkSlateGray);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor DarkTurquoise { get { return new XColor(XKnownColor.DarkTurquoise); } }
+    public static XColor DarkTurquoise => new XColor(XKnownColor.DarkTurquoise);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor DarkViolet { get { return new XColor(XKnownColor.DarkViolet); } }
+    public static XColor DarkViolet => new XColor(XKnownColor.DarkViolet);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor DeepPink { get { return new XColor(XKnownColor.DeepPink); } }
+    public static XColor DeepPink => new XColor(XKnownColor.DeepPink);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor DeepSkyBlue { get { return new XColor(XKnownColor.DeepSkyBlue); } }
+    public static XColor DeepSkyBlue => new XColor(XKnownColor.DeepSkyBlue);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor DimGray { get { return new XColor(XKnownColor.DimGray); } }
+    public static XColor DimGray => new XColor(XKnownColor.DimGray);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor DodgerBlue { get { return new XColor(XKnownColor.DodgerBlue); } }
+    public static XColor DodgerBlue => new XColor(XKnownColor.DodgerBlue);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Firebrick { get { return new XColor(XKnownColor.Firebrick); } }
+    public static XColor Firebrick => new XColor(XKnownColor.Firebrick);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor FloralWhite { get { return new XColor(XKnownColor.FloralWhite); } }
+    public static XColor FloralWhite => new XColor(XKnownColor.FloralWhite);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor ForestGreen { get { return new XColor(XKnownColor.ForestGreen); } }
+    public static XColor ForestGreen => new XColor(XKnownColor.ForestGreen);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Fuchsia { get { return new XColor(XKnownColor.Fuchsia); } }
+    public static XColor Fuchsia => new XColor(XKnownColor.Fuchsia);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Gainsboro { get { return new XColor(XKnownColor.Gainsboro); } }
+    public static XColor Gainsboro => new XColor(XKnownColor.Gainsboro);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor GhostWhite { get { return new XColor(XKnownColor.GhostWhite); } }
+    public static XColor GhostWhite => new XColor(XKnownColor.GhostWhite);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Gold { get { return new XColor(XKnownColor.Gold); } }
+    public static XColor Gold => new XColor(XKnownColor.Gold);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Goldenrod { get { return new XColor(XKnownColor.Goldenrod); } }
+    public static XColor Goldenrod => new XColor(XKnownColor.Goldenrod);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Gray { get { return new XColor(XKnownColor.Gray); } }
+    public static XColor Gray => new XColor(XKnownColor.Gray);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Green { get { return new XColor(XKnownColor.Green); } }
+    public static XColor Green => new XColor(XKnownColor.Green);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor GreenYellow { get { return new XColor(XKnownColor.GreenYellow); } }
+    public static XColor GreenYellow => new XColor(XKnownColor.GreenYellow);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Honeydew { get { return new XColor(XKnownColor.Honeydew); } }
+    public static XColor Honeydew => new XColor(XKnownColor.Honeydew);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor HotPink { get { return new XColor(XKnownColor.HotPink); } }
+    public static XColor HotPink => new XColor(XKnownColor.HotPink);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor IndianRed { get { return new XColor(XKnownColor.IndianRed); } }
+    public static XColor IndianRed => new XColor(XKnownColor.IndianRed);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Indigo { get { return new XColor(XKnownColor.Indigo); } }
+    public static XColor Indigo => new XColor(XKnownColor.Indigo);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Ivory { get { return new XColor(XKnownColor.Ivory); } }
+    public static XColor Ivory => new XColor(XKnownColor.Ivory);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Khaki { get { return new XColor(XKnownColor.Khaki); } }
+    public static XColor Khaki => new XColor(XKnownColor.Khaki);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Lavender { get { return new XColor(XKnownColor.Lavender); } }
+    public static XColor Lavender => new XColor(XKnownColor.Lavender);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor LavenderBlush { get { return new XColor(XKnownColor.LavenderBlush); } }
+    public static XColor LavenderBlush => new XColor(XKnownColor.LavenderBlush);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor LawnGreen { get { return new XColor(XKnownColor.LawnGreen); } }
+    public static XColor LawnGreen => new XColor(XKnownColor.LawnGreen);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor LemonChiffon { get { return new XColor(XKnownColor.LemonChiffon); } }
+    public static XColor LemonChiffon => new XColor(XKnownColor.LemonChiffon);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor LightBlue { get { return new XColor(XKnownColor.LightBlue); } }
+    public static XColor LightBlue => new XColor(XKnownColor.LightBlue);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor LightCoral { get { return new XColor(XKnownColor.LightCoral); } }
+    public static XColor LightCoral => new XColor(XKnownColor.LightCoral);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor LightCyan { get { return new XColor(XKnownColor.LightCyan); } }
+    public static XColor LightCyan => new XColor(XKnownColor.LightCyan);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor LightGoldenrodYellow { get { return new XColor(XKnownColor.LightGoldenrodYellow); } }
+    public static XColor LightGoldenrodYellow => new XColor(XKnownColor.LightGoldenrodYellow);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor LightGray { get { return new XColor(XKnownColor.LightGray); } }
+    public static XColor LightGray => new XColor(XKnownColor.LightGray);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor LightGreen { get { return new XColor(XKnownColor.LightGreen); } }
+    public static XColor LightGreen => new XColor(XKnownColor.LightGreen);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor LightPink { get { return new XColor(XKnownColor.LightPink); } }
+    public static XColor LightPink => new XColor(XKnownColor.LightPink);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor LightSalmon { get { return new XColor(XKnownColor.LightSalmon); } }
+    public static XColor LightSalmon => new XColor(XKnownColor.LightSalmon);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor LightSeaGreen { get { return new XColor(XKnownColor.LightSeaGreen); } }
+    public static XColor LightSeaGreen => new XColor(XKnownColor.LightSeaGreen);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor LightSkyBlue { get { return new XColor(XKnownColor.LightSkyBlue); } }
+    public static XColor LightSkyBlue => new XColor(XKnownColor.LightSkyBlue);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor LightSlateGray { get { return new XColor(XKnownColor.LightSlateGray); } }
+    public static XColor LightSlateGray => new XColor(XKnownColor.LightSlateGray);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor LightSteelBlue { get { return new XColor(XKnownColor.LightSteelBlue); } }
+    public static XColor LightSteelBlue => new XColor(XKnownColor.LightSteelBlue);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor LightYellow { get { return new XColor(XKnownColor.LightYellow); } }
+    public static XColor LightYellow => new XColor(XKnownColor.LightYellow);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Lime { get { return new XColor(XKnownColor.Lime); } }
+    public static XColor Lime => new XColor(XKnownColor.Lime);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor LimeGreen { get { return new XColor(XKnownColor.LimeGreen); } }
+    public static XColor LimeGreen => new XColor(XKnownColor.LimeGreen);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Linen { get { return new XColor(XKnownColor.Linen); } }
+    public static XColor Linen => new XColor(XKnownColor.Linen);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Magenta { get { return new XColor(XKnownColor.Magenta); } }
+    public static XColor Magenta => new XColor(XKnownColor.Magenta);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Maroon { get { return new XColor(XKnownColor.Maroon); } }
+    public static XColor Maroon => new XColor(XKnownColor.Maroon);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor MediumAquamarine { get { return new XColor(XKnownColor.MediumAquamarine); } }
+    public static XColor MediumAquamarine => new XColor(XKnownColor.MediumAquamarine);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor MediumBlue { get { return new XColor(XKnownColor.MediumBlue); } }
+    public static XColor MediumBlue => new XColor(XKnownColor.MediumBlue);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor MediumOrchid { get { return new XColor(XKnownColor.MediumOrchid); } }
+    public static XColor MediumOrchid => new XColor(XKnownColor.MediumOrchid);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor MediumPurple { get { return new XColor(XKnownColor.MediumPurple); } }
+    public static XColor MediumPurple => new XColor(XKnownColor.MediumPurple);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor MediumSeaGreen { get { return new XColor(XKnownColor.MediumSeaGreen); } }
+    public static XColor MediumSeaGreen => new XColor(XKnownColor.MediumSeaGreen);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor MediumSlateBlue { get { return new XColor(XKnownColor.MediumSlateBlue); } }
+    public static XColor MediumSlateBlue => new XColor(XKnownColor.MediumSlateBlue);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor MediumSpringGreen { get { return new XColor(XKnownColor.MediumSpringGreen); } }
+    public static XColor MediumSpringGreen => new XColor(XKnownColor.MediumSpringGreen);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor MediumTurquoise { get { return new XColor(XKnownColor.MediumTurquoise); } }
+    public static XColor MediumTurquoise => new XColor(XKnownColor.MediumTurquoise);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor MediumVioletRed { get { return new XColor(XKnownColor.MediumVioletRed); } }
+    public static XColor MediumVioletRed => new XColor(XKnownColor.MediumVioletRed);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor MidnightBlue { get { return new XColor(XKnownColor.MidnightBlue); } }
+    public static XColor MidnightBlue => new XColor(XKnownColor.MidnightBlue);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor MintCream { get { return new XColor(XKnownColor.MintCream); } }
+    public static XColor MintCream => new XColor(XKnownColor.MintCream);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor MistyRose { get { return new XColor(XKnownColor.MistyRose); } }
+    public static XColor MistyRose => new XColor(XKnownColor.MistyRose);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Moccasin { get { return new XColor(XKnownColor.Moccasin); } }
+    public static XColor Moccasin => new XColor(XKnownColor.Moccasin);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor NavajoWhite { get { return new XColor(XKnownColor.NavajoWhite); } }
+    public static XColor NavajoWhite => new XColor(XKnownColor.NavajoWhite);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Navy { get { return new XColor(XKnownColor.Navy); } }
+    public static XColor Navy => new XColor(XKnownColor.Navy);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor OldLace { get { return new XColor(XKnownColor.OldLace); } }
+    public static XColor OldLace => new XColor(XKnownColor.OldLace);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Olive { get { return new XColor(XKnownColor.Olive); } }
+    public static XColor Olive => new XColor(XKnownColor.Olive);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor OliveDrab { get { return new XColor(XKnownColor.OliveDrab); } }
+    public static XColor OliveDrab => new XColor(XKnownColor.OliveDrab);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Orange { get { return new XColor(XKnownColor.Orange); } }
+    public static XColor Orange => new XColor(XKnownColor.Orange);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor OrangeRed { get { return new XColor(XKnownColor.OrangeRed); } }
+    public static XColor OrangeRed => new XColor(XKnownColor.OrangeRed);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Orchid { get { return new XColor(XKnownColor.Orchid); } }
+    public static XColor Orchid => new XColor(XKnownColor.Orchid);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor PaleGoldenrod { get { return new XColor(XKnownColor.PaleGoldenrod); } }
+    public static XColor PaleGoldenrod => new XColor(XKnownColor.PaleGoldenrod);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor PaleGreen { get { return new XColor(XKnownColor.PaleGreen); } }
+    public static XColor PaleGreen => new XColor(XKnownColor.PaleGreen);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor PaleTurquoise { get { return new XColor(XKnownColor.PaleTurquoise); } }
+    public static XColor PaleTurquoise => new XColor(XKnownColor.PaleTurquoise);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor PaleVioletRed { get { return new XColor(XKnownColor.PaleVioletRed); } }
+    public static XColor PaleVioletRed => new XColor(XKnownColor.PaleVioletRed);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor PapayaWhip { get { return new XColor(XKnownColor.PapayaWhip); } }
+    public static XColor PapayaWhip => new XColor(XKnownColor.PapayaWhip);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor PeachPuff { get { return new XColor(XKnownColor.PeachPuff); } }
+    public static XColor PeachPuff => new XColor(XKnownColor.PeachPuff);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Peru { get { return new XColor(XKnownColor.Peru); } }
+    public static XColor Peru => new XColor(XKnownColor.Peru);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Pink { get { return new XColor(XKnownColor.Pink); } }
+    public static XColor Pink => new XColor(XKnownColor.Pink);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Plum { get { return new XColor(XKnownColor.Plum); } }
+    public static XColor Plum => new XColor(XKnownColor.Plum);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor PowderBlue { get { return new XColor(XKnownColor.PowderBlue); } }
+    public static XColor PowderBlue => new XColor(XKnownColor.PowderBlue);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Purple { get { return new XColor(XKnownColor.Purple); } }
+    public static XColor Purple => new XColor(XKnownColor.Purple);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Red { get { return new XColor(XKnownColor.Red); } }
+    public static XColor Red => new XColor(XKnownColor.Red);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor RosyBrown { get { return new XColor(XKnownColor.RosyBrown); } }
+    public static XColor RosyBrown => new XColor(XKnownColor.RosyBrown);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor RoyalBlue { get { return new XColor(XKnownColor.RoyalBlue); } }
+    public static XColor RoyalBlue => new XColor(XKnownColor.RoyalBlue);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor SaddleBrown { get { return new XColor(XKnownColor.SaddleBrown); } }
+    public static XColor SaddleBrown => new XColor(XKnownColor.SaddleBrown);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Salmon { get { return new XColor(XKnownColor.Salmon); } }
+    public static XColor Salmon => new XColor(XKnownColor.Salmon);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor SandyBrown { get { return new XColor(XKnownColor.SandyBrown); } }
+    public static XColor SandyBrown => new XColor(XKnownColor.SandyBrown);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor SeaGreen { get { return new XColor(XKnownColor.SeaGreen); } }
+    public static XColor SeaGreen => new XColor(XKnownColor.SeaGreen);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor SeaShell { get { return new XColor(XKnownColor.SeaShell); } }
+    public static XColor SeaShell => new XColor(XKnownColor.SeaShell);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Sienna { get { return new XColor(XKnownColor.Sienna); } }
+    public static XColor Sienna => new XColor(XKnownColor.Sienna);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Silver { get { return new XColor(XKnownColor.Silver); } }
+    public static XColor Silver => new XColor(XKnownColor.Silver);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor SkyBlue { get { return new XColor(XKnownColor.SkyBlue); } }
+    public static XColor SkyBlue => new XColor(XKnownColor.SkyBlue);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor SlateBlue { get { return new XColor(XKnownColor.SlateBlue); } }
+    public static XColor SlateBlue => new XColor(XKnownColor.SlateBlue);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor SlateGray { get { return new XColor(XKnownColor.SlateGray); } }
+    public static XColor SlateGray => new XColor(XKnownColor.SlateGray);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Snow { get { return new XColor(XKnownColor.Snow); } }
+    public static XColor Snow => new XColor(XKnownColor.Snow);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor SpringGreen { get { return new XColor(XKnownColor.SpringGreen); } }
+    public static XColor SpringGreen => new XColor(XKnownColor.SpringGreen);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor SteelBlue { get { return new XColor(XKnownColor.SteelBlue); } }
+    public static XColor SteelBlue => new XColor(XKnownColor.SteelBlue);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Tan { get { return new XColor(XKnownColor.Tan); } }
+    public static XColor Tan => new XColor(XKnownColor.Tan);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Teal { get { return new XColor(XKnownColor.Teal); } }
+    public static XColor Teal => new XColor(XKnownColor.Teal);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Thistle { get { return new XColor(XKnownColor.Thistle); } }
+    public static XColor Thistle => new XColor(XKnownColor.Thistle);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Tomato { get { return new XColor(XKnownColor.Tomato); } }
+    public static XColor Tomato => new XColor(XKnownColor.Tomato);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Transparent { get { return new XColor(XKnownColor.Transparent); } }
+    public static XColor Transparent => new XColor(XKnownColor.Transparent);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Turquoise { get { return new XColor(XKnownColor.Turquoise); } }
+    public static XColor Turquoise => new XColor(XKnownColor.Turquoise);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Violet { get { return new XColor(XKnownColor.Violet); } }
+    public static XColor Violet => new XColor(XKnownColor.Violet);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Wheat { get { return new XColor(XKnownColor.Wheat); } }
+    public static XColor Wheat => new XColor(XKnownColor.Wheat);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor White { get { return new XColor(XKnownColor.White); } }
+    public static XColor White => new XColor(XKnownColor.White);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor WhiteSmoke { get { return new XColor(XKnownColor.WhiteSmoke); } }
+    public static XColor WhiteSmoke => new XColor(XKnownColor.WhiteSmoke);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor Yellow { get { return new XColor(XKnownColor.Yellow); } }
+    public static XColor Yellow => new XColor(XKnownColor.Yellow);
+
     ///<summary>Gets a predefined color.</summary>
-    public static XColor YellowGreen { get { return new XColor(XKnownColor.YellowGreen); } }
+    public static XColor YellowGreen => new XColor(XKnownColor.YellowGreen);
   }
 }

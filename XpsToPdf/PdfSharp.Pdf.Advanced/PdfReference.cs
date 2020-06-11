@@ -112,7 +112,7 @@ namespace PdfSharp.Pdf.Advanced
     /// </summary>
     public PdfObjectID ObjectID
     {
-      get { return objectID; }
+      get => objectID;
       set
       {
         if (objectID != value)
@@ -133,26 +133,20 @@ namespace PdfSharp.Pdf.Advanced
     /// <summary>
     /// Gets the object number of the object identifier.
     /// </summary>
-    public int ObjectNumber
-    {
-      get { return objectID.ObjectNumber; }
-    }
+    public int ObjectNumber => objectID.ObjectNumber;
 
     /// <summary>
     /// Gets the generation number of the object identifier.
     /// </summary>
-    public int GenerationNumber
-    {
-      get { return objectID.GenerationNumber; }
-    }
+    public int GenerationNumber => objectID.GenerationNumber;
 
     /// <summary>
     /// Gets or sets the file position of the related PdfObject.
     /// </summary>
     public int Position
     {
-      get { return position; }
-      set { position = value; }
+      get => position;
+      set => position = value;
     }
     int position;  // I know it should be long, but I have never seen a 2GB PDF file.
 
@@ -168,7 +162,7 @@ namespace PdfSharp.Pdf.Advanced
     /// </summary>
     public PdfObject Value
     {
-      get { return value; }
+      get => value;
       set
       {
         Debug.Assert(value != null, "The value of a PdfReference must never be null.");
@@ -193,8 +187,8 @@ namespace PdfSharp.Pdf.Advanced
     /// </summary>
     public PdfDocument Document
     {
-      get { return document; }
-      set { document = value; }
+      get => document;
+      set => document = value;
     }
     PdfDocument document;
 
@@ -206,10 +200,7 @@ namespace PdfSharp.Pdf.Advanced
       return objectID.ToString() + " R";
     }
 
-    internal static PdfReferenceComparer Comparer
-    {
-      get { return new PdfReferenceComparer(); }
-    }
+    internal static PdfReferenceComparer Comparer => new PdfReferenceComparer();
 
     /// <summary>
     /// Implements a comparer that compares PdfReference objects by their PdfObjectID.

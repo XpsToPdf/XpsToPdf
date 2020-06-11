@@ -44,26 +44,17 @@ namespace PdfSharp.Pdf.Advanced
     /// <summary>
     /// Gets the object identifier. Returns PdfObjectID.Empty for direct objects.
     /// </summary>
-    public PdfObjectID ObjectID
-    {
-      get { return obj.ObjectID; }
-    }
+    public PdfObjectID ObjectID => obj.ObjectID;
 
     /// <summary>
     /// Gets the object number.
     /// </summary>
-    public int ObjectNumber
-    {
-      get { return obj.ObjectID.ObjectNumber; }
-    }
+    public int ObjectNumber => obj.ObjectID.ObjectNumber;
 
     /// <summary>
     /// Gets the generation number.
     /// </summary>
-    public int GenerationNumber
-    {
-      get { return obj.ObjectID.GenerationNumber; }
-    }
+    public int GenerationNumber => obj.ObjectID.GenerationNumber;
 
     /// <summary>
     /// Gets the name of the current type.

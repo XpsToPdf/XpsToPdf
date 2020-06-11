@@ -116,39 +116,33 @@ namespace PdfSharp.Pdf.Advanced
       FontEmbedding = font.PdfOptions.FontEmbedding;
     }
 
-    XPdfFontOptions FontOptions
-    {
-      get { return fontOptions; }
-    }
+    XPdfFontOptions FontOptions => fontOptions;
     XPdfFontOptions fontOptions;
 
     public string BaseFont
     {
-      get { return Elements.GetName(Keys.BaseFont); }
-      set { Elements.SetName(Keys.BaseFont, value); }
+      get => Elements.GetName(Keys.BaseFont);
+      set => Elements.SetName(Keys.BaseFont, value);
     }
 
     public int FirstChar
     {
-      get { return Elements.GetInteger(Keys.FirstChar); }
-      set { Elements.SetInteger(Keys.FirstChar, value); }
+      get => Elements.GetInteger(Keys.FirstChar);
+      set => Elements.SetInteger(Keys.FirstChar, value);
     }
 
     public int LastChar
     {
-      get { return Elements.GetInteger(Keys.LastChar); }
-      set { Elements.SetInteger(Keys.LastChar, value); }
+      get => Elements.GetInteger(Keys.LastChar);
+      set => Elements.SetInteger(Keys.LastChar, value);
     }
 
-    public PdfArray Widths
-    {
-      get { return (PdfArray)Elements.GetValue(Keys.Widths, VCF.Create); }
-    }
+    public PdfArray Widths => (PdfArray)Elements.GetValue(Keys.Widths, VCF.Create);
 
     public string Encoding
     {
-      get { return Elements.GetName(Keys.Encoding); }
-      set { Elements.SetName(Keys.Encoding, value); }
+      get => Elements.GetName(Keys.Encoding);
+      set => Elements.SetName(Keys.Encoding, value);
     }
 
     /// <summary>
@@ -315,9 +309,6 @@ namespace PdfSharp.Pdf.Advanced
     /// <summary>
     /// Gets the KeysMeta of this dictionary type.
     /// </summary>
-    internal override DictionaryMeta Meta
-    {
-      get { return Keys.Meta; }
-    }
+    internal override DictionaryMeta Meta => Keys.Meta;
   }
 }

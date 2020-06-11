@@ -83,10 +83,7 @@ namespace PdfSharp.Pdf.Advanced
     /// <summary>
     /// Implements the interface because the primary function is internal.
     /// </summary>
-    PdfResources IContentStream.Resources
-    {
-      get { return Resources; }
-    }
+    PdfResources IContentStream.Resources => Resources;
 
     internal string GetFontName(XFont font, out PdfFont pdfFont)
     {

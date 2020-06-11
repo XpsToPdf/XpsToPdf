@@ -58,10 +58,7 @@ namespace PdfSharp.Pdf
     /// <summary>
     /// Gets the number of pages.
     /// </summary>
-    public int Count
-    {
-      get { return PagesArray.Elements.Count; }
-    }
+    public int Count => PagesArray.Elements.Count;
 
     /// <summary>
     /// Gets the page with the specified index.
@@ -429,10 +426,7 @@ namespace PdfSharp.Pdf
         index = -1;
       }
 
-      object IEnumerator.Current
-      {
-        get { return Current; }
-      }
+      object IEnumerator.Current => Current;
 
       public PdfPage Current
       {
@@ -496,9 +490,6 @@ namespace PdfSharp.Pdf
     /// <summary>
     /// Gets the KeysMeta of this dictionary type.
     /// </summary>
-    internal override DictionaryMeta Meta
-    {
-      get { return Keys.Meta; }
-    }
+    internal override DictionaryMeta Meta => Keys.Meta;
   }
 }

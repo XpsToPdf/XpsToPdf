@@ -53,34 +53,28 @@ namespace PdfSharp.Pdf.Advanced
     /// </summary>
     public string FirstDocumentID
     {
-      get { return document.trailer.GetDocumentID(0); }
-      set { document.trailer.SetDocumentID(0, value); }
+      get => document.trailer.GetDocumentID(0);
+      set => document.trailer.SetDocumentID(0, value);
     }
 
     /// <summary>
     /// Gets the first document identifier as GUID.
     /// </summary>
-    public Guid FirstDocumentGuid
-    {
-      get { return GuidFromString(document.trailer.GetDocumentID(0)); }
-    }
+    public Guid FirstDocumentGuid => GuidFromString(document.trailer.GetDocumentID(0));
 
     /// <summary>
     /// Gets or sets the second document identifier.
     /// </summary>
     public string SecondDocumentID
     {
-      get { return document.trailer.GetDocumentID(1); }
-      set { document.trailer.SetDocumentID(1, value); }
+      get => document.trailer.GetDocumentID(1);
+      set => document.trailer.SetDocumentID(1, value);
     }
 
     /// <summary>
     /// Gets the first document identifier as GUID.
     /// </summary>
-    public Guid SecondDocumentGuid
-    {
-      get { return GuidFromString(document.trailer.GetDocumentID(0)); }
-    }
+    public Guid SecondDocumentGuid => GuidFromString(document.trailer.GetDocumentID(0));
 
     Guid GuidFromString(string id)
     {
@@ -97,10 +91,7 @@ namespace PdfSharp.Pdf.Advanced
     /// <summary>
     /// Gets the catalog dictionary.
     /// </summary>
-    public PdfCatalog Catalog
-    {
-      get { return document.Catalog; }
-    }
+    public PdfCatalog Catalog => document.Catalog;
 
     /// <summary>
     /// Returns the object with the specified Identifier, or null, if no such object exists.
@@ -168,10 +159,7 @@ namespace PdfSharp.Pdf.Advanced
     /// Gets all indirect objects ordered by their object identifier.
     /// </summary>
     [Obsolete("Use GetAllObjects.")]  // Properties should not return arrays
-    public PdfObject[] AllObjects
-    {
-      get { return GetAllObjects(); }
-    }
+    public PdfObject[] AllObjects => GetAllObjects();
 
     /// <summary>
     /// Creates the indirect object of the specified type, adds it to the document, and

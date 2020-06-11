@@ -291,29 +291,23 @@ namespace PdfSharp.Pdf.Advanced
       /// Gets the (generated) resource name of the font. In our own PDF files equal fonts share the
       /// same resource name in all contents streams.
       /// </summary>
-      public string Name
-      {
-        get { return name; }
-      }
+      public string Name => name;
+
       string name;
 
       /// <summary>
       /// Gets the style. Contains only flags that effects the font face and are available for the specified font.
       /// </summary>
       /// <value>The style.</value>
-      public XFontStyle Style
-      {
-        get { return style; }
-      }
+      public XFontStyle Style => style;
+
       XFontStyle style;
 
       /// <summary>
       /// Gets the type of the font (TrueType with Ansi Encoding or CID font).
       /// </summary>
-      public FontType FontType
-      {
-        get { return fontType; }
-      }
+      public FontType FontType => fontType;
+
       FontType fontType;
 
       public static bool operator ==(FontSelector selector1, FontSelector selector2)

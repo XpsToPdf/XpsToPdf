@@ -713,8 +713,8 @@ namespace PdfSharp.Drawing
     /// </summary>
     public PdfFontEncoding MUH  // MigraDoc Unicode Hack...
     {
-      get { return muh; }
-      set { muh = value; }
+      get => muh;
+      set => muh = value;
     }
     PdfFontEncoding muh;
 
@@ -724,8 +724,8 @@ namespace PdfSharp.Drawing
     /// </summary>
     public PdfFontEmbedding MFEH  // MigraDoc Font Embedding Hack...
     {
-      get { return mfeh; }
-      set { mfeh = value; }
+      get => mfeh;
+      set => mfeh = value;
     }
     PdfFontEmbedding mfeh;
 
@@ -738,16 +738,14 @@ namespace PdfSharp.Drawing
     /// Gets or sets the unit of measure used for page coordinates.
     /// CURRENTLY ONLY POINT IS IMPLEMENTED.
     /// </summary>
-    public XGraphicsUnit PageUnit
-    {
-      get { return pageUnit; }
-      //set
-      //{
-      //  // TODO: other page units
-      //  if (value != XGraphicsUnit.Point)
-      //    throw new NotImplementedException("PageUnit must be XGraphicsUnit.Point in current implementation.");
-      //}
-    }
+    public XGraphicsUnit PageUnit => pageUnit;
+
+    //set
+    //{
+    //  // TODO: other page units
+    //  if (value != XGraphicsUnit.Point)
+    //    throw new NotImplementedException("PageUnit must be XGraphicsUnit.Point in current implementation.");
+    //}
     XGraphicsUnit pageUnit;
 
     /// <summary>
@@ -755,7 +753,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     public XPageDirection PageDirection
     {
-      get { return pageDirection; }
+      get => pageDirection;
       set
       {
         //TODO
@@ -770,7 +768,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     public XPoint PageOrigin
     {
-      get { return pageOrigin; }
+      get => pageOrigin;
       set
       {
         //TODO
@@ -783,15 +781,13 @@ namespace PdfSharp.Drawing
     /// <summary>
     /// Gets the current size of the page.
     /// </summary>
-    public XSize PageSize
-    {
-      get { return pageSize; }
-      //set
-      //{
-      //  //TODO
-      //  throw new NotImplementedException("PageSize cannot be modified in current implementation.");
-      //}
-    }
+    public XSize PageSize => pageSize;
+
+    //set
+    //{
+    //  //TODO
+    //  throw new NotImplementedException("PageSize cannot be modified in current implementation.");
+    //}
     XSize pageSize;
     XSize pageSizePoints;
 
@@ -4099,10 +4095,7 @@ namespace PdfSharp.Drawing
     /// Gets the current graphics state level. The default value is 0. Each call of Save or BeginContainer
     /// increased and each call of Restore or EndContainer decreased the value by 1.
     /// </summary>
-    public int GraphicsStateLevel
-    {
-      get { return gsStack.Count; }
-    }
+    public int GraphicsStateLevel => gsStack.Count;
 
     #endregion
 
@@ -4347,30 +4340,27 @@ namespace PdfSharp.Drawing
     [Obsolete]
     public XMatrix Transform
     {
-      get { return transform; }
-      set
-      {
-        throw new InvalidOperationException(PSSR.ObsoleteFunktionCalled);
-        //        if (!this.transform.Equals(value))
-        //        {
-        //          this.transform = value;
-        //          XMatrix matrix = this.defaultViewMatrix;
-        //          matrix.Multiply(value);
-        //#if GDI
-        //          if (this.targetContext == XGraphicTargetContext.GDI)
-        //            this.gfx.Transform = (System.Drawing.Drawing2D.Matrix)matrix;
-        //#endif
-        //#if WPF
-        //          if (this.targetContext == XGraphicTargetContext.WPF)
-        //          {
-        //            MatrixTransform transform = new MatrixTransform(value.ToWpfMatrix());
-        //            this.gsStack.Current.SetTransform(transform);
-        //          }
-        //#endif
-        //          if (this.renderer != null)
-        //            this.renderer.Transform = value;
-        //        }
-      }
+      get => transform;
+      set => throw new InvalidOperationException(PSSR.ObsoleteFunktionCalled);
+      //        if (!this.transform.Equals(value))
+      //        {
+      //          this.transform = value;
+      //          XMatrix matrix = this.defaultViewMatrix;
+      //          matrix.Multiply(value);
+      //#if GDI
+      //          if (this.targetContext == XGraphicTargetContext.GDI)
+      //            this.gfx.Transform = (System.Drawing.Drawing2D.Matrix)matrix;
+      //#endif
+      //#if WPF
+      //          if (this.targetContext == XGraphicTargetContext.WPF)
+      //          {
+      //            MatrixTransform transform = new MatrixTransform(value.ToWpfMatrix());
+      //            this.gsStack.Current.SetTransform(transform);
+      //          }
+      //#endif
+      //          if (this.renderer != null)
+      //            this.renderer.Transform = value;
+      //        }
     }
 
     /// <summary>

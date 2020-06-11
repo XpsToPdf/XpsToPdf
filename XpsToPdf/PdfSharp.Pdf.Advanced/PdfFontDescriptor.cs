@@ -136,18 +136,16 @@ namespace PdfSharp.Pdf.Advanced
     /// </summary>
     public string FontName
     {
-      get { return Elements.GetName(Keys.FontName); }
-      set { Elements.SetName(Keys.FontName, value); }
+      get => Elements.GetName(Keys.FontName);
+      set => Elements.SetName(Keys.FontName, value);
     }
     //string fontName;
 
     /// <summary>
     /// Gets a value indicating whether this instance is symbol font.
     /// </summary>
-    public bool IsSymbolFont
-    {
-      get { return isSymbolFont; }
-    }
+    public bool IsSymbolFont => isSymbolFont;
+
     bool isSymbolFont;
 
     //    bool SetFontFlags()
@@ -401,9 +399,6 @@ namespace PdfSharp.Pdf.Advanced
     /// <summary>
     /// Gets the KeysMeta of this dictionary type.
     /// </summary>
-    internal override DictionaryMeta Meta
-    {
-      get { return Keys.Meta; }
-    }
+    internal override DictionaryMeta Meta => Keys.Meta;
   }
 }

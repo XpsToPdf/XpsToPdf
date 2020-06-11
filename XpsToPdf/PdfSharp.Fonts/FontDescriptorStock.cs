@@ -247,16 +247,10 @@ namespace PdfSharp.Fonts
         style = XFontStyle.Regular;
       }
 
-      public string Name
-      {
-        get { return name; }
-      }
+      public string Name => name;
       string name;
 
-      public XFontStyle Style
-      {
-        get { return style; }
-      }
+      public XFontStyle Style => style;
       XFontStyle style;
 
       public static bool operator ==(FontSelector selector1, FontSelector selector2)

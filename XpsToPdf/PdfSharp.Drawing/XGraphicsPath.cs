@@ -1723,9 +1723,6 @@ namespace PdfSharp.Drawing
     /// <summary>
     /// Grants access to internal objects of this class.
     /// </summary>
-    public XGraphicsPathInternals Internals
-    {
-      get { return new XGraphicsPathInternals(this); }
-    }
+    public XGraphicsPathInternals Internals => new XGraphicsPathInternals(this);
   }
 }

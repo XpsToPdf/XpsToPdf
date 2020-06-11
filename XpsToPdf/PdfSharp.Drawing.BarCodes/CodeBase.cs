@@ -79,8 +79,8 @@ namespace PdfSharp.Drawing.BarCodes
     /// </summary>
     public XSize Size
     {
-      get { return size; }
-      set { size = value; }
+      get => size;
+      set => size = value;
     }
     internal XSize size;
 
@@ -89,7 +89,7 @@ namespace PdfSharp.Drawing.BarCodes
     /// </summary>
     public string Text
     {
-      get { return text; }
+      get => text;
       set
       {
         CheckCode(value);
@@ -103,8 +103,8 @@ namespace PdfSharp.Drawing.BarCodes
     /// </summary>
     public AnchorType Anchor
     {
-      get { return anchor; }
-      set { anchor = value; }
+      get => anchor;
+      set => anchor = value;
     }
     internal AnchorType anchor;
 
@@ -113,8 +113,8 @@ namespace PdfSharp.Drawing.BarCodes
     /// </summary>
     public CodeDirection Direction
     {
-      get { return direction; }
-      set { direction = value; }
+      get => direction;
+      set => direction = value;
     }
     internal CodeDirection direction;
 

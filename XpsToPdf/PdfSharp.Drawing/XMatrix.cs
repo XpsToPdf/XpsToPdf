@@ -77,10 +77,7 @@ namespace PdfSharp.Drawing
     /// <summary>
     /// Gets a value that indicates whether this matrix is an identity matrix. 
     /// </summary>
-    public static XMatrix Identity
-    {
-      get { return s_identity; }
-    }
+    public static XMatrix Identity => s_identity;
 
     /// <summary>
     /// Sets this matrix into an identity matrix.
@@ -128,10 +125,7 @@ namespace PdfSharp.Drawing
     /// Gets an array of double values that represents the elements of this matrix.
     /// </summary>
     [Obsolete("Use GetElements().")]
-    public double[] Elements
-    {
-      get { return GetElements(); }
-    }
+    public double[] Elements => GetElements();
 
     /// <summary>
     /// Gets an array of double values that represents the elements of this matrix.
@@ -823,10 +817,7 @@ namespace PdfSharp.Drawing
     /// <summary>
     /// Gets a value that indicates whether this matrix is invertible.
     /// </summary>
-    public bool HasInverse
-    {
-      get { return !DoubleUtil.IsZero(Determinant); }
-    }
+    public bool HasInverse => !DoubleUtil.IsZero(Determinant);
 
     /// <summary>
     /// Inverts the matrix.
@@ -1347,10 +1338,7 @@ namespace PdfSharp.Drawing
       }
     }
 
-    private bool IsDistinguishedIdentity
-    {
-      get { return (type == XMatrixTypes.Identity); }
-    }
+    private bool IsDistinguishedIdentity => (type == XMatrixTypes.Identity);
 
     static XMatrix()
     {

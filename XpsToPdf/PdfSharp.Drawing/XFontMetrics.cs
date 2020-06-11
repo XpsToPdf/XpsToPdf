@@ -53,101 +53,79 @@ namespace PdfSharp.Drawing
     /// <summary>
     /// Gets the font name.
     /// </summary>
-    public string Name
-    {
-      get { return name; }
-    }
+    public string Name => name;
+
     string name;
 
     /// <summary>
     /// Gets the ascent value.
     /// </summary>
-    public int UnitsPerEm 
-    {
-      get { return unitsPerEm; }
-    }
+    public int UnitsPerEm => unitsPerEm;
+
     int unitsPerEm;
 
     /// <summary>
     /// Gets the ascent value.
     /// </summary>
-    public int Ascent
-    {
-      get { return ascent; }
-    }
+    public int Ascent => ascent;
+
     int ascent;
 
     /// <summary>
     /// Gets the descent value.
     /// </summary>
-    public int Descent
-    {
-      get { return descent; }
-    }
+    public int Descent => descent;
+
     int descent;
 
     /// <summary>
     /// Gets the average width.
     /// </summary>
     /// <value>The average width.</value>
-    public int AverageWidth
-    {
-      get { return averageWidth; }
-    }
+    public int AverageWidth => averageWidth;
+
     int averageWidth;
 
     /// <summary>
     /// Gets the height of capital letters.
     /// </summary>
-    public int CapHeight
-    {
-      get { return capHeight; }
-    }
+    public int CapHeight => capHeight;
+
     int capHeight;
 
     /// <summary>
     /// Gets the leading value.
     /// </summary>
-    public int Leading
-    {
-      get { return leading; }
-    }
+    public int Leading => leading;
+
     int leading;
 
     /// <summary>
     /// Gets the maximum width of a character.
     /// </summary>
-    public int MaxWidth
-    {
-      get { return maxWidth; }
-    }
+    public int MaxWidth => maxWidth;
+
     int maxWidth;
 
     /// <summary>
     /// Gets an internal value.
     /// </summary>
-    public int StemH
-    {
-      get { return stemH; }
-    }
+    public int StemH => stemH;
+
     int stemH;
 
     /// <summary>
     /// Gets an internal value.
     /// </summary>
-    public int StemV
-    {
-      get { return stemV; }
-    }
+    public int StemV => stemV;
+
     int stemV;
 
     /// <summary>
     /// Gets the height of a character.
     /// </summary>
-    public int XHeight
-    {
-      get { return xHeight; }
-    }
+    public int XHeight => xHeight;
+
     int xHeight;
   }
 }

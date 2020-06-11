@@ -92,10 +92,7 @@ namespace PdfSharp.Pdf.Advanced
     /// <summary>
     /// Gets the underlying XImage object.
     /// </summary>
-    public XImage Image
-    {
-      get { return image; }
-    }
+    public XImage Image => image;
 
     readonly XImage image;
 
@@ -1093,10 +1090,8 @@ namespace PdfSharp.Pdf.Advanced
     /// <summary>
     /// Returns the bitmap mask that will be written to PDF.
     /// </summary>
-    public byte[] MaskData
-    {
-      get { return maskData; }
-    }
+    public byte[] MaskData => maskData;
+
     private readonly byte[] maskData;
 
     /// <summary>

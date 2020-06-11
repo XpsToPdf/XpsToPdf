@@ -168,8 +168,8 @@ namespace PdfSharp.Pdf
     /// </summary>
     public object Tag
     {
-      get { return tag; }
-      set { tag = value; }
+      get => tag;
+      set => tag = value;
     }
     object tag;
 
@@ -179,8 +179,8 @@ namespace PdfSharp.Pdf
     /// </summary>
     string Name
     {
-      get { return name; }
-      set { name = value; }
+      get => name;
+      set => name = value;
     }
     string name = NewName();
 
@@ -197,12 +197,10 @@ namespace PdfSharp.Pdf
     }
     static int nameCount;
 
-    internal bool CanModify
-    {
-      //get {return this.state == DocumentState.Created || this.state == DocumentState.Modifyable;}
-      // THHO4STLA: TODO: correct implementation
-      get { return openMode == PdfDocumentOpenMode.Modify; } // TODO: correct implementation
-    }
+    internal bool CanModify =>
+        //get {return this.state == DocumentState.Created || this.state == DocumentState.Modifyable;}
+        // THHO4STLA: TODO: correct implementation
+        openMode == PdfDocumentOpenMode.Modify; // TODO: correct implementation
 
     /// <summary>
     /// Closes this instance.
@@ -440,17 +438,14 @@ namespace PdfSharp.Pdf
     /// NYI Indicates whether large objects are written immediately to the output stream to relieve
     /// memory consumption.
     /// </summary>
-    internal bool EarlyWrite
-    {
-      get { return false; }
-    }
+    internal bool EarlyWrite => false;
 
     /// <summary>
     /// Gets or sets the PDF version number. Return value 14 e.g. means PDF 1.4 / Acrobat 5 etc.
     /// </summary>
     public int Version
     {
-      get { return version; }
+      get => version;
       set
       {
         if (!CanModify)
@@ -480,28 +475,22 @@ namespace PdfSharp.Pdf
     /// <summary>
     /// Gets the file size of the document.
     /// </summary>
-    public long FileSize
-    {
-      get { return fileSize; }
-    }
+    public long FileSize => fileSize;
+
     internal long fileSize;
 
     /// <summary>
     /// Gets the full qualified file name if the document was read form a file, or an empty string otherwise.
     /// </summary>
-    public string FullPath
-    {
-      get { return fullPath; }
-    }
+    public string FullPath => fullPath;
+
     internal string fullPath = String.Empty;
 
     /// <summary>
     /// Gets a Guid that uniquely identifies this instance of PdfDocument.
     /// </summary>
-    public Guid Guid
-    {
-      get { return guid; }
-    }
+    public Guid Guid => guid;
+
     Guid guid = Guid.NewGuid();
 
     internal DocumentHandle Handle
@@ -519,18 +508,12 @@ namespace PdfSharp.Pdf
     /// Returns a value indicating whether the document was newly created or opened from an existing document.
     /// Returns true if the document was opened with the PdfReader.Open function, false otherwise.
     /// </summary>
-    public bool IsImported
-    {
-      get { return (state & DocumentState.Imported) != 0; }
-    }
+    public bool IsImported => (state & DocumentState.Imported) != 0;
 
     /// <summary>
     /// Returns a value indicating whether the document is read only or can be modified.
     /// </summary>
-    public bool IsReadOnly
-    {
-      get { return (openMode != PdfDocumentOpenMode.Modify); }
-    }
+    public bool IsReadOnly => (openMode != PdfDocumentOpenMode.Modify);
 
     internal Exception DocumentNotImported()
     {
@@ -591,7 +574,7 @@ namespace PdfSharp.Pdf
     /// </summary>
     public PdfPageLayout PageLayout
     {
-      get { return Catalog.PageLayout; }
+      get => Catalog.PageLayout;
       set
       {
         if (!CanModify)
@@ -605,7 +588,7 @@ namespace PdfSharp.Pdf
     /// </summary>
     public PdfPageMode PageMode
     {
-      get { return Catalog.PageMode; }
+      get => Catalog.PageMode;
       set
       {
         if (!CanModify)
@@ -617,34 +600,25 @@ namespace PdfSharp.Pdf
     /// <summary>
     /// Gets the viewer preferences of this document.
     /// </summary>
-    public PdfViewerPreferences ViewerPreferences
-    {
-      get { return Catalog.ViewerPreferences; }
-    }
+    public PdfViewerPreferences ViewerPreferences => Catalog.ViewerPreferences;
 
     /// <summary>
     /// Gets the root of the outline (or bookmark) tree.
     /// </summary>
-    public PdfOutline.PdfOutlineCollection Outlines
-    {
-      get { return Catalog.Outlines; }
-    }
+    public PdfOutline.PdfOutlineCollection Outlines => Catalog.Outlines;
 
     /// <summary>
     /// Get the AcroForm dictionary.
     /// </summary>
-    public PdfAcroForm AcroForm
-    {
-      get { return Catalog.AcroForm; }
-    }
+    public PdfAcroForm AcroForm => Catalog.AcroForm;
 
     /// <summary>
     /// Gets or sets the default language of the document.
     /// </summary>
     public string Language
     {
-      get { return Catalog.Elements.GetString(PdfCatalog.Keys.Lang); }
-      set { Catalog.Elements.SetString(PdfCatalog.Keys.Lang, value); }
+      get => Catalog.Elements.GetString(PdfCatalog.Keys.Lang);
+      set => Catalog.Elements.SetString(PdfCatalog.Keys.Lang, value);
     }
 
     /// <summary>
@@ -793,10 +767,7 @@ namespace PdfSharp.Pdf
     /// <summary>
     /// Gets the security handler.
     /// </summary>
-    public PdfStandardSecurityHandler SecurityHandler
-    {
-      get { return trailer.SecurityHandler; }
-    }
+    public PdfStandardSecurityHandler SecurityHandler => trailer.SecurityHandler;
 
     internal PdfTrailer trailer;
     internal PdfReferenceTable irefTable;
@@ -849,15 +820,9 @@ namespace PdfSharp.Pdf
         ID = document.guid.ToString("B").ToUpper();
       }
 
-      public bool IsAlive
-      {
-        get { return weakRef.IsAlive; }
-      }
+      public bool IsAlive => weakRef.IsAlive;
 
-      public PdfDocument Target
-      {
-        get { return weakRef.Target as PdfDocument; }
-      }
+      public PdfDocument Target => weakRef.Target as PdfDocument;
       WeakReference weakRef;
 
       public string ID;

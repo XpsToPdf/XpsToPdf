@@ -72,8 +72,8 @@ namespace PdfSharp.Pdf
     /// </summary>
     public byte[] Value
     {
-      get { return Stream.Value; }
-      set { Stream.Value = value; }
+      get => Stream.Value;
+      set => Stream.Value = value;
     }
   }
 }

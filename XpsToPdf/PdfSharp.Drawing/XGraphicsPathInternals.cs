@@ -63,10 +63,7 @@ namespace PdfSharp.Drawing
     /// <summary>
     /// Gets the underlying WPF path geometry object.
     /// </summary>
-    public PathGeometry WpfPath
-    {
-      get { return path.pathGeometry; }
-    }
+    public PathGeometry WpfPath => path.pathGeometry;
 #endif
   }
 }

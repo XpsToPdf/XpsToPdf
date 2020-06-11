@@ -80,11 +80,10 @@ namespace PdfSharp.Pdf
     /// <summary>
     /// Gets the name as a string.
     /// </summary>
-    public string Value
-    {
-      // This class must behave like a value type. Therefore it cannot be changed (like System.String).
-      get { return value; }
-    }
+    public string Value =>
+        // This class must behave like a value type. Therefore it cannot be changed (like System.String).
+        value;
+
     string value;
 
     /// <summary>
@@ -150,10 +149,7 @@ namespace PdfSharp.Pdf
     /// <summary>
     /// Gets the comparer for this type.
     /// </summary>
-    public static PdfXNameComparer Comparer
-    {
-      get { return new PdfXNameComparer(); }
-    }
+    public static PdfXNameComparer Comparer => new PdfXNameComparer();
 
     /// <summary>
     /// Implements a comparer that compares PdfName objects.

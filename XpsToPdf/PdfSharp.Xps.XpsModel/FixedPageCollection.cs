@@ -32,15 +32,9 @@ namespace PdfSharp.Xps.XpsModel
       throw new InvalidOperationException();
     }
 
-    public int Count
-    {
-      get { throw new InvalidOperationException(); }
-    }
+    public int Count => throw new InvalidOperationException();
 
-    public bool IsReadOnly
-    {
-      get { throw new InvalidOperationException(); }
-    }
+    public bool IsReadOnly => throw new InvalidOperationException();
 
     public bool Remove(FixedPage item)
     {

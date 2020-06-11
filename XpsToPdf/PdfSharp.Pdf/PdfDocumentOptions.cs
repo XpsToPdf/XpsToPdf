@@ -45,8 +45,8 @@ namespace PdfSharp.Pdf
     /// </summary>
     public PdfColorMode ColorMode
     {
-      get { return colorMode; }
-      set { colorMode = value; }
+      get => colorMode;
+      set => colorMode = value;
     }
     PdfColorMode colorMode;
 
@@ -55,8 +55,8 @@ namespace PdfSharp.Pdf
     /// </summary>
     public bool CompressContentStreams
     {
-      get { return compressContentStreams; }
-      set { compressContentStreams = value; }
+      get => compressContentStreams;
+      set => compressContentStreams = value;
     }
 #if DEBUG
     bool compressContentStreams = false;
@@ -69,8 +69,8 @@ namespace PdfSharp.Pdf
     /// </summary>
     public bool NoCompression
     {
-      get { return noCompression; }
-      set { noCompression = value; }
+      get => noCompression;
+      set => noCompression = value;
     }
     bool noCompression;
   }

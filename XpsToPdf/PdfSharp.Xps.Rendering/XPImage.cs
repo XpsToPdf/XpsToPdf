@@ -10,10 +10,7 @@ namespace PdfSharp.Xps.Rendering
       xImage = XImage.FromBitmapSource(bitmapSource);
     }
 
-    public XImage XImage
-    {
-      get { return xImage; }
-    }
+    public XImage XImage => xImage;
     XImage xImage;
   }
 }

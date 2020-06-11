@@ -182,8 +182,8 @@ namespace PdfSharp.Drawing
     /// </summary>
     public XImage PlaceHolder
     {
-      get { return placeHolder; }
-      set { placeHolder = value; }
+      get => placeHolder;
+      set => placeHolder = value;
     }
     XImage placeHolder;
 
@@ -270,28 +270,18 @@ namespace PdfSharp.Drawing
     /// <summary>
     /// Gets the width in point of the page identified by the property PageNumber.
     /// </summary>
-    public override int PixelWidth
-    {
-      get
-      {
+    public override int PixelWidth =>
         //PdfPage page = ExternalDocument.Pages[this.pageNumber - 1];
         //return (int)page.Width;
-        return DoubleUtil.DoubleToInt(PointWidth);
-      }
-    }
+        DoubleUtil.DoubleToInt(PointWidth);
 
     /// <summary>
     /// Gets the height in point of the page identified by the property PageNumber.
     /// </summary>
-    public override int PixelHeight
-    {
-      get
-      {
+    public override int PixelHeight =>
         //PdfPage page = ExternalDocument.Pages[this.pageNumber - 1];
         //return (int)page.Height;
-        return DoubleUtil.DoubleToInt(PointHeight);
-      }
-    }
+        DoubleUtil.DoubleToInt(PointHeight);
 
     /// <summary>
     /// Get the size of the page identified by the property PageNumber.
@@ -310,7 +300,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     public override XMatrix Transform
     {
-      get { return transform; }
+      get => transform;
       set
       {
         if (transform != value)
@@ -328,7 +318,7 @@ namespace PdfSharp.Drawing
     /// </summary>
     public int PageNumber
     {
-      get { return pageNumber; }
+      get => pageNumber;
       set
       {
         if (IsTemplate)
@@ -350,8 +340,8 @@ namespace PdfSharp.Drawing
     /// </summary>
     public int PageIndex
     {
-      get { return PageNumber - 1; }
-      set { PageNumber = value + 1; }
+      get => PageNumber - 1;
+      set => PageNumber = value + 1;
     }
 
     /// <summary>

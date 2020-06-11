@@ -57,8 +57,8 @@ namespace PdfSharp.Pdf.Advanced
     /// </summary>
     public CMapInfo CMapInfo
     {
-      get { return cmapInfo; }
-      set { cmapInfo = value; }
+      get => cmapInfo;
+      set => cmapInfo = value;
     }
     CMapInfo cmapInfo;
 

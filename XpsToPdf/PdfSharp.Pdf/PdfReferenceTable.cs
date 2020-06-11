@@ -55,8 +55,8 @@ namespace PdfSharp.Pdf
 
     internal bool IsUnderConstruction
     {
-      get { return isUnderConstruction; }
-      set { isUnderConstruction = value; }
+      get => isUnderConstruction;
+      set => isUnderConstruction = value;
     }
     bool isUnderConstruction;
 

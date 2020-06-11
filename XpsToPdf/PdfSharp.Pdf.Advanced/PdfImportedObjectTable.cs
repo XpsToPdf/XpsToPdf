@@ -56,10 +56,8 @@ namespace PdfSharp.Pdf.Advanced
     /// <summary>
     /// Gets the document this table belongs to.
     /// </summary>
-    public PdfDocument Owner
-    {
-      get { return owner; }
-    }
+    public PdfDocument Owner => owner;
+
     PdfDocument owner;
 
     /// <summary>
@@ -108,10 +106,7 @@ namespace PdfSharp.Pdf.Advanced
     /// <summary>
     /// Gets the cloned object that corresponds to the specified external identifier.
     /// </summary>
-    public PdfReference this[PdfObjectID externalID]
-    {
-      get { return (PdfReference)externalIDs[externalID.ToString()]; }
-    }
+    public PdfReference this[PdfObjectID externalID] => (PdfReference)externalIDs[externalID.ToString()];
 
     /// <summary>
     /// Maps external object identifiers to cross reference entries of the importing document

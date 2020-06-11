@@ -91,10 +91,7 @@ namespace PdfSharp.Pdf.Annotations
     /// <summary>
     /// Gets the number of annotations in this collection.
     /// </summary>
-    public int Count
-    {
-      get { return Elements.Count; }
-    }
+    public int Count => Elements.Count;
 
     /// <summary>
     /// Gets the <see cref="PdfSharp.Pdf.Annotations.PdfAnnotation"/> at the specified index.
@@ -148,8 +145,8 @@ namespace PdfSharp.Pdf.Annotations
     /// </summary>
     internal PdfPage Page
     {
-      get { return page; }
-      set { page = value; }
+      get => page;
+      set => page = value;
     }
     PdfPage page;
 
@@ -190,15 +187,9 @@ namespace PdfSharp.Pdf.Annotations
         index = -1;
       }
 
-      public PdfAnnotation Current
-      {
-        get { return annotations[index]; }
-      }
+      public PdfAnnotation Current => annotations[index];
 
-      object IEnumerator.Current
-      {
-        get { return Current; }
-      }
+      object IEnumerator.Current => Current;
 
       public bool MoveNext()
       {

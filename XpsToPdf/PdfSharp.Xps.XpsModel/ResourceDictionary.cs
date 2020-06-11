@@ -18,8 +18,8 @@ namespace PdfSharp.Xps.XpsModel
     /// </summary>
     public ResourceDictionary ResourceParent
     {
-      get { return parentResourceDictionary; }
-      set { parentResourceDictionary = value; }
+      get => parentResourceDictionary;
+      set => parentResourceDictionary = value;
     }
     ResourceDictionary parentResourceDictionary;
 

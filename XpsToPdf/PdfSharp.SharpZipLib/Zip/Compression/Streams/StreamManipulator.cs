@@ -123,13 +123,7 @@ namespace PdfSharp.SharpZipLib.Zip.Compression.Streams
     /// <returns>
     /// the number of bits available.
     /// </returns>
-    public int AvailableBits
-    {
-      get
-      {
-        return bits_in_buffer;
-      }
-    }
+    public int AvailableBits => bits_in_buffer;
 
     /// <summary>
     /// Gets the number of bytes available.
@@ -137,13 +131,7 @@ namespace PdfSharp.SharpZipLib.Zip.Compression.Streams
     /// <returns>
     /// The number of bytes available.
     /// </returns>
-    public int AvailableBytes
-    {
-      get
-      {
-        return window_end - window_start + (bits_in_buffer >> 3);
-      }
-    }
+    public int AvailableBytes => window_end - window_start + (bits_in_buffer >> 3);
 
     /// <summary>
     /// Skips to the next byte boundary.
@@ -157,13 +145,7 @@ namespace PdfSharp.SharpZipLib.Zip.Compression.Streams
     /// <summary>
     /// Returns true when SetInput can be called
     /// </summary>
-    public bool IsNeedingInput
-    {
-      get
-      {
-        return window_start == window_end;
-      }
-    }
+    public bool IsNeedingInput => window_start == window_end;
 
     /// <summary>
     /// Copies length bytes from input buffer to output buffer starting

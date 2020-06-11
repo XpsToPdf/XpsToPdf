@@ -156,8 +156,8 @@ namespace PdfSharp.Drawing.BarCodes
     /// </summary>
     public int QuietZone
     {
-      get { return quietZone; }
-      set { quietZone = value; }
+      get => quietZone;
+      set => quietZone = value;
     }
     int quietZone;
 
