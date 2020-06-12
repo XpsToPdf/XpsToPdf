@@ -90,10 +90,7 @@ namespace PdfSharp.Drawing.Pdf
       return content.ToString();
     }
 
-    public XGraphicsPdfPageOptions PageOptions
-    {
-      get { return options; }
-    }
+    public XGraphicsPdfPageOptions PageOptions => options;
 
     public void Close()
     {
@@ -779,7 +776,7 @@ namespace PdfSharp.Drawing.Pdf
     public XMatrix Transform
     {
       //get {return this.gfxState.Ctm;}
-      set { gfxState.Transform = value; }
+      set => gfxState.Transform = value;
     }
 
     #endregion
@@ -1584,10 +1581,7 @@ namespace PdfSharp.Drawing.Pdf
       }
     }
 
-    internal XGraphics Gfx
-    {
-      get { return gfx; }
-    }
+    internal XGraphics Gfx => gfx;
 
     /// <summary>
     /// Gets the PdfResources of this page or form.

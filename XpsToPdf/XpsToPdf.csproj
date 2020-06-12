@@ -2,10 +2,26 @@
 
   <PropertyGroup>
     <TargetFramework>net48</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Authors>Thomas Hoevel, Nathan Jones, XpsToPdf</Authors>
+    <Company>Thomas Hoevel, Nathan Jones, XpsToPdf Community</Company>
+    <Description>A single package to convert XPS to PDF.
+Since you can convert WPF object to XPS easily, here the last piece to free easy reporting.
+</Description>
+    <PackageProjectUrl>https://github.com/XpsToPdf/XpsToPdf</PackageProjectUrl>
+    <PackageLicenseExpression>MIT License</PackageLicenseExpression>
+    <Copyright>2005-2018 empira Software GmbH, 2016 Nathan Jones, 2020 XpsToPdf Community</Copyright>
+    <PackageIcon>icon.png</PackageIcon>
+    <RepositoryUrl>https://github.com/XpsToPdf/XpsToPdf</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>wpf xps pdf</PackageTags>
+    <PackageReleaseNotes>First version based on the work of Nathan Jones.
+See: https://nathanpjones.com/2013/03/output-to-pdf-in-wpf-for-free/</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DefineConstants>TRACE;WPF</DefineConstants>
+    <DefineConstants>TRACE;WPF DEBUG</DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,6 +34,10 @@
     <None Remove="PdfSharp.Drawing.Wpf\**" />
     <None Remove="PdfSharp.Forms\**" />
     <None Remove="PdfSharpPdf.AcroForms\**" />
+    <None Include="icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
