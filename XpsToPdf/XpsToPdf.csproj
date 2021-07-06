@@ -1,7 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net48</TargetFramework>
+    <TargetFrameworks>net48;net5.0-windows</TargetFrameworks>
+    <UseWindowsForms>true</UseWindowsForms>
+    <UseWpf>true</UseWpf>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Authors>Thomas Hoevel, Nathan Jones, XpsToPdf</Authors>
@@ -19,6 +21,7 @@ Since you can convert WPF object to XPS easily, here the last piece to free easy
     <PackageReleaseNotes>First version based on the work of Nathan Jones.
 See: https://nathanpjones.com/2013/03/output-to-pdf-in-wpf-for-free/</PackageReleaseNotes>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -57,7 +60,7 @@ See: https://nathanpjones.com/2013/03/output-to-pdf-in-wpf-for-free/</PackageRel
     <PackageReference Include="System.IO.Packaging" Version="4.7.0" />
   </ItemGroup>
 
-  <ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net48'">
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="ReachFramework" />
