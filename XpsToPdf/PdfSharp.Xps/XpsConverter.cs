@@ -193,12 +193,6 @@ namespace PdfSharp.Xps
             PdfPage pdfPage = renderer.CreatePage(pdfDocument, page);
             renderer.RenderPage(pdfPage, page);
             pageIndex++;
-
-#if DEBUG
-            // stop at page...
-            if (pageIndex == 50)
-                break;
-#endif
         }
         pdfDocument.Save(pdfFilename);
 
@@ -237,12 +231,6 @@ namespace PdfSharp.Xps
           PdfPage pdfPage = renderer.CreatePage(pdfDocument, page);
           renderer.RenderPage(pdfPage, page);
           pageIndex++;
-
-#if DEBUG
-          // stop at page...
-          if (pageIndex == 50)
-            break;
-#endif
         }
         pdfDocument.Save(pdfFilename);
         xpsDocument.Close();
@@ -286,12 +274,6 @@ namespace PdfSharp.Xps
 
             //renderer.RenderPage(pdfPage, page);
             pageIndex++;
-
-#if DEBUG
-            // stop at page...
-            if (pageIndex == 50)
-              break;
-#endif
           }
 
           string pdfComparisonFilename = pdfFilename;
