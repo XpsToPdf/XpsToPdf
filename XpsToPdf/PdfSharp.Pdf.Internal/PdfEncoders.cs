@@ -86,11 +86,12 @@ namespace PdfSharp.Pdf.Internal
             {
                 if (winAnsiEncoding == null)
                 {
-
-#if !SILVERLIGHT
+#if NET48_OR_GREATER
+                    winAnsiEncoding = Encoding.GetEncoding(1252);
+#elif NET
                     Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
                     winAnsiEncoding = Encoding.GetEncoding(1252);
-#else
+#elif SILVERLIGHT
                     winAnsiEncoding = Encoding.GetEncoding("utf-8"); // AGHACK
 #endif
                 }
