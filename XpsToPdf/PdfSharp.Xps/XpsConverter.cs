@@ -218,11 +218,11 @@ namespace PdfSharp.Xps
       try
       {
         xpsDocument = XpsDocument.Open(xpsFilename);
-        FixedDocument fixedDocument = xpsDocument.GetDocument();
         PdfDocument pdfDocument = new PdfDocument();
         PdfRenderer renderer = new PdfRenderer();
 
         int pageIndex = 0;
+        foreach (FixedDocument fixedDocument in xpsDocument.Documents)
         foreach (FixedPage page in fixedDocument.Pages)
         {
           if (page == null)
