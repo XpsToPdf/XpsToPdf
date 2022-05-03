@@ -108,22 +108,6 @@ namespace PdfSharp.Xps.XpsModel
     }
     FixedDocumentCollection documents;
 
-    /// <summary>
-    /// Gets the first document document from the fixed document sequence.
-    /// </summary>
-    public FixedDocument GetDocument()
-    {
-      return GetDocument(0);
-    }
-
-    /// <summary>
-    /// Gets the document with the specified index.
-    /// </summary>
-    public FixedDocument GetDocument(int index)
-    {
-      return fpayload.GetDocument(index);
-    }
-
     internal XmlTextReader GetPartAsXmlReader(string uri)
     {
       return GetPartAsXmlReader(package, uri);

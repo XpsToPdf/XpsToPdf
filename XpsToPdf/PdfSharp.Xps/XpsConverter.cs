@@ -65,69 +65,6 @@ namespace PdfSharp.Xps
     DocumentRenderingContext context;
 
     /// <summary>
-    /// HACK
-    /// </summary>
-    public PdfPage CreatePage(int xpsPageIndex)
-    {
-      FixedPage fixedPage = xpsDocument.GetDocument().GetFixedPage(xpsPageIndex);
-
-      PdfPage page = pdfDocument.AddPage();
-      page.Width = XUnit.FromPresentation(fixedPage.Width);
-      page.Height = XUnit.FromPresentation(fixedPage.Height);
-      return page;
-    }
-
-    /// <summary>
-    /// Renders an XPS document page to the specified PDF page.
-    /// </summary>
-    /// <param name="page">The target PDF page. The page must belong to the PDF document of this converter.</param>
-    /// <param name="xpsPageIndex">The zero-based XPS page number.</param>
-    public void RenderPage(PdfPage page, int xpsPageIndex)
-    {
-      if (page == null)
-        throw new ArgumentNullException("page");
-      if (!ReferenceEquals(page.Owner, pdfDocument))
-        throw new InvalidOperationException(PSXSR.PageMustBelongToPdfDocument);
-      // Debug.Assert(xpsPageIndex==0, "xpsPageIndex must be 0 at this stage of implementation.");
-      try
-      {
-        FixedPage fpage = xpsDocument.GetDocument().GetFixedPage(xpsPageIndex);
-
-        // ZipPackage pack = ZipPackage.Open(xpsFilename) as ZipPackage;
-        Uri uri = new Uri("/Documents/1/Pages/1.fpage", UriKind.Relative);
-        ZipPackagePart part = xpsDocument.Package.GetPart(uri) as ZipPackagePart;
-        if (part != null)
-        {
-          using (Stream stream = part.GetStream())
-          using (StreamReader sr = new StreamReader(stream))
-          {
-            string xml = sr.ReadToEnd();
-#if true && DEBUG
-            if (!String.IsNullOrEmpty(xpsDocument.Path))
-            {
-              string xmlPath =
-                IOPath.Combine(IOPath.GetDirectoryName(xpsDocument.Path),
-                               IOPath.GetFileNameWithoutExtension(xpsDocument.Path)) + ".xml";
-              using (StreamWriter sw = new StreamWriter(xmlPath))
-              {
-                sw.Write(xml);
-              }
-            }
-#endif
-            //XpsElement el = PdfSharp.Xps.Parsing.XpsParser.Parse(xml);
-            PdfRenderer renderer = new PdfRenderer();
-            renderer.RenderPage(page, fpage);
-          }
-        }
-      }
-      catch (Exception ex)
-      {
-        Debug.WriteLine(ex.ToString());
-        throw;
-      }
-    }
-
-    /// <summary>
     /// Gets the PDF document of this converter.
     /// </summary>
     public PdfDocument PdfDocument => pdfDocument;
@@ -180,11 +117,11 @@ namespace PdfSharp.Xps
         if (String.IsNullOrEmpty(pdfFilename))
             throw new ArgumentNullException("pdfFilename");
 
-        FixedDocument fixedDocument = xpsDocument.GetDocument();
         PdfDocument pdfDocument = new PdfDocument();
         PdfRenderer renderer = new PdfRenderer();
 
         int pageIndex = 0;
+        foreach (FixedDocument fixedDocument in xpsDocument.Documents)
         foreach (FixedPage page in fixedDocument.Pages)
         {
             if (page == null)
