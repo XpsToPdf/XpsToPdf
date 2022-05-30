@@ -161,16 +161,18 @@ namespace PdfSharp.Xps.XpsModel
       if (uriString.StartsWith("/.."))
         uriString = uriString.Substring(3);
 #endif
-      ZipPackagePart part = package.GetPart(target) as ZipPackagePart;
+      var part = package.GetPart(target);
 
-      byte[] bytes = null;
-      using (Stream stream = part.GetStream())
+      using (var srcStream = part.GetStream())
       {
-        int length = (int)stream.Length;
-        bytes = new byte[length];
-        stream.Read(bytes, 0, length);
+          var buffer = new byte[srcStream.Length];
+          using (var dstStream = new MemoryStream(buffer))
+          {
+              srcStream.CopyTo(dstStream);
+
+              return buffer;
+          }
       }
-      return bytes;
     }
 
     /// <summary>
