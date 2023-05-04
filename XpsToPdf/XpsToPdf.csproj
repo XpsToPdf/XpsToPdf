@@ -21,7 +21,9 @@ Since you can convert WPF object to XPS easily, here the last piece to free easy
     <PackageReleaseNotes>First version based on the work of Nathan Jones.
 See: https://nathanpjones.com/2013/03/output-to-pdf-in-wpf-for-free/</PackageReleaseNotes>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
-    <Version>1.0.4</Version>
+    <Version>1.0.5</Version>
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>../keys.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
