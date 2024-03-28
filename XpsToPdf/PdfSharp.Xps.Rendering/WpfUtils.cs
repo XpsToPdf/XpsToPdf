@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.Windows;
 using System.Windows.Media;
 
@@ -30,10 +31,21 @@ namespace PdfSharp.Xps.Rendering
       }
       geo = geo.GetFlattenedPathGeometry();
       fig = geo.Figures[0];
-      PolyLineSegment lineSeg = (PolyLineSegment)fig.Segments[0];
+
       PdfSharp.Xps.XpsModel.PolyLineSegment resultSeg = new PdfSharp.Xps.XpsModel.PolyLineSegment();
-      foreach (Point point in lineSeg.Points)
-        resultSeg.Points.Add(new PdfSharp.Xps.XpsModel.Point(point.X, point.Y));
+      if (fig.Segments[0] is LineSegment lineSeg)
+      {
+        resultSeg.Points.Add(new PdfSharp.Xps.XpsModel.Point(lineSeg.Point.X, lineSeg.Point.Y));
+      }
+      else if (fig.Segments[0] is PolyLineSegment polyLineSeg)
+      {
+        foreach (Point point in polyLineSeg.Points)
+          resultSeg.Points.Add(new PdfSharp.Xps.XpsModel.Point(point.X, point.Y));
+      }
+      else
+      {
+        throw new NotImplementedException();
+      }
       return resultSeg;
     }
 
