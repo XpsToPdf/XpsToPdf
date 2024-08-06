@@ -122,14 +122,7 @@ namespace PdfSharp.Xps.Rendering
         for (int idx = 0; idx < length; idx++)
         {
           char ch = s[idx];
-          int glyphID = 0;
-          if (descriptor.fontData.cmap.symbol)
-          {
-            glyphID = (int)ch + (descriptor.fontData.os2.usFirstCharIndex & 0xFF00);
-            glyphID = descriptor.CharCodeToGlyphIndex((char)glyphID);
-          }
-          else
-            glyphID = descriptor.CharCodeToGlyphIndex(ch);
+          int glyphID = GetGlyphIndex(descriptor, ch);
           s2 += (char)glyphID;
         }
       }
@@ -467,7 +460,7 @@ namespace PdfSharp.Xps.Rendering
           if (mapping.HasGlyphIndex)
             glyphIndex = mapping.GlyphIndex;
           else
-            glyphIndex = descriptor.CharCodeToGlyphIndex(unicodeString[codeIdx]);
+            glyphIndex = GetGlyphIndex(descriptor,unicodeString[codeIdx]);
 
           // add glyph index to the fonts 'used glyph table'
           realizedFont.AddGlyphIndices(new string((char)glyphIndex, 1));
@@ -523,6 +516,26 @@ namespace PdfSharp.Xps.Rendering
           stop = true;
       }
       while (!stop);
+    }
+
+    /// <summary>
+    /// Helper method to retrieve the glpyh index from a font cmap for a given character
+    /// </summary>
+    /// <param name="descriptor"></param>
+    /// <param name="ch"></param>
+    /// <returns></returns>
+    private int GetGlyphIndex(OpenTypeDescriptor descriptor, char ch)
+    {
+            int glyphID = 0;
+            if (descriptor.fontData.cmap.symbol)
+            {
+                glyphID = (int)ch + (descriptor.fontData.os2.usFirstCharIndex & 0xFF00);
+                glyphID = descriptor.CharCodeToGlyphIndex((char)glyphID);
+            }
+            else
+                glyphID = descriptor.CharCodeToGlyphIndex(ch);
+            
+            return glyphID;
     }
   }
 }
