@@ -110,29 +110,31 @@ namespace PdfSharp.Xps
     /// </summary>
     public static void Convert(XpsDocument xpsDocument, string pdfFilename, int docIndex)
     {
-
         if (xpsDocument == null)
             throw new ArgumentNullException("xpsDocument");
 
         if (String.IsNullOrEmpty(pdfFilename))
             throw new ArgumentNullException("pdfFilename");
 
-        PdfDocument pdfDocument = new PdfDocument();
-        PdfRenderer renderer = new PdfRenderer();
+        PdfDocument pdfDocument = ConvertXpsDocumentToPdfDocument(xpsDocument, docIndex);
 
-        int pageIndex = 0;
-        foreach (FixedDocument fixedDocument in xpsDocument.Documents)
-        foreach (FixedPage page in fixedDocument.Pages)
-        {
-            if (page == null)
-                continue;
-            Debug.WriteLine(String.Format("  doc={0}, page={1}", docIndex, pageIndex));
-            PdfPage pdfPage = renderer.CreatePage(pdfDocument, page);
-            renderer.RenderPage(pdfPage, page);
-            pageIndex++;
-        }
         pdfDocument.Save(pdfFilename);
+    }
 
+    /// <summary>
+    /// Implements the PDF file to XPS file conversion, saving to a stream.
+    /// </summary>
+    public static void Convert(XpsDocument xpsDocument, Stream pdfStream, int docIndex)
+    {
+        if (xpsDocument == null)
+            throw new ArgumentNullException("xpsDocument");
+
+        if (pdfStream == null)
+            throw new ArgumentNullException("pdfStream");
+
+        PdfDocument pdfDocument = ConvertXpsDocumentToPdfDocument(xpsDocument, docIndex);
+
+        pdfDocument.Save(pdfStream);
     }
 
     /// <summary>
@@ -239,7 +241,6 @@ namespace PdfSharp.Xps
       }
     }
 
-
     static public void SaveXpsPageToBitmap(string xpsFileName)
     {
       System.Windows.Xps.Packaging.XpsDocument xpsDoc = new System.Windows.Xps.Packaging.XpsDocument(xpsFileName, FileAccess.Read);
@@ -290,40 +291,63 @@ namespace PdfSharp.Xps
       //return memStream.ToArray();
     }
 
-    //byte[] void PngFromPage(FixedDocument fixedDocument, int pageIndex, double resolution)
-    //{
-    //  if (fixedDocument==null)
-    //    throw new ArgumentNullException("fixedDocument");
-    //  if ( pageIndex<0|| pageIndex>= fixedDocument.PageCount)
-    //    throw new ArgumentOutOfRangeException("pageIndex");
+        //byte[] void PngFromPage(FixedDocument fixedDocument, int pageIndex, double resolution)
+        //{
+        //  if (fixedDocument==null)
+        //    throw new ArgumentNullException("fixedDocument");
+        //  if ( pageIndex<0|| pageIndex>= fixedDocument.PageCount)
+        //    throw new ArgumentOutOfRangeException("pageIndex");
 
-    //  FixedPage page = fixedDocument.Pages[pageIndex];
-    //  double pageWidth = page.Width;
-    //  double pageHeight= page.Height;
+        //  FixedPage page = fixedDocument.Pages[pageIndex];
+        //  double pageWidth = page.Width;
+        //  double pageHeight= page.Height;
 
-    //  // Create an appropirate render bitmap
-    //  const int factor = 3;
-    //  int width = (int)(WidthInPoint * factor);
-    //  int height = (int)(HeightInPoint * factor);
-    //  this.image = new RenderTargetBitmap(width, height, 72 * factor, 72 * factor, PixelFormats.Default);
-    //  if (visual is UIElement)
-    //  {
-    //    // Perform layout on UIElement - otherwise nothing gets rendered
-    //    UIElement element = visual as UIElement;
-    //    Size size = new Size(WidthInPU, HeightInPU);
-    //    element.Measure(size);
-    //    element.Arrange(new Rect(new Point(), size));
-    //    element.UpdateLayout();
-    //  }
-    //  this.image.Render(visual);
+        //  // Create an appropirate render bitmap
+        //  const int factor = 3;
+        //  int width = (int)(WidthInPoint * factor);
+        //  int height = (int)(HeightInPoint * factor);
+        //  this.image = new RenderTargetBitmap(width, height, 72 * factor, 72 * factor, PixelFormats.Default);
+        //  if (visual is UIElement)
+        //  {
+        //    // Perform layout on UIElement - otherwise nothing gets rendered
+        //    UIElement element = visual as UIElement;
+        //    Size size = new Size(WidthInPU, HeightInPU);
+        //    element.Measure(size);
+        //    element.Arrange(new Rect(new Point(), size));
+        //    element.UpdateLayout();
+        //  }
+        //  this.image.Render(visual);
 
-    //  // Save image as PNG
-    //  FileStream stream = new FileStream(Path.Combine(OutputDirectory, Name + ".png"), FileMode.Create);
-    //  PngBitmapEncoder encoder = new PngBitmapEncoder();
-    //  //string author = encoder.CodecInfo.Author.ToString();
-    //  encoder.Frames.Add(BitmapFrame.Create(this.image));
-    //  encoder.Save(stream);
-    //  stream.Close();
-    //}
-  }
+        //  // Save image as PNG
+        //  FileStream stream = new FileStream(Path.Combine(OutputDirectory, Name + ".png"), FileMode.Create);
+        //  PngBitmapEncoder encoder = new PngBitmapEncoder();
+        //  //string author = encoder.CodecInfo.Author.ToString();
+        //  encoder.Frames.Add(BitmapFrame.Create(this.image));
+        //  encoder.Save(stream);
+        //  stream.Close();
+        //}
+
+        private static PdfDocument ConvertXpsDocumentToPdfDocument(XpsDocument xpsDocument, int docIndex)
+        {
+            if (xpsDocument == null)
+                throw new ArgumentNullException("xpsDocument");
+
+            PdfDocument pdfDocument = new PdfDocument();
+            PdfRenderer renderer = new PdfRenderer();
+
+            int pageIndex = 0;
+            foreach (FixedDocument fixedDocument in xpsDocument.Documents)
+            foreach (FixedPage page in fixedDocument.Pages)
+            {
+                if (page == null)
+                    continue;
+                Debug.WriteLine(String.Format("  doc={0}, page={1}", docIndex, pageIndex));
+                PdfPage pdfPage = renderer.CreatePage(pdfDocument, page);
+                renderer.RenderPage(pdfPage, page);
+                pageIndex++;
+            }
+
+            return pdfDocument;
+        }
+    }
 }
